@@ -14,7 +14,13 @@
                     { id:'8', tit:'찜질방' },
                     { id:'9', tit:'체형분석' },
                     { id:'10', tit:'체성분검사' }
-                ]
+                ],
+                machine: [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }],
+                machineTag: [
+                    ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
+                    ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
+                    ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
+                ],
             }
         }
     }
@@ -22,13 +28,13 @@
 
 <template>
     <div class="filter_container">
-        <div class="filter_container_inner">
+        <div class="filter_container_inner mob-inner">
             <!-- 수강기간 -->
             <div class="ticket-date">
                 <div class="ticket-date-tit">
                     <p class="f-14-700">수강기간</p>
                     <ul>
-                        <li>기간 설정</li>
+                        <li class="active">기간 설정</li>
                         <li>1회 체험권</li>
                     </ul>
                 </div>
@@ -39,14 +45,15 @@
             </div>
             <!-- 가격 -->
             <div class="ticket-expense">
-                <div class="ticket-expense-tit"><p>가격(1개월 기준)</p></div>
-                <div class="ticket-date-adjust">
+                <div class="ticket-expense-tit f-14-700"><p>가격(1개월 기준)</p></div>
+                <div class="ticket-expense-adjust">
                     <p><span>40,000원</span>~<span>120,000원</span></p>
                     <div class="ticket-date-bar"></div>
                 </div>
             </div>
             <!-- 플레이스 타입 -->
             <div class="place-type">
+                <div class="place-type-tit f-14-700">플레이스 타입</div>
                 <ul>
                     <li>24시</li>
                     <li>여성 전용</li>
@@ -56,6 +63,7 @@
             </div>
             <!-- 기타옵션 -->
             <div class="etc-opt">
+                <div class="etc-opt-tit f-14-700">기타옵션</div>
                 <ul>
                     <li>P.T</li>
                     <li>그룹 P.T</li>
@@ -68,13 +76,21 @@
             </div>
             <!-- 편의시설 -->
             <div class="facilities">
-                <div class="facilities-tit">편의시설</div>
+                <div class="facilities-tit f-14-700">편의시설</div>
                 <ul>
                     <li v-for="fac in facilities" :key="fac">
                         <span :class="'facilities-icon facilities-icon-' + fac.id"></span>
                         <p>{{ fac.tit }}</p>
                     </li>
                 </ul>
+            </div>
+            <!-- 운동기구 -->
+            <div class="machine">
+                <div class="machine-tit f-14-700 place-each-tit">운동 기구</div>
+                <div class="machine-list" v-for="(machineItem, idx) in machine" :key="idx">
+                    <span class="machine-tit f-14-400">{{ machineItem.title }}</span>
+                    <ul><li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li></ul>
+                </div>
             </div>
         </div>
     </div>

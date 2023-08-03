@@ -467,3 +467,51 @@
         .order-info{@include orderInfo;}
     }
 }
+
+/******************************************
+플레이스 필터
+/components/routes/place/Filter.vue
+******************************************/
+.filter_container{
+    &_inner{
+        & > div{padding:20px 0; margin:0 20px; border-bottom:1px solid #D9D9D9;}
+        // 수강기간, 가격
+        .ticket-date,
+        .ticket-expense{
+            &-tit{@include display(flex, center, space-between); 
+                ul{@include display(flex); column-gap:6px;
+                    li{@include conSize(null, 28px, 28px); padding:0 8px; @include font(12px, 400, #D9D9D9); border:1px solid #D9D9D9; border-radius:14px; cursor:pointer;
+                        &.active{border-color:$b; color:$b;}
+                    }
+                }
+            }
+            &-adjust{
+                p{@include display(flex); column-gap:6px; @include font(20px, 700)}
+            }
+        }
+        // 플레이스 타입
+        .place-type,
+        .etc-opt{
+            &-tit{margin:0 0 12px 0;}
+            ul{@include display(flex); flex-flow:wrap; gap:4px;
+                li{@include liTag; @include font(12px, 400, #D9D9D9);}
+            }
+        }
+        // 편의시설
+        .facilities{
+            &-tit{margin:0 0 18px 0;}
+            ul{display:grid; grid-template-columns:repeat(4,1fr); column-gap:12px; row-gap:8px;
+                li{min-height:84px; border:1px solid #D9D9D9; border-radius:8px;
+                    p{@include font(12px, 400);}
+                }
+            }
+        }
+        // 운동기구
+        .machine{
+            &-tit{margin:0 0 12px 0;}
+            ul{@include display(flex); flex-flow:wrap; gap:4px;
+                li{@include liTag; @include font(12px, 400, #D9D9D9);}
+            }
+        }
+    }
+}
