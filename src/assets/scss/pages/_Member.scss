@@ -1,0 +1,217 @@
+/******************************************
+공통 적용
+******************************************/
+.join_current{position:relative; padding:52px 24px 0;
+    .step-value{height:100px; position:absolute; top:0; left:0; background:#F1F1F1;
+        &.first{width:calc(100% / 4)}
+        &.second{width:calc(100% / 3)}
+        &.third{width:calc(100% / 2)}
+        &.four{width:100%}
+    }
+    .top-current{@include display(flex, center, space-between); 
+        .back-btn{@include conSize(15px, 23px); @include display(flex, center, center); position:relative; cursor:pointer; border:none;
+            &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
+            &::before{transform:rotate(40deg); margin:9px 0 0px 0;}
+            &::after{transform:rotate(-40deg); margin:0 0 9px 0;}
+            &.toMain{width:19px;
+                &::before, &::after{margin:0;}
+                &::before{transform:rotate(45deg)}
+                &::after{transform:rotate(-45deg)}
+            }
+        }
+        .current-step{@include display(flex)}
+    }
+}
+.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center;}
+.line{display:inline-block; position:relative;
+    &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
+}
+.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797}
+.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
+
+/******************************************
+회원가입
+/routes/join
+******************************************/
+.member_container{padding:0 0 52px 0; margin-top:37px;
+    &_inner{@include conSize(calc(100% - 48px), calc(100vh - 128px)); @include display(flex, null, space-between, column); margin:0 auto;
+        .member-form{
+            &-inner{overflow:hidden;
+                & > div{width:100%;}
+                button{@include conSize(null, 33px, 31px); @include position(absolute, 50%, 0); transform:translateY(-50%); padding:0 10px; border-radius:16px}
+                .join-third-step{
+                    .nickname-guide{text-align:center;}
+                    button{border:1px solid $b; color:$b;}
+                }
+            }
+            .arrow{@include conSize(7px, 18px); @include display(flex, center, center); @include position(absolute, 14px, 0, null, null, 99);
+                &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$gray;}
+                &::before{transform:rotate(45deg); margin:0 0 5px 0;}
+                &::after{transform:rotate(-45deg); margin:5px 0 0 0;}
+            }
+        }
+    }
+    /************************************
+    서비스 이용 동의 - 1/4 - (회원가입 첫 화면) - /routes/Join.vue
+    ************************************/
+    &.Join{
+        .join-first-step{
+            .form-group{padding:12px 0;
+                label{@include font(14px, 400, $b);
+                    &.bold{font-weight:700;}
+                }
+            }
+            .join-form-input1{
+                .form-group{padding:17px 0; margin-bottom:7px; border-bottom:1px solid #f1f1f1;}
+            }
+        }
+    }
+    /************************************
+    본인인증 - 3/4 - /routes/JoinStep2.vue
+    ************************************/
+    &.JoinPass{
+        button{background:#d9d9d9; color:$f;}
+    }
+    /************************************
+    닉네임 등록 - 4/4 - /routes/JoinNickname.vue
+    ************************************/
+    &.JoinNickname{margin-top:50px;}
+    /************************************
+    가입 완료 /routes/JoinComplete.vue
+    ************************************/
+    &.JoinComplete{margin:0; background:#f1f1f1;
+        .member_container_inner{padding:210px 0 0 0}
+        .intro-txt-box{text-align:center;
+            & > div:first-child{margin:0 0 8px 0;}
+            p{line-height:1.25; @include display(flex, center, center)}
+        }
+    }
+    /************************************
+    권한 설정 /routes/Authority.vue
+    ************************************/
+    &.Authority{
+        .member_container_inner{height:calc(100vh - 165px); justify-content:initial;
+            .intro-txt-box{text-align:center;
+                .f-14-400{margin:10px 0 0 0;
+                    p{@include display(flex, null, center)}
+                }
+            }
+            .authority-list{margin:35px 0 0 0;
+                li{@include display(flex, center, space-between); margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #f1f1f1;
+                    .txt-box{
+                        .f-16-700{@include display(flex, flex-end);
+                            span{color:#d9d9d9;}
+                        }
+                    }
+                    .authority-con{@include conSize(45px, 45px); border:1px solid #f1f1f1; border-radius:50%;}
+                }
+            }
+            .authority-guide{margin:40px 0 20px; color:#979797; text-align:center;}
+        }
+    }
+}
+
+/******************************************
+아이디 찾기
+/routes/find_account
+******************************************/
+.FindID_Step3{
+    .intro-txt-box{
+        .id-guide{text-align:center;
+            div{@include display(flex, null, center)}
+            p{margin:6px 0 0 0;}
+        }
+        .id-list{margin:33px 0 0 0;
+            li{@include display(flex, center); column-gap:10px; padding:10px; border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
+                .user-profile-img{@include conSize(45px, 45px); border-radius:50%; background:$gray;}
+                .user-info p{@include display(flex); 
+                    &:last-child{column-gap:5px; margin:5px 0 0 0; color:$gray;}
+                }
+            }
+        }
+    }
+    .bttom-btn-box{text-align:center;
+        a:first-child{margin:0 0 28px 0}
+    }
+}
+
+/******************************************
+비밀번호 찾기
+/routes/find_account/FindPW_Step.vue
+******************************************/
+.FindPW_Step1{
+    .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
+}
+
+/******************************************
+로그인 시작 페이지
+/routes/login/Login.vue
+******************************************/
+.login_container{
+    &_inner{max-width:500px; height:100vh; padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
+        .intro-txt-box{
+            p{margin:6px 0 0 0;}
+        }
+        .login-form{
+            a{display:block;}
+            .login-form-input1{
+                a{@include conSize(null, 44px, 44px); margin:16px 0 0 0; background:$b; color:$f; border-radius:50px;}
+            }
+            .login-form-input2{@include display(flex, center, center); column-gap:20px; margin:30px 0 25px 0;
+                a{@include conSize(54px, 54px); border-radius:50%; background:$gray;}
+            }
+            .login-form-input3{
+                a{@include font(12px, 400, #979797);}
+                ul{@include display(flex, center, center);
+                    li{position:relative; margin-right:8px; padding-right:8px;
+                        &::after{content:""; @include conSize(1px, 11px); position:absolute; top:3px; right:0; background:#979797;}
+                        &:last-child::after{display:none;}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/******************************************
+마이 페이지
+/routes/mypage/MyPage.vue
+******************************************/
+.mypage_container{
+    &_inner{
+        & > div{padding:20px;}
+        .my-profile{@include display(flex, center, space-between); border-bottom:1px solid #D9D9D9;
+            &-info{@include display(flex, center); column-gap:12px;
+                .profile-img{@include conSize(52px, 52px); border-radius:50%; background:#D9D9D9}
+                p{@include display(flex, center); column-gap:6px;
+                    .login-current{@include conSize(18px, 18px); background:url(../image/google.png) center no-repeat;}
+                }
+                .member-email{color:#979797;}
+            }
+            .arrow{@include arrow2; transform:rotate(-90deg);}
+        }
+        .my-quick{padding:24px 20px 13px; border-bottom:9px solid #f1f1f1;
+            ul{@include display(flex);
+                li{flex:1;
+                    a{text-align:center;
+                        .my-quick-icon{@include conSize(40px, 40px); margin:0 auto; margin-bottom:12px;
+                            @for $i from 1 to 5{
+                                &-#{$i}{background:url(../image/my-quick-icon-#{$i}.png) center no-repeat; background-size:cover;}
+                            }
+                        }
+                    }
+                }
+            }
+            .review-guide{@include conSize(100%, 50px, 50px); position:relative; margin:15px 0 0 0; border:1px solid $b; border-radius:25px; text-align:center;}
+        }
+        .quick-link{
+            li{padding:0 20px;
+                a{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
+                    p{@include font(14px, 400); }
+                    .arrow{@include arrow2; transform:rotate(-90deg)}
+                }
+                &:last-child a{border-bottom:0;}
+            }
+        }
+    }
+}

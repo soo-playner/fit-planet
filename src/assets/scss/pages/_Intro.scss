@@ -1,0 +1,19 @@
+/******************************************
+인트로
+/routes/intro/SplashPage.vue
+/routes/intro/introPage.vue
+******************************************/
+.splash_container{background:$b;
+    &_inner{height:100vh; @include display(flex, center, center);}
+}
+.intro_container{background:$b; 
+    &-inner{max-width:500px; height:100vh; @include display(flex, null, space-between, column); padding:188px 0 52px;
+        .intro-txt-box{text-align:center;
+            p{margin:0 0 14px 0; color:$f;}
+        }
+        a{@include conSize(calc(100% - 20px), 44px, 44px); display:block; margin:0 auto; background:$f; border-radius:50px; text-align:center;}
+    }
+    .matter_wrap{max-width:1000px; @include center(fixed);
+        // canvas{width:100%;}
+    }
+}

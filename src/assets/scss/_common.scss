@@ -1,0 +1,107 @@
+// 공통
+body{margin:0; padding:0; box-sizing:border-box;
+    &::-webkit-scrollbar{display:none;}
+}
+ul, ol{list-style:none;}
+a{text-decoration:none; color:#000;}
+*, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
+span{display:block;}
+.mob-inner{max-width:1000px; position:relative; margin:0 auto;}
+
+// 미디어쿼리
+@mixin responsive-991(){
+    @media(max-width:991px){@content;}
+}
+@mixin responsive-480(){
+    @media(max-width:480px){@content;}
+}
+
+
+// 믹스인
+@mixin conSize($width:null, $height:null, $lh:null){width:$width; height:$height; line-height:$lh;}
+@mixin display($display, $ai:null, $jc:null, $ff:null){display:$display; align-items:$ai; justify-content:$jc; flex-flow:$ff;}
+@mixin position($position1, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$position1; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
+@mixin center($position2){position:$position2; top:50%; left:50%; transform:translate(-50%, -50%);}
+@mixin font($fs:null, $fw:null, $color:null){font-size:$fs; font-weight:$fw; color:$color;}
+
+$b:#000;
+$f:#fff;
+$gray:#979797;
+$easing:cubic-bezier(0.215, 0.61, 0.355, 1);
+
+// 폰트 사이즈
+.f-12-400{@include font(12px, 400, null);}
+.f-12-500{@include font(12px, 500, null);}
+.f-14-400{@include font(14px, 400, null);}
+.f-14-700{@include font(14px, 700, null);}
+.f-16-400{@include font(16px, 400, null);}
+.f-16-700{@include font(16px, 700, null);}
+.f-18-700{@include font(18px, 700, null);}
+.f-20-700{@include font(20px, 700, null);}
+.f-24-700{@include font(24px, 700, null);}
+
+// 인풋
+button, input{background:none; border:none;
+    &:focus, &:active{outline:none; box-shadow:none; background:none}
+}
+.form-group{position:relative;
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
+        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
+        &:focus{border-bottom-color:$b;}
+    }
+    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
+        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
+            span{@include conSize(15px, 15px); background:#d9d9d9; border-radius:50%;}
+        }
+        &:checked + label{
+            span{background:$gray;}
+
+        }
+    }
+    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
+       //&::-webkit-slider-runnable-track{}
+        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
+    }
+}
+
+/******************************************
+헤더 
+/components/Header.vue
+******************************************/
+.at-header{width:100%; @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
+    &-inner{@include display(flex, center, space-between, null);
+        .menu-ul{@include display(flex, center, null, null); gap:30px;
+            li{@include display(flex, center, null, null);
+                .search{@include conSize(20px, 20px); display:block; position:relative; cursor:pointer;
+                    &::before, &::after{content:""; position:absolute;}
+                    &::before{@include conSize(15px, 15px); border:2px solid $b; border-radius:50%;}
+                    &::after{@include conSize(8px, 2px); right:2px; bottom:4px; transform:rotate(45deg); background:$b;}
+                }
+            }
+        }
+    }
+}
+
+/******************************************
+풋터
+/components/Footer.vue
+******************************************/
+.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$f; border-top:1px solid #F1F1F1;
+    &-inner{
+        ul{@include display(flex, center, null, null);
+            li{flex:1;
+                a{@include display(flex, center, center, column);
+                    .quick-menu-icon{@include conSize(28px, 28px);
+                        @for $i from 1 to 5{
+                            &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-off.png) no-repeat center;}
+                        }
+                    }
+                    p{margin:5px 0 0 0; color:$gray;}
+                }
+            }
+        }
+    }
+}

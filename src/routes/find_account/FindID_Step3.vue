@@ -1,0 +1,37 @@
+<script>
+    import JoinCurrent from '../../components/layout/JoinCurrent';
+
+    export default {
+        name : 'FindID_Step3',
+        components : {
+            JoinCurrent
+        }
+    }
+</script>
+
+<template>
+    <JoinCurrent/>
+    <div class="member_container FindID_Step3">
+        <div class="member_container_inner mob-inner">
+            <div class="intro-txt-box">
+                <div class="id-guide">
+                    <div class="f-20-700"><span class="id-count">1</span>개의 아이디를 찾았어요</div>
+                    <p class="f-14-400">개인정보 보호를 위해 아이디는 일부만 제공합니다.</p>
+                </div>
+                <ul class="id-list">
+                    <li>
+                        <div class="user-profile-img"></div>
+                        <div class="user-info">
+                            <p class="user-email f-14-400">wizz***@naver.com</p>
+                            <p class="f-12-500"><span class="login-history">23년 7월 26일</span> 마지막 로그인</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bttom-btn-box">
+                <router-link to="/FindPW_Step1" class="FindPW line f-14-400">비밀번호 찾기</router-link>
+                <router-link to="/Login" class="next-step-btn f-16-700">로그인 하러가기</router-link>
+            </div>
+        </div>
+    </div>
+</template>

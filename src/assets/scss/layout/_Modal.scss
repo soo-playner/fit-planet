@@ -1,0 +1,48 @@
+
+// 알럿창(비밀번호 재설정 등)
+.member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 99);
+    .overlay{@include overLay;}
+    &_inner{width:calc(100% - 64px); padding:36px 20px 20px; background:$f; border-radius:8px; box-shadow:0px 0px 30px 5px rgba(0,0,0, .1); text-align:center;
+        div{margin:0 0 36px 0;}
+    }
+}
+
+// 운동 일정 변경 모달창 /components/modal/ScheduleChange.vue
+.ScheduleChange_alert{@include conSize(100%, 100%); @include display(flex, flex-end); position:fixed; z-index:100; 
+    .overlay{@include overLay;}
+    &_inner{width:100%; padding:38px 20px; background:$f; border-radius:16px 16px 0 0;
+        & > div{margin-bottom:20px;
+            &:last-child{margin-bottom:0;}
+        }
+        .existing{padding:12px 35px; border:1px solid #D9D9D9; border-radius:8px; text-align:center;
+            p{margin:4px 0 0 0;}
+        }
+        .day{
+            div{@include conSize(null, 44px, 44px); @include display(flex, center, center); background:#F1F1F1; border:1px solid $b; border-radius:50px;
+                span{@include font(16px, 700);}
+                & > span{@include display(flex); column-gap:3px; margin:0 12px;}
+            }
+            &-list{@include display(flex, null, center); column-gap:8px; margin:12px 0 0 0;
+                li{@include conSize(null, 40px, 40px); padding:0 8px; @include font(14px, 400, #979797); border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
+                    &.active{color:$b; border-color:$b;}
+                }
+            }
+        }
+        .datePicker{
+            .apply{@include display(flex, center, null, column); padding:10px 0; background:#F1F1F1; border:1px solid $b; border-radius:20px;
+                div{@include display(flex); column-gap:12px;
+                    p{@include display(flex, center);
+                        span{@include font(16px, 700)}
+                    }
+                }
+            }
+        }
+        .day_change_btn{text-align:center;
+            div{@include display(flex, center, center); column-gap:8px; margin:20px 0 0 0;
+                button{flex:1; @include conSize(null, 44px, 44px); @include font(16px, 700); border:1px solid $b; border-radius:50px; cursor:pointer;
+                    &:last-child{border:none; background:$b; color:$f;}
+                }
+            }
+        }
+    }
+}
