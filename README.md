@@ -1,4 +1,4 @@
-# vue_test2
+# fit-planet
 
 ## Project setup
 ```
