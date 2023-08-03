@@ -1,7 +1,8 @@
 <script>
     import { Swiper, SwiperSlide } from 'swiper/vue';
     import 'swiper/swiper-bundle.min.css';
-    import 'swiper/components/pagination/pagination.css';
+    // import 'swiper/components/pagination/pagination.css';
+    import "swiper/components/pagination";
 
     export default {
         name : 'TrainerDetail',

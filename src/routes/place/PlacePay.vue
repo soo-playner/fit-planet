@@ -1,6 +1,6 @@
 <script>
     import { Swiper, SwiperSlide } from 'swiper/vue';
-    import 'swiper/swiper-bundle.min.css';
+    // import 'swiper/swiper-bundle.min.css';
 
     export default {
         name : 'PlacePay',

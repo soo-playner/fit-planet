@@ -1,7 +1,8 @@
 <script>
     import { Swiper, SwiperSlide } from 'swiper/vue';
     import 'swiper/swiper-bundle.min.css';
-    import 'swiper/components/pagination/pagination.css';
+    // import 'swiper/components/pagination/pagination.css';
+    import "swiper/components/pagination";
 
     export default {
         name : 'placeDetail',
@@ -197,7 +198,7 @@
                 <div class="place-convenience-tit f-14-400 place-each-tit">편의시설</div>
                 <div class="free">
                     <div class="free-tit f-12-400">무료</div>
-                    <ul class="free-list">
+                    <ul class="free-list"></ul>
                         <li><div class="free-icon free-icon-1"></div><p>수건</p></li>
                         <li><div class="free-icon free-icon-2"></div><p>샤워실</p></li>
                         <li><div class="free-icon free-icon-3"></div><p>Wi-fi</p></li>

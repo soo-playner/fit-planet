@@ -53,6 +53,7 @@ import FindPW_Email_Step1 from '../routes/find_account/FindPW_Email_Step1';
 import FindPW_Email_Step2 from '../routes/find_account/FindPW_Email_Step2';
 import PW_Reset from '../routes/find_account/PW_Reset';
 import Place from '../routes/place/Place';
+import Filter from '../routes/place/Filter';
 import PlaceList from '../routes/place/PlaceList';
 import PlaceDetail from '../routes/place/PlaceDetail';
 import PlaceReview from '../routes/place/PlaceReview';
@@ -68,6 +69,7 @@ import MyPage from '../routes/mypage/MyPage';
 import OrderInquiry from '../routes/order/OrderInquiry';
 import OrderInquiryView from '../routes/order/OrderInquiryView';
 import Coupon from '../routes/mypage/Coupon';
+import Profile from '../routes/mypage/Profile';
 
 import ScheduleChange from '../components/modal/ScheduleChange';
 
@@ -99,6 +101,7 @@ const routes = [
     { path : '/PW_Reset', component : PW_Reset, name : 'PW_Reset' }, 
     // 플레이스
     { path : '/Place', component : Place, name : 'Place' }, 
+    { path : '/Filter', component : Filter, name : 'Filter' }, 
     { path : '/PlaceList', component : PlaceList, name : 'PlaceList' }, 
     { path : '/PlaceDetail', component : PlaceDetail, name : 'PlaceDetail' }, 
     { path : '/PlaceReview', component : PlaceReview, name : 'PlaceReview' }, 
@@ -115,6 +118,7 @@ const routes = [
     // 마이페이지
     { path : '/MyPage', component : MyPage, name : 'MyPage' },
     { path : '/Coupon', component : Coupon, name : 'Coupon' },
+    { path : '/Profile', component : Profile, name : 'Profile' },
     // 주문내역
     { path : '/OrderInquiry', component : OrderInquiry, name : 'OrderInquiry' },
     { path : '/OrderInquiryView', component : OrderInquiryView, name : 'OrderInquiryView' },

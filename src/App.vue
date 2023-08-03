@@ -17,10 +17,11 @@
                 /* 아이디 찾기 */ "FindID_Step1", "FindID_Step2", "FindID_Step3",
                 /* 비밀번호 찾기 */ "FindPW_Step1", "FindPW_Step2", "PW_Reset",
                 /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",
-                /* 플레이스 */ "PlaceDetail", "PlaceReview", "PlaceMachine", "PlaceMachine_Choice", "PlaceTrainer", "PlacePay", "PlacePay_Complete", "PlaceTicket_Complete",
+                /* 플레이스 */ "PlaceDetail", "PlaceReview", "PlaceMachine", "PlaceMachine_Choice", "PlaceTrainer", "PlacePay", "PlacePay_Complete", "PlaceTicket_Complete", "Filter",
                 /* 트레이너 */ "TrainerDetail",
                 /* 리뷰 */ "Review",
                 /* 마이페이지 */ "MyPage", "Profile",
+                /* 주문내역 */ "OrderInquiry", "OrderInquiryView",
             ]
         }),
     }
