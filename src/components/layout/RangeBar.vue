@@ -16,23 +16,21 @@ export default {
     defaultMaxValue: Number,
   },
   methods: {
-    setLeftValue(e) {
+    setLeftValue() {
       const _this = this.$refs.inputLeft;
       const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
       _this.value = Math.min(parseInt(_this.value), parseInt(this.$refs.inputRight.value) - 1);
       const percent = ((_this.value - min) / (max - min)) * 100;
       this.thumbLeftX = percent + "%";
       this.rangeLeft = percent + "%";
-      console.log(e.target.value);
     },
-    setRigthValue(e) {
+    setRigthValue() {
       const _this = this.$refs.inputRight;
       const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
       _this.value = Math.max(parseInt(_this.value), parseInt(this.$refs.inputLeft.value) + 1);
       const percent = ((_this.value - min) / (max - min)) * 100;
       this.thumbRightX = 100 - percent + "%";
       this.rangeRight = 100 - percent + "%";
-      console.log(e.target.value);
     },
   },
 };
@@ -133,8 +131,22 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="middle">
     <div class="multi-range-slider">
       <!-- 실제 슬라이더 -->
-      <input type="range" :min="defaultMinValue" :max="defaultMaxValue" :value="defaultRangeL" ref="inputLeft" :oninput="setLeftValue" />
-      <input type="range" :min="defaultMinValue" :max="defaultMaxValue" :value="defaultRangeR" ref="inputRight" :oninput="setRigthValue" />
+      <input
+        type="range"
+        :min="defaultMinValue"
+        :max="defaultMaxValue"
+        :value="thumbLeftX ? Math.floor(Number(thumbLeftX.split('%')[0])) : defaultRangeL"
+        ref="inputLeft"
+        :oninput="setLeftValue"
+      />
+      <input
+        type="range"
+        :min="defaultMinValue"
+        :max="defaultMaxValue"
+        :value="thumbRightX ? Math.floor(100 - Number(thumbRightX.split('%')[0])) : defaultRangeR"
+        ref="inputRight"
+        :oninput="setRigthValue"
+      />
 
       <!-- 커스텀 슬라이더 -->
       <div class="slider">
