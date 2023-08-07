@@ -494,6 +494,12 @@ textarea {
 필터 스크롤
 ex) 플레이스 리스트
 ******************************************/
+/******************************************
+플레이스 리스트
+******************************************/
+/******************************************
+탭
+******************************************/
 /* NotoSansKR */
 @font-face {
   font-family: "NotoSansKR";
@@ -1765,11 +1771,14 @@ ex) 플레이스 리스트
   -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
+.coupon-issue-modal-inner .txt-box {
+  margin: 0 0 27px 0;
+}
 .coupon-issue-modal-inner .txt-box p {
   margin: 0 0 7px 0;
 }
 .coupon-issue-modal-inner .bott-btn {
-  margin: 28px 0 0 0;
+  margin: 0;
 }
 .coupon-issue-modal-inner .bott-btn button {
   width: 100%;
@@ -2764,7 +2773,7 @@ ex) 플레이스 리스트
   border-radius: 8px;
 }
 .coupon_container_inner .coupon-list li .top-column {
-  padding: 0 0 18px 0;
+  padding: 0 0 13px 0;
   margin: 0 0 12px 0;
   border-bottom: 1px solid #D9D9D9;
 }
@@ -2773,7 +2782,7 @@ ex) 플레이스 리스트
   line-height: 26px;
   max-width: 67px;
   display: inline;
-  padding: 5px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   font-weight: 400;
   color: #979797;
@@ -2785,6 +2794,10 @@ ex) 플레이스 리스트
 }
 .coupon_container_inner .coupon-list li .top-column p {
   margin: 8px 0 0 0;
+}
+.coupon_container_inner .coupon-list li .bott-column span {
+  padding: 2px 0;
+  color: #979797;
 }
 .coupon_container_inner .coupon-list li:last-child {
   margin-bottom: 0;
@@ -2844,6 +2857,7 @@ ex) 플레이스 리스트
   font-weight: 400;
   background: #F1F1F1;
   border-radius: 24px;
+  color: #979797;
   cursor: pointer;
 }
 .AccountDelete_container_inner .top-column .leave-select ul .leave-select-li span {
@@ -2886,10 +2900,14 @@ ex) 플레이스 리스트
           box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
 }
 .AccountDelete_container_inner .top-column .leave-select ul ul li {
-  padding: 5px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #d9d9d9;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
+}
+.AccountDelete_container_inner .top-column .leave-select ul ul li:last-child {
+  border-bottom: 0;
 }
 .AccountDelete_container_inner .bott-btn a {
   width: 100%;
@@ -6219,11 +6237,13 @@ ex) 플레이스 리스트
           flex: 1;
   position: relative;
   padding: 0 0 15px 0;
-  font-size: 16px;
-  font-weight: 400;
   text-align: center;
 }
-.EventNewsTab_container_inner .tab-list li.active {
+.EventNewsTab_container_inner .tab-list li button {
+  font-size: 16px;
+  font-weight: 400;
+}
+.EventNewsTab_container_inner .tab-list li.active button {
   font-size: 16px;
   font-weight: 700;
 }
@@ -6298,11 +6318,18 @@ ex) 플레이스 리스트
   width: 100%;
   height: 105px;
   margin: 0 0 15px 0;
+  overflow: hidden;
   background: #f1f1f1;
   border-radius: 10px;
 }
 .Event_container_inner .event-list li:last-child {
   margin: 0;
+}
+.Event_container_inner .event-list li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /******************************************
@@ -6470,6 +6497,233 @@ ex) 플레이스 리스트
 검색 결과
 /components/layout/SearchResult.vue
 ******************************************/
+.SearchResult_container_inner .tab-and-filter .search-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+  margin: 0 0 20px 0;
+}
+.SearchResult_container_inner .tab-and-filter .search-tab li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  padding: 0 0 15px 0;
+  text-align: center;
+}
+.SearchResult_container_inner .tab-and-filter .search-tab li button {
+  font-size: 16px;
+  font-weight: 400;
+}
+.SearchResult_container_inner .tab-and-filter .search-tab li.active button {
+  font-size: 16px;
+  font-weight: 700;
+}
+.SearchResult_container_inner .tab-and-filter .search-tab li.active::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll {
+  display: -webkit-box;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+  margin: 0 0 20px 0;
+  overflow-x: auto;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li {
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+  z-index: 10;
+  padding: 0 12px;
+  word-break: keep-all;
+  border: 1px solid #D9D9D9;
+  border-radius: 14px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li span {
+  width: 6px;
+  height: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: -2px 0 0 8px;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li span::before, .SearchResult_container_inner .tab-and-filter .filter-scroll li span::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background: #000;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li span::before {
+  right: 4px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li span::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li:first-child {
+  position: relative;
+  margin-right: 5px;
+  padding-right: 5px;
+  padding: 0 12px;
+  margin-right: 18px;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li:first-child::after {
+  content: "";
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  background: #000;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li:first-child:last-child {
+  margin-right: 0;
+  padding-right: 0;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li:first-child:last-child::after {
+  display: none;
+}
+.SearchResult_container_inner .tab-and-filter .filter-scroll li:first-child::after {
+  height: 16px;
+  top: 5px;
+  right: -12px;
+  background: #D9D9D9;
+}
+.SearchResult_container_inner .placeList-form {
+  margin: 0 0 16px 0;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+.SearchResult_container_inner .placeList-form .top-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box {
+  width: calc(100% - 139px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-1 .placeList-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-1 .placeList-detail div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-1 .placeList-detail div p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-1 .placeList-detail div p span:last-child {
+  color: #979797;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-1 .placeList-add {
+  color: #979797;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-txt-box .placeList-info-2 li {
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+  z-index: 10;
+  padding: 0 12px;
+  word-break: keep-all;
+  border: 1px solid #D9D9D9;
+  border-radius: 14px;
+  cursor: pointer;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+}
+.SearchResult_container_inner .placeList-form .top-column .placeList-img-box {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #D9D9D9;
+  width: 102px;
+  height: 102px;
+  margin: 0;
+}
+.SearchResult_container_inner .placeList-form .bott-column {
+  padding: 8px 12px;
+  margin: 8px 0 0 0;
+  background: #F1F1F1;
+  border-radius: 8px;
+  color: #979797;
+}
+.SearchResult_container_inner .placeList-form:last-child {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+
 /******************************************
 알림창
 /components/layout/Alert.vue
@@ -6622,6 +6876,79 @@ ex) 플레이스 리스트
 }
 .Alert_container_inner .alert-list li.couponAlert .alert-img {
   display: none;
+}
+
+/******************************************
+알림 세팅
+/components/layout/AlertSetting.vue
+******************************************/
+.AlertSetting_container_inner .alert-setting-guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 20px;
+  background: #F1F1F1;
+}
+.AlertSetting_container_inner .alert-setting-guide button {
+  position: relative;
+}
+.AlertSetting_container_inner .alert-setting-guide button::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  background: #000;
+}
+.AlertSetting_container_inner .AlertSetting-box-tit {
+  padding: 0 0 8px 0;
+  margin: 0 0 16px 0;
+  border-bottom: 1px solid #000;
+}
+.AlertSetting_container_inner .AlertSetting-box-ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.AlertSetting_container_inner .AlertSetting-box-ul li label p {
+  margin: 0 0 4px 0;
+}
+.AlertSetting_container_inner .AlertSetting-box-ul li .toggle-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.AlertSetting_container_inner .AlertSetting-box-ul li .toggle-box input[type=checkbox] {
+  width: 60px;
+  height: 32px;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  z-index: -1;
+  background: #000;
+  border-radius: 16px;
+}
+.AlertSetting_container_inner .AlertSetting-box-ul li .toggle-box span {
+  width: 24px;
+  height: 24px;
+  margin: 0 0px 0px 4px;
+  background: #fff;
+  border-radius: 50%;
 }
 
 /******************************************

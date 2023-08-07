@@ -5,28 +5,7 @@
 .placeList_container{
     &_inner{padding:20px;
         .filter-scroll{@include filterScroll;}
-        .placeList-form{margin:0 0 16px 0; padding:0 0 16px 0; border-bottom:1px solid #D9D9D9;
-            .top-column{@include display(flex, null, space-between);
-                .placeList-txt-box{width:calc(100% - 139px); @include display(flex, null, space-between, column);
-                    .placeList-info-1{
-                        .placeList-detail{@include display(flex); column-gap:5px;
-                            div{@include display(flex, center); column-gap:5px;
-                                p{@include display(flex);
-                                    span:last-child{color:#979797}
-                                }
-                            }
-                        }
-                        .placeList-add{color:#979797}
-                    }
-                    .placeList-info-2{@include display(flex); column-gap:4px;
-                        li{@include liTag; @include conSize(null, 22px, 22px); padding:0 6px; @include font(12px, 400, #979797);}
-                    }
-                }
-                .placeList-img-box{@include placeImgBox; @include conSize(102px, 102px); margin:0;}
-            }
-            .bott-column{padding:8px 12px; margin:8px 0 0 0; background:#F1F1F1; border-radius:8px; color:#979797; }
-            &:last-child{padding:0; margin:0; border-bottom:none;}
-        }
+        .placeList-form{@include PlaceListForm;}
         .map-move{@include conSize(null, 34px, 34px); @include display(flex, center, center); 
             @include position(fixed, null, null, 104px, 50%); transform:translateX(-50%); padding:0 12px; 
             background:$f; border:1px solid $b; border-radius:17px; box-shadow:4px 4px 25px rgba(0,0,0, .15);

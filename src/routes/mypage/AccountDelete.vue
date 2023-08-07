@@ -3,12 +3,25 @@
         name : 'AccountDelete',
         data(){
             return {
-                AccountDelete : false
+                AccountDelete : false,
+                displayCategory : false,
+                CategoryItems : [
+                    { id : 1, reason : '탈퇴 이유를 선택해 주세요' },
+                    { id : 2, reason : '사용하기 불편해요' },
+                    { id : 3, reason : '잘 사용하지 않아요' },
+                    { id : 4, reason : '플레이스, 트레이너에 대해 불만족스러워요' },
+                    { id : 5, reason : '새 계정을 만들고 싶어요' },
+                    { id : 6, reason : '기타' },
+                ]
             }
         },
         methods : {
             AccountDeleteFnc : function(){
                 this.AccountDelete = !this.AccountDelete
+            },
+            select(cateId){
+                this.selectedID = cateId
+                this.displayCategory = !this.displayCategory
             }
         }
     }
@@ -29,12 +42,8 @@
                 <div class="leave-select">
                     <p class="f-14-400"><span class="member-nick">위즈위즈</span>님의 탈퇴 이유가 궁금해요</p>
                     <ul class="leave-select-ul">
-                        <li class="leave-select-li">탈퇴 이유를 선택해주세요<span class="arrow"></span></li>
-                        <ul>
-                            <li>탈퇴 이유1</li>
-                            <li>탈퇴 이유2</li>
-                            <li>탈퇴 이유3</li>
-                        </ul>
+                        <li class="leave-select-li">dd<span class="arrow"></span></li>
+                        <ul><li v-for="cate in CategoryItems" :key="cate.id" @click="select(cate.id)" >{{ cate.reason }}</li></ul>
                     </ul>
                 </div>
             </div>

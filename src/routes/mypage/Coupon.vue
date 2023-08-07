@@ -1,15 +1,34 @@
 <script>
+    import CouponList from '../../components/data/CouponList';
+
     export default {
         name : 'Coupon',
         data(){
             return {
-                couponReceive : false
+                couponReceive : false,
+                CouponList : [
+                    { 
+                        dueDate : '7일',
+                        couponName : '환영해요! 신규 회원가입 축하 쿠폰',
+                        discount : '5,000원 할인 (50,000원 이상 결제 시)',
+                        date : '2023.07.01 - 2023.07.31'
+                    },
+                    { 
+                        dueDate : '7일',
+                        couponName : '환영해요! 신규 회원가입 축하 쿠폰',
+                        discount : '5,000원 할인 (50,000원 이상 결제 시)',
+                        date : '2023.07.01 - 2023.07.31'
+                    }
+                ]
             }
         },
         methods : {
             couponIssuedFnc : function(){
                 this.couponReceive = !this.couponReceive
             }
+        },
+        components : {
+            CouponList
         }
     }
 </script>
@@ -22,16 +41,7 @@
                 <button class="f-14-700" @click="couponIssuedFnc">받기</button>
             </div>
             <ul class="coupon-list">
-                <li v-for="couponItem in 3" :key="couponItem">
-                    <div class="top-column">
-                        <div class="coupon-due-date"><span>7일</span> 남음</div>
-                        <p class="f-16-700">환영해요! 신규 회원가입 축하 쿠폰</p>
-                    </div>
-                    <div class="bott-column f-12-400">
-                        <span class="coupon-con">5,000원 할인 (50,000원 이상 결제 시)</span>
-                        <span class="coupon-date">2023.07.01 - 2023.07.31</span>
-                    </div>
-                </li>
+                <CouponList v-for="couponItem in CouponList" :key="couponItem" :data="couponItem"></CouponList>
             </ul>
         </div>
         <div class="coupon-issue-modal member_alert" v-bind:class="{ active : couponReceive }">

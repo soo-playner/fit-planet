@@ -4,13 +4,7 @@
 ******************************************/
 .EventNewsTab_container{
     &_inner{
-        .tab-list{@include display(flex, center); border-bottom:1px solid #f1f1f1 ;
-            li{flex:1; position:relative; padding:0 0 15px 0; @include font(16px, 400); text-align:center;
-                &.active{@include font(16px, 700);
-                    &::before{content:''; @include conSize(100%, 4px); @include position(absolute, null, null, 0, 0); background:$b;}
-                }
-            }
-        }
+        .tab-list{@include TabList;}
     }
 }
 
@@ -28,8 +22,9 @@
 .Event_container{
     &_inner{
         .event-list{padding:20px;
-            li{@include conSize(100%, 105px); margin:0 0 15px 0; background:#f1f1f1; border-radius:10px;
+            li{@include conSize(100%, 105px); margin:0 0 15px 0; overflow:hidden; background:#f1f1f1; border-radius:10px;
                 &:last-child{margin:0;}
+                img{@include conSize(100%, 100%); object-fit:cover;}
             }
         }
     }
@@ -89,7 +84,13 @@
 /components/layout/SearchResult.vue
 ******************************************/
 .SearchResult_container{
-    &_inner{}
+    &_inner{
+        .tab-and-filter{
+            .search-tab{@include TabList; margin:0 0 20px 0;}
+            .filter-scroll{@include filterScroll;}
+        }
+        .placeList-form{@include PlaceListForm;}
+    }
 }
 
 /******************************************
@@ -129,6 +130,34 @@
                         p{@include font(12px, 400, #979797)}
                     }
                     .alert-img{display:none}
+                }
+            }
+        }
+    }
+}
+
+/******************************************
+알림 세팅
+/components/layout/AlertSetting.vue
+******************************************/
+.AlertSetting_container{
+    &_inner{
+        .alert-setting-guide{@include display(flex, center, space-between); padding:16px 20px; background:#F1F1F1;
+            button{position:relative;
+                &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:$b;}
+            }
+        }
+        .AlertSetting-box{
+            &-tit{padding:0 0 8px 0; margin:0 0 16px 0; border-bottom:1px solid $b;}
+            &-ul{
+                li{@include display(flex, center); position:relative;
+                    label{
+                        p{margin:0 0 4px 0;}
+                    }
+                    .toggle-box{@include display(flex, center);
+                        input[type='checkbox']{@include conSize(60px, 32px); appearance:none; -webkit-appearance:none; position:absolute; z-index:-1; background:$b; border-radius:16px;}
+                        span{@include conSize(24px, 24px); margin:0 0px 0px 4px; background:$f; border-radius:50%;}
+                    }
                 }
             }
         }
