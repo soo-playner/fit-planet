@@ -9,8 +9,7 @@
     <div class="at-header">
         <div class="at-header-inner">
             <div class="logo">
-                <img src="@/assets/image/logo.png" alt="핏플래닛 로고" v-if="$route.name == '/' || '/Class' ">
-                <p v-if="$route.name == '/Place'">발견</p>
+                <img src="@/assets/image/logo.png" alt="핏플래닛 로고">
             </div>
             <ul class="menu-ul">
                 <li><img src="@/assets/image/alarm.png" alt="알림"></li>

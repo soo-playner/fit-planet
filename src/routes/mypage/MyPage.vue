@@ -10,7 +10,7 @@
                     { id : '4', Name : '찜', Link : '/' },
                 ],
                 quick2 : [
-                    { Name : '공지/이벤트', Link : '/' },
+                    { Name : '공지/이벤트', Link : '/News' },
                     { Name : '자주 묻는 질문', Link : '/' },
                     { Name : '이메일 문의', Link : '/' },
                     { Name : '신고 내역', Link : '/' },

@@ -49,7 +49,7 @@ export default {
     },
     methods: {
         toggleInquiry: function () {
-        this.inquiryActive = !this.inquiryActive;
+            this.inquiryActive = !this.inquiryActive;
         },
     },
 };

@@ -1,15 +1,19 @@
 <script>
     import JoinCurrent from '../../components/layout/JoinCurrent';
-    import ResetPW_Alert from '../../components/modal/ResetPW_Alert';
 
     export default {
         name : 'PW_Reset',
         components : {
-            JoinCurrent, ResetPW_Alert
+            JoinCurrent, 
         },
         data(){
             return {
-                Reset_modalOpen : false
+                ResetPW : false
+            }
+        },
+        methods : {
+            ResetPWFnc : function(){
+                this.ResetPW = !this.ResetPW
             }
         }
     }
@@ -17,7 +21,6 @@
 
 <template>
     <JoinCurrent/>
-    <ResetPW_Alert v-if="Reset_modalOpen" @Reset_modalClose = 'Reset_modalOpen = false'/>
     <div class="member_container PW_Reset">
         <div class="member_container_inner mob-inner">
             <div class="FindPW_form">
@@ -32,7 +35,17 @@
                     <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
                 </div>
             </div>
-            <router-link to="#" class="next-step-btn f-16-700" @click="Reset_modalOpen = true">확인</router-link>
+            <router-link to="#" class="next-step-btn f-16-700" @click="ResetPWFnc">확인</router-link>
+        </div>
+        <div class="member_alert ResetPW_Alert" v-bind:class="{ active : ResetPW }">
+            <div class="overlay" @click="ResetPWFnc"></div>
+            <div class="member_alert_inner mob-inner">
+                <div class="f-18-700">
+                    <p>비밀번호가</p>
+                    <p>재설정 되었습니다</p>
+                </div>
+                <router-link to="/Login" @click="ResetPWFnc" class="next-step-btn">확인</router-link>
+            </div>
         </div>
     </div>
 </template>

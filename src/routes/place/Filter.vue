@@ -93,5 +93,9 @@
                 </div>
             </div>
         </div>
+        <div class="filter-bott-btn">
+            <button>초기화</button>
+            <button>플레이스 200개 보기</button>
+        </div>
     </div>
 </template>

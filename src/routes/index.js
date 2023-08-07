@@ -65,12 +65,21 @@ import PlacePay_Complete from '../routes/place/PlacePay_Complete';
 import PlaceTicket_Complete from '../routes/place/PlaceTicket_Complete';
 import TrainerDetail from '../routes/trainer/TrainerDetail';
 import Review from '../routes/review/Review';
+import ReviewSelect from '../routes/review/ReviewSelect';
+import ReviewWrite from '../routes/review/ReviewWrite';
 import MyPage from '../routes/mypage/MyPage';
 import OrderInquiry from '../routes/order/OrderInquiry';
 import OrderInquiryView from '../routes/order/OrderInquiryView';
+import CancleInquiry from '../routes/order/CancleInquiry';
 import Coupon from '../routes/mypage/Coupon';
 import Profile from '../routes/mypage/Profile';
-
+import AccountDelete from '../routes/mypage/AccountDelete';
+import News from '../routes/community/News';
+import Event from '../routes/community/Event';
+import Search from '../components/layout/Search';
+import SearchResult from '../components/layout/SearchResult';
+import Alert from '../components/layout/Alert';
+import AlertSetting from '../components/layout/AlertSetting';
 import ScheduleChange from '../components/modal/ScheduleChange';
 
 const routes = [
@@ -81,6 +90,7 @@ const routes = [
     { path : '/', component : MainPage, name : 'MainPage' },
     { path : '/Class', component : Class_MainPage, name : 'Class_MainPage' },
     { path : '/NotClass', component : NotClass_MainPage, name : 'NotClass_MainPage' },
+    // 로그인
     { path : '/Login', component : Login, name : 'Login' },
     // 회원가입
     { path : '/Join', component : Join, name : 'Join' }, 
@@ -89,7 +99,7 @@ const routes = [
     { path : '/JoinNickname', component : JoinNickname, name : 'JoinNickname' },  
     { path : '/JoinComplete', component : JoinComplete, name : 'JoinComplete' },
     { path : '/Authority', component : Authority, name : 'Authority' }, 
-    //
+    // 아이디, 비밀번호 찾기
     { path : '/FindID_Step1', component : FindID_Step1, name : 'FindID_Step1' }, 
     { path : '/FindID_Step2', component : FindID_Step2, name : 'FindID_Step2' }, 
     { path : '/FindID_Step3', component : FindID_Step3, name : 'FindID_Step3' }, 
@@ -97,7 +107,7 @@ const routes = [
     { path : '/FindPW_Step2', component : FindPW_Step2, name : 'FindPW_Step2' }, 
     { path : '/FindPW_Email_Step1', component : FindPW_Email_Step1, name : 'FindPW_Email_Step1' }, 
     { path : '/FindPW_Email_Step2', component : FindPW_Email_Step2, name : 'FindPW_Email_Step2' }, 
-    //
+    // 비밀번호 재설정
     { path : '/PW_Reset', component : PW_Reset, name : 'PW_Reset' }, 
     // 플레이스
     { path : '/Place', component : Place, name : 'Place' }, 
@@ -115,15 +125,28 @@ const routes = [
     { path : '/TrainerDetail', component : TrainerDetail, name : 'TrainerDetail' },
     // 후기
     { path : '/Review', component : Review, name : 'Review' },
+    { path : '/ReviewSelect', component : ReviewSelect, name : 'ReviewSelect' },
+    { path : '/ReviewWrite', component : ReviewWrite, name : 'ReviewWrite' },
     // 마이페이지
     { path : '/MyPage', component : MyPage, name : 'MyPage' },
     { path : '/Coupon', component : Coupon, name : 'Coupon' },
     { path : '/Profile', component : Profile, name : 'Profile' },
+    { path : '/AccountDelete', component : AccountDelete, name : 'AccountDelete' },
     // 주문내역
     { path : '/OrderInquiry', component : OrderInquiry, name : 'OrderInquiry' },
     { path : '/OrderInquiryView', component : OrderInquiryView, name : 'OrderInquiryView' },
+    { path : '/CancleInquiry', component : CancleInquiry, name : 'CancleInquiry' },
+    // 커뮤니티
+    { path : '/News', component : News, name : 'News' },
+    { path : '/Event', component : Event, name : 'Event' },
 
-    { path : '/ScheduleChange', component : ScheduleChange, name : 'ScheduleChange' }, 
+    { path : '/ScheduleChange', component : ScheduleChange, name : 'ScheduleChange' },
+    // 검색창
+    { path : '/Search', component : Search, name : 'Search' }, 
+    { path : '/SearchResult', component : SearchResult, name : 'SearchResult' }, 
+    // 알림창
+    { path : '/Alert', component : Alert, name : 'Alert' }, 
+    { path : '/AlertSetting', component : AlertSetting, name : 'AlertSetting' }, 
 ]
 
 const router = createRouter({

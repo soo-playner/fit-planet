@@ -1,0 +1,136 @@
+/******************************************
+뉴스, 이벤트
+/routes/commnuity/Event, News, EventNews_Tab 
+******************************************/
+.EventNewsTab_container{
+    &_inner{
+        .tab-list{@include display(flex, center); border-bottom:1px solid #f1f1f1 ;
+            li{flex:1; position:relative; padding:0 0 15px 0; @include font(16px, 400); text-align:center;
+                &.active{@include font(16px, 700);
+                    &::before{content:''; @include conSize(100%, 4px); @include position(absolute, null, null, 0, 0); background:$b;}
+                }
+            }
+        }
+    }
+}
+
+.News_container{
+    &_inner{
+        .news-list{padding:0 20px;
+            li{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
+                span{margin:5px 0 0 0; color:#979797}
+                .arrow{@include arrow2; transform:rotate(-90deg); margin:0 0 7px 0;}
+            }
+        }
+    }
+}
+
+.Event_container{
+    &_inner{
+        .event-list{padding:20px;
+            li{@include conSize(100%, 105px); margin:0 0 15px 0; background:#f1f1f1; border-radius:10px;
+                &:last-child{margin:0;}
+            }
+        }
+    }
+}
+
+/******************************************
+검색창
+/components/layout/Search.vue
+******************************************/
+.Search_container{
+    &_inner{
+        & > div{padding:20px;}
+        // 검색 인풋창
+        .search-input{
+            input{@include conSize(null, 44px, 44px); padding:0 16px; background:#F1F1F1; border:none; border-radius:22px;
+                &::placeholder{color:#979797}
+            }
+            .search-btn{@include conSize(20px, 20px); @include position(absolute, 12px, 16px);
+                &::before, &::after{content:''; position:absolute; background:$b;}
+                &::before{@include conSize(14px, 14px); background:none; border:2px solid $b; border-radius:50%;}
+                &::after{@include conSize(2px, 8px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
+            }
+        }
+        // 최근 본 운동
+        .recent-work{padding-right:0;
+            &-tit{@include display(flex, flex-end, space-between); margin:0 0 11px 0; padding-right:20px;
+                button{color:#979797; cursor:pointer;}
+            }
+            .recent-work-ul{display:-webkit-box; column-gap:8px; overflow-x:auto;
+                li{
+                    .center-img{@include conSize(101px, 101px); background:#D9D9D9; border-radius:8px;}
+                    p{margin:8px 0 0 0; @include font(14px, 400);}
+                    &:last-child{margin:0 20px 0 0;}
+                }
+            }
+        }
+        // 최근 검색어
+        .recent-search-word{
+            &-tit{@include display(flex, flex-end, space-between); margin:0 0 3px 0; 
+                button{color:#979797; cursor:pointer;}
+            }
+            &-ul{
+                li{@include display(flex, center, space-between); padding:9px 0; @include font(14px, 400); border-bottom:1px solid #D9D9D9;
+                    button{@include conSize(18px, 18px); @include display(flex, center, center); position:relative; cursor:pointer;
+                        &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
+                        &::before{transform:rotate(45deg)}
+                        &::after{transform:rotate(-45deg)}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/******************************************
+검색 결과
+/components/layout/SearchResult.vue
+******************************************/
+.SearchResult_container{
+    &_inner{}
+}
+
+/******************************************
+알림창
+/components/layout/Alert.vue
+******************************************/
+.Alert_container{
+    &_inner{
+        .alert-tit{@include display(flex, center, space-between); padding:12px 20px; @include font(12px, 400);
+            p{@include display(flex);
+                span{margin:0 0 0 4px;}
+            }
+            button{position:relative; font-weight:700; cursor:pointer;
+                &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:$b }
+            }
+        }
+        .alert-list{
+            li{padding:20px; border-bottom:1px solid #d9d9d9;
+                .top-column{@include display(flex, flex-end, space-between); margin:0 0 4px 0;
+                    .time{@include font(12px, 400, #979797);}
+                }
+                .bott-column{@include display(flex, null, space-between); column-gap:20px;
+                    .txt-box{width:calc(100% - 84px); @include display(flex, null, space-between, column); row-gap:8px;
+                        .alert-con{@include font(14px, 400);}
+                        .place-info{@include display(flex);
+                            p{@include afterLine; @include display(flex); column-gap:5px; padding-right:7px; @include font(12px, 400, #979797);
+                                &::after{height:10px; background:#979797}
+                            }
+                        }
+                    }
+                    .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;}
+                }
+                &.notConfirm{background:#F1F1F1;}
+                &.couponAlert{
+                    .txt-box{width:100%;
+                        .alert-con{width:calc(100% - 84px);}
+                        p{@include font(12px, 400, #979797)}
+                    }
+                    .alert-img{display:none}
+                }
+            }
+        }
+    }
+}

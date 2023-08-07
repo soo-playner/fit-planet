@@ -16,7 +16,7 @@
             <div class="profile-edit">
                 <div class="profile-img">
                     <button class="album">
-                        <img src="@/assets/image/album.png" alt="앨범">
+                        <img src="@/assets/image/album.png" alt="앨범 선택">
                         <input type="file" id="mb_profile" name="mb_profile">
                     </button>
                 </div>

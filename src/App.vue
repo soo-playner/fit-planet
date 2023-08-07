@@ -20,9 +20,13 @@
                 /* 플레이스 */ "PlaceDetail", "PlaceReview", "PlaceMachine", "PlaceMachine_Choice", "PlaceTrainer", "PlacePay", "PlacePay_Complete", "PlaceTicket_Complete", "Filter",
                 /* 트레이너 */ "TrainerDetail",
                 /* 리뷰 */ "Review",
-                /* 마이페이지 */ "MyPage", "Profile",
-                /* 주문내역 */ "OrderInquiry", "OrderInquiryView",
-            ]
+                /* 마이페이지 */ "MyPage", "Profile", "Coupon", "AccountDelete",
+                /* 주문내역 */ "OrderInquiry", "OrderInquiryView", "CancleInquiry",
+                /* 후기 */ "Review", "ReviewSelect", "ReviewWrite",
+                /* 커뮤니티 */ "News", "Event",
+                /* 검색 */ "Search",
+                /* 알림 */ "Alert", "AlertSetting",
+            ],
         }),
     }
 

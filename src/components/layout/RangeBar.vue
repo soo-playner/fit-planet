@@ -39,15 +39,6 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e5e5e5;
-}
 
 .middle {
   position: relative;

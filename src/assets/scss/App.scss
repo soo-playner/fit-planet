@@ -1,3 +1,10 @@
+/******************************************
+-1. 수강회원 정보, 주문 상품, 결제 정보 폼 양식 동일(PlacePay_Complete / OrderInquiryView / )
+ㄴ 주문 일시, 번호 .order-current
+ㄴ 수강회원 정보 .member-info
+ㄴ 주문 상품 .order-product
+ㄴ 결제 정보 .order-info
+******************************************/
 @import './common';
 @import './commonLayout';
 @import './font';
@@ -10,3 +17,6 @@
 @import './pages/Intro'; // Intro, Splash
 @import './pages/Member'; // 로그인, 회원가입 등
 @import './pages/Place'; // 
+@import './pages/Review'; // 후기
+@import './pages/Community'; // 공지 및 이벤트
+@import './pages/Order'; // 주문내역 리스트, 상세 / 취소 상세

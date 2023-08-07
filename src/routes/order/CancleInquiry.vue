@@ -1,32 +1,23 @@
 <script>
     export default {
-        name : 'OrderInquiryView'
+        name : 'CancleInquiry'
     }
 </script>
 
 <template>
-    <div class="OrderInquiryView_container">
-        <div class="OrderInquiryView_container_inner mob-inner">
+    <div class="CancleInquiry_container">
+        <div class="CancleInquiry_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">
                 <div class="left-column f-12-400">
-                    <p>4.1 토 결제</p><p>운동 대기</p>
+                    <p>4.1 토 결제</p><p>취소</p>
                 </div>
                 <div class="right-column f-12-400 order-num">주문번호 123456789101112</div>
             </div>
-            <!-- 수강회원 정보 -->
-            <div class="member-info">
-                <div class="member-info-tit f-16-700">수강회원 정보</div>
-                <div class="member-info-input">
-                    <div class="name">
-                        <span>이름</span>
-                        <div>김위즈</div>
-                    </div>
-                    <div class="phone">
-                        <span>휴대폰 번호</span>
-                        <div>010-0000-0000</div>
-                    </div>
-                </div>
+            <!-- 환불 예정 가이드 -->
+            <div class="refund-expected-guide">
+                <p>카드사에서 <span>4.1 토 이내 환불 완료 예정</span>입니다.</p>
+                <p>정확한 환불 완료일은 카드사로 직접 문의해 주세요.</p>
             </div>
             <!-- 주문 상품 -->
             <div class="order-product">
@@ -56,16 +47,16 @@
                     </li>
                 </ul>
             </div>
-            <!-- 결제 정보 -->
+            <!-- 환불 안내 -->
             <div class="order-info">
                 <div class="order-info-tit">
-                    <p class="f-16-700">결제 정보<!--<span class="f-14-400">334,000원 / 페이코</span>--></p>
+                    <p class="f-16-700">환불 안내<!--<span class="f-14-400">334,000원 / 페이코</span>--></p>
                     <!-- <div class="arrow"></div> -->
                 </div>
                 <div class="order-info-list">
                     <div class="order-info-list-1">
                         <div class="f-14-700"><p>결제금액</p><p>334,000원</p></div>
-                        <div class="f-14-400"><p>결제 방법</p><p>페이코</p></div>
+                        <!-- <div class="f-14-400"><p>결제 방법</p><p>페이코</p></div> -->
                     </div>
                     <ul class="order-info-list-2">
                         <li>
@@ -83,15 +74,17 @@
                     </ul>
                 </div>
                 <div class="bott-btn">
-                    <button class="f-14-700">주문내역 삭제</button>
-                    <button class="f-14-700">주문 취소하기</button>
+                    <div class="f-14-700"><p>환불 완료</p><p>334,000원</p></div>
+                    <div class="f-14-400">
+                        <p>환불 수단</p>
+                        <p class="f-14-400"><span class="f-12-400">페이코</span>334,000원</p>
+                    </div>
                 </div>
             </div>
-            <!-- 결제 취소 가이드 -->
-            <div class="order-cancle-guide">
-                <p>상품을 이용하지 않은 경우</p>
-                <p>결제 후 14일 이내 앱 내 결제 취소가 가능합니다.</p>
-                <p>자세한 내용은<router-link to="/">전자금융거래 이용약관</router-link>을 참고하세요.</p>
+            <!-- 환불 안내 가이드 -->
+            <div class="refund-guide">
+                <p>할인쿠폰은 환불요청 완료 후 복구되며,</p>
+                <p>복구에 시간이 소요될 수 있습니다.</p>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <script>
     export default {
-        name : 'Review'
+        name : 'Review',
     }
 </script>
 
@@ -9,43 +9,31 @@
         <div class="review_container_inner mob-inner">
             <ul class="filter-scroll">
                 <li>거리순<span class="arrow"></span></li>
-                <li><img src="@/assets/image/filter.png" alt="필터"></li>
-                <li>수강기간</li>
-                <li>가격</li>
-                <li>플레이스 타입</li>
-                <li>기타옵션</li>
-                <li>운동기구</li>
-                <li>편의시설</li>
+                <li>마이후기</li>
+                <li><img src="@/assets/image/location.png" alt="">서울시 강남구</li>
+                <li>모든 지역</li>
+                <li>관심 지역 +</li>
             </ul>
-            <div class="placeList-form">
-                <div class="top-column">
-                    <div class="placeList-txt-box">
-                        <div class="placeList-info-1">
-                            <div class="placeList-detail">
-                                <p class="f-16-700">위즈짐</p>
-                                <div>
-                                    <img src="@/assets/image/scope.png" alt="별점">
-                                    <p class="f-12-400">
-                                        <span>4.3</span>
-                                        <span>(12)</span>
-                                    </p>
-                                </div>
+            <router-link to="/" class="review-induce">
+                <p class="f-16-700">아직 작성하지 않은 후기 <span>2</span>건</p>
+                <span class="arrow"></span>
+            </router-link>
+            <ul class="review-list">
+                <li v-for="reviewCon in 6" :key="reviewCon">
+                    <div class="center-img"></div>
+                    <div class="txt-box">
+                        <div class="writer-info">
+                            <p>위즈위즈</p>
+                            <div class="starBox">
+                                <div class="star" v-for="star in 4" :key="star"><img src="@/assets/image/scope.png" alt="별점"></div>
+                                <div class="star"><img src="@/assets/image/empty_scope.png" alt="별점"></div>
                             </div>
-                            <div class="placeList-add f-12-400">서울 강남구 삼성로86길 11</div>
                         </div>
-                        <ul class="placeList-info-2">
-                            <li>24시</li>
-                            <li>P.T</li>
-                            <li>그룹 P.T</li>
-                            <li>골프</li>
-                        </ul>
+                        <div class="review-con">김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!</div>
+                        <div class="trainer-info"><span>김위즈</span>트레이너</div>
                     </div>
-                    <div class="placeList-img-box"></div>
-                </div>
-                <div class="bott-column review">
-                    <p class="f-12-400">운동기구도 다양하고 운동복, 수건도 쓸 수 있어서 너무 만족스러웠습니다. 집 근처라 꾸준히 이용하게 될 것 같아요.</p>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
