@@ -2,34 +2,8 @@
 npm install vue-router
 npm i swiper@6.8.4
 npm install @vuepic/vue-datepicker
+npm install vuex@next
 *******************************/
-
-/******************************
-홈
-- Home_1_첫방문    
-    ㄴ /components/layout/MainPage.vue 
-- Home_1_플레이스 수강권 미등록 / 등록
-    ㄴ /components/layout/NotClass_MainPage.vue 
-    ㄴ /components/layout/Class_MainPage.vue 
-
-발견
-- Discover_3_플레이스_상세페이지
-    ㄴ /routes/place/PlaceDetail.vue
-- Discover_4_플레이스_상세페이지_후기
-    ㄴ /routes/place/PlaceReview.vue
-- Discover_4_플레이스_상세페이지_운동기구
-    ㄴ /routes/place/PlaceMachine.vue
-- Discover_4_플레이스_상세페이지_1:1트레이너
-    ㄴ /routes/place/PlaceTrainer.vue
-- Discover_4_플레이스_상세페이지_운동 선택하기
-    ㄴ /routes/place/PlaceMachine_Choice.vue
-- Discover_5_플레이스_상세페이지_결제하기
-    ㄴ /routes/place/PlacePay.vue
-- Discover_6_플레이스_상세페이지_결제완료(등록하기 모달창 포함)
-    ㄴ /routes/place/PlacePay_Complete.vue
-- Discover_6_플레이스_상세페이지_등록 완료
-    ㄴ /routes/place/PlaceTicket_Complete.vue
-******************************/
 import { createRouter, createWebHistory } from "vue-router";
 
 import MainPage from '../components/layout/MainPage';
@@ -76,6 +50,10 @@ import Profile from '../routes/mypage/Profile';
 import AccountDelete from '../routes/mypage/AccountDelete';
 import News from '../routes/community/News';
 import Event from '../routes/community/Event';
+import Terms from '../routes/community/Terms';
+import FAQ from '../routes/community/FAQ';
+import Inquiry from '../routes/community/Inquiry';
+import InquiryComplete from '../routes/community/InquiryComplete';
 import Search from '../components/layout/Search';
 import SearchResult from '../components/layout/SearchResult';
 import Alert from '../components/layout/Alert';
@@ -97,7 +75,7 @@ const routes = [
     { path : '/JoinAccount', component : JoinAccount, name : 'JoinAccount' }, 
     { path : '/JoinPass', component : JoinPass, name : 'JoinPass' },
     { path : '/JoinNickname', component : JoinNickname, name : 'JoinNickname' },  
-    { path : '/JoinComplete', component : JoinComplete, name : 'JoinComplete' },
+    { path : '/Join/Complete', component : JoinComplete, name : 'JoinComplete' },
     { path : '/Authority', component : Authority, name : 'Authority' }, 
     // 아이디, 비밀번호 찾기
     { path : '/FindID_Step1', component : FindID_Step1, name : 'FindID_Step1' }, 
@@ -116,11 +94,11 @@ const routes = [
     { path : '/PlaceDetail', component : PlaceDetail, name : 'PlaceDetail' }, 
     { path : '/PlaceReview', component : PlaceReview, name : 'PlaceReview' }, 
     { path : '/PlaceMachine', component : PlaceMachine, name : 'PlaceMachine' },
-    { path : '/PlaceMachine_Choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
+    { path : '/PlaceMachine/Choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
     { path : '/PlaceTrainer', component : PlaceTrainer, name : 'PlaceTrainer' },
     { path : '/PlacePay', component : PlacePay, name : 'PlacePay' },
-    { path : '/PlacePayComplete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
-    { path : '/PlaceTicketComplete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
+    { path : '/PlacePay/Complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
+    { path : '/PlaceTicket/Complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
     // 트레이너
     { path : '/TrainerDetail', component : TrainerDetail, name : 'TrainerDetail' },
     // 후기
@@ -131,7 +109,7 @@ const routes = [
     { path : '/MyPage', component : MyPage, name : 'MyPage' },
     { path : '/Coupon', component : Coupon, name : 'Coupon' },
     { path : '/Profile', component : Profile, name : 'Profile' },
-    { path : '/AccountDelete', component : AccountDelete, name : 'AccountDelete' },
+    { path : '/Account/Delete', component : AccountDelete, name : 'AccountDelete' },
     // 주문내역
     { path : '/OrderInquiry', component : OrderInquiry, name : 'OrderInquiry' },
     { path : '/OrderInquiryView', component : OrderInquiryView, name : 'OrderInquiryView' },
@@ -139,6 +117,10 @@ const routes = [
     // 커뮤니티
     { path : '/News', component : News, name : 'News' },
     { path : '/Event', component : Event, name : 'Event' },
+    { path : '/Terms', component : Terms, name : 'Terms' },
+    { path : '/FAQ', component : FAQ, name : 'FAQ' },
+    { path : '/Inquiry', component : Inquiry, name : 'Inquiry' },
+    { path : '/Inquiry/Complete', component : InquiryComplete, name : 'InquiryComplete' },
 
     { path : '/ScheduleChange', component : ScheduleChange, name : 'ScheduleChange' },
     // 검색창

@@ -2153,8 +2153,15 @@ ex) 플레이스 리스트
   margin-top: 50px;
 }
 .member_container.JoinComplete {
+  position: relative;
   margin: 0;
+  overflow: hidden;
   background: #f1f1f1;
+}
+.member_container.JoinComplete .complete-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .member_container.JoinComplete .member_container_inner {
   padding: 210px 0 0 0;
@@ -2894,10 +2901,14 @@ ex) 플레이스 리스트
   width: 100%;
   position: absolute;
   padding: 14px 16px;
+  opacity: 0;
+  visibility: hidden;
   background: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
+  -webkit-transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .AccountDelete_container_inner .top-column .leave-select ul ul li {
   padding: 8px 0;
@@ -2908,6 +2919,10 @@ ex) 플레이스 리스트
 }
 .AccountDelete_container_inner .top-column .leave-select ul ul li:last-child {
   border-bottom: 0;
+}
+.AccountDelete_container_inner .top-column .leave-select ul ul.active {
+  opacity: 1;
+  visibility: visible;
 }
 .AccountDelete_container_inner .bott-btn a {
   width: 100%;
@@ -6330,6 +6345,367 @@ ex) 플레이스 리스트
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+/******************************************
+약관 및 정책
+/routes/commnuity/Terms.vue 
+******************************************/
+.Terms_container_inner ul {
+  padding: 0 20px;
+}
+.Terms_container_inner ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #D9D9D9;
+}
+.Terms_container_inner ul li p {
+  font-size: 14px;
+  font-weight: 400;
+}
+.Terms_container_inner ul li .arrow {
+  width: 10px;
+  height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin: 0 0 6px 0;
+}
+.Terms_container_inner ul li .arrow::before, .Terms_container_inner ul li .arrow::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background: #000;
+}
+.Terms_container_inner ul li .arrow::before {
+  right: 6px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.Terms_container_inner ul li .arrow::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/******************************************
+문의
+/routes/commnuity/Inquiry.vue 
+******************************************/
+.Inquiry_container_inner input[type=text],
+.Inquiry_container_inner input[type=file],
+.Inquiry_container_inner input[type=email] {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+  background: #F1F1F1;
+  border-radius: 8px;
+}
+.Inquiry_container_inner input[type=text]:focus,
+.Inquiry_container_inner input[type=file]:focus,
+.Inquiry_container_inner input[type=email]:focus {
+  border: none;
+}
+.Inquiry_container_inner input[type=text]::-webkit-input-placeholder, .Inquiry_container_inner input[type=file]::-webkit-input-placeholder, .Inquiry_container_inner input[type=email]::-webkit-input-placeholder {
+  color: #979797;
+}
+.Inquiry_container_inner input[type=text]::-moz-placeholder, .Inquiry_container_inner input[type=file]::-moz-placeholder, .Inquiry_container_inner input[type=email]::-moz-placeholder {
+  color: #979797;
+}
+.Inquiry_container_inner input[type=text]:-ms-input-placeholder, .Inquiry_container_inner input[type=file]:-ms-input-placeholder, .Inquiry_container_inner input[type=email]:-ms-input-placeholder {
+  color: #979797;
+}
+.Inquiry_container_inner input[type=text]::-ms-input-placeholder, .Inquiry_container_inner input[type=file]::-ms-input-placeholder, .Inquiry_container_inner input[type=email]::-ms-input-placeholder {
+  color: #979797;
+}
+.Inquiry_container_inner input[type=text]::placeholder,
+.Inquiry_container_inner input[type=file]::placeholder,
+.Inquiry_container_inner input[type=email]::placeholder {
+  color: #979797;
+}
+.Inquiry_container_inner input[type=file] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+}
+.Inquiry_container_inner input[type=file] + label {
+  height: 44px;
+  line-height: 44px;
+  display: block;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 400;
+  background: #F1F1F1;
+  border-radius: 8px;
+  color: #979797;
+}
+.Inquiry_container_inner textarea {
+  min-height: 150px;
+}
+.Inquiry_container_inner .form-group {
+  margin: 0 0 8px 0;
+}
+.Inquiry_container_inner .form-group:last-child {
+  margin: 0;
+}
+.Inquiry_container_inner > div {
+  border-bottom: 8px solid #f1f1f1;
+}
+.Inquiry_container_inner .inquiry-guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 20px;
+  background: #F1F1F1;
+  border-bottom: 0;
+}
+.Inquiry_container_inner .inquiry-guide p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+}
+.Inquiry_container_inner .inquiry-guide p span {
+  font-weight: 700;
+}
+.Inquiry_container_inner .inquiry-guide a {
+  position: relative;
+  color: #979797;
+}
+.Inquiry_container_inner .inquiry-guide a::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  background: #979797;
+}
+.Inquiry_container_inner .inquiry-list {
+  padding: 24px 20px 28px;
+}
+.Inquiry_container_inner .inquiry-list-tit {
+  margin: 0 0 12px 0;
+}
+.Inquiry_container_inner .inquiry-list-ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  gap: 6px;
+}
+.Inquiry_container_inner .inquiry-list-ul li {
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+  z-index: 10;
+  padding: 0 12px;
+  word-break: keep-all;
+  border: 1px solid #D9D9D9;
+  border-radius: 14px;
+  cursor: pointer;
+  line-height: 25px;
+  cursor: pointer;
+}
+.Inquiry_container_inner .inquiry-list-ul li button {
+  color: #D9D9D9;
+}
+.Inquiry_container_inner .inquiry-form {
+  padding: 24px 20px;
+}
+.Inquiry_container_inner .inquiry-form-tit {
+  margin: 0 0 17px 0;
+}
+.Inquiry_container_inner .inquiry-form-tit p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+.Inquiry_container_inner .inquiry-form-tit p span {
+  margin: 0 0 1px 0;
+  color: #979797;
+}
+.Inquiry_container_inner .inquiry-receive {
+  padding: 24px 20px 19px;
+  border-bottom: 0;
+}
+.Inquiry_container_inner .inquiry-receive-tit {
+  margin: 0 0 16px 0;
+}
+.Inquiry_container_inner .inquiry-receive-guide {
+  line-height: 1.8;
+  margin: 17px 0 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+}
+.Inquiry_container .bott-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  padding: 12px 20px 32px;
+  background: #fff;
+  border: 1px solid #D9D9D9;
+  border-radius: 16px 16px 0 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.Inquiry_container .bott-btn a, .Inquiry_container .bott-btn button {
+  width: 100%;
+  height: 38px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  margin: 9px 0 0px 0;
+  background: #000;
+  color: #fff;
+  border-radius: 19px;
+  height: 44px;
+  line-height: 44px;
+  margin: 0;
+}
+.Inquiry_container .bott-btn a:first-child, .Inquiry_container .bott-btn button:first-child {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+.Inquiry_container .bott-btn .form-group {
+  margin: 0 0 13px 0;
+}
+.Inquiry_container .bott-btn .form-group input + label {
+  position: relative;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+}
+.Inquiry_container .bott-btn .form-group input + label::before {
+  content: "";
+  width: calc(100% - 25px);
+  height: 1px;
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  background: #979797;
+}
+.Inquiry_container .bott-btn button {
+  background: #D9D9D9;
+  color: #979797;
+}
+
+/******************************************
+문의 완료
+/routes/commnuity/InquiryComplete.vue 
+******************************************/
+.InquiryComplete_container_inner {
+  min-height: calc(100vh - 132px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 190px 0 0 0;
+}
+.InquiryComplete_container_inner .top-row {
+  text-align: center;
+}
+.InquiryComplete_container_inner .top-row .complete-txt-box {
+  margin: 15px 0;
+}
+.InquiryComplete_container_inner .bott-btn {
+  width: 100%;
+  height: 38px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  margin: 9px 0 0px 0;
+  background: #000;
+  color: #fff;
+  border-radius: 19px;
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
 }
 
 /******************************************

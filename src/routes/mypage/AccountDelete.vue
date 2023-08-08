@@ -5,6 +5,7 @@
             return {
                 AccountDelete : false,
                 displayCategory : false,
+                targetCategory : '탈퇴 이유를 선택해 주세요',
                 CategoryItems : [
                     { id : 1, reason : '탈퇴 이유를 선택해 주세요' },
                     { id : 2, reason : '사용하기 불편해요' },
@@ -16,12 +17,19 @@
             }
         },
         methods : {
+            // 모달창 노출
             AccountDeleteFnc : function(){
-                this.AccountDelete = !this.AccountDelete
+                this.AccountDelete = !this.AccountDelete;
             },
-            select(cateId){
-                this.selectedID = cateId
-                this.displayCategory = !this.displayCategory
+            reasonList : function(){
+                this.displayCategory = !this.displayCategory;
+            },
+        }, 
+        mounted() {
+            const reasonTxt = document.querySelector('.leave-select-li');
+            console.log(reasonTxt.textContent);
+            if(reasonTxt.textContent === '기타'){
+                console.log('i')
             }
         }
     }
@@ -42,8 +50,14 @@
                 <div class="leave-select">
                     <p class="f-14-400"><span class="member-nick">위즈위즈</span>님의 탈퇴 이유가 궁금해요</p>
                     <ul class="leave-select-ul">
-                        <li class="leave-select-li">dd<span class="arrow"></span></li>
-                        <ul><li v-for="cate in CategoryItems" :key="cate.id" @click="select(cate.id)" >{{ cate.reason }}</li></ul>
+                        <li class="leave-select-li" @click="reasonList">{{ targetCategory }}<span class="arrow"></span></li>
+                        <ul :class="{ active : displayCategory }">
+                            <li 
+                                v-for="cate in CategoryItems" 
+                                :key="cate.id" 
+                                @click="[targetCategory = cate.reason], [reasonList()]">{{ cate.reason }}
+                            </li>
+                        </ul>
                     </ul>
                 </div>
             </div>
@@ -52,6 +66,7 @@
                 <button class="f-14-400" @click="AccountDeleteFnc">탈퇴하기</button>
             </div>
         </div>
+        <!-- 모달창 -->
         <div class="AccountDelete-modal member_alert" :class="{ active : AccountDelete }">
             <div class="overlay" @click="$router.push('/Login')"></div>
             <div class="AccountDelete-modal-inner member_alert_inner">

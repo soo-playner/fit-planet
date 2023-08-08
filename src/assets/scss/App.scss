@@ -10,13 +10,13 @@
 @import './font';
 
 // layout
-@import './layout/MainPage';
-@import './layout/Modal'; 
+@import './layout/mainPage';
+@import './layout/modal'; 
 
 // pages
-@import './pages/Intro'; // Intro, Splash
-@import './pages/Member'; // 로그인, 회원가입 등
-@import './pages/Place'; // 
-@import './pages/Review'; // 후기
-@import './pages/Community'; // 공지 및 이벤트
-@import './pages/Order'; // 주문내역 리스트, 상세 / 취소 상세
+@import './pages/intro'; // Intro, Splash
+@import './pages/member'; // 로그인, 회원가입 등
+@import './pages/place'; // 
+@import './pages/review'; // 후기
+@import './pages/community'; // 공지 및 이벤트
+@import './pages/order'; // 주문내역 리스트, 상세 / 취소 상세

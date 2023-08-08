@@ -48,7 +48,8 @@
     /************************************
     가입 완료 /routes/JoinComplete.vue
     ************************************/
-    &.JoinComplete{margin:0; background:#f1f1f1;
+    &.JoinComplete{position:relative; margin:0; overflow:hidden; background:#f1f1f1;
+        .complete-canvas{@include position(absolute, 0, null, null, 0)}
         .member_container_inner{padding:210px 0 0 0}
         .intro-txt-box{text-align:center;
             & > div:first-child{margin:0 0 8px 0;}
@@ -258,10 +259,11 @@
                     .leave-select-li{@include display(flex, center, space-between); padding:14px 16px; @include font(14px, 400); background:#F1F1F1; border-radius:24px; color:#979797; cursor:pointer;
                         span{@include arrow2;}
                     }
-                    ul{width:100%; position:absolute; padding:14px 16px; background:#fff; border-radius:10px; box-shadow:0px 3px 9px rgba(0,0,0, .05);
+                    ul{width:100%; position:absolute; padding:14px 16px; opacity:0; visibility:hidden; background:#fff; border-radius:10px; box-shadow:0px 3px 9px rgba(0,0,0, .05); transition:all .15s $easing;
                         li{padding:8px 0; border-bottom:1px solid #d9d9d9; @include font(14px, 400); cursor:pointer;
                             &:last-child{border-bottom:0;}
                         }
+                        &.active{opacity:1; visibility:visible}
                     }
                 }
             }
