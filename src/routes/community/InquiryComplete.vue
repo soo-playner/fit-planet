@@ -5,6 +5,7 @@
 </script>
 
 <template>
+    <!-- 이메일에 답변이 전송되면 문자를 통해 사용자에게 알려주기 -->
     <div class="InquiryComplete_container">
         <div class="InquiryComplete_container_inner mob-inner">
             <div class="top-row">

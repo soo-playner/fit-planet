@@ -5,16 +5,17 @@
 .placeList_container{
     &_inner{padding:20px;
         .filter-scroll{@include filterScroll;}
-        .placeList-form{@include PlaceListForm;}
-        .map-move{@include conSize(null, 34px, 34px); @include display(flex, center, center); 
-            @include position(fixed, null, null, 104px, 50%); transform:translateX(-50%); padding:0 12px; 
+        .PlaceData-form{@include placeList2;}
+        .map-move{
+            @include conSize(null, 34px, 34px); @include display(flex, center, center); 
+            @include position(fixed, null, null, 104px, 50%); transform:translateX(-50%); padding:0 12px 0 7px; 
             background:$f; border:1px solid $b; border-radius:17px; box-shadow:4px 4px 25px rgba(0,0,0, .15);
         }
     }
 }
 
 /******************************************
-상세 페이지
+플레이스 상세 페이지
 /components/routes/place/PlaceDetail.vue
 /components/routes/trainer/TrainerDetail.vue
 ******************************************/

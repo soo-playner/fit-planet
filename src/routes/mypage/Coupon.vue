@@ -34,7 +34,7 @@
 </script>
 
 <template>
-    <div class="coupon_container">
+    <div class="coupon_container main-layout">
         <div class="coupon_container_inner mob-inner">
             <div class="coupon-input">
                 <div class="form-group"><input type="text" name="coupon-num" id="coupon-num" placeholder="쿠폰 번호 입력"></div>
@@ -44,6 +44,7 @@
                 <CouponList v-for="couponItem in CouponList" :key="couponItem" :data="couponItem"></CouponList>
             </ul>
         </div>
+        <!-- 모달창 -->
         <div class="coupon-issue-modal member_alert" v-bind:class="{ active : couponReceive }">
             <div class="overlay" @click="couponIssuedFnc"></div>
             <div class="coupon-issue-modal-inner member_alert_inner">

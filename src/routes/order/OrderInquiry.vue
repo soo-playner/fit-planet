@@ -15,7 +15,7 @@
 </script>
 
 <template>
-    <div class="orderinquiry_container">
+    <div class="orderinquiry_container main-layout">
         <div class="orderinquiry_container_inner mob-inner">
             <ul class="order-list">
                 <li>
@@ -101,6 +101,7 @@
                 </li>
             </ul>
         </div>
+        <!-- 모달창 -->
         <div class="order-delete-modal member_alert" v-bind:class="{ active : orderDelete }">
             <div class="overlay" @click="orderDeleteFnc"></div>
             <div class="order-delete-modal-inner mob-inner member_alert_inner">

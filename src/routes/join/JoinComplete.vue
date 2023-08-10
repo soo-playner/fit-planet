@@ -67,7 +67,7 @@
                             rect.y += rect.speed;
                             rect.rotation += rect.speed;
 
-                            if (rect.y > canvas.height) {
+                            if (rect.y > canvas.height) { // 사각형이 화면에서 벗어날 경우 배열에서 삭제한다
                                 rectangles.splice(i, 5);
                             }
                         }else{
@@ -81,8 +81,9 @@
             }
 
             function windowOnResize(){
-                canvas.width = canvasSize.width;
-                canvas.height = canvasSize.height;
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                rectangles = []; // 배열 초기화
                 location.reload();
             }
             window.addEventListener('resize', windowOnResize, false);

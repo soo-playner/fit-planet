@@ -27,10 +27,12 @@
             });
 
             function rectangle(width, height){
+                // 요소의 크기 지정
                 width = 150;
                 height = 50;
 
                 const loadImage = (url, onSuccess) => {
+                    // 이미지 노출 안 되어 추가
                     const image = new Image();
                     image.src = url; 
                     image.onload = () => {
@@ -39,8 +41,10 @@
                 }
 
                 for(let i=0; i<15; i++){
+                    // 요소가 떨어지는 지점을 랜덤으로 구함
                     let x = Math.random() * 250 + 200 ;
                     let y = Math.random() * canvasSize.width / 2 ;
+
                     setTimeout(() => {
                         loadImage(
                             require(`@/assets/image/test${i + 1}.png`),
@@ -48,7 +52,6 @@
                                 var square = Bodies.rectangle(
                                     x, y, width, height,
                                     {
-                                        //chamfer : {radius : 25},
                                         render : {
                                             sprite : {
                                                 texture : url,
@@ -99,7 +102,7 @@
             function windowOnResize(){
                 document.querySelector('canvas').width = document.querySelector('.matter_wrap').width;
                 document.querySelector('canvas').height = window.innerHeight;
-                location.reload(); // 자동 리사이징이 안 돼서 추가
+                location.reload();
             }
             window.addEventListener('resize', windowOnResize, false);
         },

@@ -185,7 +185,7 @@ export default {
                 </SwiperSlide>
             </Swiper>
             </div>
-            <router-link to="/" class="review-all-btn f-14-400">이용 후기 모두 보기</router-link>
+            <router-link to="/Place/Review" class="review-all-btn f-14-400">이용 후기 모두 보기</router-link>
         </div>
         <!-- 플레이스 설명 -->
         <div class="place-explain f-12-400">
@@ -326,12 +326,10 @@ export default {
                     <span class="arrow"></span>
                 </div>
                 </div>
-                <div class="trainer-comment">
-                “김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"
-                </div>
+                <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
             </SwiperSlide>
             </Swiper>
-            <router-link to="/PlaceTrainer" class="place-trainer-all-btn f-14-400">트레이너 모두 보기</router-link>
+            <router-link to="/Place/Trainer" class="place-trainer-all-btn f-14-400">트레이너 모두 보기</router-link>
         </div>
         <!-- 환불정책 -->
         <div class="place-refunt">

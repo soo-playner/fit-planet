@@ -1,6 +1,12 @@
 <script>
     export default {
-        name : 'Footer'
+        name : 'Footer',
+        data() {
+            return {
+                quick1 : ['/', 'Class', 'NotClass'],
+                quick2 : ['/Place/List', '/Place/Detail', ]
+            }
+        }
     }
 </script>
 

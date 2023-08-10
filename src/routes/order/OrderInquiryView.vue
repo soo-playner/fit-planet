@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="OrderInquiryView_container">
+    <div class="OrderInquiryView_container main-layout">
         <div class="OrderInquiryView_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">

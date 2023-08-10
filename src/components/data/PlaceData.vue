@@ -8,33 +8,31 @@
 </script>
 
 <template>
-    <div class="placeList-form">
+    <div class="PlaceData-form">
         <div class="top-column">
-            <div class="placeList-txt-box">
-                <div class="placeList-info-1">
-                    <div class="placeList-detail">
+            <div class="left-row">
+                <div class="place-txt-box">
+                    <div class="place-info">
                         <p class="f-16-700">{{ data.placeName }}</p>
-                        <div>
-                            <img src="@/assets/image/scope.png" alt="별점">
-                            <p class="f-12-400">
+                        <div class="starBox">
+                            <div class="star">★</div>
+                            <p class="total-scope f-12-400">
                                 <span>{{ data.placeScope }}</span>
                                 <span>({{ data.placeTotalScope }})</span>
                             </p>
                         </div>
                     </div>
-                    <div class="placeList-add f-12-400">{{ data.placeLocation }}</div>
+                    <div class="location-info f-12-400">서울 강남구 삼성로86길 11</div>
                 </div>
-                <ul class="placeList-info-2">
+                <ul class="place-filter-list">
                     <li>24시</li>
                     <li>P.T</li>
                     <li>그룹 P.T</li>
                     <li>골프</li>
                 </ul>
             </div>
-            <div class="placeList-img-box"></div>
+            <div class="right-row place-img-box"></div>
         </div>
-        <div class="bott-column review">
-            <p class="f-12-400">{{ data.placeComment }}</p>
-        </div>
+        <div class="bott-column place-comment f-12-400">운동기구도 다양하고 운동복, 수건도 쓸 수 있어서 너무 만족스러웠습니다. 집 근처라 꾸준히 이용하게 될 것 같아요.</div>
     </div>
 </template>

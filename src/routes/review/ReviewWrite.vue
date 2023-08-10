@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="ReviewWrite_container">
+    <div class="ReviewWrite_container main-layout">
         <div class="ReviewWrite_container_inner mob-inner">
             <!-- 결제 상품 -->
             <div class="product">

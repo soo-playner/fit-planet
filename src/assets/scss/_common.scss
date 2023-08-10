@@ -19,7 +19,6 @@ span{display:block;}
     @media(max-width:480px){@content;}
 }
 
-
 // 믹스인
 @mixin conSize($width:null, $height:null, $lh:null){width:$width; height:$height; line-height:$lh;}
 @mixin display($display, $ai:null, $jc:null, $ff:null){display:$display; align-items:$ai; justify-content:$jc; flex-flow:$ff;}
@@ -42,34 +41,6 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-18-700{@include font(18px, 700, null);}
 .f-20-700{@include font(20px, 700, null);}
 .f-24-700{@include font(24px, 700, null);}
-
-// 인풋
-button, input{background:none; border:none;
-    &:focus, &:active{outline:none; box-shadow:none; background:none}
-}
-.form-group{position:relative;
-    input[type='text'],
-    input[type='password'],
-    input[type='email'],
-    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
-        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
-        &:focus{border-bottom-color:$b;}
-    }
-    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
-        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
-            span{@include conSize(15px, 15px); background:#d9d9d9; border-radius:50%;}
-        }
-        &:checked + label{
-            span{background:$gray;}
-
-        }
-    }
-    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
-       //&::-webkit-slider-runnable-track{}
-        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
-    }
-}
-textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
 
 /******************************************
 헤더 

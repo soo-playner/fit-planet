@@ -52,9 +52,9 @@
 </script>
 
 <template>
-    <Header v-if="visiableHeader_1.includes($route.name)"></Header>
-    <HeaderType_1 v-else-if="visiableHeader_2.includes($route.name)"></HeaderType_1>
+    <Header></Header>
+    <!-- <HeaderType_1 v-else-if="visiableHeader_2.includes($route.name)"></HeaderType_1> -->
     
     <router-view></router-view>
-    <Footer v-if="!visiableRouter.includes($route.name)"></Footer>
+    <Footer></Footer>
 </template>

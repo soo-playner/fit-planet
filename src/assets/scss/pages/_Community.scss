@@ -1,6 +1,6 @@
 /******************************************
 뉴스, 이벤트
-/routes/commnuity/Event, News, EventNews_Tab 
+/routes/commnuity/EventNews, EventNews_Tab 
 ******************************************/
 .EventNewsTab_container{
     &_inner{
@@ -8,19 +8,14 @@
     }
 }
 
-.News_container{
+.EventNews_container{
     &_inner{
         .news-list{padding:0 20px;
             li{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
                 span{margin:5px 0 0 0; color:#979797}
-                .arrow{@include arrow2; transform:rotate(-90deg); margin:0 0 7px 0;}
+                .arrow{@include arrow2; transform:rotate(-90deg); margin:0 0 10px 0;}
             }
         }
-    }
-}
-
-.Event_container{
-    &_inner{
         .event-list{padding:20px;
             li{@include conSize(100%, 105px); margin:0 0 15px 0; overflow:hidden; background:#f1f1f1; border-radius:10px;
                 &:last-child{margin:0;}
@@ -51,17 +46,7 @@
 ******************************************/
 .Inquiry_container{
     &_inner{
-        input[type='text'],
-        input[type='file'],
-        input[type='email']{@include conSize(100%, 44px, 44px); padding:0 16px; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;
-            &:focus{border:none}
-            &::placeholder{color:#979797}
-        }
-        input[type='file']{appearance:none; -webkit-appearance:none; position:absolute; opacity:0;
-            + label{@include conSize(null, 44px, 44px); display:block; padding:0 16px; @include font(12px, 400); background:#F1F1F1; border-radius:8px; color:#979797;}
-        }
-        textarea{min-height:150px;}
-        .form-group{margin:0 0 8px 0;
+        .form-group2{margin:0 0 8px 0;
             &:last-child{margin:0;}
         }
         & > div{border-bottom:8px solid #f1f1f1;}
@@ -77,8 +62,11 @@
         .inquiry-list{padding:24px 20px 28px;
             &-tit{margin:0 0 12px 0;}
             &-ul{@include display(flex); flex-flow:wrap; gap:6px;
-                li{@include liTag; line-height:25px; cursor:pointer;
-                    button{color:#D9D9D9;}
+                li{@include liTag; line-height:25px; transition:all .15s $easing;
+                    button{color:#D9D9D9; transition:all .15s $easing; cursor:pointer;}
+                    &.selected{border-color:$b;
+                        button{color:$b;}
+                    }
                 }
             }
         }
@@ -98,7 +86,7 @@
         .form-group{margin:0 0 13px 0;
             input{
                 + label{position:relative; @include font(12px, 400, #979797);
-                    span{}
+                    //span{}
                     &::before{content:''; @include conSize(calc(100% - 25px), 1px); @include position(absolute, null, 0, 1px); background:#979797}
                 }
             }
@@ -132,7 +120,7 @@
             input{@include conSize(null, 44px, 44px); padding:0 16px; background:#F1F1F1; border:none; border-radius:22px;
                 &::placeholder{color:#979797}
             }
-            .search-btn{@include conSize(20px, 20px); @include position(absolute, 12px, 16px);
+            .search-btn{@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px);
                 &::before, &::after{content:''; position:absolute; background:$b;}
                 &::before{@include conSize(14px, 14px); background:none; border:2px solid $b; border-radius:50%;}
                 &::after{@include conSize(2px, 8px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
@@ -175,11 +163,18 @@
 ******************************************/
 .SearchResult_container{
     &_inner{
-        .tab-and-filter{
-            .search-tab{@include TabList; margin:0 0 20px 0;}
-            .filter-scroll{@include filterScroll;}
+        .search-input{padding:0 20px;
+            input{border-radius:22px}
+            .search-btn{@include searchBtn;}
         }
-        .placeList-form{@include PlaceListForm;}
+        .tab-and-filter{
+            .search-tab{@include TabList; margin:28px 0 20px 0;}
+            .filter-scroll{@include filterScroll; padding:0 20px;
+                img{margin:0;}
+            }
+        }
+        .PlaceData-form{@include placeList2;}
+        .TrainerData-form{@include placeTrainerList2;}
     }
 }
 
@@ -232,22 +227,45 @@
 ******************************************/
 .AlertSetting_container{
     &_inner{
-        .alert-setting-guide{@include display(flex, center, space-between); padding:16px 20px; background:#F1F1F1;
-            button{position:relative;
+        .alert-setting-guide{@include display(flex, center, space-between); padding:16px 20px; margin:0 0 28px 0; background:#F1F1F1;
+            button{position:relative; font-weight:700; cursor:pointer;
                 &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:$b;}
             }
         }
-        .AlertSetting-box{
-            &-tit{padding:0 0 8px 0; margin:0 0 16px 0; border-bottom:1px solid $b;}
-            &-ul{
-                li{@include display(flex, center); position:relative;
+        .AlertSetting-box{padding:0 20px;
+            &-tit{padding:0 0 8px 0; border-bottom:1px solid $b;}
+            &-ul{margin:0 0 32px 0; 
+                li{@include display(flex, center, space-between); position:relative; padding:16px 0; border-bottom:1px solid #F1F1F1;
                     label{
-                        p{margin:0 0 4px 0;}
+                        & > span{line-height:1.6;}
+                        p{margin:0 0 5px 0;}
                     }
-                    .toggle-box{@include display(flex, center);
-                        input[type='checkbox']{@include conSize(60px, 32px); appearance:none; -webkit-appearance:none; position:absolute; z-index:-1; background:$b; border-radius:16px;}
-                        span{@include conSize(24px, 24px); margin:0 0px 0px 4px; background:$f; border-radius:50%;}
+                    .toggle-box{@include display(flex, center); position:relative; cursor:pointer;
+                        input[type='checkbox']{@include conSize(60px, 32px); appearance:none; -webkit-appearance:none; background:#D9D9D9; border-radius:16px; transition:all .3s $easing;}
+                        span{@include conSize(24px, 24px); position:absolute; margin:0 0 0 4px; background:$f; border-radius:50%; transition:all .3s $easing;}
+                        &.active{
+                            input{background:$b;}
+                            span{margin:0 0 0 30px;}
+                        }
                     }
+                }
+            }
+            &:last-child ul{margin:0;}
+        }
+    }
+}
+
+/******************************************
+자주 묻는 질문
+/components/community/FAQ.vue
+******************************************/
+.FAQ_container{
+    &_inner{
+        .faq-tab-list{@include TabList; display:-webkit-box; overflow-x:auto;
+            li{flex:initial; padding:0 22px 15px; cursor:pointer; 
+                button{color:#D9D9D9;}
+                &.active{
+                    button{font-weight:700; color:$b;}
                 }
             }
         }

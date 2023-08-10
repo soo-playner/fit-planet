@@ -1,29 +1,42 @@
 <script>
     import PlaceData from '../data/PlaceData';
+    import TrainerData from '../data/TrainerData';
+    import SearchTab from './Search_Tab';
 
     export default {
         name : 'SearchResult', 
         components : {
-            PlaceData
+            PlaceData, TrainerData, SearchTab
+        },
+        data(){
+            return {
+                tabs : ['플레이스', '트레이너'],
+                targetTab : '플레이스'
+            }
         }
     }
 </script>
 
 <template>
+    <!-- 
+        탭 -> ./Search_Tab.vue
+        플레이스 결과창 -> /components/data/PlaceData.vue
+        트레이너 결과창 -> /components/data/TrainerData.vue
+        $store -> store.js
+    -->
     <div class="SearchResult_container main-layout">
         <div class="SearchResult_container_inner mob-inner">
             <!-- 검색창 -->
             <div class="search-input">
-                <div class="form-group">
+                <div class="form-group2">
                     <input type="text" id="search" name="search" placeholder="지역, 지하철역, 플레이스, 트레이너">
-                    <div class="search-btn"></div>
+                    <button class="search-btn"></button>
                 </div>
             </div>
             <!-- 플레이스/트레이너 탭, 필터 -->
             <div class="tab-and-filter">
                 <ul class="search-tab">
-                    <li class="active"><button>플레이스</button></li>
-                    <li><button>트레이너</button></li>
+                    <SearchTab :tabs="tabs" :targetTab="targetTab" @tabChange="targetTab = $event"></SearchTab>
                 </ul>
                 <ul class="filter-scroll">
                     <li>거리순<span class="arrow"></span></li>
@@ -35,7 +48,19 @@
                     <li>편의시설</li>
                 </ul>
             </div>
-            <PlaceData v-for="placeListItem in $store.state.placeInfo" :key="placeListItem" :data="placeListItem"></PlaceData>
+            <!-- 탭에 맞는 컴포넌트 노출 -->
+            <PlaceData 
+                v-for="placeListItem in $store.state.placeInfo" 
+                :key="placeListItem" 
+                :data="placeListItem" 
+                v-if="targetTab == '플레이스'">
+            </PlaceData>
+            <TrainerData 
+                v-for="trainerListItem in $store.state.trainerInfo"
+                :key="trainerListItem"
+                :data="trainerListItem"
+                v-if="targetTab == '트레이너'">
+            </TrainerData>
         </div>
     </div>
 </template>

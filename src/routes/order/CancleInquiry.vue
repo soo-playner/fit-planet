@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="CancleInquiry_container">
+    <div class="CancleInquiry_container main-layout">
         <div class="CancleInquiry_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">

@@ -21,7 +21,7 @@
                 <span>{{ data.dsec2 }}</span>
             </span>
         </label>
-        <div class="toggle-box" :class="{ active : isChecked }" @click="isChecked=!isChecked">
+        <div class="toggle-box" :class="{ active : isChecked }" @click="isChecked =! isChecked">
             <input type="checkbox" id="workAlert" name="workAlert"  ><span></span>
         </div>
     </li>

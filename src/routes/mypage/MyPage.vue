@@ -12,9 +12,9 @@
                 quick2 : [
                     { Name : '공지/이벤트', Link : '/News' },
                     { Name : '자주 묻는 질문', Link : '/' },
-                    { Name : '이메일 문의', Link : '/' },
+                    { Name : '이메일 문의', Link : '/Inquiry' },
                     { Name : '신고 내역', Link : '/' },
-                    { Name : '약관 및 정책', Link : '/' },
+                    { Name : '약관 및 정책', Link : '/Terms' },
                     { Name : '현재 버전 1.0', Link : '/' },
                 ],
             }
@@ -23,9 +23,9 @@
 </script>
 
 <template>
-    <div class="mypage_container">
+    <div class="mypage_container main-layout">
         <div class="mypage_container_inner mob-inner">
-            <div class="my-profile">
+            <div class="my-profile" @click="$router.push('/Profile')">
                 <div class="my-profile-info">
                     <div class="profile-img"></div>
                     <div>

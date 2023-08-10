@@ -1,6 +1,6 @@
 
 // 알럿창(비밀번호 재설정 등)
-.member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 99); opacity:0; visibility:hidden; transition:all .3s $easing;
+.member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 999); opacity:0; visibility:hidden; transition:all .3s $easing;
     .overlay{@include overLay;}
     &_inner{width:calc(100% - 64px); padding:36px 20px 20px; background:$f; border-radius:8px; box-shadow:0px 0px 30px 5px rgba(0,0,0, .1); text-align:center;
         div{margin:0 0 36px 0;}
@@ -81,6 +81,13 @@
             div{margin:0 0 12px 0;}
         }
         a{@include aTag; @include conSize(null, 44px, 42px);}
+    }
+}
+
+// 탈퇴 이유 선택 모달창
+.AccountDelete-reason-modal{
+    &-inner{
+        button{@include aTag; @include conSize(null, 44px, 42px); margin:48px 0 0 0; cursor:pointer;}
     }
 }
 

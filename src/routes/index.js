@@ -39,17 +39,21 @@ import PlacePay_Complete from '../routes/place/PlacePay_Complete';
 import PlaceTicket_Complete from '../routes/place/PlaceTicket_Complete';
 import TrainerDetail from '../routes/trainer/TrainerDetail';
 import Review from '../routes/review/Review';
+import MyReview from '../routes/review/MyReview';
 import ReviewSelect from '../routes/review/ReviewSelect';
 import ReviewWrite from '../routes/review/ReviewWrite';
-import MyPage from '../routes/mypage/MyPage';
 import OrderInquiry from '../routes/order/OrderInquiry';
 import OrderInquiryView from '../routes/order/OrderInquiryView';
 import CancleInquiry from '../routes/order/CancleInquiry';
+import MyPage from '../routes/mypage/MyPage';
 import Coupon from '../routes/mypage/Coupon';
-import Profile from '../routes/mypage/Profile';
+import Profile_Type1 from '../routes/mypage/Profile_Type1';
+import Profile_Type2 from '../routes/mypage/Profile_Type2';
 import AccountDelete from '../routes/mypage/AccountDelete';
-import News from '../routes/community/News';
-import Event from '../routes/community/Event';
+import ChangeNickname from '../routes/mypage/ChangeNickname';
+import ChangePassword from '../routes/mypage/ChangePassword';
+import ChangePassword_Confirm from '../routes/mypage/ChangePassword_Confirm';
+import EventNews from '../routes/community/EventNews';
 import Terms from '../routes/community/Terms';
 import FAQ from '../routes/community/FAQ';
 import Inquiry from '../routes/community/Inquiry';
@@ -90,33 +94,37 @@ const routes = [
     // 플레이스
     { path : '/Place', component : Place, name : 'Place' }, 
     { path : '/Filter', component : Filter, name : 'Filter' }, 
-    { path : '/PlaceList', component : PlaceList, name : 'PlaceList' }, 
-    { path : '/PlaceDetail', component : PlaceDetail, name : 'PlaceDetail' }, 
-    { path : '/PlaceReview', component : PlaceReview, name : 'PlaceReview' }, 
-    { path : '/PlaceMachine', component : PlaceMachine, name : 'PlaceMachine' },
-    { path : '/PlaceMachine/Choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
-    { path : '/PlaceTrainer', component : PlaceTrainer, name : 'PlaceTrainer' },
-    { path : '/PlacePay', component : PlacePay, name : 'PlacePay' },
-    { path : '/PlacePay/Complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
-    { path : '/PlaceTicket/Complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
+    { path : '/Place/List', component : PlaceList, name : 'PlaceList' }, 
+    { path : '/Place/Detail', component : PlaceDetail, name : 'PlaceDetail' }, 
+    { path : '/Place/Review', component : PlaceReview, name : 'PlaceReview' }, 
+    { path : '/Place/Machine', component : PlaceMachine, name : 'PlaceMachine' },
+    { path : '/Place/Machine/Choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
+    { path : '/Place/Trainer', component : PlaceTrainer, name : 'PlaceTrainer' },
+    { path : '/Place/Pay', component : PlacePay, name : 'PlacePay' },
+    { path : '/Place/Pay/Complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
+    { path : '/Place/Ticket/Complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
     // 트레이너
     { path : '/TrainerDetail', component : TrainerDetail, name : 'TrainerDetail' },
     // 후기
     { path : '/Review', component : Review, name : 'Review' },
-    { path : '/ReviewSelect', component : ReviewSelect, name : 'ReviewSelect' },
-    { path : '/ReviewWrite', component : ReviewWrite, name : 'ReviewWrite' },
+    { path : '/MyReview', component : MyReview, name : 'MyReview' },
+    { path : '/Review/Select', component : ReviewSelect, name : 'ReviewSelect' },
+    { path : '/Review/Write', component : ReviewWrite, name : 'ReviewWrite' },
     // 마이페이지
     { path : '/MyPage', component : MyPage, name : 'MyPage' },
     { path : '/Coupon', component : Coupon, name : 'Coupon' },
-    { path : '/Profile', component : Profile, name : 'Profile' },
+    { path : '/Profile_sns_login', component : Profile_Type1, name : 'Profile_Type1' },
+    { path : '/Profile_email_login', component : Profile_Type2, name : 'Profile_Type2' },
     { path : '/Account/Delete', component : AccountDelete, name : 'AccountDelete' },
+    { path : '/Change/Nickname', component : ChangeNickname, name : 'ChangeNickname' },
+    { path : '/Change/Password', component : ChangePassword, name : 'ChangePassword' },
+    { path : '/Change/Password/Confirm', component : ChangePassword_Confirm, name : 'ChangePassword_Confirm' },
     // 주문내역
     { path : '/OrderInquiry', component : OrderInquiry, name : 'OrderInquiry' },
     { path : '/OrderInquiryView', component : OrderInquiryView, name : 'OrderInquiryView' },
     { path : '/CancleInquiry', component : CancleInquiry, name : 'CancleInquiry' },
     // 커뮤니티
-    { path : '/News', component : News, name : 'News' },
-    { path : '/Event', component : Event, name : 'Event' },
+    { path : '/EventNews', component : EventNews, name : 'EventNews' },
     { path : '/Terms', component : Terms, name : 'Terms' },
     { path : '/FAQ', component : FAQ, name : 'FAQ' },
     { path : '/Inquiry', component : Inquiry, name : 'Inquiry' },
@@ -125,10 +133,10 @@ const routes = [
     { path : '/ScheduleChange', component : ScheduleChange, name : 'ScheduleChange' },
     // 검색창
     { path : '/Search', component : Search, name : 'Search' }, 
-    { path : '/SearchResult', component : SearchResult, name : 'SearchResult' }, 
+    { path : '/Search/Result', component : SearchResult, name : 'SearchResult' }, 
     // 알림창
     { path : '/Alert', component : Alert, name : 'Alert' }, 
-    { path : '/AlertSetting', component : AlertSetting, name : 'AlertSetting' }, 
+    { path : '/Alert/Setting', component : AlertSetting, name : 'AlertSetting' }, 
 ]
 
 const router = createRouter({

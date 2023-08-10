@@ -38,7 +38,7 @@
 </script>
 
 <template>
-    <div class="AlertSetting_container">
+    <div class="AlertSetting_container main-layout">
         <div class="AlertSetting_container_inner mob-inner">
             <div class="alert-setting-guide">
                 <p class="f-12-400">알림이 오지 않을 경우 휴대폰 알림을 켜주세요</p>
