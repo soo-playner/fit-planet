@@ -29,9 +29,9 @@
                 </div>
                 <div class="login-form-input3">
                     <ul>
-                        <li><router-link to="/Join">회원가입</router-link></li>
-                        <li><router-link to="/FindID_Step1">아이디 찾기</router-link></li>
-                        <li><router-link to="/FindPW_Step1">비밀번호 찾기</router-link></li>
+                        <li><router-link to="/join/step1">회원가입</router-link></li>
+                        <li><router-link to="/find/id/step1">아이디 찾기</router-link></li>
+                        <li><router-link to="/find/pw/step1">비밀번호 찾기</router-link></li>
                     </ul>
                 </div>
             </div>
