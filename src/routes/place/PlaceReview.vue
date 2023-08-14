@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="PlaceReview_container">
+    <div class="PlaceReview_container main-layout">
         <div class="PlaceReview_container_inner mob-inner">
             <div class="total-scope">
                 <div class="left-row">

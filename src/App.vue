@@ -1,7 +1,7 @@
 <script>
-    import Header from '../src/components/layout/Header';
-    import HeaderType_1 from '../src/components/layout/HeaderType_1';
-    import Footer from '../src/components/layout/Footer';
+    import Header from './skin/layout/Header';
+    // import HeaderType_1 from './skin/layout/HeaderType_1';
+    import Footer from './skin/layout/Footer';
 
     import './assets/scss/App.css';
 
@@ -9,7 +9,7 @@
         name: 'App',
         components: {
             Header, Footer,
-            HeaderType_1
+            //HeaderType_1
         },
         data : () => ({
             // 헤더 미노출
@@ -54,7 +54,6 @@
 <template>
     <Header></Header>
     <!-- <HeaderType_1 v-else-if="visiableHeader_2.includes($route.name)"></HeaderType_1> -->
-    
     <router-view></router-view>
     <Footer></Footer>
 </template>

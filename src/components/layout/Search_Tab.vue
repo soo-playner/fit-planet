@@ -24,6 +24,6 @@
         :key="idx"
         :class="{ active : tabItem == targetTab }"
         @click="$emit('tabChange', tabItem)">
-            <button >{{ tabItem }}</button>
+            <button>{{ tabItem }}</button>
     </li>
 </template>

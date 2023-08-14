@@ -1,6 +1,6 @@
 <script>
-    import PlaceData from '../data/PlaceData';
-    import TrainerData from '../data/TrainerData';
+    import PlaceData from '@/data/place/PlaceData';
+    import TrainerData from '@/data/place/TrainerData';
     import SearchTab from './Search_Tab';
 
     export default {
@@ -58,7 +58,7 @@
             <TrainerData 
                 v-for="trainerListItem in $store.state.trainerInfo"
                 :key="trainerListItem"
-                :data="trainerListItem"
+                :data="trainerListItem" 
                 v-if="targetTab == '트레이너'">
             </TrainerData>
         </div>

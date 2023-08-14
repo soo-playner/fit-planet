@@ -1,5 +1,5 @@
 <script>
-    import CouponList from '../../components/data/CouponList';
+    import CouponList from '@/data/coupon/CouponList';
 
     export default {
         name : 'Coupon',

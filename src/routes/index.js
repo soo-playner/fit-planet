@@ -6,11 +6,13 @@ npm install vuex@next
 *******************************/
 import { createRouter, createWebHistory } from "vue-router";
 
-import MainPage from '../components/layout/MainPage';
-import Class_MainPage from '../components/layout/Class_MainPage';
-import NotClass_MainPage from '../components/layout/NotClass_MainPage';
+import MainPage from '../skin/home/MainPage';
+import Class_MainPage from '../skin/home/Class_MainPage';
+import NotClass_MainPage from '../skin/home/NotClass_MainPage';
+
 import SplashPage from '../routes/intro/SplashPage';
 import IntroPage from '../routes/intro/IntroPage';
+
 import Login from '../routes/login/Login';
 import Join from '../routes/join/Join';
 import JoinAccount from '../routes/join/JoinAccount';
@@ -18,6 +20,7 @@ import JoinPass from '../routes/join/JoinPass';
 import JoinNickname from '../routes/join/JoinNickname';
 import JoinComplete from '../routes/join/JoinComplete';
 import Authority from '../routes/join/Authority';
+
 import FindID_Step1 from '../routes/find_account/FindID_Step1';
 import FindID_Step2 from '../routes/find_account/FindID_Step2';
 import FindID_Step3 from '../routes/find_account/FindID_Step3';
@@ -60,20 +63,21 @@ import Inquiry from '../routes/community/Inquiry';
 import InquiryComplete from '../routes/community/InquiryComplete';
 import Search from '../components/layout/Search';
 import SearchResult from '../components/layout/SearchResult';
-import Alert from '../components/layout/Alert';
-import AlertSetting from '../components/layout/AlertSetting';
+
+import AlertSetting from '../skin/alert/AlertSetting';
+
 import ScheduleChange from '../components/modal/ScheduleChange';
 
 const routes = [
     // 인트로
-    { path : '/Splash', component : SplashPage, name : 'SplashPage' }, 
+    { path : '/Splash', component : SplashPage, name : 'SplashPage', }, 
     { path : '/Intro', component : IntroPage, name : 'IntroPage' },
     // 메인
     { path : '/', component : MainPage, name : 'MainPage' },
     { path : '/Class', component : Class_MainPage, name : 'Class_MainPage' },
     { path : '/NotClass', component : NotClass_MainPage, name : 'NotClass_MainPage' },
     // 로그인
-    { path : '/Login', component : Login, name : 'Login' },
+    { path : '/Login', component : Login, name : 'Login', meta : {title : '로그인'} },
     // 회원가입
     { path : '/Join', component : Join, name : 'Join' }, 
     { path : '/JoinAccount', component : JoinAccount, name : 'JoinAccount' }, 
@@ -135,7 +139,6 @@ const routes = [
     { path : '/Search', component : Search, name : 'Search' }, 
     { path : '/Search/Result', component : SearchResult, name : 'SearchResult' }, 
     // 알림창
-    { path : '/Alert', component : Alert, name : 'Alert' }, 
     { path : '/Alert/Setting', component : AlertSetting, name : 'AlertSetting' }, 
 ]
 
@@ -143,5 +146,10 @@ const router = createRouter({
     history : createWebHistory(),
     routes
 });
+// router.beforeEach((to, from, next) => {
+//     if(to.params == '/'){
+//         document.title =  "메인 | " + this.$env.VUE_APP_NAME
+//     }
+// });
 
 export { router }

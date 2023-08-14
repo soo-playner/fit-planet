@@ -1,5 +1,5 @@
 <script>
-    import AlertCheck from "../data/AlertCheck";
+    import AlertCheck from "@/data/alert/AlertCheck";
 
     export default {
         name : 'AlertSetting',

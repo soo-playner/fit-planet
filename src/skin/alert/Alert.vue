@@ -3,7 +3,7 @@
         name : 'Alert',
         data(){
             return {
-                alertCurrent : false
+                alertCurrent : false,
             }
         },
         methods : {
@@ -21,7 +21,7 @@
 
         css 파일 -> _Member.scss
     -->
-    <div class="Alert_container main-layout">
+    <div class="Alert_container">
         <div class="Alert_container_inner mob-inner">
             <div class="alert-tit">
                 <p>읽지 않은 알림 <span class="alert-count">2</span>개</p>

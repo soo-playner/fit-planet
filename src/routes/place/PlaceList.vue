@@ -1,5 +1,5 @@
 <script>
-    import PlaceData from '../../components/data/PlaceData';
+    import PlaceData from '@/data/place/PlaceData';
 
     export default {
         name : 'PlaceList',

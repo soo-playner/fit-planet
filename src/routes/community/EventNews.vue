@@ -1,7 +1,7 @@
 <script>
     import EventNews_Tab from './EventNews_Tab';
-    import NewsList from '../../components/data/NewsList';
-    import EventList from '../../components/data/EventList';
+    import NewsList from '@/data/community/NewsList';
+    import EventList from '@/data/community/EventList';
 
     export default {
         name : 'EventNews',

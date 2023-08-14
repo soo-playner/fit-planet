@@ -25,6 +25,12 @@ span{display:block;}
 @mixin position($position1, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$position1; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
 @mixin center($position2){position:$position2; top:50%; left:50%; transform:translate(-50%, -50%);}
 @mixin font($fs:null, $fw:null, $color:null){font-size:$fs; font-weight:$fw; color:$color;}
+@mixin afterLine(){position:relative; margin-right:5px; padding-right:5px;
+    &::after{content:''; @include conSize(1px, 13px); @include position(absolute, 4px, 0); background:$b;}
+    &:last-child{margin-right:0; padding-right:0;
+        &::after{display:none;}
+    }
+}
 
 $b:#000;
 $f:#fff;
@@ -49,8 +55,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .at-header{width:100%; @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, null);
         .menu-ul{@include display(flex, center, null, null); gap:30px;
-            li{@include display(flex, center, null, null);
-                .search{@include conSize(20px, 20px); display:block; position:relative; cursor:pointer;
+            li{@include display(flex, center, null, null); cursor:pointer;
+                .search{@include conSize(20px, 20px); display:block; position:relative; 
                     &::before, &::after{content:""; position:absolute;}
                     &::before{@include conSize(15px, 15px); border:2px solid $b; border-radius:50%;}
                     &::after{@include conSize(8px, 2px); right:2px; bottom:4px; transform:rotate(45deg); background:$b;}
@@ -58,6 +64,46 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             }
         }
     }
+}
+
+.Alert_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); background:$f; transition:all .5s $easing;
+    &_inner{
+        .alert-tit{@include display(flex, center, space-between); padding:12px 20px; @include font(12px, 400);
+            p{@include display(flex);
+                span{margin:0 0 0 4px;}
+            }
+            button{position:relative; font-weight:700; cursor:pointer;
+                &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:$b }
+            }
+        }
+        .alert-list{
+            li{padding:20px; border-bottom:1px solid #d9d9d9;
+                .top-column{@include display(flex, flex-end, space-between); margin:0 0 4px 0;
+                    .time{@include font(12px, 400, #979797);}
+                }
+                .bott-column{@include display(flex, null, space-between); column-gap:20px;
+                    .txt-box{width:calc(100% - 84px); @include display(flex, null, space-between, column); row-gap:8px;
+                        .alert-con{@include font(14px, 400);}
+                        .place-info{@include display(flex);
+                            p{@include afterLine; @include display(flex); column-gap:5px; padding-right:7px; @include font(12px, 400, #979797);
+                                &::after{height:10px; background:#979797}
+                            }
+                        }
+                    }
+                    .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;}
+                }
+                &.notConfirm{background:#F1F1F1;}
+                &.couponAlert{
+                    .txt-box{width:100%;
+                        .alert-con{width:calc(100% - 84px);}
+                        p{@include font(12px, 400, #979797)}
+                    }
+                    .alert-img{display:none}
+                }
+            }
+        }
+    }
+    &.active{right:0;}
 }
 
 /******************************************
