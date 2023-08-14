@@ -1,5 +1,5 @@
 <script>
-import Alert from "../alert/Alert.vue";
+import Alert from "./components/Alert.vue";
 
 export default {
     name: "Header",
