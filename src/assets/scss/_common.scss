@@ -10,7 +10,8 @@ span{display:block;}
 
 // 미디어쿼리
 @mixin responsive-1040(){
-    @media(max-width:1040px){@content;}
+    @media(max-width:1040px){@content;
+    }
 }
 @mixin responsive-991(){
     @media(max-width:991px){@content;}
@@ -54,8 +55,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 ******************************************/
 .at-header{width:100%; @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, null);
+        h1{font-size: 16px; font-weight: normal}
         .menu-ul{@include display(flex, center, null, null); gap:30px;
             li{@include display(flex, center, null, null); cursor:pointer;
+                &.progress{font-size: 14px;}
                 .search{@include conSize(20px, 20px); display:block; position:relative; 
                     &::before, &::after{content:""; position:absolute;}
                     &::before{@include conSize(15px, 15px); border:2px solid $b; border-radius:50%;}

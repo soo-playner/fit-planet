@@ -1,38 +1,89 @@
 <script>
-    import Alert from '../alert/Alert.vue';
+import Alert from "../alert/Alert.vue";
 
-    export default {
-        name : 'Header',
-        components : {
-            Alert,
+export default {
+    name: "Header",
+    components: {
+        Alert,
+    },
+    data() {
+        return {
+            AlertOpen: false,
+        };
+    },
+    methods: {
+        AlertOpenFnc: function () {
+            this.AlertOpen = !this.AlertOpen;
         },
-        data(){
-            return {
-                AlertOpen : false,
+        headerType() {
+            switch (this.$route.fullPath) {
+                case "/": {
+                    return {
+                        logo: true,
+                        alarm: true,
+                        search: true,
+                        mypage: true,
+                        // setting: true,
+                        // home: true,
+                    };
+                }
+                case "/Join": {
+                    return {
+                        back: true,
+                        overallProgress: 3,
+                        currentProgress: 1,
+                    };
+                }
+                default: {
+                    return {
+                        back: true,
+                    };
+                }
             }
         },
-        methods : {
-            AlertOpenFnc : function(){
-                this.AlertOpen = !this.AlertOpen
+        headerTitle() {
+            switch (this.$route.fullPath) {
+                case "/Join": {
+                    return "서비스 이용 동의";
+                }
+                case "/filter": {
+                    return "필터";
+                }
+                default: {
+                    return false;
+                }
             }
-        }
-    }
+        },
+    },
+};
 </script>
 
 <template>
-    <header class="at-header">
+    <header
+        class="at-header"
+        :style="{
+            backgroundImage: `linear-gradient(90deg,#f1f1f1 ${(headerType()['currentProgress'] / headerType()['overallProgress']) * 100}%, #fff ${
+                1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
+            }%)`,
+        }"
+    >
         <div class="at-header-inner">
-            <div class="logo">
-                <img src="@/assets/image/logo.png" alt="핏플래닛 로고">
+            <img v-if="headerType()['back']" src="@/assets/image/back.png" alt="뒤로가기" />
+            <img v-if="headerType()['close']" src="@/assets/image/close.png" alt="닫기" />
+            <div class="logo" v-if="headerType()['logo']">
+                <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
             </div>
+            <h1 v-if="headerTitle()">{{ headerTitle() }}</h1>
             <ul class="menu-ul">
-                <li @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림"></li>
-                <li><span class="search"></span></li>
-                <li><img src="@/assets/image/person.png" alt="마이페이지"></li> 
-            </ul> 
+                <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
+                <li v-if="headerType()['search']"><span class="search"></span></li>
+                <li v-if="headerType()['mypage']"><img src="@/assets/image/person.png" alt="마이페이지" /></li>
+                <li v-if="headerType()['home']"><img src="@/assets/image/home.png" alt="홈" /></li>
+                <li v-if="headerType()['setting']"><img src="@/assets/image/setting.png" alt="설정" /></li>
+                <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
+            </ul>
         </div>
 
-        <Alert :class="{ active : AlertOpen }"/>
+        <Alert :class="{ active: AlertOpen }" />
     </header>
 </template>
-
