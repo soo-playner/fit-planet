@@ -11,6 +11,9 @@
             return {
                 AlertOpen : false,
                 SearchOpen : false,
+                headerActive : [
+                    "JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority", 
+                ]
             }
         },
         methods: {
@@ -105,7 +108,7 @@
                 1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
             }%)`,
         }"
-        
+        :class="headerActive.includes($route.name) ? 'active' : ''"
     >
         <div class="at-header-inner">
             <img v-if="headerType()['back']" src="@/assets/image/back.png" alt="뒤로가기" />

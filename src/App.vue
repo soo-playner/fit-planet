@@ -33,8 +33,7 @@
 </script>
 
 <template>
-    <Header v-if="!notVisiable1.includes($route.name)"></Header>
-    <!-- <HeaderType_1 v-else-if="visiableHeader_2.includes($route.name)"></HeaderType_1> -->
+    <Header v-if="!notVisiable1.includes($route.name)"></Header>=
     <router-view></router-view>
     <Footer v-if="!notVisiable2.includes($route.name)"></Footer>
 </template>
