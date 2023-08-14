@@ -66,8 +66,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 /components/Header.vue
 ******************************************/
 .at-header{width:100%; @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
-    &-inner{@include display(flex, center, space-between, null);
-        h1{font-size: 16px; font-weight: normal}
+    &-inner{@include display(flex, center, space-between, null); position: relative;
+        h1{position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);font-size: 16px; font-weight: normal; }
         .menu-ul{@include display(flex, center, null, null); gap:30px;
             li{@include display(flex, center, null, null); cursor:pointer;
                 &.progress{font-size: 14px;}
