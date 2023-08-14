@@ -34,7 +34,9 @@
                     <p class="f-14-700">{{ trainerList.cost }}/회</p>
                 </div>
                 <div class="scope">
-                    ★
+                    <div class="starBox">
+                        <div class="str">★</div>
+                    </div>
                     <p class="f-12-400">{{ trainerList.scope }}<span>({{ trainerList.totalScope }})</span></p>
                 </div>
             </div>

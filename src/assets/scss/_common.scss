@@ -31,6 +31,12 @@ span{display:block;}
         &::after{display:none;}
     }
 }
+// 검색 버튼
+@mixin searchBtn(){@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px); cursor:pointer;
+    &::before, &::after{content:''; position:absolute; background:$b;}
+    &::before{@include conSize(14px, 14px); background:none; border:2px solid $b; border-radius:50%;}
+    &::after{@include conSize(2px, 8px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
+}
 
 $b:#000;
 $f:#fff;
@@ -56,16 +62,13 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &-inner{@include display(flex, center, space-between, null);
         .menu-ul{@include display(flex, center, null, null); gap:30px;
             li{@include display(flex, center, null, null); cursor:pointer;
-                .search{@include conSize(20px, 20px); display:block; position:relative; 
-                    &::before, &::after{content:""; position:absolute;}
-                    &::before{@include conSize(15px, 15px); border:2px solid $b; border-radius:50%;}
-                    &::after{@include conSize(8px, 2px); right:2px; bottom:4px; transform:rotate(45deg); background:$b;}
-                }
+                .search{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
             }
         }
     }
 }
 
+// 알림창
 .Alert_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); background:$f; transition:all .5s $easing;
     &_inner{
         .alert-tit{@include display(flex, center, space-between); padding:12px 20px; @include font(12px, 400);
@@ -105,6 +108,52 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     }
     &.active{right:0;}
 }
+
+// 검색창
+.Search_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); background:$f; transition:all .5s $easing;
+    &_inner{
+        & > div{padding:20px;}
+        // 검색 인풋창
+        .search-input{
+            .form-group{
+                input{@include conSize(null, 44px, 44px); padding:0 16px; background:#F1F1F1; border:none; border-radius:22px;
+                    &::placeholder{color:#979797}
+                }
+            }
+            .search-btn{@include searchBtn;}
+        }
+        // 최근 본 운동
+        .recent-work{padding-right:0;
+            &-tit{@include display(flex, flex-end, space-between); margin:0 0 11px 0; padding-right:20px;
+                button{color:#979797; cursor:pointer;}
+            }
+            .recent-work-ul{display:-webkit-box; column-gap:8px; overflow-x:auto;
+                li{
+                    .center-img{@include conSize(101px, 101px); background:#D9D9D9; border-radius:8px;}
+                    p{margin:8px 0 0 0; @include font(14px, 400);}
+                    &:last-child{margin:0 20px 0 0;}
+                }
+            }
+        }
+        // 최근 검색어
+        .recent-search-word{
+            &-tit{@include display(flex, flex-end, space-between); margin:0 0 3px 0; 
+                button{color:#979797; cursor:pointer;}
+            }
+            &-ul{
+                li{@include display(flex, center, space-between); padding:9px 0; @include font(14px, 400); border-bottom:1px solid #D9D9D9;
+                    button{@include conSize(18px, 18px); @include display(flex, center, center); position:relative; cursor:pointer;
+                        &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
+                        &::before{transform:rotate(45deg)}
+                        &::after{transform:rotate(-45deg)}
+                    }
+                }
+            }
+        }
+    }
+    &.active{right:0;}
+}
+
 
 /******************************************
 풋터
