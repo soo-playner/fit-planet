@@ -34,6 +34,12 @@ export default {
                         currentProgress: 1,
                     };
                 }
+                case "/filter": {
+                    return {
+                        back: true,
+                        close: true,
+                    };
+                }
                 default: {
                     return {
                         back: true,
@@ -69,17 +75,18 @@ export default {
     >
         <div class="at-header-inner">
             <img v-if="headerType()['back']" src="@/assets/image/back.png" alt="뒤로가기" />
-            <img v-if="headerType()['close']" src="@/assets/image/close.png" alt="닫기" />
             <div class="logo" v-if="headerType()['logo']">
                 <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
             </div>
             <h1 v-if="headerTitle()">{{ headerTitle() }}</h1>
+            <div></div>
             <ul class="menu-ul">
                 <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
                 <li v-if="headerType()['search']"><span class="search"></span></li>
                 <li v-if="headerType()['mypage']"><img src="@/assets/image/person.png" alt="마이페이지" /></li>
                 <li v-if="headerType()['home']"><img src="@/assets/image/home.png" alt="홈" /></li>
                 <li v-if="headerType()['setting']"><img src="@/assets/image/setting.png" alt="설정" /></li>
+                <li v-if="headerType()['close']"><img src="@/assets/image/close.png" alt="닫기" /></li>
                 <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
             </ul>
         </div>
