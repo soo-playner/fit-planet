@@ -1,16 +1,11 @@
 <script>
-    import JoinCurrent from '../../components/layout/JoinCurrent';
-
+    // 경로 - /find/pw/email/step1
     export default {
         name : 'FindPW_Email_Step1',
-        components : {
-            JoinCurrent
-        }
     }
 </script>
 
 <template>
-    <JoinCurrent/>
     <div class="member_container FindPW_Email_Step1">
         <div class="member_container_inner mob-inner">
             <div class="FindPW_form">
