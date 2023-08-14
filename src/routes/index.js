@@ -12,7 +12,9 @@ import NotClass_Home from '../skin/home/NotClass_Home';
 import SplashPage from '../routes/intro/SplashPage';
 import IntroPage from '../routes/intro/IntroPage';
 import Login from '../routes/login/Login';
-import Join from '../routes/join/Join';
+import JoinStep1 from '../routes/join/JoinStep1';
+import JoinStep2 from '../routes/join/JoinStep2';
+import JoinStep3 from '../routes/join/JoinStep3';
 import JoinAccount from '../routes/join/JoinAccount';
 import JoinPass from '../routes/join/JoinPass';
 import JoinNickname from '../routes/join/JoinNickname';
@@ -73,7 +75,9 @@ const routes = [
     // 로그인
     { path : '/login', component : Login, name : 'Login', meta : {title : '로그인'} },
     // 회원가입
-    { path : '/join', component : Join, name : 'Join' }, 
+    { path : '/join/step1', component : JoinStep1, name : 'JoinStep1' }, 
+    { path : '/join/step2', component : JoinStep2, name : 'JoinStep2' }, 
+    { path : '/join/step3', component : JoinStep3, name : 'JoinStep3' }, 
     { path : '/join/account', component : JoinAccount, name : 'JoinAccount' }, 
     { path : '/join/Pass', component : JoinPass, name : 'JoinPass' },
     { path : '/join/nickname', component : JoinNickname, name : 'JoinNickname' },  

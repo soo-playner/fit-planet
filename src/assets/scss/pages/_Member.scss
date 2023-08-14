@@ -1,3 +1,36 @@
+.join_container{min-height:calc(100vh - 52px); @include display(flex, null, space-between, column); padding:51px 24px 52px;
+    &_inner{width:100%;}
+    // 서비스 이용 동의 1단계
+    &.step1{
+        .form-group{padding:12px 0;
+            &.rep{padding:0 0 17px 0; margin:0 0 7px 0; border-bottom:1px solid #f1f1f1;}
+            .arrow{@include conSize(7px, 18px); @include display(flex, center, center); @include position(absolute, 14px, 0, null, null, 99);
+                &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:#979797;}
+                &::before{transform:rotate(45deg); margin:0 0 5px 0;}
+                &::after{transform:rotate(-45deg); margin:5px 0 0 0;}
+            }
+        }
+    }
+    // 회원가입 2단계
+    &.step2{
+        .form-group{
+            .etc{@include display(flex, center); column-gap:12px; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%);
+                .check-confirm, .pw-exposure{@include display(flex, center);
+                    &.active{filter:invert(1)}
+                }
+                .pw-exposure{@include conSize(22px, 15px); cursor:pointer;}
+                .check-confirm{@include conSize(18px, 14px);}
+            }
+        }
+    }
+    // 닉네임 등록 3단계
+    &.step3{
+        .nickname-guide{margin:0 0 32px 0; text-align:center;}
+        .form-group{
+            button{@include liTag; @include conSize(null, 30px, 28px); @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); border-color:$b;}
+        }
+    }
+}
 /******************************************
 회원가입
 /routes/join
