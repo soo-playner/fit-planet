@@ -1,8 +1,8 @@
 
 
-// 인풋
+// 인풋, 버튼 초기 설정
 button, input{background:none; border:none;
-    &:focus, &:active{outline:none; box-shadow:none; background:none}
+    &:focus, &:active{outline:none; box-shadow:none;}
 }
 .form-group{position:relative;
     input[type='text'],
@@ -42,6 +42,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         &::placeholder{color:#979797}
     }
 }
+
 /******************************************
 공통 적용되는 레이아웃 믹스인
 ******************************************/
@@ -143,6 +144,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 }
 
 .starBox{@include display(flex)}
+
 .join_current{position:relative; padding:52px 24px 0;
     .step-value{height:100px; position:absolute; top:0; left:0; background:#F1F1F1;
         &.first{width:calc(100% / 4)}
@@ -164,12 +166,10 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         .current-step{@include display(flex)}
     }
 }
-.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center;}
+
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }
-.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797}
-.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
 
 /******************************************
 /routes/order

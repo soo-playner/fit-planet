@@ -59,6 +59,32 @@ span {
   margin: 0 auto;
 }
 
+.next-step-btn {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  display: block;
+  background: #000;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.password-guide {
+  line-height: 1.8;
+  margin: 28px 0 0 0;
+  color: #979797;
+}
+
+.pass-time {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 .f-12-400 {
   font-size: 12px;
   font-weight: 400;
@@ -600,7 +626,6 @@ button:focus, button:active, input:focus, input:active {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  background: none;
 }
 
 .form-group {
@@ -897,17 +922,6 @@ textarea {
   display: flex;
 }
 
-.next-step-btn {
-  width: 100%;
-  height: 44px;
-  line-height: 44px;
-  display: block;
-  background: #000;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-}
-
 .line {
   display: inline-block;
   position: relative;
@@ -920,20 +934,6 @@ textarea {
   right: 0;
   bottom: 1px;
   background: #000;
-}
-
-.password-guide {
-  line-height: 1.8;
-  margin: 28px 0 0 0;
-  color: #979797;
-}
-
-.pass-time {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 
 /******************************************
@@ -2517,7 +2517,11 @@ textarea {
           transform: translate(-50%, -50%);
 }
 
-.join_container {
+/******************************************
+회원가입, 로그인
+/routes/join
+******************************************/
+.member_container {
   min-height: calc(100vh - 52px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2531,18 +2535,18 @@ textarea {
           flex-flow: column;
   padding: 51px 24px 52px;
 }
-.join_container_inner {
+.member_container_inner {
   width: 100%;
 }
-.join_container.step1 .form-group {
+.member_container.step1 .form-group {
   padding: 12px 0;
 }
-.join_container.step1 .form-group.rep {
+.member_container.step1 .form-group.rep {
   padding: 0 0 17px 0;
   margin: 0 0 7px 0;
   border-bottom: 1px solid #f1f1f1;
 }
-.join_container.step1 .form-group .arrow {
+.member_container.step1 .form-group .arrow {
   width: 7px;
   height: 18px;
   display: -webkit-box;
@@ -2559,24 +2563,24 @@ textarea {
   right: 0;
   z-index: 99;
 }
-.join_container.step1 .form-group .arrow::before, .join_container.step1 .form-group .arrow::after {
+.member_container.step1 .form-group .arrow::before, .member_container.step1 .form-group .arrow::after {
   content: "";
   width: 100%;
   height: 1px;
   position: absolute;
   background: #979797;
 }
-.join_container.step1 .form-group .arrow::before {
+.member_container.step1 .form-group .arrow::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   margin: 0 0 5px 0;
 }
-.join_container.step1 .form-group .arrow::after {
+.member_container.step1 .form-group .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin: 5px 0 0 0;
 }
-.join_container.step2 .form-group .etc {
+.member_container.step2 .form-group .etc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2592,7 +2596,7 @@ textarea {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-.join_container.step2 .form-group .etc .check-confirm, .join_container.step2 .form-group .etc .pw-exposure {
+.member_container.step2 .form-group .etc .check-confirm, .member_container.step2 .form-group .etc .pw-exposure {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2600,24 +2604,24 @@ textarea {
       -ms-flex-align: center;
           align-items: center;
 }
-.join_container.step2 .form-group .etc .check-confirm.active, .join_container.step2 .form-group .etc .pw-exposure.active {
+.member_container.step2 .form-group .etc .check-confirm.active, .member_container.step2 .form-group .etc .pw-exposure.active {
   -webkit-filter: invert(1);
           filter: invert(1);
 }
-.join_container.step2 .form-group .etc .pw-exposure {
+.member_container.step2 .form-group .etc .pw-exposure {
   width: 22px;
   height: 15px;
   cursor: pointer;
 }
-.join_container.step2 .form-group .etc .check-confirm {
+.member_container.step2 .form-group .etc .check-confirm {
   width: 18px;
   height: 14px;
 }
-.join_container.step3 .nickname-guide {
+.member_container.step3 .nickname-guide {
   margin: 0 0 32px 0;
   text-align: center;
 }
-.join_container.step3 .form-group button {
+.member_container.step3 .form-group button {
   height: 28px;
   line-height: 28px;
   position: relative;
@@ -2636,201 +2640,54 @@ textarea {
           transform: translateY(-50%);
   border-color: #000;
 }
-
-/******************************************
-회원가입
-/routes/join
-******************************************/
-.member_container {
-  padding: 0 0 52px 0;
-  margin-top: 37px;
-}
-.member_container_inner {
-  width: calc(100% - 48px);
-  height: calc(100vh - 128px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  margin: 0 auto;
-}
-.member_container_inner .member-form-inner {
-  overflow: hidden;
-}
-.member_container_inner .member-form-inner > div {
-  width: 100%;
-}
-.member_container_inner .member-form-inner button {
-  height: 33px;
-  line-height: 31px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  padding: 0 10px;
-  border-radius: 16px;
-}
-.member_container_inner .member-form-inner .join-third-step .nickname-guide {
+.member_container.id-step3 .id-guide {
   text-align: center;
 }
-.member_container_inner .member-form-inner .join-third-step button {
-  border: 1px solid #000;
-  color: #000;
+.member_container.id-step3 .id-guide p {
+  margin: 6px 0 0 0;
 }
-.member_container_inner .member-form .arrow {
-  width: 7px;
-  height: 18px;
+.member_container.id-step3 .id-list {
+  margin: 33px 0 0 0;
+}
+.member_container.id-step3 .id-list li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  top: 14px;
-  right: 0;
-  z-index: 99;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  padding: 10px;
+  border: 1px solid #D9D9D9;
+  border-radius: 50px;
+  cursor: pointer;
 }
-.member_container_inner .member-form .arrow::before, .member_container_inner .member-form .arrow::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  background: #979797;
-}
-.member_container_inner .member-form .arrow::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  margin: 0 0 5px 0;
-}
-.member_container_inner .member-form .arrow::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  margin: 5px 0 0 0;
-}
-.member_container.Join .join-first-step .form-group {
-  padding: 12px 0;
-}
-.member_container.Join .join-first-step .form-group label {
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-}
-.member_container.Join .join-first-step .form-group label.bold {
-  font-weight: 700;
-}
-.member_container.Join .join-first-step .join-form-input1 .form-group {
-  padding: 17px 0;
-  margin-bottom: 7px;
-  border-bottom: 1px solid #f1f1f1;
-}
-.member_container.JoinPass button {
-  background: #d9d9d9;
-  color: #fff;
-}
-.member_container.JoinNickname {
-  margin-top: 50px;
-}
-.member_container.JoinComplete {
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-  background: #f1f1f1;
-}
-.member_container.JoinComplete .complete-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.member_container.JoinComplete .member_container_inner {
-  padding: 210px 0 0 0;
-}
-.member_container.JoinComplete .intro-txt-box {
-  text-align: center;
-}
-.member_container.JoinComplete .intro-txt-box > div:first-child {
-  margin: 0 0 8px 0;
-}
-.member_container.JoinComplete .intro-txt-box p {
-  line-height: 1.25;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.member_container.Authority .member_container_inner {
-  height: calc(100vh - 165px);
-  -webkit-box-pack: initial;
-      -ms-flex-pack: initial;
-          justify-content: initial;
-}
-.member_container.Authority .member_container_inner .intro-txt-box {
-  text-align: center;
-}
-.member_container.Authority .member_container_inner .intro-txt-box .f-14-400 {
-  margin: 10px 0 0 0;
-}
-.member_container.Authority .member_container_inner .intro-txt-box .f-14-400 p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.member_container.Authority .member_container_inner .authority-list {
-  margin: 35px 0 0 0;
-}
-.member_container.Authority .member_container_inner .authority-list li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f1f1f1;
-}
-.member_container.Authority .member_container_inner .authority-list li .txt-box .f-16-700 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-.member_container.Authority .member_container_inner .authority-list li .txt-box .f-16-700 span {
-  color: #d9d9d9;
-}
-.member_container.Authority .member_container_inner .authority-list li .authority-con {
+.member_container.id-step3 .id-list li .user-profile-img {
   width: 45px;
   height: 45px;
-  border: 1px solid #f1f1f1;
   border-radius: 50%;
+  background: #979797;
 }
-.member_container.Authority .member_container_inner .authority-guide {
-  margin: 40px 0 20px;
+.member_container.id-step3 .id-list li .user-info p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.member_container.id-step3 .id-list li .user-info p:last-child {
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+  margin: 5px 0 0 0;
   color: #979797;
+}
+.member_container.id-step3 .bott-btn-box {
+  width: 100%;
   text-align: center;
+}
+.member_container.id-step3 .bott-btn-box a:first-child {
+  margin: 0 0 28px 0;
 }
 
 /******************************************

@@ -11,8 +11,8 @@
 
 <template> 
     <JoinCurrent/>
-    <div class="join_container step1">
-        <div class="join_container_inner mob-inner">
+    <div class="member_container step1">
+        <div class="member_container_inner mob-inner">
             <div class="form-group rep">
                 <input type="checkbox" name="wr_1" id="wr_1" value="약관 전체동의">
                 <label for="wr_1" class="f-14-700"><span></span>약관 전체동의</label>

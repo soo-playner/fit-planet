@@ -15,9 +15,6 @@ import Login from '../routes/login/Login';
 import JoinStep1 from '../routes/join/JoinStep1';
 import JoinStep2 from '../routes/join/JoinStep2';
 import JoinStep3 from '../routes/join/JoinStep3';
-import JoinAccount from '../routes/join/JoinAccount';
-import JoinPass from '../routes/join/JoinPass';
-import JoinNickname from '../routes/join/JoinNickname';
 import JoinComplete from '../routes/join/JoinComplete';
 import Authority from '../routes/join/Authority';
 import FindID_Step1 from '../routes/find_account/FindID_Step1';
@@ -69,28 +66,25 @@ const routes = [
     { path : '/splash', component : SplashPage, name : 'SplashPage', }, 
     { path : '/intro', component : IntroPage, name : 'IntroPage' },
     // 메인
-    { path : '/', component : Home, name : 'Home' },
-    { path : '/class', component : Class_Home, name : 'Class_Home' },
-    { path : '/not/class', component : NotClass_Home, name : 'NotClass_Home' },
+    { path : '/', component : Home, name : 'Home' }, // 첫 방문
+    { path : '/class', component : Class_Home, name : 'Class_Home' }, // 플레이스 수강권 미등록
+    { path : '/not/class', component : NotClass_Home, name : 'NotClass_Home' }, // 트레이너 운동 일정 미등록
     // 로그인
     { path : '/login', component : Login, name : 'Login', meta : {title : '로그인'} },
     // 회원가입
-    { path : '/join/step1', component : JoinStep1, name : 'JoinStep1' }, 
-    { path : '/join/step2', component : JoinStep2, name : 'JoinStep2' }, 
-    { path : '/join/step3', component : JoinStep3, name : 'JoinStep3' }, 
-    { path : '/join/account', component : JoinAccount, name : 'JoinAccount' }, 
-    { path : '/join/Pass', component : JoinPass, name : 'JoinPass' },
-    { path : '/join/nickname', component : JoinNickname, name : 'JoinNickname' },  
-    { path : '/join/complete', component : JoinComplete, name : 'JoinComplete' },
-    { path : '/authority', component : Authority, name : 'Authority' }, 
+    { path : '/join/step1', component : JoinStep1, name : 'JoinStep1' }, // 서비스 이용 동의 - 1/4 
+    { path : '/join/step2', component : JoinStep2, name : 'JoinStep2' }, // 회원가입 - 2/4
+    { path : '/join/step3', component : JoinStep3, name : 'JoinStep3' }, // 닉네임 등록 - 3/4
+    { path : '/join/complete', component : JoinComplete, name : 'JoinComplete' }, // 가입 완료 - 4/4
+    { path : '/authority', component : Authority, name : 'Authority' }, // 권한 설정
     // 아이디, 비밀번호 찾기
-    { path : '/find/id/Step1', component : FindID_Step1, name : 'FindID_Step1' }, 
-    { path : '/find/id/Step2', component : FindID_Step2, name : 'FindID_Step2' }, 
-    { path : '/find/id/Step3', component : FindID_Step3, name : 'FindID_Step3' }, 
-    { path : '/find/pw/Step1', component : FindPW_Step1, name : 'FindPW_Step1' }, 
-    { path : '/find/pw/Step2', component : FindPW_Step2, name : 'FindPW_Step2' }, 
-    { path : '/find/pw/email/Step1', component : FindPW_Email_Step1, name : 'FindPW_Email_Step1' }, 
-    { path : '/find/pw/email/Step2', component : FindPW_Email_Step2, name : 'FindPW_Email_Step2' }, 
+    { path : '/find/id/step1', component : FindID_Step1, name : 'FindID_Step1' }, 
+    { path : '/find/id/step2', component : FindID_Step2, name : 'FindID_Step2' }, 
+    { path : '/find/id/step3', component : FindID_Step3, name : 'FindID_Step3' }, 
+    { path : '/find/pw/step1', component : FindPW_Step1, name : 'FindPW_Step1' }, 
+    { path : '/find/pw/step2', component : FindPW_Step2, name : 'FindPW_Step2' }, 
+    { path : '/find/pw/email/step1', component : FindPW_Email_Step1, name : 'FindPW_Email_Step1' }, 
+    { path : '/find/pw/email/step2', component : FindPW_Email_Step2, name : 'FindPW_Email_Step2' }, 
     // 비밀번호 재설정
     { path : '/PW_Reset', component : PW_Reset, name : 'PW_Reset' }, 
     // 플레이스

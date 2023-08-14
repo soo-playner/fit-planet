@@ -29,8 +29,8 @@
 
 <template>
     <JoinCurrent/>
-    <div class="join_container step2">
-        <div class="join_container_inner mob-inner">
+    <div class="member_container step2">
+        <div class="member_container_inner mob-inner">
             <div class="form-group">
                 <input type="email" v-model="signup.id" name="mb_id" id="mb_id" maxlength="20" placeholder="아이디(이메일)" required>
                 

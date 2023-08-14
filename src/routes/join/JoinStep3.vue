@@ -12,8 +12,8 @@
 
 <template>
     <JoinCurrent/>
-    <div class="join_container step3">
-        <div class="join_container_inner mob-inner">
+    <div class="member_container step3">
+        <div class="member_container_inner mob-inner">
             <div class="nickname-guide f-14-400">핏플래닛에서 사용할 닉네임을 입력해주세요</div>
             <div class="form-group">
                 <input type="text" name="mb_nickname" id="mb_nickname" placeholder="닉네임 입력">
