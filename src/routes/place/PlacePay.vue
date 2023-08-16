@@ -1,26 +1,17 @@
-<script>
+<script setup>
     import { Swiper, SwiperSlide } from 'swiper/vue';
     // import 'swiper/swiper-bundle.min.css';
+    import {ref} from 'vue'
 
-    export default {
-        name : 'PlacePay',
-        components : {
-            Swiper, SwiperSlide
-        },
-        data () {
-            return {
-                CardSwiper : {
-                    slidesPerView : 1.5,
-                    spaceBetween : 8,
-                },
-                couponActive : false,
-            }
-        },
-        methods : {
-            toggleCoupon : function(){
-                this.couponActive = !this.couponActive;
-            }
-        }
+    const swiperOption = {
+        slidesPerView : 1.5,
+        spaceBetween : 8,
+    }
+
+    const isCouponActive = ref(false)
+
+    const useCoupon = function(){
+        isCouponActive.value = !isCouponActive.value;
     }
 </script>
 
@@ -49,7 +40,7 @@
             <!-- 쿠폰 -->
             <div class="coupon">
                 <div class="coupon-tit">쿠폰</div>
-                <ul class="coupon-list" @click="toggleCoupon"  v-bind:class="{couponOpen : couponActive}">
+                <ul class="coupon-list" @click="useCoupon"  v-bind:class="{couponOpen : isCouponActive}">
                     <li class="f-14-400">사용가능 쿠폰 0장 / 전체 0장<span class="arrow"></span></li>
                     <ul>
                         <li>쿠폰1</li>

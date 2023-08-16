@@ -1,7 +1,5 @@
-<script>
-    export default {
-        name : 'ChangePassword_Confirm'
-    }
+<script setup>
+
 </script>
 
 <template>

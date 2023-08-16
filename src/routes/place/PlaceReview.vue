@@ -1,7 +1,4 @@
-<script>
-    export default {
-        name : 'PlaceReview',
-    }
+<script setup>
 </script>
 
 <template>

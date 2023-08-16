@@ -1,7 +1,4 @@
-<script>
-    export default {
-        name : 'PlaceTicket_Complete'
-    }
+<script setup>
 </script>
 
 <template>

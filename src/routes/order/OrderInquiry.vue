@@ -1,21 +1,11 @@
-<script>
+<script setup>
     import OrderDeleteModal from '@/components/modal/order/OrderDelete';
+    import {ref} from 'vue'
 
-    export default {
-        name : 'OrderInquiry',
-        components : {
-            OrderDeleteModal
-        },
-        data(){
-            return {
-                orderDelete : false
-            }
-        },
-        methods : {
-            orderDeleteFnc : function(){
-                this.orderDelete = !this.orderDelete;
-            }
-        }
+    const isDeleted = ref(false);
+
+    const deleteOrder = function() {
+        isDeleted.value = !isDeleted.value;
     }
 </script>
 
@@ -32,7 +22,7 @@
                                 <span></span>
                                 <ul class="list">
                                     <li><button>공유하기</button></li>
-                                    <li><button @click="orderDeleteFnc">삭제하기</button></li>
+                                    <li><button @click="deleteOrder">삭제하기</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -59,7 +49,7 @@
                                 <span></span>
                                 <ul class="list">
                                     <li><button>공유하기</button></li>
-                                    <li><button @click="orderDeleteFnc">삭제하기</button></li>
+                                    <li><button @click="deleteOrder">삭제하기</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +76,7 @@
                                 <span></span>
                                 <ul class="list">
                                     <li><button>공유하기</button></li>
-                                    <li><button @click="orderDeleteFnc">삭제하기</button></li>
+                                    <li><button @click="deleteOrder">삭제하기</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -108,6 +98,6 @@
         </div>
 
         <!-- 주문 내역 삭제 모달창 -->
-        <OrderDeleteModal :class="{ active : orderDelete }" :orderDeleteFnc="orderDeleteFnc"/>
+        <OrderDeleteModal :class="{ active : isDeleted }" :confirmDeletion="deleteOrder"/>
     </div>
 </template>

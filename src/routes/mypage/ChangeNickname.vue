@@ -1,7 +1,5 @@
-<script>
-    export default {
-        name : 'ChangeNickname'
-    }
+<script setup>
+
 </script>
 
 <template>

@@ -1,13 +1,8 @@
-<script>
-    export default {
-        name : 'Profile_Type1',
-        data(){
-            return {
-                profileTag : ['닉네임', '이름', '휴대폰 번호'],
-                profileCon : ['위즈위즈', '김위즈', '010-0000-0000']
-            }
-        }
-    }
+<script setup>
+    import { useStore } from 'vuex';
+
+    const store = useStore();
+    const {name, email, phone, birthDate, gender, nickname} = store.state.auth.user;
 </script>
 
 <template>
@@ -30,14 +25,14 @@
                 <li class="sns-login">
                     <div class="left-row">
                         <span class="f-12-400">구글 로그인</span>
-                        <p class="f-14-400">userwiz@gmail.com</p>
+                        <p class="f-14-400">{{email}}</p>
                     </div>
                     <div class="right-row sns-login-current"><img src="@/assets/image/google1.png" alt="구글 로그인"></div>
                 </li>
                 <li class="nickname">
                     <div class="left-row">
                         <span class="f-12-400">닉네임</span>
-                        <p class="f-14-400">위즈위즈</p>
+                        <p class="f-14-400">{{nickname}}</p>
                     </div>
                     <button class="right-row" @click="$router.push('/Change/Nickname')">변경</button>
                 </li>
@@ -45,10 +40,10 @@
                     <div class="left-row">
                         <span class="f-12-400">개인정보</span>
                         <div class="person-info-inner">
-                            <div class="name"><span>이름</span><p>김위즈</p></div>
-                            <div class="phone"><span>휴대폰 번호</span><p>010-0000-0000</p></div>
-                            <div class="phone"><span>생년월일</span><p>0000년 00월 00일</p></div>
-                            <div class="phone"><span>성별</span><p>여</p></div>
+                            <div class="name"><span>이름</span><p>{{name}}</p></div>
+                            <div class="phone"><span>휴대폰 번호</span><p>{{phone}}</p></div>
+                            <div class="phone"><span>생년월일</span><p>{{birthDate}}</p></div>
+                            <div class="phone"><span>성별</span><p>{{gender === 'F' ? '여' : '남'}}</p></div>
                         </div>
                     </div>
                     <button class="right-row">본인인증</button>

@@ -1,15 +1,14 @@
-<script>
-    export default {
-        name : 'OrderDelete_Modal',
-        props : {
-            orderDeleteFnc : Function
-        },
-    }
+<script setup>
+    import {defineProps} from 'vue'
+
+    const {confirmDeletion} = defineProps({
+        confirmDeletion: Function
+    })
 </script>
 
 <template>
     <div class="order-delete-modal member_alert">
-        <div class="overlay" @click="orderDeleteFnc"></div>
+        <div class="overlay" @click="confirmDeletion"></div>
         <div class="order-delete-modal-inner mob-inner member_alert_inner">
             <div class="txt-box">
                 <p class="f-18-700">주문내역을 삭제할까요?</p>
@@ -20,7 +19,7 @@
                 </span>
             </div>
             <div class="bott-btn">
-                <button class="f-16-700" @click="orderDeleteFnc">취소</button>
+                <button class="f-16-700" @click="confirmDeletion">취소</button>
                 <button class="f-16-700">삭제</button>
             </div>
         </div>
