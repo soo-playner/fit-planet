@@ -1,5 +1,5 @@
 <script setup>
-    import CouponList from '@/data/coupon/CouponList';
+    import CouponList from '@/components/coupon/CouponList';
     import CouponIssueModal from '@/components/modal/coupon/CouponIssue';
     import { ref } from 'vue';
 
