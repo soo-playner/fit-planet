@@ -46,6 +46,10 @@ span {
   padding-bottom: 0;
 }
 
+.notFooter-layout2 {
+  padding-bottom: 32px;
+}
+
 .mob-inner {
   max-width: 1000px;
   position: relative;
@@ -6826,10 +6830,6 @@ textarea {
 }
 .ReviewSelect_container_inner ul li:last-child {
   border-bottom: 0;
-}
-.ReviewSelect_container_inner .next-step-btn {
-  width: calc(100% - 40px);
-  margin: 0 auto 33px;
 }
 
 /******************************************

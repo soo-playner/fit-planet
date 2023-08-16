@@ -152,6 +152,9 @@
                     case "/MyPage": {
                         return "마이";
                     }
+                    case "/Review/Select": {
+                        return "후기 작성";
+                    }
                     case "/profile_email_login":
                     case "/profile_sns_login": {
                         return "회원정보";

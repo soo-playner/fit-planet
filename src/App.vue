@@ -26,6 +26,7 @@
                 /* 비밀번호 찾기 */ "FindPW_Step1", "FindPW_Step2", "PW_Reset",
                 /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",  
                 /* 마이페이지 */ "MyPage", "Profile_Type1", "Profile_Type2",
+                /* 후기 */ "ReviewSelect",
                 /* 회원 탈퇴 */ "AccountDelete",
                 /* 주문 목록 */ "OrderInquiry", "OrderInquiryView",
             ],
