@@ -19,7 +19,7 @@ const props = defineProps({
     <div class="EventNewsTab_container">
         <div class="EventNewsTab_container_inner mob-inner">
             <ul class="tab-list">
-                <li v-for="(tabItem, idx) in tabs" :key="idx" :class="{ active: tabItem == targetTab }" @click="$emit('tabChange', tabItem)">
+                <li v-for="(tabItem, idx) in props.tabs" :key="idx" :class="{ active: tabItem == props.targetTab }" @click="$emit('tabChange', tabItem)">
                     <button>{{ tabItem }}</button>
                 </li>
             </ul>

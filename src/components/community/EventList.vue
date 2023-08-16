@@ -7,5 +7,5 @@ const props = defineProps({
 </script>
 
 <template>
-    <li><img :src="data.image" :alt="data.image" /></li>
+    <li><img :src="props.data.image" :alt="props.data.image" /></li>
 </template>
