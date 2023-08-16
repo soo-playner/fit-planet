@@ -21,7 +21,7 @@ const changeTab = (tabItem) => {
 </script>
 
 <template>
-    <li v-for="(tabItem, idx) in tabs" :key="idx" :class="{ active: tabItem === targetTab }" @click="changeTab(tabItem)">
+    <li v-for="(tabItem, idx) in props.tabs" :key="idx" :class="{ active: tabItem === props.targetTab }" @click="changeTab(tabItem)">
         <button>{{ tabItem }}</button>
     </li>
 </template>

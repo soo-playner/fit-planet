@@ -58,6 +58,7 @@ import FAQ from "../routes/community/FAQ";
 import Inquiry from "../routes/community/Inquiry";
 import InquiryComplete from "../routes/community/InquiryComplete";
 import SearchResult from "../components/layout/SearchResult";
+import WishList from "../routes/wish/WishList";
 import AlertSetting from "../skin/layout/components/AlertSetting";
 import ScheduleChange from "../components/modal/ScheduleChange";
 
@@ -126,6 +127,8 @@ const routes = [
     { path: "/inquiry", component: Inquiry, name: "Inquiry" },
     { path: "/inquiry/complete", component: InquiryComplete, name: "InquiryComplete" },
     { path: "/scheduleChange", component: ScheduleChange, name: "ScheduleChange" },
+    // 찜
+    { path: "/wish", component: WishList, name: "WishList" },
     // 검색창
     { path: "/search/result", component: SearchResult, name: "SearchResult" },
     // 알림창

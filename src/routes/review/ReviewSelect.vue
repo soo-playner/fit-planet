@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div class="ReviewSelect_container main-layout">
+    <div class="ReviewSelect_container main-layout notFooter-layout2">
         <div class="ReviewSelect_container_inner mob-inner">
             <ul class="remain-review">
                 <li class="remain-review-list" v-for="(reviewCon, idx) in 4" :key="reviewCon">
