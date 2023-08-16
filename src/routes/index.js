@@ -6,25 +6,25 @@ npm install vuex@next
 *******************************/
 import { createRouter, createWebHistory } from "vue-router";
 
+import Splash from "../skin/intro/Splash";
+import Intro from "../skin/intro/Intro";
 import Home from "../skin/home/Home";
 import Class_Home from "../skin/home/Class_Home";
 import NotClass_Home from "../skin/home/NotClass_Home";
-import SplashPage from "../routes/intro/SplashPage";
-import IntroPage from "../routes/intro/IntroPage";
 import Login from "../routes/login/Login";
 import JoinStep1 from "../routes/join/JoinStep1";
 import JoinStep2 from "../routes/join/JoinStep2";
 import JoinStep3 from "../routes/join/JoinStep3";
 import JoinComplete from "../routes/join/JoinComplete";
 import Authority from "../routes/join/Authority";
-import FindID_Step1 from "../routes/find_account/FindID_Step1";
-import FindID_Step2 from "../routes/find_account/FindID_Step2";
-import FindID_Step3 from "../routes/find_account/FindID_Step3";
-import FindPW_Step1 from "../routes/find_account/FindPW_Step1";
-import FindPW_Step2 from "../routes/find_account/FindPW_Step2";
-import FindPW_Email_Step1 from "../routes/find_account/FindPW_Email_Step1";
-import FindPW_Email_Step2 from "../routes/find_account/FindPW_Email_Step2";
-import PW_Reset from "../routes/find_account/PW_Reset";
+import FindID_Step1 from "../routes/find_account/id/FindID_Step1";
+import FindID_Step2 from "../routes/find_account/id/FindID_Step2";
+import FindID_Step3 from "../routes/find_account/id/FindID_Step3";
+import FindPW_Step1 from "../routes/find_account/password/FindPW_Step1";
+import FindPW_Step2 from "../routes/find_account/password/FindPW_Step2";
+import FindPW_Email_Step1 from "../routes/find_account/password/FindPW_Email_Step1";
+import FindPW_Email_Step2 from "../routes/find_account/password/FindPW_Email_Step2";
+import PW_Reset from "../routes/find_account/password/PW_Reset";
 import Place from "../routes/place/Place";
 import Filter from "../routes/place/Filter";
 import PlaceList from "../routes/place/PlaceList";
@@ -65,8 +65,8 @@ import Calendar from "../components/layout/Calendar";
 const routes = [
     { path: "/calendar", component: Calendar, name: "Cala" },
     // 인트로
-    { path: "/splash", component: SplashPage, name: "SplashPage" },
-    { path: "/intro", component: IntroPage, name: "IntroPage" },
+    { path: "/splash", component: Splash, name: "SplashPage" },
+    { path: "/intro", component: Intro, name: "IntroPage" },
     // 메인
     { path: "/", component: Home, name: "Home" }, // 첫 방문
     { path: "/class", component: Class_Home, name: "Class_Home" }, // 플레이스 수강권 미등록
