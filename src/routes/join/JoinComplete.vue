@@ -99,6 +99,6 @@
                 </div>
             </div>
         </div>
-        <button class="next-step-btn f-16-700" @click="$router.push('/authority')">핏플래닛 시작하기</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/authority')">핏플래닛 시작하기</button>
     </div>
 </template>

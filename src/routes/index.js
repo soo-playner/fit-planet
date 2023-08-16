@@ -96,16 +96,16 @@ const routes = [
     { path : '/place/detail', component : PlaceDetail, name : 'PlaceDetail' }, 
     { path : '/place/review', component : PlaceReview, name : 'PlaceReview' }, 
     { path : '/place/machine', component : PlaceMachine, name : 'PlaceMachine' },
-    { path : '/place/machine/choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
+    { path : '/place/machine-choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
     { path : '/place/trainer', component : PlaceTrainer, name : 'PlaceTrainer' },
     { path : '/place/pay', component : PlacePay, name : 'PlacePay' },
-    { path : '/place/pay/pomplete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
+    { path : '/place/pay/complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
     { path : '/place/ticket/complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
     // 트레이너
     { path : '/trainer/detail', component : TrainerDetail, name : 'TrainerDetail' },
     // 후기
     { path : '/review', component : Review, name : 'Review' },
-    { path : '/my/review', component : MyReview, name : 'MyReview' },
+    { path : '/my-review', component : MyReview, name : 'MyReview' },
     { path : '/review/select', component : ReviewSelect, name : 'ReviewSelect' },
     { path : '/review/write', component : ReviewWrite, name : 'ReviewWrite' },
     // 마이페이지

@@ -54,20 +54,38 @@
                             currentProgress: 3,
                         };
                     }
-                    case "/authority": {
+                    case "/Authority":
+                    case "/place/pay/complete":
+                    case "/Inquiry/complete": {
                         return {
                             close : true
-                        };
-                    }
-                    case "/join/complete": {
-                        return {
-                            back: true,
                         };
                     }
                     case "/filter": {
                         return {
                             back: true,
                             close: true,
+                        };
+                    }
+                    case "/Place/Detail": {
+                        return {
+                            back: true,
+                            search: true,
+                            mypage: true,
+                        };
+                    }
+                    case "/Terms" :
+                    case "/Inquiry" :
+                    case "/faq" :
+                    case "/event-news" :
+                    case "/coupon" :
+                    case "/orderinquiry" :
+                    case "/orderinquiryView" :
+                    case "/cancleinquiry" :
+                    case "/mypage" : {
+                        return {
+                            back : true,
+                            home : true
                         };
                     }
                     default: {
@@ -79,6 +97,13 @@
             },
             headerTitle() {
                 switch (this.$route.fullPath) {
+                    case "/find/pw/step1":
+                    case "/find/pw/step2": {
+                        return "비밀번호 찾기";
+                    }
+                    case "/pw/reset": {
+                        return "비밀번호 재설정";
+                    }
                     case "/join/step1": {
                         return "서비스 이용 동의";
                     }
@@ -90,6 +115,57 @@
                     }
                     case "/filter": {
                         return "필터";
+                    }
+                    case "/place/machine-choice": {
+                        return "운동 선택하기";
+                    }
+                    case "/place/pay": {
+                        return "결제하기";
+                    }
+                    case "/place/pay/complete": {
+                        return "결제 완료";
+                    }
+                    case "/terms": {
+                        return "약관 및 정책";
+                    }
+                    case "/inquiry": {
+                        return "이메일 문의";
+                    }
+                    case "/faq": {
+                        return "자주 묻는 질문";
+                    }
+                    case "/coupon": {
+                        return "마이쿠폰";
+                    }
+                    case "/orderinquiry": {
+                        return "주문목록";
+                    }
+                    case "/orderinquiryView": {
+                        return "주문 상세";
+                    }
+                    case "/cancleinquiry": {
+                        return "취소 상세";
+                    }
+                    case "/Account/Delete": {
+                        return "회원 탈퇴";
+                    }
+                    case "/MyPage": {
+                        return "마이";
+                    }
+                    case "/profile_email_login":
+                    case "/profile_sns_login": {
+                        return "회원정보";
+                    }
+                    case "/Inquiry":
+                    case "/Inquiry/complete": {
+                        return "이메일 문의";
+                    }
+                    case "/Change/Nickname": {
+                        return "닉네임 변경";
+                    }
+                    case "/Change/Password":
+                    case "/Change/Password/Confirm": {
+                        return "비밀번호 변경";
                     }
                     default: {
                         return false;

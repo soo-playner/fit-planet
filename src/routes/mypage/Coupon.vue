@@ -1,8 +1,12 @@
 <script>
     import CouponList from '@/data/coupon/CouponList';
+    import CouponIssueModal from '@/components/modal/coupon/CouponIssue';
 
     export default {
         name : 'Coupon',
+        components : {
+            CouponList, CouponIssueModal
+        },
         data(){
             return {
                 couponReceive : false,
@@ -27,9 +31,6 @@
                 this.couponReceive = !this.couponReceive
             }
         },
-        components : {
-            CouponList
-        }
     }
 </script>
 
@@ -44,16 +45,8 @@
                 <CouponList v-for="couponItem in CouponList" :key="couponItem" :data="couponItem"></CouponList>
             </ul>
         </div>
-        <!-- 모달창 -->
-        <div class="coupon-issue-modal member_alert" v-bind:class="{ active : couponReceive }">
-            <div class="overlay" @click="couponIssuedFnc"></div>
-            <div class="coupon-issue-modal-inner member_alert_inner">
-                <div class="txt-box">
-                    <p class="f-18-700">쿠폰이 발급되었어요!</p>
-                    <span class="f-14-400">나에게 맞는 운동을 찾으러 떠나볼까요?</span>      
-                </div>
-                <div class="bott-btn"><button class="f-16-700" @click="couponIssuedFnc">확인</button></div>
-            </div>
-        </div>
+
+        <!-- 쿠폰 발급 모달창 -->
+        <CouponIssueModal :class="{ active : couponReceive }" :couponIssuedFnc="couponIssuedFnc"/>
     </div>
 </template>

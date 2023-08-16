@@ -4,9 +4,9 @@
         data(){
             return {
                 quick1 : [
-                    { id : '1', Name : '주문목록', Link : '/Orderinquiry' },
-                    { id : '2', Name : '마이쿠폰', Link : '/Coupon' },
-                    { id : '3', Name : '마이후기', Link : '/' },
+                    { id : '1', Name : '주문목록', Link : '/orderinquiry' },
+                    { id : '2', Name : '마이쿠폰', Link : '/coupon' },
+                    { id : '3', Name : '마이후기', Link : '/my-review' },
                     { id : '4', Name : '찜', Link : '/' },
                 ],
                 quick2 : [
@@ -25,7 +25,7 @@
 <template>
     <div class="mypage_container main-layout">
         <div class="mypage_container_inner mob-inner">
-            <div class="my-profile" @click="$router.push('/Profile')">
+            <div class="my-profile" @click="$router.push('/profile_email_login')">
                 <div class="my-profile-info">
                     <div class="profile-img"></div>
                     <div>

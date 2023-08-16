@@ -23,10 +23,9 @@
             <ul class="profile-info-list">
                 <li class="sns-login">
                     <div class="left-row">
-                        <span class="f-12-400">구글 로그인</span>
+                        <span class="f-12-400">아이디(이메일)</span>
                         <p class="f-14-400">userwiz@gmail.com</p>
                     </div>
-                    <div class="right-row sns-login-current"><img src="@/assets/image/google1.png" alt="구글 로그인"></div>
                 </li>
                 <li class="nickname">
                     <div class="left-row">

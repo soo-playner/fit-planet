@@ -1,58 +1,60 @@
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.min.css";
-import "swiper/components/pagination";
+    // url - /place/detail
 
-export default {
-    name: "placeDetail",
-    components: {
-        Swiper,
-        SwiperSlide,
-    },
-    data() {
-        return {
-            swiperOption1: {
-                slidesPerView: 1,
-                pagination: true,
-                parallax: true,
-                speed: 700,
-                loop: true,
-            },
-            swiperOption2: {
-                slidesPerView: 1.5,
-                spaceBetween: 8,
-            },
-            inquiryActive: false,
-            ticket: [
-                { name: "1회 체험권", cost: "59,000원", totalCost: "59,000원" },
-                { name: "1개월 수강권", cost: "59,000원", totalCost: "59,000원" },
-                { name: "3개월 수강권", cost: "49,000원", totalCost: "147,000원", discount: "30,000원 할인" },
-            ],
-            machine: [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }],
-            machineTag: [
-                ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
-                ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
-                ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
-            ],
-            machineTag1: [{ id: "파워랙" }, { id: "스미스머신" }, { id: "치닝디핑" }, { id: "케이블 머신" }],
-            machineTag2: [
-                { id: "브이스쿼트" },
-                { id: "힙 어브덕션" },
-                { id: "핵스쿼트 머신" },
-                { id: "레그프레스" },
-                { id: "파워 레그프레스 머신" },
-                { id: "레그 익스텐션 머신" },
-                { id: "레그 컬 머신" },
-            ],
-            machineTag3: [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }],
-        };
-    },
-    methods: {
-        toggleInquiry: function () {
-            this.inquiryActive = !this.inquiryActive;
+    import { Swiper, SwiperSlide } from "swiper/vue";
+    import "swiper/swiper-bundle.min.css";
+    import "swiper/components/pagination";
+
+    export default {
+        name: "placeDetail",
+        components: {
+            Swiper,
+            SwiperSlide,
         },
-    },
-};
+        data() {
+            return {
+                swiperOption1: {
+                    slidesPerView: 1,
+                    pagination: true,
+                    parallax: true,
+                    speed: 700,
+                    loop: true,
+                },
+                swiperOption2: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 8,
+                },
+                inquiryActive: false,
+                ticket: [
+                    { name: "1회 체험권", cost: "59,000원", totalCost: "59,000원" },
+                    { name: "1개월 수강권", cost: "59,000원", totalCost: "59,000원" },
+                    { name: "3개월 수강권", cost: "49,000원", totalCost: "147,000원", discount: "30,000원 할인" },
+                ],
+                machine: [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }],
+                machineTag: [
+                    ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
+                    ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
+                    ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
+                ],
+                machineTag1: [{ id: "파워랙" }, { id: "스미스머신" }, { id: "치닝디핑" }, { id: "케이블 머신" }],
+                machineTag2: [
+                    { id: "브이스쿼트" },
+                    { id: "힙 어브덕션" },
+                    { id: "핵스쿼트 머신" },
+                    { id: "레그프레스" },
+                    { id: "파워 레그프레스 머신" },
+                    { id: "레그 익스텐션 머신" },
+                    { id: "레그 컬 머신" },
+                ],
+                machineTag3: [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }],
+            };
+        },
+        methods: {
+            toggleInquiry: function () {
+                this.inquiryActive = !this.inquiryActive;
+            },
+        },
+    };
 </script>
 
 <template>
@@ -345,11 +347,11 @@ export default {
     </div>
     <!-- 문의하기/운동 선택하기 -->
     <div class="place-lnb">
-        <router-link to="#" class="work-inquiry f-16-700" @click="toggleInquiry">문의하기</router-link>
-        <router-link to="/PlaceMachine_Choice" class="work-choice f-16-700">운동 선택하기</router-link>
+        <button class="work-inquiry f-16-700" @click="toggleInquiry">문의하기</button>
+        <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 선택하기</router-link>
     </div>
     <!-- 문의하기 클릭 시 모달 -->
-    <div class="work-inquiry-modal" v-bind:class="{ active: inquiryActive }">
+    <div class="work-inquiry-modal" :class="{ active: inquiryActive }">
         <div class="overlay" @click="toggleInquiry"></div>
         <div class="work-inquiry-modal-inner">
             <div class="inquiry-form">

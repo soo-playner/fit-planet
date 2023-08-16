@@ -6,6 +6,11 @@ ul, ol{list-style:none;}
 a{text-decoration:none; color:#000;}
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
 span{display:block;}
+.main-layout{padding:56px 0 82px 0;
+    .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
+    &-inner{padding:24px 20px 28px;}
+}
+.notFooter-layout{padding-bottom:0;}
 .mob-inner{max-width:1000px; position:relative; margin:0 auto;}
 
 $b:#000;
@@ -15,8 +20,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
 // 미디어쿼리
 @mixin responsive-1040(){
-    @media(max-width:1040px){@content;
-    }
+    @media(max-width:1040px){@content;}
 }
 @mixin responsive-991(){
     @media(max-width:991px){@content;}
@@ -46,7 +50,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 다음 버튼
 .next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;}
 // 패스워드 가이드
-.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797}
+.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left}
 // 인증 시 시간 텍스트
 .pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
 
@@ -61,11 +65,12 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-20-700{@include font(20px, 700, null);}
 .f-24-700{@include font(24px, 700, null);}
 
+
 /******************************************
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; //background:$f;
+.at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, null); position: relative;
         h1{position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);font-size: 16px; font-weight: normal; }
         .menu-ul{@include display(flex, center, null, null); gap:30px;
@@ -75,7 +80,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             }
         }
     }
-    &.active{height:96px; padding:30px 21px 0;}
+    &.active{height:96px; padding:30px 21px 0; background:transparent;}
 }
 
 // 알림창

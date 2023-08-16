@@ -15,7 +15,6 @@
                 /* 인트로 */ "Splash", "Intro", 
                 /* 로그인 */ "Login",  
                 /* 아이디 찾기 */ "FindID_Step1", "FindID_Step2", "FindID_Step3",
-                /* 비밀번호 찾기 */ "FindPW_Step1", "FindPW_Step2", "PW_Reset",
                 /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",  
             ],
             // 풋터 미노출
@@ -26,6 +25,9 @@
                 /* 아이디 찾기 */ "FindID_Step1", "FindID_Step2", "FindID_Step3",
                 /* 비밀번호 찾기 */ "FindPW_Step1", "FindPW_Step2", "PW_Reset",
                 /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",  
+                /* 마이페이지 */ "MyPage", "Profile_Type1", "Profile_Type2",
+                /* 회원 탈퇴 */ "AccountDelete",
+                /* 주문 목록 */ "OrderInquiry", "OrderInquiryView",
             ],
         }),
     }
@@ -33,7 +35,7 @@
 </script>
 
 <template>
-    <Header v-if="!notVisiable1.includes($route.name)"></Header>=
+    <Header v-if="!notVisiable1.includes($route.name)"></Header>
     <router-view></router-view>
     <Footer v-if="!notVisiable2.includes($route.name)"></Footer>
 </template>

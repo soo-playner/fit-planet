@@ -5,7 +5,7 @@
 </script>
 
 <template>
-    <div class="ChangePassword_Confirm_container">
+    <div class="ChangePassword_Confirm_container main-layout">
         <div class="ChangePassword_Confirm_container_inner mob-inner">
             <div class="txt-box">
                 <p class="f-14-400">새 비밀번호를 입력해주세요</p>
@@ -20,6 +20,7 @@
                     <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
                 </div>
             </div>
+            <button class="changePassword-btn next-step-btn f-16-700" @click="$router.push('/Change/Password/Confirm')">비밀번호 변경하기</button>
         </div>
     </div>
 </template>

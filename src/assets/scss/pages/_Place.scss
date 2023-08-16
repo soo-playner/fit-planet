@@ -131,7 +131,9 @@
         }
     }
     // 문의하기/운동 선택하기 버튼
-    .place-lnb{@include bottLnb; margin-bottom:0; border-bottom:0;}
+    .place-lnb{@include bottLnb; margin-bottom:0; border-bottom:0;
+        button{cursor:pointer;}
+    }
     .work-inquiry-modal{@include conSize(100%, 100%); @include display(flex, flex-end); opacity:0; visibility:hidden; @include position(fixed, 0, null, null, 0, 99); transition:all .3s $easing;
         .overlay{@include overLay;}
         &-inner{width:100%; position:relative; bottom:-100%; padding:34px 20px; background:$f; border-radius:16px 16px 0 0; transition:all .8s $easing;

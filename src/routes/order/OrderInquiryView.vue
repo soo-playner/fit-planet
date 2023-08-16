@@ -1,11 +1,26 @@
 <script>
+    import OrderDeleteModal from '@/components/modal/order/OrderDelete';
+
     export default {
-        name : 'OrderInquiryView'
+        name : 'OrderInquiryView',
+        components : {
+            OrderDeleteModal
+        },
+        data(){
+            return {
+                orderDelete : false
+            }
+        },
+        methods : {
+            orderDeleteFnc : function(){
+                this.orderDelete = !this.orderDelete;
+            }
+        }
     }
 </script>
 
 <template>
-    <div class="OrderInquiryView_container main-layout">
+    <div class="OrderInquiryView_container main-layout notFooter-layout">
         <div class="OrderInquiryView_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">
@@ -83,7 +98,7 @@
                     </ul>
                 </div>
                 <div class="bott-btn">
-                    <button class="f-14-700">주문내역 삭제</button>
+                    <button class="f-14-700" @clikc="orderDeleteFnc">주문내역 삭제</button>
                     <button class="f-14-700">주문 취소하기</button>
                 </div>
             </div>
@@ -94,5 +109,8 @@
                 <p>자세한 내용은<router-link to="/">전자금융거래 이용약관</router-link>을 참고하세요.</p>
             </div>
         </div>
+
+        <!-- 주문 내역 삭제 모달창 -->
+        <OrderDeleteModal :class="{ active : orderDelete }" :orderDeleteFnc="orderDeleteFnc"/>
     </div>
 </template>

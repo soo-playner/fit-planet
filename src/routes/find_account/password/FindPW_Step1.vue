@@ -1,5 +1,5 @@
 <script>
-    // 경로 - /find/pw/step1
+    // url - /find/pw/step1
     export default {
         name : 'FindPW_Step1',
     }

@@ -53,6 +53,21 @@ span {
   display: block;
 }
 
+.main-layout {
+  padding: 56px 0 82px 0;
+}
+.main-layout .first-section {
+  background: #f1f1f1;
+  border-radius: 0 0 20px 20px;
+}
+.main-layout-inner {
+  padding: 24px 20px 28px;
+}
+
+.notFooter-layout {
+  padding-bottom: 0;
+}
+
 .mob-inner {
   max-width: 1000px;
   position: relative;
@@ -75,6 +90,7 @@ span {
   line-height: 1.8;
   margin: 28px 0 0 0;
   color: #979797;
+  text-align: left;
 }
 
 .pass-time {
@@ -151,6 +167,7 @@ span {
   left: 0;
   z-index: 100;
   padding: 12px 21px;
+  background: #fff;
 }
 .at-header-inner {
   display: -webkit-box;
@@ -233,6 +250,7 @@ span {
 .at-header.active {
   height: 96px;
   padding: 30px 21px 0;
+  background: transparent;
 }
 
 .Alert_container {
@@ -927,20 +945,6 @@ textarea {
   src: url("../font/NotoSansKR-Black.eot");
   src: url("../font/NotoSansKR-Black.eot?#iefix") format("embedded-opentype"), url("../font/NotoSansKR-Black.woff2") format("woff2"), url("../font/NotoSansKR-Black.woff") format("woff"), url("../font/NotoSansKR-Black.ttf") format("truetype");
 }
-/******************************************
-공통 적용
-******************************************/
-.main-layout {
-  padding: 48px 0 82px 0;
-}
-.main-layout .first-section {
-  background: #f1f1f1;
-  border-radius: 0 0 20px 20px;
-}
-.main-layout-inner {
-  padding: 24px 20px 28px;
-}
-
 /******************************************
 메인 페이지(첫방문)
 /components/layout/MainPage.vue
@@ -2880,6 +2884,9 @@ textarea {
 마이 페이지
 /routes/mypage/MyPage.vue
 ******************************************/
+.mypage_container {
+  padding-bottom: 0;
+}
 .mypage_container_inner {
   min-height: 100vh;
   background: #f1f1f1;
@@ -3198,7 +3205,8 @@ textarea {
 /routes/mypage/ChangeNickname.vue
 ******************************************/
 .ChangeNickname_container_inner,
-.ChangePassword_container_inner {
+.ChangePassword_container_inner,
+.ChangePassword_Confirm_container_inner {
   min-height: calc(100vh - 100px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3212,11 +3220,13 @@ textarea {
           flex-flow: column;
 }
 .ChangeNickname_container_inner .txt-box,
-.ChangePassword_container_inner .txt-box {
+.ChangePassword_container_inner .txt-box,
+.ChangePassword_Confirm_container_inner .txt-box {
   text-align: center;
 }
 .ChangeNickname_container_inner .txt-box button,
-.ChangePassword_container_inner .txt-box button {
+.ChangePassword_container_inner .txt-box button,
+.ChangePassword_Confirm_container_inner .txt-box button {
   height: 28px;
   line-height: 28px;
   position: relative;
@@ -3237,7 +3247,8 @@ textarea {
   border-color: #000;
 }
 .ChangeNickname_container_inner .bott-btn,
-.ChangePassword_container_inner .bott-btn {
+.ChangePassword_container_inner .bott-btn,
+.ChangePassword_Confirm_container_inner .bott-btn {
   width: 100%;
   height: 38px;
   line-height: 36px;
@@ -4467,6 +4478,9 @@ textarea {
   background: #fff;
   color: #000;
   border: 1px solid #000;
+}
+.detail_container .place-lnb button {
+  cursor: pointer;
 }
 .detail_container .work-inquiry-modal {
   width: 100%;
@@ -8423,6 +8437,7 @@ textarea {
 }
 .OrderInquiryView_container_inner .order-cancle-guide a {
   position: relative;
+  margin: 0 0 0 4px;
   color: inherit;
 }
 .OrderInquiryView_container_inner .order-cancle-guide a::before {

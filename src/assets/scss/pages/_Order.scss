@@ -61,7 +61,7 @@
         }
         // 결제 취소 가이드
         .order-cancle-guide{@include font(12px, 400, #979797); background:#F1F1F1; text-align:center;
-            a{position:relative; color:inherit;
+            a{position:relative; margin:0 0 0 4px; color:inherit;
                 &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:#979797;}
             }
         }
