@@ -1,10 +1,9 @@
-<script>
-    export default {
-        name : 'PW_Reset_Modal',
-        props : {
-            ResetPWFnc : Function
-        }
-    }
+<script setup>
+    import {defineProps} from 'vue'
+
+    const {ResetPWFnc} = defineProps({
+        ResetPWFnc : Function
+    })
 </script>
 
 <template>

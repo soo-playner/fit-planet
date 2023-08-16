@@ -1,7 +1,4 @@
-<script>
-    export default {
-        name : 'PW_Change_Modal'
-    }
+<script setup>
 </script>
 
 <template>
