@@ -39,6 +39,6 @@
                 </div>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner">다음</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/step2')">다음</button>
     </div>
 </template>

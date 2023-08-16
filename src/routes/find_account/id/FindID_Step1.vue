@@ -1,11 +1,7 @@
 <script>
-    import JoinCurrent from '../../components/layout/JoinCurrent';
-
+    // 경로 - /find/id/step1
     export default {
         name : 'FindID_Step1',
-        components : {
-            JoinCurrent
-        }
     }
 </script>
 

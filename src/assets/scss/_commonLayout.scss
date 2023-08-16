@@ -145,28 +145,6 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 
 .starBox{@include display(flex)}
 
-.join_current{position:relative; padding:52px 24px 0;
-    .step-value{height:100px; position:absolute; top:0; left:0; background:#F1F1F1;
-        &.first{width:calc(100% / 4)}
-        &.second{width:calc(100% / 3)}
-        &.third{width:calc(100% / 2)}
-        &.four{width:100%}
-    }
-    .top-current{@include display(flex, center, space-between); 
-        .back-btn{@include conSize(15px, 23px); @include display(flex, center, center); position:relative; cursor:pointer; border:none;
-            &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
-            &::before{transform:rotate(40deg); margin:9px 0 0px 0;}
-            &::after{transform:rotate(-40deg); margin:0 0 9px 0;}
-            &.toMain{width:19px;
-                &::before, &::after{margin:0;}
-                &::before{transform:rotate(45deg)}
-                &::after{transform:rotate(-45deg)}
-            }
-        }
-        .current-step{@include display(flex)}
-    }
-}
-
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }

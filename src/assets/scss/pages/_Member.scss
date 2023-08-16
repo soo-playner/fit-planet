@@ -1,9 +1,16 @@
 /******************************************
-회원가입, 로그인
+회원가입, 로그인, 비밀번호
 /routes/join
 ******************************************/
-.member_container{min-height:calc(100vh - 52px); @include display(flex, null, space-between, column); padding:51px 24px 52px;
+.member_container{min-height:calc(100vh + 52px); @include display(flex, null, space-between, column); padding:123px 24px 52px;
     &_inner{width:100%;}
+    .etc{@include display(flex, center); column-gap:12px; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%);
+        .check-confirm, .pw-exposure{@include display(flex, center);
+            &.active{filter:invert(1)}
+        }
+        .pw-exposure{@include conSize(22px, 15px); cursor:pointer;}
+        .check-confirm{@include conSize(18px, 14px);}
+    }
     // 회원가입
         // 서비스 이용 동의 1단계
         &.step1{
@@ -16,18 +23,6 @@
                 }
             }
         }
-        // 회원가입 2단계
-        &.step2{
-            .form-group{
-                .etc{@include display(flex, center); column-gap:12px; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%);
-                    .check-confirm, .pw-exposure{@include display(flex, center);
-                        &.active{filter:invert(1)}
-                    }
-                    .pw-exposure{@include conSize(22px, 15px); cursor:pointer;}
-                    .check-confirm{@include conSize(18px, 14px);}
-                }
-            }
-        }
         // 닉네임 등록 3단계
         &.step3{
             .nickname-guide{margin:0 0 32px 0; text-align:center;}
@@ -35,24 +30,57 @@
                 button{@include liTag; @include conSize(null, 30px, 28px); @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); border-color:$b;}
             }
         }
-    // 로그인
-        // 아이디 찾음
+        // 완료
+        &.complete{ justify-content:flex-end; position:relative; z-index:99; background:#F1F1F1;
+            canvas{@include conSize(100%, 100%); @include position(absolute, 0, null, null, 0, -1);}
+            .member_container_inner{min-height:calc(100vh - 303px); @include display(flex, null, space-between, column);
+                .txt-box{text-align:center;
+                    & > div:first-child{margin:0 0 8px 0;}
+                }
+            }
+        }
+    // 아이디 찾기
+        // 아이디 찾기_번호2
         &.id-step3{
             .id-guide{text-align:center;
                 p{margin:6px 0 0 0;}
             }
-            .id-list{margin:33px 0 0 0;
-                li{@include display(flex, center); column-gap:10px; padding:10px; border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
+            .id-list{max-height:50vh; margin:33px 0 0 0; overflow-y:auto;
+                li{@include display(flex, center); column-gap:10px; padding:10px; margin:0 0 10px 0; border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
                     .user-profile-img{@include conSize(45px, 45px); border-radius:50%; background:$gray;}
                     .user-info p{@include display(flex); 
                         &:last-child{column-gap:5px; margin:5px 0 0 0; color:$gray;}
                     }
+                    &:last-child{margin:0;}
                 }
             }
             .bott-btn-box{width:100%; text-align:center;
                 a:first-child{margin:0 0 28px 0;}
             }
         }
+    // 비밀번호 찾기
+        // 비밀번호 찾기 1-1
+        &.pw-step1{
+            .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
+        }
+    // 권한
+    &.authority{
+        .intro-txt-box{margin:0 0 35px 0; text-align:center;
+            & > div:first-child{margin:0 0 12px 0;}
+        }
+        .authority-list{padding:0 20px;
+            li{@include display(flex, center, space-between); padding:0 0 16px 0; margin:0 0 16px 0; border-bottom:1px solid #f1f1f1;
+                .txt-box{
+                    p{@include display(flex, flex-end); margin:0 0 5px 0;
+                        span{color:#979797;}
+                    }
+                }
+                .authority-con{@include conSize(45px, 45px); border:1px solid #f1f1f1; border-radius:50%;}
+                &:last-child{padding:0; margin:0; border-bottom:0;}
+            }
+        }
+        .authority-guide{@extend .password-guide; margin:40px 0 20px 0; text-align:center;}
+    }
 }
 
 
@@ -78,14 +106,6 @@
     .bttom-btn-box{text-align:center;
         a:first-child{margin:0 0 28px 0}
     }
-}
-
-/******************************************
-비밀번호 찾기
-/routes/find_account/FindPW_Step.vue
-******************************************/
-.FindPW_Step1{
-    .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
 }
 
 /******************************************
