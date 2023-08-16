@@ -1,40 +1,40 @@
 <script>
-    import AlertCheck from "@/data/alert/AlertCheck";
+import AlertCheck from "@/components/alert/AlertCheck";
 
-    export default {
-        name : 'AlertSetting',
-        data(){
-            return {
-                데이터1: [
-                    {
-                        title : '운동 알림',
-                        dsec1 : '운동을 꾸준히 진행할 수 있도록',
-                        dsec2 : '운동 일정에 맞춰 알림을 보내드려요'
-                    },
-                    {
-                        title : '활동 알림',
-                        dsec1 : '쿠폰과 후기 작성 기간이' ,
-                        dsec2 : '얼마 남지 않았을 때 알림을 보내드려요'
-                    },
-                ],
-                데이터2:[
-                    {
-                        title : '이벤트 알림',
-                        dsec1 : '핏플래닛의 놓치면 안될',
-                        dsec2 : '이벤트 및 혜택 정보를 알려드려요'
-                    },
-                    {
-                        title : '공지 알림',
-                        dsec1 : '핏플래닛의 새 소식을 알려드려요',
-                        dsec2 : ''
-                    }
-                ]
-            }
-        },
-        components : {
-            AlertCheck
-        }
-    }
+export default {
+    name: "AlertSetting",
+    data() {
+        return {
+            데이터1: [
+                {
+                    title: "운동 알림",
+                    dsec1: "운동을 꾸준히 진행할 수 있도록",
+                    dsec2: "운동 일정에 맞춰 알림을 보내드려요",
+                },
+                {
+                    title: "활동 알림",
+                    dsec1: "쿠폰과 후기 작성 기간이",
+                    dsec2: "얼마 남지 않았을 때 알림을 보내드려요",
+                },
+            ],
+            데이터2: [
+                {
+                    title: "이벤트 알림",
+                    dsec1: "핏플래닛의 놓치면 안될",
+                    dsec2: "이벤트 및 혜택 정보를 알려드려요",
+                },
+                {
+                    title: "공지 알림",
+                    dsec1: "핏플래닛의 새 소식을 알려드려요",
+                    dsec2: "",
+                },
+            ],
+        };
+    },
+    components: {
+        AlertCheck,
+    },
+};
 </script>
 
 <template>
@@ -61,4 +61,3 @@
         </div>
     </div>
 </template>
-

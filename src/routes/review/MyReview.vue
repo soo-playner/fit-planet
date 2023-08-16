@@ -1,12 +1,5 @@
-<script>
-    import reviewTab from './Review_Tab';
-
-    export default {
-        name : 'MyReview',
-        components : {
-            reviewTab
-        },
-    }
+<script setup>
+import reviewTab from "./Review_Tab";
 </script>
 
 <template>

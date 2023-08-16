@@ -1,29 +1,27 @@
-<script>
-    export default {
-        name : 'Search_Tab',
-        data(){
-            return {
-                num : 1
-            }
-        },
-        methods : {
-            tab(idx){
-                this.num = idx;
-            }
-        },
-        props : {
-            tabs : Array,
-            targetTab : String
-        }
-    }
+<script setup>
+import { ref, defineProps, defineEmits } from "vue";
+
+const props = defineProps({
+    tabs: Array,
+    targetTab: String,
+});
+
+const emit = defineEmits();
+
+const num = ref(1);
+
+const tab = (idx) => {
+    num.value = idx;
+};
+
+const changeTab = (tabItem) => {
+    tab(tabItem);
+    emit("tabChange", tabItem);
+};
 </script>
 
 <template>
-    <li 
-        v-for="(tabItem, idx) in tabs" 
-        :key="idx"
-        :class="{ active : tabItem == targetTab }"
-        @click="$emit('tabChange', tabItem)">
-            <button>{{ tabItem }}</button>
+    <li v-for="(tabItem, idx) in tabs" :key="idx" :class="{ active: tabItem === targetTab }" @click="changeTab(tabItem)">
+        <button>{{ tabItem }}</button>
     </li>
 </template>

@@ -1,7 +1,12 @@
-<script>
-    export default {
-        name : 'ReviewWrite'
-    }
+<script setup>
+import { ref } from "vue";
+
+const reviewText = ref("");
+const wordCount = ref(0);
+
+const updateWordCount = () => {
+    wordCount.value = reviewText.value.length;
+};
 </script>
 
 <template>
@@ -32,7 +37,7 @@
                     <span>쿠폰이 지급되지 않습니다.</span>
                 </span>
                 <div class="album-select">
-                    <button class="album-plus"><span class="plus-shape"></span><input type="file" id="mb-review" name="mb-review"></button>
+                    <button class="album-plus"><span class="plus-shape"></span><input type="file" id="mb-review" name="mb-review" /></button>
                     <div class="album-select-1"></div>
                     <div class="album-select-2"></div>
                 </div>
@@ -41,8 +46,8 @@
             <div class="review-input">
                 <div class="review-input-tit f-14-700">후기를 작성해 주세요</div>
                 <div class="review-textarea">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="50자 이상 작성해주세요."></textarea>
-                    <span class="word-count f-12-400">0</span>
+                    <textarea v-model="reviewText" cols="30" rows="10" placeholder="50자 이상 작성해주세요." @input="updateWordCount"></textarea>
+                    <span class="word-count f-12-400">{{ wordCount }}</span>
                 </div>
             </div>
             <!-- 경고 문구 -->

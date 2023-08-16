@@ -1,37 +1,27 @@
-<script>
-    import reviewTab from './Review_Tab';
-    import reviewList from '@/data/review/ReviewList';
+<script setup>
+import reviewTab from "./Review_Tab";
+import reviewList from "@/components/review/ReviewList";
 
-    export default {
-        name : 'Review',
-        components : {
-            reviewTab, reviewList
-        },
-        data(){
-            return {
-                reviewList : [
-                    { 
-                        write : '위즈위즈', 
-                        comment : '김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!',
-                        name : '김위즈'
-                    },
-                    { 
-                        write : '위즈위', 
-                        comment : '김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!',
-                        name : '김위즈'
-                    }
-                ]
-            }
-        }
-    }
+const reviewListData = [
+    {
+        write: "위즈위즈",
+        comment: "김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!",
+        name: "김위즈",
+    },
+    {
+        write: "위즈위",
+        comment: "김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!",
+        name: "김위즈",
+    },
+];
 </script>
 
 <template>
     <div class="review_container main-layout">
         <div class="review_container_inner mob-inner">
-            <reviewTab></reviewTab>
+            <reviewTab />
             <ul class="review-list">
-                <reviewList v-for="reviewItem in reviewList" :key="reviewItem" :data="reviewItem"></reviewList>
+                <reviewList v-for="reviewItem in reviewListData" :key="reviewItem" :data="reviewItem" />
             </ul>
         </div>
     </div>

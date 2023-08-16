@@ -1,16 +1,15 @@
-<script>
-    export default {
-        name : 'InquiryComplete'
-    }
+<script setup>
+// 필요한 경우 import 문을 사용하여 다른 모듈을 가져올 수 있습니다.
+
+// 컴포넌트의 이름을 지정합니다.
 </script>
 
 <template>
-    <!-- 이메일에 답변이 전송되면 문자를 통해 사용자에게 알려주기 -->
     <div class="InquiryComplete_container">
         <div class="InquiryComplete_container_inner mob-inner">
             <div class="top-row">
-                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="전송 완료"></div>
-                <div class="complete-txt-box f-20-700 ">
+                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="전송 완료" /></div>
+                <div class="complete-txt-box f-20-700">
                     <p>userwiz@gmail.com</p>
                     <p>이메일 전송 완료!</p>
                 </div>

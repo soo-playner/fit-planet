@@ -1,90 +1,89 @@
-<script>
-    // url - /join/complete
-    export default {
-        name : 'JoinComplete',
-        mounted(){
-            var canvas, confetti;
-            var rectangles = [];
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
-            window.onload = function(){
-                canvas = document.querySelector('.complete-canvas');
-                if(canvas == null || canvas.getContext == null) return;
-                confetti = canvas.getContext('2d');
-                
-                // 캔버스 사이즈 조정
-                const canvasSize = {
-                    width : window.innerWidth,
-                    height : window.innerHeight
-                }
-                canvas.width = canvasSize.width;
-                canvas.height = canvasSize.height;
+// Variables
+let canvas, confetti;
+const rectangles = ref([]);
+const bgColor = ["#ffafb0", "#ffafd8", "#eeb7b4", "#fdfa87", "#b5c7ed", "#afffba", "#f2cfa5", "#fcc6f7"];
 
-                // 사각형 생성
-                function createRectangle(){
-                    var bgColor = ['#ffafb0', '#ffafd8', '#eeb7b4', '#fdfa87', '#b5c7ed', '#afffba', '#f2cfa5', '#fcc6f7'];
-                    let x = Math.random() * window.innerWidth;
-                    let y = -10;
-                    let width = 5;
-                    let height = Math.random() + 10;
-                    let speed = Math.random() * 3;
-                    let delay = Math.random() * 3000;
-                    let rotation = Math.random() * 360;
-                    let color = bgColor[Math.floor(Math.random() * bgColor.length)];
+// Functions
+function createRectangle() {
+    const x = Math.random() * window.innerWidth;
+    const y = -10;
+    const width = 5;
+    const height = Math.random() + 10;
+    const speed = Math.random() * 3;
+    const delay = Math.random() * 3000;
+    const rotation = Math.random() * 360;
+    const color = bgColor[Math.floor(Math.random() * bgColor.length)];
 
-                    rectangles.push({ x, y, width, height, color, speed, delay, rotation });
-                }
+    rectangles.value.push({ x, y, width, height, color, speed, delay, rotation });
+}
 
-                // 사각형 그리기
-                function drawRectangle(x, y, width, height, color){
-                    confetti.fillStyle = color;
-                    confetti.fillRect(x, y, width, height);
-                }
+function drawRectangle(x, y, width, height, color) {
+    confetti.fillStyle = color;
+    confetti.fillRect(x, y, width, height);
+}
 
-                // animate 루프 함수 실행 시 rect 초기화
-                function clearRect(){
-                    confetti.clearRect(0, 0, canvas.width, canvas.height);
-                }
+function clearRect() {
+    confetti.clearRect(0, 0, canvas.width, canvas.height);
+}
 
-                function animate(){
-                    clearRect();
+function animate() {
+    clearRect();
 
-                    for(var i=0; i <rectangles.length / 3; i++){            
-                        let rect = rectangles[i];
+    for (let i = 0; i < rectangles.value.length / 3; i++) {
+        const rect = rectangles.value[i];
 
-                        if(rect.delay <= 0){
-                            confetti.save();
+        if (rect.delay <= 0) {
+            confetti.save();
 
-                            confetti.translate(rect.x + rect.width / 2, rect.y + rect.height / 2);
-                            confetti.rotate((rect.rotation * Math.PI) / 180);
-                
-                            drawRectangle(rect.width * Math.floor(Math.random() + 2), -rect.height, rect.width, rect.height, rect.color);
-                            confetti.restore();
-                
-                            rect.y += rect.speed;
-                            rect.rotation += rect.speed;
+            confetti.translate(rect.x + rect.width / 2, rect.y + rect.height / 2);
+            confetti.rotate((rect.rotation * Math.PI) / 180);
 
-                            if (rect.y > canvas.height) { // 사각형이 화면에서 벗어날 경우 배열에서 삭제한다
-                                rectangles.splice(i, 5);
-                            }
-                        }else{
-                            rect.delay -= 5;
-                        }
-                    }
-                    createRectangle();
-                    requestAnimationFrame(animate);
-                }
-                animate();
+            drawRectangle(rect.width * Math.floor(Math.random() + 2), -rect.height, rect.width, rect.height, rect.color);
+            confetti.restore();
+
+            rect.y += rect.speed;
+            rect.rotation += rect.speed;
+
+            if (rect.y > canvas.height) {
+                rectangles.value.splice(i, 5);
             }
-
-            function windowOnResize(){
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                rectangles = []; // 배열 초기화
-                location.reload();
-            }
-            window.addEventListener('resize', windowOnResize, false);
+        } else {
+            rect.delay -= 5;
         }
     }
+    createRectangle();
+    requestAnimationFrame(animate);
+}
+
+function windowOnResize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    rectangles.value = [];
+    location.reload();
+}
+
+onMounted(() => {
+    canvas = document.querySelector(".complete-canvas");
+    if (canvas == null || canvas.getContext == null) return;
+    confetti = canvas.getContext("2d");
+
+    const canvasSize = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+    };
+    canvas.width = canvasSize.width;
+    canvas.height = canvasSize.height;
+
+    animate();
+    window.addEventListener("resize", windowOnResize, false);
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener("resize", windowOnResize, false);
+});
 </script>
 
 <template>

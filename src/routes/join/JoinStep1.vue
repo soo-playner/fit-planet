@@ -1,44 +1,41 @@
-<script>
-    import JoinCurrent from '../../components/layout/JoinCurrent';
+<script setup>
+import JoinCurrent from "../../components/layout/JoinCurrent.vue";
+import { ref, computed } from "vue";
 
-    export default {
-        name : 'JoinStep1',
-        components : {
-            JoinCurrent
-        }
-    }
+const isCheckedAll = ref(false);
+const terms = [
+    { id: "wr_1_1", label: "만 14세 이상입니다.", required: false, checked: ref(false) },
+    { id: "wr_1_2", label: "(필수) 서비스 이용약관", required: true, checked: ref(false) },
+    { id: "wr_1_3", label: "(필수) 개인정보 처리방침", required: true, checked: ref(false) },
+    { id: "wr_1_4", label: "(선택) 마케팅 정보 수신동의", required: false, checked: ref(false) },
+];
+
+const shouldDisableNextButton = computed(() => {
+    return terms.some((term) => term.required && !term.checked.value);
+});
+
+function toggleAllTerms() {
+    isCheckedAll.value = !isCheckedAll.value;
+    terms.forEach((term) => (term.checked.value = isCheckedAll.value));
+}
 </script>
 
-<template> 
-    <JoinCurrent/>
+<template>
+    <JoinCurrent />
     <div class="member_container step1">
         <div class="member_container_inner mob-inner">
             <div class="form-group rep">
-                <input type="checkbox" name="wr_1" id="wr_1" value="약관 전체동의">
+                <input type="checkbox" name="wr_1" id="wr_1" value="약관 전체동의" :checked="isCheckedAll" @change="toggleAllTerms" />
                 <label for="wr_1" class="f-14-700"><span></span>약관 전체동의</label>
             </div>
             <div class="check-list">
-                <div class="form-group">
-                    <input type="checkbox" name="wr_1_1" id="wr_1_1" value="약관 전체동의">
-                    <label for="wr_1_1" class="f-14-400"><span></span>만 14세 이상입니다.</label>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="wr_1_2" id="wr_1_2" value="약관 전체동의" required>
-                    <label for="wr_1_2" class="f-14-400"><span></span>(필수) 서비스 이용약관</label>
-                    <button class="arrow"></button>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="wr_1_3" id="wr_1_3" value="약관 전체동의" required>
-                    <label for="wr_1_3" class="f-14-400"><span></span>(필수) 개인정보 처리방침</label>
-                    <button class="arrow"></button>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="wr_1_4" id="wr_1_4" value="약관 전체동의">
-                    <label for="wr_1_4" class="f-14-400"><span></span>(선택) 마케팅 정보 수신동의</label>
-                    <button class="arrow"></button>
+                <div class="form-group" v-for="term in terms" :key="term.id">
+                    <input type="checkbox" :name="term.id" :id="term.id" value="약관 전체동의" :checked="term.checked.value" />
+                    <label :for="term.id" class="f-14-400"><span></span>{{ term.label }}</label>
+                    <button v-if="term.required" class="arrow"></button>
                 </div>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/step2')">다음</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/step2')" :disabled="shouldDisableNextButton">다음</button>
     </div>
 </template>
