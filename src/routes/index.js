@@ -60,10 +60,8 @@ import InquiryComplete from "../routes/community/InquiryComplete";
 import SearchResult from "../components/layout/SearchResult";
 import AlertSetting from "../skin/layout/components/AlertSetting";
 import ScheduleChange from "../components/modal/ScheduleChange";
-import Calendar from "../components/layout/Calendar";
 
 const routes = [
-    { path: "/calendar", component: Calendar, name: "Cala" },
     // 인트로
     { path: "/splash", component: Splash, name: "SplashPage" },
     { path: "/intro", component: Intro, name: "IntroPage" },

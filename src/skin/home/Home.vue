@@ -1,22 +1,22 @@
 <script>
-    import AroundTrainer from './components/AroundTrainer';
+import AroundTrainer from "./components/AroundTrainer";
 
-    export default {
-        name : 'MainPage',
-        components : {
-            AroundTrainer
+export default {
+    name: "MainPage",
+    components: {
+        AroundTrainer,
+    },
+    data() {
+        return {
+            show: true,
+        };
+    },
+    methods: {
+        trainerShow() {
+            this.show = !this.show;
         },
-        data () {
-            return {
-                show : true,
-            }
-        },
-        methods : {
-            trainerShow () {
-                this.show = !this.show;
-            }
-        }
-    }
+    },
+};
 </script>
 <template>
     <main class="main_container main-layout">
@@ -30,7 +30,10 @@
                     </h1>
                     <div class="trainer-toggle-box">
                         <ul class="trainer-choice-ul">
-                            <li class="trainer-choice-li" @click="trainerShow" ><p class="f-12-400">트레이너</p><span class="arrow"></span></li>
+                            <li class="trainer-choice-li" @click="trainerShow">
+                                <p class="f-12-400">트레이너</p>
+                                <span class="arrow"></span>
+                            </li>
                             <ul v-if="!show">
                                 <li class="f-12-400">트레이너</li>
                                 <li class="f-12-400">트레이너</li>
@@ -38,13 +41,13 @@
                             </ul>
                         </ul>
                         <div class="location">
-                            <div class="img-box"><img src="../../assets/image/location.png" alt="위치 표시"></div>
+                            <div class="img-box"><img src="../../assets/image/location.png" alt="위치 표시" /></div>
                             <p class="f-12-400">서울시 강남구</p>
                         </div>
                     </div>
                 </div>
 
-                <AroundTrainer/>
+                <AroundTrainer />
             </div>
         </section>
         <section class="section section02">
@@ -54,8 +57,8 @@
                     <span>운동을 결제하면</span>
                     <span>나의 운동 프로그램을 여기서 관리할 수 있어요</span>
                 </div>
-                <router-link to='' class="f-12-400">운동 둘러보기</router-link>
+                <router-link to="" class="f-12-400">운동 둘러보기</router-link>
             </div>
-        </section> 
+        </section>
     </main>
 </template>
