@@ -1,43 +1,56 @@
-<script>
+<script setup>
+    import { computed, onMounted } from 'vue'
+    import { useStore } from 'vuex';
     import { Swiper, SwiperSlide } from 'swiper/vue';
     import 'swiper/swiper-bundle.min.css';
+    
+    const store = useStore(); // 저장소 객체 주입받아 사용하기
 
-    export default {
-        name : 'TrainerList',
-        components : {
-            Swiper, SwiperSlide
-        },
-        data(){
-            return {
-                swiperOption : {
-                    slidesPerView : 3.5,
-                    spaceBetween : 8,
-                },
-                trainer : [
-                    { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
-                    { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
-                    { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
-                    { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' }
-                ]
-            }
-        }
+    const swiperOption = {
+        slidesPerView: 3.5,
+        spaceBetween: 8,
     }
+
+    const trainers = computed(() => store.state.trainer.trainers);
+
+    onMounted(() => {
+    })
+
+    // Options API 코드 
+
+    // export default {
+    //     name : 'TrainerList',
+    //     components : {
+    //         Swiper, SwiperSlide
+    //     },
+    //     data(){
+    //         return {
+    //             // trainer : [
+    //             //     { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
+    //             //     { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
+    //             //     { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' },
+    //             //     { Name : '김위즈', cost : '29,900원', scope : '4.3', totalScope : '12' }
+    //             // ]
+    //             trainer: this.$store.state.trainer.trainers,
+    //         }
+    //     },
+    // }
 </script>
 
 <template>
     <Swiper class="trainer-list" v-bind="swiperOption">
-        <SwiperSlide v-for="trainerList in trainer" :key="trainerList">
+        <SwiperSlide v-for="trainer in trainers" :key="trainer">
             <div class="img-box"><img src="../../../assets/image/no-image.png"></div>
             <div class="txt-box">
                 <div class="trainer">
-                    <span class="f-12-400">{{ trainerList.Name }} 트레이너</span>
-                    <p class="f-14-700">{{ trainerList.cost }}/회</p>
+                    <span class="f-12-400">{{ trainer.name }} 트레이너</span>
+                    <p class="f-14-700">{{ trainer.pricePerSession }}/회</p>
                 </div>
                 <div class="scope">
                     <div class="starBox">
                         <div class="str">★</div>
                     </div>
-                    <p class="f-12-400">{{ trainerList.scope }}<span>({{ trainerList.totalScope }})</span></p>
+                    <p class="f-12-400">{{ trainer.scope }}<span>({{ trainer.totalScope }})</span></p>
                 </div>
             </div>
         </SwiperSlide>
