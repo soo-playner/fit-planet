@@ -43,7 +43,7 @@ import ReviewSelect from "../routes/review/ReviewSelect";
 import ReviewWrite from "../routes/review/ReviewWrite";
 import OrderInquiry from "../routes/order/OrderInquiry";
 import OrderInquiryView from "../routes/order/OrderInquiryView";
-import CancleInquiry from "../routes/order/CancleInquiry";
+import CancelInquiry from "../routes/order/CancelInquiry";
 import MyPage from "../routes/mypage/MyPage";
 import Coupon from "../routes/mypage/Coupon";
 import Profile_Type1 from "../routes/mypage/Profile_Type1";
@@ -118,7 +118,7 @@ const routes = [
     // 주문내역
     { path: "/orderInquiry", component: OrderInquiry, name: "OrderInquiry" },
     { path: "/orderInquiryView", component: OrderInquiryView, name: "OrderInquiryView" },
-    { path: "/cancleInquiry", component: CancleInquiry, name: "CancleInquiry" },
+    { path: "/cancelInquiry", component: CancelInquiry, name: "CancelInquiry" },
     // 커뮤니티
     { path: "/event-news", component: EventNews, name: "EventNews" },
     { path: "/terms", component: Terms, name: "Terms" },

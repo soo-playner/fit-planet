@@ -8573,12 +8573,12 @@ textarea {
 
 /******************************************
 취소내역 상세
-/routes/order/CancleInquiry.vue
+/routes/order/CancelInquiry.vue
 ******************************************/
-.CancleInquiry_container_inner > div {
+.CancelInquiry_container_inner > div {
   padding: 20px;
 }
-.CancleInquiry_container_inner .order-current {
+.CancelInquiry_container_inner .order-current {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8587,18 +8587,18 @@ textarea {
           justify-content: space-between;
   color: #979797;
 }
-.CancleInquiry_container_inner .order-current .left-column {
+.CancelInquiry_container_inner .order-current .left-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.CancleInquiry_container_inner .order-current .left-column p {
+.CancelInquiry_container_inner .order-current .left-column p {
   position: relative;
   margin-right: 5px;
   padding-right: 5px;
   padding-right: 8px;
 }
-.CancleInquiry_container_inner .order-current .left-column p::after {
+.CancelInquiry_container_inner .order-current .left-column p::after {
   content: "";
   width: 1px;
   height: 13px;
@@ -8607,21 +8607,21 @@ textarea {
   right: 0;
   background: #000;
 }
-.CancleInquiry_container_inner .order-current .left-column p:last-child {
+.CancelInquiry_container_inner .order-current .left-column p:last-child {
   margin-right: 0;
   padding-right: 0;
 }
-.CancleInquiry_container_inner .order-current .left-column p:last-child::after {
+.CancelInquiry_container_inner .order-current .left-column p:last-child::after {
   display: none;
 }
-.CancleInquiry_container_inner .order-current .left-column p::after {
+.CancelInquiry_container_inner .order-current .left-column p::after {
   height: 10px;
   background: #979797;
 }
-.CancleInquiry_container_inner .refund-expected-guide {
+.CancelInquiry_container_inner .refund-expected-guide {
   background: #F1F1F1;
 }
-.CancleInquiry_container_inner .refund-expected-guide p {
+.CancelInquiry_container_inner .refund-expected-guide p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8635,13 +8635,13 @@ textarea {
   font-weight: 400;
   color: #979797;
 }
-.CancleInquiry_container_inner .refund-expected-guide p span {
+.CancelInquiry_container_inner .refund-expected-guide p span {
   font-weight: 700;
 }
-.CancleInquiry_container_inner .order-product {
+.CancelInquiry_container_inner .order-product {
   border-bottom: 9px solid #f1f1f1;
 }
-.CancleInquiry_container_inner .order-product-tit {
+.CancelInquiry_container_inner .order-product-tit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8653,7 +8653,7 @@ textarea {
           justify-content: space-between;
   margin: 0 0 13px 0;
 }
-.CancleInquiry_container_inner .order-product-tit .f-16-700 {
+.CancelInquiry_container_inner .order-product-tit .f-16-700 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8664,11 +8664,11 @@ textarea {
      -moz-column-gap: 7px;
           column-gap: 7px;
 }
-.CancleInquiry_container_inner .order-product-tit .f-16-700 span {
+.CancelInquiry_container_inner .order-product-tit .f-16-700 span {
   margin: 0 0 1px 0;
   color: #979797;
 }
-.CancleInquiry_container_inner .order-product-tit .arrow {
+.CancelInquiry_container_inner .order-product-tit .arrow {
   width: 10px;
   height: 18px;
   display: -webkit-box;
@@ -8682,27 +8682,27 @@ textarea {
           justify-content: center;
   position: relative;
 }
-.CancleInquiry_container_inner .order-product-tit .arrow::before, .CancleInquiry_container_inner .order-product-tit .arrow::after {
+.CancelInquiry_container_inner .order-product-tit .arrow::before, .CancelInquiry_container_inner .order-product-tit .arrow::after {
   content: "";
   width: 100%;
   height: 2px;
   position: absolute;
   background: #000;
 }
-.CancleInquiry_container_inner .order-product-tit .arrow::before {
+.CancelInquiry_container_inner .order-product-tit .arrow::before {
   right: 6px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.CancleInquiry_container_inner .order-product-tit .arrow::after {
+.CancelInquiry_container_inner .order-product-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.CancleInquiry_container_inner .order-product-list {
+.CancelInquiry_container_inner .order-product-list {
   overflow: hidden;
   border-radius: 8px;
 }
-.CancleInquiry_container_inner .order-product-list li {
+.CancelInquiry_container_inner .order-product-list li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8718,13 +8718,13 @@ textarea {
   font-weight: 400;
   background: #F1F1F1;
 }
-.CancleInquiry_container_inner .order-product-list li .place-addr {
+.CancelInquiry_container_inner .order-product-list li .place-addr {
   color: #979797;
 }
-.CancleInquiry_container_inner .order-product-list li.place-ref-info {
+.CancelInquiry_container_inner .order-product-list li.place-ref-info {
   background: #D9D9D9;
 }
-.CancleInquiry_container_inner .order-product-list li::after {
+.CancelInquiry_container_inner .order-product-list li::after {
   content: "";
   width: calc(100% - 24px);
   height: 1px;
@@ -8735,10 +8735,10 @@ textarea {
           transform: translateX(-50%);
   background: #d9d9d9;
 }
-.CancleInquiry_container_inner .order-product-list li:last-child::after {
+.CancelInquiry_container_inner .order-product-list li:last-child::after {
   display: none;
 }
-.CancleInquiry_container_inner .order-info-tit {
+.CancelInquiry_container_inner .order-info-tit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8747,7 +8747,7 @@ textarea {
           justify-content: space-between;
   margin: 0 0 13px 0;
 }
-.CancleInquiry_container_inner .order-info-tit p {
+.CancelInquiry_container_inner .order-info-tit p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8758,10 +8758,10 @@ textarea {
      -moz-column-gap: 7px;
           column-gap: 7px;
 }
-.CancleInquiry_container_inner .order-info-tit p span {
+.CancelInquiry_container_inner .order-info-tit p span {
   color: #979797;
 }
-.CancleInquiry_container_inner .order-info-tit .arrow {
+.CancelInquiry_container_inner .order-info-tit .arrow {
   width: 10px;
   height: 18px;
   display: -webkit-box;
@@ -8775,23 +8775,23 @@ textarea {
           justify-content: center;
   position: relative;
 }
-.CancleInquiry_container_inner .order-info-tit .arrow::before, .CancleInquiry_container_inner .order-info-tit .arrow::after {
+.CancelInquiry_container_inner .order-info-tit .arrow::before, .CancelInquiry_container_inner .order-info-tit .arrow::after {
   content: "";
   width: 100%;
   height: 2px;
   position: absolute;
   background: #000;
 }
-.CancleInquiry_container_inner .order-info-tit .arrow::before {
+.CancelInquiry_container_inner .order-info-tit .arrow::before {
   right: 6px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.CancleInquiry_container_inner .order-info-tit .arrow::after {
+.CancelInquiry_container_inner .order-info-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.CancleInquiry_container_inner .order-info-list-1 {
+.CancelInquiry_container_inner .order-info-list-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8803,7 +8803,7 @@ textarea {
   padding: 0 0 8px 0;
   border-bottom: 1px solid #F1F1F1;
 }
-.CancleInquiry_container_inner .order-info-list-1 div {
+.CancelInquiry_container_inner .order-info-list-1 div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8812,7 +8812,7 @@ textarea {
           justify-content: space-between;
   padding: 2px 0;
 }
-.CancleInquiry_container_inner .order-info-list-2 li {
+.CancelInquiry_container_inner .order-info-list-2 li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8824,12 +8824,12 @@ textarea {
   font-weight: 400;
   color: #979797;
 }
-.CancleInquiry_container_inner .order-info-list-2 li div {
+.CancelInquiry_container_inner .order-info-list-2 li div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.CancleInquiry_container_inner .order-info-list-2 li div span {
+.CancelInquiry_container_inner .order-info-list-2 li div span {
   width: 6px;
   height: 6px;
   margin: 3px 7px 0 0;
@@ -8837,18 +8837,18 @@ textarea {
   border-top: 0;
   border-right: 0;
 }
-.CancleInquiry_container_inner .order-info-list {
+.CancelInquiry_container_inner .order-info-list {
   margin: 0 0 5px 0;
 }
-.CancleInquiry_container_inner .order-info-list-1 {
+.CancelInquiry_container_inner .order-info-list-1 {
   margin: 0;
   border-bottom: 0;
 }
-.CancleInquiry_container_inner .order-info .bott-btn {
+.CancelInquiry_container_inner .order-info .bott-btn {
   padding: 7px 0 0 0;
   border-top: 1px solid #F1F1F1;
 }
-.CancleInquiry_container_inner .order-info .bott-btn > div {
+.CancelInquiry_container_inner .order-info .bott-btn > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8860,7 +8860,7 @@ textarea {
           justify-content: space-between;
   padding: 3px 0;
 }
-.CancleInquiry_container_inner .order-info .bott-btn > div:last-child p:last-child {
+.CancelInquiry_container_inner .order-info .bott-btn > div:last-child p:last-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8871,10 +8871,10 @@ textarea {
      -moz-column-gap: 6px;
           column-gap: 6px;
 }
-.CancleInquiry_container_inner .order-info .bott-btn > div:last-child p:last-child span {
+.CancelInquiry_container_inner .order-info .bott-btn > div:last-child p:last-child span {
   color: #979797;
 }
-.CancleInquiry_container_inner .refund-guide {
+.CancelInquiry_container_inner .refund-guide {
   font-size: 12px;
   font-weight: 400;
   color: #979797;

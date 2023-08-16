@@ -81,7 +81,7 @@
                     case "/coupon" :
                     case "/orderinquiry" :
                     case "/orderinquiryView" :
-                    case "/cancleinquiry" :
+                    case "/cancelInquiry" :
                     case "/mypage" : {
                         return {
                             back : true,
@@ -143,7 +143,7 @@
                     case "/orderinquiryView": {
                         return "주문 상세";
                     }
-                    case "/cancleinquiry": {
+                    case "/cancelInquiry": {
                         return "취소 상세";
                     }
                     case "/Account/Delete": {
