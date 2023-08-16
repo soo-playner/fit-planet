@@ -624,6 +624,93 @@ span {
   color: #979797;
 }
 
+.calendar_wrap {
+  width: 100%;
+  max-width: 66.66vw;
+  margin: 0 auto;
+}
+.calendar_wrap header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0;
+  padding-left: 3.4vw;
+}
+.calendar_wrap header h1 {
+  width: 72%;
+  font-weight: normal;
+  font-size: 14px;
+}
+.calendar_wrap header .btn_wrap {
+  width: 28%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.calendar_wrap header .btn_wrap .prev, .calendar_wrap header .btn_wrap .next {
+  width: 6.666vw;
+  opacity: 0.4;
+}
+.calendar_wrap header .btn_wrap .next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.calendar_wrap .picker_wrap .day_list,
+.calendar_wrap .picker_wrap .date_list {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.calendar_wrap .picker_wrap .day_list li,
+.calendar_wrap .picker_wrap .date_list li {
+  width: 14.2857142857%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+}
+.calendar_wrap .picker_wrap .day_list li.day,
+.calendar_wrap .picker_wrap .date_list li.day {
+  font-size: 12px;
+  color: #ccc;
+}
+.calendar_wrap .picker_wrap .day_list li.date::after,
+.calendar_wrap .picker_wrap .date_list li.date::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.calendar_wrap .picker_wrap .day_list li.date.prevDate,
+.calendar_wrap .picker_wrap .date_list li.date.prevDate {
+  color: #ccc;
+}
+.calendar_wrap .picker_wrap .day_list li.date.selected,
+.calendar_wrap .picker_wrap .date_list li.date.selected {
+  background-color: #f1f1f1;
+  border-radius: 100%;
+}
+
 button, input {
   background: none;
   border: none;
