@@ -1,23 +1,25 @@
 <script>
-    import VueDatePicker from '@vuepic/vue-datepicker';
-    import '@vuepic/vue-datepicker/dist/main.css'
+import VueDatePicker from "@vuepic/vue-datepicker";
+import SchedulePlace from "../../components/modal/SchedulePlace";
+import "@vuepic/vue-datepicker/dist/main.css";
 
-    export default {
-        name : 'PlacePay_Complete',
-        components : {
-            VueDatePicker
+export default {
+    name: "PlacePay_Complete",
+    components: {
+        VueDatePicker,
+        SchedulePlace,
+    },
+    data() {
+        return {
+            ticketModal: false,
+        };
+    },
+    methods: {
+        openTicketModal: function () {
+            this.ticketModal = !this.ticketModal;
         },
-        data () {
-            return {
-                ticketModal : false
-            }
-        }, 
-        methods : {
-            openTicketModal : function(){
-                this.ticketModal = !this.ticketModal
-            }
-        }
-    }
+    },
+};
 </script>
 
 <template>
@@ -25,7 +27,7 @@
         <div class="PlacePayComplete_container_inner mob-inner">
             <!-- 결제 완료 안내 -->
             <div class="pay-complete-guide">
-                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료"></div>
+                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료" /></div>
                 <div class="f-20-700">
                     <p>결제 완료!</p>
                     <p>수강권을 등록해볼까요?</p>
@@ -63,7 +65,7 @@
                             <p class="f-14-700 place-name">위즈짐</p>
                             <span class="f-12-400 place-addr">서울 강남구 삼성로86길 11 거봉INC 3층</span>
                         </div>
-                        <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="플레이스 찜하기"></div>
+                        <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="플레이스 찜하기" /></div>
                     </li>
                     <li>
                         <div>6개월 수강권</div>
@@ -87,8 +89,14 @@
                 </div>
                 <div class="order-info-list">
                     <div class="order-info-list-1">
-                        <div class="f-14-700"><p>결제금액</p><p>334,000원</p></div>
-                        <div class="f-14-400"><p>결제 방법</p><p>페이코</p></div>
+                        <div class="f-14-700">
+                            <p>결제금액</p>
+                            <p>334,000원</p>
+                        </div>
+                        <div class="f-14-400">
+                            <p>결제 방법</p>
+                            <p>페이코</p>
+                        </div>
                     </div>
                     <ul class="order-info-list-2">
                         <li>
@@ -108,7 +116,7 @@
             </div>
         </div>
         <!-- 수강권 등록 모달창 -->
-        <div class="PlacePayComplete_modal" v-bind:class="{openTicketModal : ticketModal}">
+        <div class="PlacePayComplete_modal" v-bind:class="{ openTicketModal: ticketModal }">
             <div class="overlay" @click="openTicketModal"></div>
             <div class="PlacePayComplete_modal_inner">
                 <div class="txt-box">
@@ -134,4 +142,5 @@
             </div>
         </div>
     </div>
+    <SchedulePlace />
 </template>
