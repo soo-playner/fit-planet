@@ -1,6 +1,6 @@
 <script setup>
-import PlaceData from "@/data/place/PlaceData";
-import TrainerData from "@/data/place/TrainerData";
+import PlaceData from "@/components/place/PlaceData";
+import TrainerData from "@/components/place/TrainerData";
 import SearchTab from "./Search_Tab";
 import { ref } from "vue";
 

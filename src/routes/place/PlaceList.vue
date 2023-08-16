@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import PlaceData from "@/data/place/PlaceData";
+import PlaceData from "@/components/place/PlaceData";
 
 const store = useStore();
 const placeInfo = ref(store.state.placeInfo);

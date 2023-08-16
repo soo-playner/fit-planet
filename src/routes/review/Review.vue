@@ -1,6 +1,6 @@
 <script setup>
 import reviewTab from "./Review_Tab";
-import reviewList from "@/data/review/ReviewList";
+import reviewList from "@/components/review/ReviewList";
 
 const reviewListData = [
     {
