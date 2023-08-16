@@ -1,26 +1,4 @@
 @charset "UTF-8";
-/******************************************
-- common.scss
-    ㄴ 헤더, 풋터
-- commonLayout.scss
-    ㄴ 공통 믹스인 정리
-- main
-    ㄴ 메인 페이지
-- modal
-    ㄴ 모달창
-- intro
-    ㄴ 인트로, 스플래시
-- member
-    ㄴ 회원가입, 아이디 찾기, 비밀번호 찾기, 로그인 시작 페이지, 마이 페이지, 회원정보, 닉네임 변경, 쿠폰, 회원 탈퇴
-- place
-    ㄴ 플레이스 리스트, 상세, 후기, 운동기구, 1:1 트레이너, 운동 선택하기, 결제하기, 결제 완료, 등록 완료, 필터
-- review
-    ㄴ 후기, 후기 선택, 후기 작성
-- community
-    ㄴ 뉴스/이벤트, 약관 및 정책, 문의, 문의 완료, 검색창, 검색 결과, 알림창, 알림 설정, 자주 묻는 질문
-- order
-    ㄴ 주문내역, 주문내역 상세, 취소내역 상세
-******************************************/
 body {
   margin: 0;
   padding: 0;
@@ -8043,6 +8021,107 @@ textarea {
 .FAQ_container_inner .faq-tab-list li.active button {
   font-weight: 700;
   color: #000;
+}
+
+/******************************************
+찜
+/routes/wish
+******************************************/
+.Wish_container_inner {
+  padding: 0 20px;
+}
+.Wish_container_inner .wish-ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  row-gap: 20px;
+}
+.Wish_container_inner .wish-ul li .img-box {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  background: #d9d9d9;
+  border-radius: 8px;
+}
+.Wish_container_inner .wish-ul li .img-box .location {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+}
+@media (max-width: 991px) {
+  .Wish_container_inner .wish-ul li .img-box {
+    height: 50vw;
+  }
+}
+@media (max-width: 480px) {
+  .Wish_container_inner .wish-ul li .img-box {
+    height: 156px;
+  }
+}
+.Wish_container_inner .wish-ul li .txt-box .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 8px 0;
+}
+.Wish_container_inner .wish-ul li .txt-box .info-detail .scope {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+.Wish_container_inner .wish-ul li .txt-box .info-detail .scope p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Wish_container_inner .wish-ul li .txt-box .info-detail .scope p span {
+  color: #979797;
+}
+.Wish_container_inner .wish-ul li .txt-box .info-detail .location {
+  color: #979797;
+}
+.Wish_container_inner .wish-ul li .txt-box .info .heart {
+  margin: 5px 0 0 0;
+  cursor: pointer;
+}
+.Wish_container_inner .wish-ul li .txt-box .pay-btn {
+  width: 100%;
+  height: 38px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  margin: 9px 0 0px 0;
+  background: #000;
+  color: #fff;
+  border-radius: 19px;
+  height: 34px;
+  line-height: 32px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  cursor: pointer;
 }
 
 /******************************************
