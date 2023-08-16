@@ -1,8 +1,4 @@
-<script>
-    export default {
-        name : 'ReviewSelect'
-    }
-</script>
+<script setup></script>
 
 <template>
     <div class="ReviewSelect_container main-layout">
@@ -10,7 +6,7 @@
             <ul class="remain-review">
                 <li class="remain-review-list" v-for="(reviewCon, idx) in 4" :key="reviewCon">
                     <div class="left-column">
-                        <input type="radio" name="reviewCon" :id="reviewCon + idx">
+                        <input type="radio" :name="`reviewCon${idx}`" :id="reviewCon + idx" />
                         <label :for="reviewCon + idx">
                             <span class="outSide"><span></span></span>
                             <div class="txt-box">

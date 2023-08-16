@@ -1,24 +1,13 @@
-<script>
+<script setup>
 import VueDatePicker from "@vuepic/vue-datepicker";
-import SchedulePlace from "../../components/modal/SchedulePlace";
 import "@vuepic/vue-datepicker/dist/main.css";
+import { ref } from "vue";
 
-export default {
-    name: "PlacePay_Complete",
-    components: {
-        VueDatePicker,
-        SchedulePlace,
-    },
-    data() {
-        return {
-            ticketModal: false,
-        };
-    },
-    methods: {
-        openTicketModal: function () {
-            this.ticketModal = !this.ticketModal;
-        },
-    },
+// Data and methods
+const ticketModal = ref(false);
+
+const openTicketModal = () => {
+    ticketModal.value = !ticketModal.value;
 };
 </script>
 
@@ -142,5 +131,4 @@ export default {
             </div>
         </div>
     </div>
-    <SchedulePlace />
 </template>

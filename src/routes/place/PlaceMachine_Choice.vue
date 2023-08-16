@@ -1,8 +1,4 @@
-<script>
-    export default {
-        name : 'PlaceMachine_Choice',
-    }
-</script>
+<script setup></script>
 
 <template>
     <div class="PlaceMachine_Choice_container main-layout">
@@ -16,7 +12,7 @@
                 <div class="place-ticket-list PlaceMachine-list-layout">
                     <div class="place-ticket-list-tit">수강권</div>
                     <ul>
-                        <li class="flex-flow" >
+                        <li class="flex-flow">
                             <div class="top-row each-tit">
                                 <div class="check-current"><span></span></div>
                                 <p class="f-14-400 place-ticket-list-name">1회 체험권</p>
@@ -108,7 +104,7 @@
                                 <div class="check-current"><span></span></div>
                                 <p class="f-14-400 training-opt-list-name">운동복 6개월</p>
                             </div>
-                            <div class="right-column ">
+                            <div class="right-column">
                                 <span class="discount f-12-400">10,000원 할인</span>
                                 <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
                             </div>
@@ -172,7 +168,6 @@
                         </li>
                     </ul>
                 </div>
-                
             </div>
         </div>
         <div class="bott-pay-btn">
@@ -181,21 +176,30 @@
                 <li>
                     <div>
                         <div class="f-14-400">6개월 수강권</div>
-                        <div><span class="f-12-400 discount">-120,000원</span><p>234,000원</p></div>
+                        <div>
+                            <span class="f-12-400 discount">-120,000원</span>
+                            <p>234,000원</p>
+                        </div>
                     </div>
                     <div class="close"></div>
                 </li>
                 <li>
                     <div>
                         <div class="f-14-400">운동복 6개월</div>
-                        <div><span class="f-12-400 discount">-10,000원</span><p>50,000원</p></div>
+                        <div>
+                            <span class="f-12-400 discount">-10,000원</span>
+                            <p>50,000원</p>
+                        </div>
                     </div>
                     <div class="close"></div>
                 </li>
                 <li>
                     <div>
                         <div class="f-14-400">개인락커 6개월</div>
-                        <div><span class="f-12-400 discount">-10,000원</span><p>50,000원</p></div>
+                        <div>
+                            <span class="f-12-400 discount">-10,000원</span>
+                            <p>50,000원</p>
+                        </div>
                     </div>
                     <div class="close"></div>
                 </li>

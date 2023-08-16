@@ -1,8 +1,5 @@
-<script>
-    // 경로 - /find/id/step3
-    export default {
-        name : 'FindID_Step3',
-    }
+<script setup>
+// 필요한 경우 import 문을 사용하여 다른 모듈을 가져올 수 있습니다.
 </script>
 
 <template>

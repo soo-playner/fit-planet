@@ -28,6 +28,7 @@ export default {
 </script>
 
 <template>
+    <div></div>
     <!-- <div class="join_current"> -->
     <!-- <div class="step-value first" v-if="$route.name == 'Join'"><span></span></div>
         <div class="step-value second" v-if="$route.name == 'JoinStep1'"><span></span></div>

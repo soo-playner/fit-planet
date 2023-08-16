@@ -1,29 +1,26 @@
-<script>
-    export default {
-        name : 'Filter',
-        data(){
-            return {
-                facilities : [
-                    { id:'1', tit:'주차장' },
-                    { id:'2', tit:'락커' },
-                    { id:'3', tit:'운동복' },
-                    { id:'4', tit:'수건' },
-                    { id:'5', tit:'Wi-fi' },
-                    { id:'6', tit:'샤워실' },
-                    { id:'7', tit:'사우나' },
-                    { id:'8', tit:'찜질방' },
-                    { id:'9', tit:'체형분석' },
-                    { id:'10', tit:'체성분검사' }
-                ],
-                machine: [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }],
-                machineTag: [
-                    ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
-                    ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
-                    ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
-                ],
-            }
-        }
-    }
+<script setup>
+import { ref } from "vue";
+
+const facilities = ref([
+    { id: "1", tit: "주차장" },
+    { id: "2", tit: "락커" },
+    { id: "3", tit: "운동복" },
+    { id: "4", tit: "수건" },
+    { id: "5", tit: "Wi-fi" },
+    { id: "6", tit: "샤워실" },
+    { id: "7", tit: "사우나" },
+    { id: "8", tit: "찜질방" },
+    { id: "9", tit: "체형분석" },
+    { id: "10", tit: "체성분검사" },
+]);
+
+const machine = ref([{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }]);
+
+const machineTag = ref([
+    ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
+    ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
+    ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
+]);
 </script>
 
 <template>
@@ -78,7 +75,7 @@
             <div class="facilities">
                 <div class="facilities-tit f-14-700">편의시설</div>
                 <ul>
-                    <li v-for="fac in facilities" :key="fac">
+                    <li v-for="fac in facilities" :key="fac.id">
                         <span :class="'facilities-icon facilities-icon-' + fac.id"></span>
                         <p>{{ fac.tit }}</p>
                     </li>
@@ -89,7 +86,9 @@
                 <div class="machine-tit f-14-700 place-each-tit">운동 기구</div>
                 <div class="machine-list" v-for="(machineItem, idx) in machine" :key="idx">
                     <span class="machine-tit f-14-400">{{ machineItem.title }}</span>
-                    <ul><li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li></ul>
+                    <ul>
+                        <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
+                    </ul>
                 </div>
             </div>
         </div>

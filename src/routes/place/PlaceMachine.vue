@@ -1,8 +1,4 @@
-<script>
-    export default {
-        name : 'PlaceMachine'
-    }
-</script>
+<script setup></script>
 
 <template>
     <div class="PlaceMachine_container">

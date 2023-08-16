@@ -1,11 +1,5 @@
-<script>
-    export default {
-        name : 'Place',
-    }
-</script>
+<script setup></script>
 
 <template>
-    <div>
-        dd
-    </div>
+    <div>dd</div>
 </template>

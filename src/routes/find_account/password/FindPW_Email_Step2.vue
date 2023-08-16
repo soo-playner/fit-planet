@@ -1,18 +1,12 @@
-<script>
-    // 경로 - /find/pw/email/step2
-    export default {
-        name : 'FindPW_Email_Step2',
-        data(){
-            return {
-                EmailSend : false
-            }
-        },
-        methods : {
-            EmailSendFnc : function(){
-                this.EmailSend = !this.EmailSend
-            }
-        }
-    }
+<script setup>
+import { ref } from "vue";
+
+// 데이터와 메소드를 초기화합니다.
+const EmailSend = ref(false);
+
+const EmailSendFnc = () => {
+    EmailSend.value = !EmailSend.value;
+};
 </script>
 
 <template>
@@ -20,12 +14,12 @@
         <div class="member_container_inner mob-inner">
             <div class="FindPW_form">
                 <div class="form-group">
-                    <input type="email" id="mb_email" name="mb_email" placeholder="이메일 주소">
+                    <input type="email" id="mb_email" name="mb_email" placeholder="이메일 주소" />
                 </div>
             </div>
             <router-link to="#" class="next-step-btn f-16-700" @click="EmailSendFnc">인증메일 요청</router-link>
         </div>
-        <div class="member_alert EmailSend_Alert" v-bind:class="{ active : EmailSend }">
+        <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
             <div class="overlay" @click="EmailSendFnc"></div>
             <div class="member_alert_inner mob-inner">
                 <div class="f-18-700">
