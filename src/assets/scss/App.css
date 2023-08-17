@@ -7612,7 +7612,7 @@ textarea {
   padding: 24px 20px 28px;
 }
 .Inquiry_container_inner .inquiry-list-tit {
-  margin: 0 0 12px 0;
+  margin: 0 0 9px 0;
 }
 .Inquiry_container_inner .inquiry-list-ul {
   display: -webkit-box;
@@ -7633,6 +7633,7 @@ textarea {
   border-radius: 14px;
   cursor: pointer;
   line-height: 25px;
+  padding: 0 8px;
   -webkit-transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -8667,6 +8668,11 @@ textarea {
   text-align: center;
 }
 .orderinquiry_container_inner .order-list .bott-row a.review-induce, .orderinquiry_container_inner .order-list .bott-row div.review-induce {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  margin: 0;
   background: #000;
   color: #fff;
 }

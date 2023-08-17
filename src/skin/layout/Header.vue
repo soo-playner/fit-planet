@@ -135,11 +135,8 @@
                     case "/place/pay/complete": {
                         return "결제 완료";
                     }
-                    case "/terms": {
+                    case "/Terms": {
                         return "약관 및 정책";
-                    }
-                    case "/inquiry": {
-                        return "이메일 문의";
                     }
                     case "/faq": {
                         return "자주 묻는 질문";

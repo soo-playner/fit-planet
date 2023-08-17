@@ -2,6 +2,9 @@
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
 
+    import accountDeleteReason_Modal from '@/components/modal/mypage/AccountDeleteReason';
+    import accountDeleteComplete_Modal from '@/components/modal/mypage/AccountDeleteComplete';
+
     const accountDelete = ref(false);
     const accountDeleteReason = ref(false);
     const displayCategory = ref(false);
@@ -16,13 +19,15 @@
     ];
     
     // 탈퇴 완료 모달창
+    const isComplete = ref(false);
     const accountDeleteFnc = function(){
-        accountDelete.value = !accountDelete.value;
+        isComplete.value = !isComplete.value;
     }
 
     // 탈퇴 이유 선택 모달창
+    const isReason = ref(false);
     const deleteReasonFnc = function(){
-        accountDeleteReason.value = !accountDeleteReason.value;
+        isReason.value = !isReason.value;
     }
 
     // 탈퇴 이유 선택
@@ -85,29 +90,11 @@
                 </button>
             </div>
         </div>
+
         <!-- 탈퇴 이유 선택 모달창 -->
-        <div class="AccountDelete-reason-modal member_alert" :class="{ active : accountDeleteReason }">
-            <div class="overlay" @click="deleteReasonFnc"></div>
-            <div class="AccountDelete-reason-modal-inner member_alert_inner">
-                <p class="f-18-700">탈퇴 이유를 선택해주세요</p>
-                <button class="f-16-700" @click="deleteReasonFnc">확인</button>
-            </div>
-        </div>
+        <accountDeleteReason_Modal :class="{ active : isReason }" :confirmReason="deleteReasonFnc"/>
 
         <!-- 탈퇴 완료 모달창 -->
-        <div class="AccountDelete-modal member_alert" :class="{ active : accountDelete }">
-            <div class="overlay" @click="$router.push('/Login')"></div>
-            <div class="AccountDelete-modal-inner member_alert_inner">
-                <div class="txt-box">
-                    <div class="f-18-700">탈퇴되었습니다.</div>
-                    <p class="f-14-400">
-                        <span>핏플래닛이 그리워지면</span>
-                        <span>언제든지 다시 돌아와주세요!</span>
-                        <span>더 멋진 모습으로 기다리고 있을게요</span>
-                    </p>
-                </div>
-                <router-link to="/Login" class="f-16-700">See ya 핏플래닛!</router-link>
-            </div>
-        </div>
+        <accountDeleteComplete_Modal :class="{ active : isComplete }"/>
     </div>
 </template>

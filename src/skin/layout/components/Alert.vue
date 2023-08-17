@@ -16,10 +16,11 @@
 
 <script setup>
     import AlertManage_Modal from '@/components/modal/alert/AlertManage';
+    import { ref } from 'vue';
 
-    var alertCurrent = false;
-    const alertCurrentFnc = () => {
-        alertCurrent = !alertCurrent
+    const isManage = ref(false);
+    const AlertManageFnc = function() {
+        isManage.value = !isManage.value;
     }
 </script>
 
@@ -32,7 +33,7 @@
         <div class="Alert_container_inner mob-inner">
             <div class="alert-tit">
                 <p>읽지 않은 알림 <span class="alert-count">2</span>개</p>
-                <button class="alert-manage" @click="alertCurrentFnc">관리</button>
+                <button class="alert-manage" @click="AlertManageFnc">관리</button>
             </div>
             <ul class="alert-list">
                 <!-- 아침 8시 알림, 탭하면 홈으로 이동 -->
@@ -103,6 +104,6 @@
         </div>
 
         <!-- 알림창 관리 모달창 -->
-        <AlertManage_Modal :class="{ active : alertCurrent }"/>
+        <AlertManage_Modal :class="{ active : isManage }" :confirmManage="AlertManageFnc"/>
     </div>
 </template>
