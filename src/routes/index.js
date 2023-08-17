@@ -38,6 +38,7 @@ import PlacePay_Complete from "../routes/place/PlacePay_Complete";
 import PlaceTicket_Complete from "../routes/place/PlaceTicket_Complete";
 import TrainerDetail from "../routes/trainer/TrainerDetail";
 import Review from "../routes/review/Review";
+import ReviewDetail from "../routes/review/ReviewDetail";
 import MyReview from "../routes/review/MyReview";
 import ReviewSelect from "../routes/review/ReviewSelect";
 import ReviewWrite from "../routes/review/ReviewWrite";
@@ -104,6 +105,7 @@ const routes = [
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
     // 후기
     { path : '/review', component : Review, name : 'Review' },
+    { path : '/review/detail', component : ReviewDetail, name : 'ReviewDetail' },
     { path : '/my-review', component : MyReview, name : 'MyReview' },
     { path : '/review/select', component : ReviewSelect, name : 'ReviewSelect' },
     { path : '/review/write', component : ReviewWrite, name : 'ReviewWrite' },

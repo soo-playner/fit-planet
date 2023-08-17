@@ -88,6 +88,14 @@
                             home : true
                         };
                     }
+                    case "/review/detail" : {
+                        return {
+                            back : true,
+                            write : true,
+                            search : true,
+                            mypage : true
+                        };
+                    }
                     default: {
                         return {
                             back: true,
@@ -198,6 +206,7 @@
             <div></div>
             <ul class="menu-ul">
                 <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
+                <li v-if="headerType()['write']"><img src="@/assets/image/write.png" alt="글쓰기" /></li>
                 <li v-if="headerType()['search']" @click="SearchOpenFnc"><span class="search"></span></li>
                 <li v-if="headerType()['mypage']"><img src="@/assets/image/person.png" alt="마이페이지" /></li>
                 <li v-if="headerType()['home']"><img src="@/assets/image/home.png" alt="홈" /></li>

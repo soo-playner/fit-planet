@@ -168,21 +168,7 @@
         }
         .total-review-form{margin-bottom:4px; padding:20px 0 24px; border-bottom:8px solid #F1F1F1;
             & > div{padding:0 20px;}
-            .review-writer{@include display(flex, null, space-between); margin-bottom:20px; padding:0 20px 15px; border-bottom:1px solid #D9D9D9;
-                .left-row{@include display(flex); column-gap:8px;
-                    .user-profile{@include conSize(40px, 40px); border-radius:50%; background:#D9D9D9;}
-                    .writer-info{
-                        p{@include display(flex, flex-end); column-gap:8px;
-                            span{color:#979797}
-                        }
-                    }
-                }
-                .right-row{@include display(flex, center); column-gap:21px;
-                    .like-box{@include conSize(null, 30px, 30px); @include display(flex, center, center); column-gap:8px; padding:0 12px; border:1px solid $b; border-radius:50px; cursor:pointer;}
-                    .menu-dot{@include menuDot;}
-                    .review-sorting-list{@include placeList;}
-                }
-            }
+            .review-writer{@include WriterInfo;}
             .review-content{
                 .member-review{
                     &-img{@include conSize(156px, 156px); margin:20px 0 0 0; border-radius:8px; background:#D9D9D9;}
