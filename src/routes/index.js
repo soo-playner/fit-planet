@@ -65,8 +65,8 @@ import ScheduleChange from "../components/modal/ScheduleChange";
 
 const routes = [
     // 인트로
-    { path: "/splash", component: Splash, name: "SplashPage" },
-    { path: "/intro", component: Intro, name: "IntroPage" },
+    { path: "/splash", component: Splash, name: "Splash" },
+    { path: "/intro", component: Intro, name: "Intro" },
     // 메인
     { path: "/", component: Home, name: "Home" }, // 첫 방문
     { path: "/class", component: Class_Home, name: "Class_Home" }, // 플레이스 수강권 미등록

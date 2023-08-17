@@ -135,6 +135,12 @@
                     case "/place/pay/complete": {
                         return "결제 완료";
                     }
+                    case "/Place/Review": {
+                        return "이용 후기";
+                    }
+                    case "/Place/Trainer": {
+                        return "1:1 트레이너";
+                    }
                     case "/Terms": {
                         return "약관 및 정책";
                     }

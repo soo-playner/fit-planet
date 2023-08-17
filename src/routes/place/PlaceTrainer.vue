@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="PlaceTrainer_container">
+    <div class="PlaceTrainer_container main-layout">
         <div class="PlaceTrainer_container_inner mob-inner">
             <div class="place-trainer-list" v-for="placeTrainerItem in 5" :key="placeTrainerItem">
                 <div class="trainer-info">

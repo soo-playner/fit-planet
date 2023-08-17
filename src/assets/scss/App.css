@@ -97,20 +97,40 @@ span {
   font-size: 14px;
   font-weight: 400;
 }
+@media (max-width: 360px) {
+  .f-14-400 {
+    font-size: 12px;
+  }
+}
 
 .f-14-700 {
   font-size: 14px;
   font-weight: 700;
+}
+@media (max-width: 360px) {
+  .f-14-700 {
+    font-size: 12px;
+  }
 }
 
 .f-16-400 {
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 360px) {
+  .f-16-400 {
+    font-size: 14px;
+  }
+}
 
 .f-16-700 {
   font-size: 16px;
   font-weight: 700;
+}
+@media (max-width: 360px) {
+  .f-16-700 {
+    font-size: 14px;
+  }
 }
 
 .f-18-700 {
@@ -661,7 +681,7 @@ span {
 
 .calendar_wrap {
   width: 100%;
-  max-width: 66.66vw;
+  max-width: 550px;
   margin: 0 auto;
 }
 .calendar_wrap header {
@@ -675,15 +695,20 @@ span {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 20px 0;
-  padding-left: 3.4vw;
+  padding-left: 31px;
 }
 .calendar_wrap header h1 {
   width: 72%;
   font-weight: normal;
   font-size: 14px;
 }
+@media (max-width: 360px) {
+  .calendar_wrap header h1 {
+    font-size: 12px;
+  }
+}
 .calendar_wrap header .btn_wrap {
-  width: 28%;
+  width: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -695,12 +720,32 @@ span {
           justify-content: space-between;
 }
 .calendar_wrap header .btn_wrap .prev, .calendar_wrap header .btn_wrap .next {
-  width: 6.666vw;
   opacity: 0.4;
+}
+@media (max-width: 360px) {
+  .calendar_wrap header .btn_wrap .prev, .calendar_wrap header .btn_wrap .next {
+    width: 20px;
+  }
 }
 .calendar_wrap header .btn_wrap .next {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+@media (max-width: 360px) {
+  .calendar_wrap header .btn_wrap {
+    width: 50px;
+  }
+}
+@media (max-width: 720px) {
+  .calendar_wrap header {
+    padding-left: 21px;
+  }
+}
+@media (max-width: 360px) {
+  .calendar_wrap header {
+    padding-left: 11px;
+    margin: 15px 0;
+  }
 }
 .calendar_wrap .picker_wrap .day_list,
 .calendar_wrap .picker_wrap .date_list {
@@ -744,6 +789,17 @@ span {
 .calendar_wrap .picker_wrap .date_list li.date.selected {
   background-color: #f1f1f1;
   border-radius: 100%;
+}
+@media (max-width: 360px) {
+  .calendar_wrap .picker_wrap .day_list li,
+  .calendar_wrap .picker_wrap .date_list li {
+    font-size: 12px;
+  }
+}
+@media (max-width: 720px) {
+  .calendar_wrap {
+    max-width: 400px;
+  }
 }
 
 button, input {
@@ -2250,6 +2306,11 @@ ul 안에 ul
 .ScheduleChange_alert_inner > div:last-child {
   margin-bottom: 0;
 }
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner > div {
+    margin-bottom: 15px;
+  }
+}
 .ScheduleChange_alert_inner .existing {
   padding: 12px 35px;
   border: 1px solid #D9D9D9;
@@ -2262,9 +2323,14 @@ ul 안에 ul
 .ScheduleChange_alert_inner .existing p {
   margin: 4px 0 0 0;
 }
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .existing {
+    padding: 10px 15px;
+  }
+}
 .ScheduleChange_alert_inner .day div {
-  height: 44px;
-  line-height: 44px;
+  height: auto;
+  line-height: 1.7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2274,6 +2340,9 @@ ul 안에 ul
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  padding: 8px 5px;
   background: #F1F1F1;
   border: 1px solid #000;
   border-radius: 50px;
@@ -2281,6 +2350,11 @@ ul 안에 ul
 .ScheduleChange_alert_inner .day div span {
   font-size: 16px;
   font-weight: 700;
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .day div span {
+    font-size: 14px;
+  }
 }
 .ScheduleChange_alert_inner .day div > span {
   display: -webkit-box;
@@ -2290,6 +2364,11 @@ ul 안에 ul
      -moz-column-gap: 3px;
           column-gap: 3px;
   margin: 0 12px;
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .day div > span {
+    margin: 0 6px;
+  }
 }
 .ScheduleChange_alert_inner .day-list {
   display: -webkit-box;
@@ -2311,12 +2390,20 @@ ul 안에 ul
   font-weight: 400;
   color: #979797;
   border: 1px solid #D9D9D9;
-  border-radius: 50px;
+  border-radius: 20px;
   cursor: pointer;
 }
 .ScheduleChange_alert_inner .day-list li.active {
   color: #000;
   border-color: #000;
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .day-list li {
+    height: 33px;
+    line-height: 31px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
 }
 .ScheduleChange_alert_inner .datePicker .apply {
   display: -webkit-box;
@@ -2354,6 +2441,16 @@ ul 안에 ul
   font-size: 16px;
   font-weight: 700;
 }
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .datePicker .apply div p span {
+    font-size: 14px;
+  }
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .datePicker .apply {
+    padding: 7px 0;
+  }
+}
 .ScheduleChange_alert_inner .day_change_btn {
   text-align: center;
 }
@@ -2377,7 +2474,7 @@ ul 안에 ul
       -ms-flex: 1;
           flex: 1;
   height: 44px;
-  line-height: 44px;
+  line-height: 42px;
   font-size: 16px;
   font-weight: 700;
   border: 1px solid #000;
@@ -2388,6 +2485,27 @@ ul 안에 ul
   border: none;
   background: #000;
   color: #fff;
+}
+@media (max-width: 991px) {
+  .ScheduleChange_alert_inner .day_change_btn div button {
+    font-size: 14px;
+  }
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .day_change_btn div button {
+    height: 34px;
+    line-height: 32px;
+  }
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner .day_change_btn div {
+    margin: 11px 0 0 0;
+  }
+}
+@media (max-width: 360px) {
+  .ScheduleChange_alert_inner {
+    padding: 23px 20px;
+  }
 }
 
 .order-delete-modal {
@@ -4578,7 +4696,7 @@ ul 안에 ul
   color: #979797;
 }
 .detail_container_inner .place-trainer .trainer-info {
-  min-height: 220px;
+  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4653,6 +4771,16 @@ ul 안에 ul
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin: 5px 0px 0 0;
+}
+@media (max-width: 991px) {
+  .detail_container_inner .place-trainer .trainer-info {
+    height: 50vw;
+  }
+}
+@media (max-width: 480px) {
+  .detail_container_inner .place-trainer .trainer-info {
+    height: 220px;
+  }
 }
 .detail_container_inner .place-trainer .trainer-comment {
   padding: 8px 12px;
@@ -5099,7 +5227,7 @@ ul 안에 ul
   row-gap: 20px;
 }
 .PlaceTrainer_container_inner .place-trainer-list .trainer-info {
-  min-height: 220px;
+  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5174,6 +5302,16 @@ ul 안에 ul
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin: 5px 0px 0 0;
+}
+@media (max-width: 991px) {
+  .PlaceTrainer_container_inner .place-trainer-list .trainer-info {
+    height: 50vw;
+  }
+}
+@media (max-width: 480px) {
+  .PlaceTrainer_container_inner .place-trainer-list .trainer-info {
+    height: 220px;
+  }
 }
 .PlaceTrainer_container_inner .place-trainer-list .trainer-comment {
   padding: 8px 12px;

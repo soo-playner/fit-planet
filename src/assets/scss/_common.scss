@@ -26,8 +26,14 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 @mixin responsive-991(){
     @media(max-width:991px){@content;}
 }
+@mixin responsive-720(){
+    @media(max-width:720px){@content;}
+}
 @mixin responsive-480(){
     @media(max-width:480px){@content;}
+}
+@mixin responsive-360(){
+    @media(max-width:360px){@content;}
 }
 
 // 믹스인
@@ -58,10 +64,18 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
-.f-14-400{@include font(14px, 400, null);}
-.f-14-700{@include font(14px, 700, null);}
-.f-16-400{@include font(16px, 400, null);}
-.f-16-700{@include font(16px, 700, null);}
+.f-14-400{@include font(14px, 400, null);
+    @include responsive-360(){font-size:12px;}
+}
+.f-14-700{@include font(14px, 700, null);
+    @include responsive-360(){font-size:12px;}
+}
+.f-16-400{@include font(16px, 400, null);
+    @include responsive-360(){font-size:14px;}
+}
+.f-16-700{@include font(16px, 700, null);
+    @include responsive-360(){font-size:14px;}
+}
 .f-18-700{@include font(18px, 700, null);}
 .f-20-700{@include font(20px, 700, null);}
 .f-24-700{@include font(24px, 700, null);}
@@ -197,33 +211,41 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 캘린더
 .calendar_wrap{
     width: 100%;
-    max-width: 66.66vw;
+    // max-width: 66.66vw;
+    max-width:550px;
     margin: 0 auto;
     header{
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 20px 0;
-        padding-left: 3.4vw;
+        // padding-left: 3.4vw;
+        padding-left:31px;
         h1{
             width: 72%;
             font-weight: normal;
             font-size:14px; 
+            @include responsive-360{font-size:12px;}
         }
         .btn_wrap{
-            width: 28%;
+            // width: 28%;
+            width:100px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             .prev,.next{
-                width: 6.666vw;
+                // width: 6.666vw;
                 // width: 24px;
                 opacity: 0.4;
+                @include responsive-360{width:20px}
             }
             .next{
                 transform: rotate(180deg);
             }
+            @include responsive-360{width:50px;}
         }
+        @include responsive-720{padding-left:21px;}
+        @include responsive-360{padding-left:11px; margin:15px 0;}
     }
     .picker_wrap{
         .day_list,
@@ -257,7 +279,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                         border-radius:100%;
                     }
                 }
+                @include responsive-360{font-size:12px;}
             }
         }
     }
+    // @include responsive-991{max-width:100%;}
+    @include responsive-720{max-width:400px;}
 }
