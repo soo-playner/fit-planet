@@ -1,11 +1,26 @@
-
-// 알럿창(비밀번호 재설정 등)
+/******************************************
+알럿창(비밀번호 재설정 등)
+******************************************/
 .member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 999); opacity:0; visibility:hidden; transition:all .3s $easing;
     .overlay{@include overLay;}
     &_inner{width:calc(100% - 64px); padding:36px 20px 20px; background:$f; border-radius:8px; box-shadow:0px 0px 30px 5px rgba(0,0,0, .1); text-align:center;
         div{margin:0 0 36px 0;}
     }
     &.active{opacity:1; visibility:visible;}
+}
+
+/******************************************
+모달창 공통 레이아웃(후기 솔팅, 리뷰 신고하기)
+-> 구조 AlertManage.vue
+******************************************/
+.comm_modal_layout{
+    .comm_modal_layout_tit{@include display(flex, center, space-between); margin:0 0 17px 0;}
+    .comm_modal_layout_tit_list{
+        li{@include radioBox1; position:relative; padding:12px 0; border-bottom:1px solid #D9D9D9;
+            &:last-child{border-bottom:0;}
+        }
+    }
+    button{margin:15px 0 0 0;}
 }
 
 // 플레이스 상세 - 문의하기 모달창
@@ -103,37 +118,6 @@
 .AccountDelete-reason-modal{
     &-inner{
         button{@include aTag; @include conSize(null, 44px, 42px); margin:48px 0 0 0; cursor:pointer;}
-    }
-}
-
-// 알림창 관리 모달창
-.alert-manage-modal{
-    &-inner{padding:22px 20px 20px;
-        .manage-tit{@include display(flex, center, space-between); margin:0 0 17px 0;
-            .close{@include conSize(22px, 22px); @include display(flex, center, center); position:relative; cursor:pointer;
-                &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
-                &::before{transform:rotate(45deg)}
-                &::after{transform:rotate(-45deg)}
-            }
-        }
-        .manage-list{
-            li{position:relative; padding:12px 0; border-bottom:1px solid #D9D9D9;
-                input[type='radio']{position:absolute; opacity:0; appearance:none; -webkit-appearance:none;
-                    + label{@include display(flex, null, space-between); @include font(14px, 400, $b); cursor:pointer;
-                        .outSide{@include conSize(24px, 24px); @include display(flex, center, center); background:#F1F1F1; border:1px solid #D9D9D9; border-radius:50%;
-                            span{@include conSize(12px, 12px); opacity:0; visibility:hidden; background:$b; border-radius:50%;}
-                        }
-                    }
-                    &:checked + label{font-weight:700;
-                        .outSide{
-                            span{opacity:1; visibility:visible;}
-                        }
-                    }
-                }
-                &:last-child{border-bottom:0;}
-            }
-        }
-        .bott-btn{@include aTag; @include conSize(null, 44px, 44px); cursor:pointer;}
     }
 }
 

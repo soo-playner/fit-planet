@@ -4,6 +4,8 @@
     import WishList_Tab from './components/WishList_Tab';
     import PlaceWishList from '@/components/wish/PlaceWishList';
     import TrainerWishList from '@/components/wish/TrainerWishList';
+    import PlaceWishSorting from '@/components/modal/wish/PlaceWishSorting';
+    import TrainerWishSorting from '@/components/modal/wish/TrainerWishSorting';
 
     const tabs = ["플레이스", "트레이너"];
     const targetTab = ref("플레이스");
@@ -30,6 +32,11 @@
     <div class="Wish_container main-layout">
         <WishList_Tab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"/>
         <div class="Wish_container_inner mob-inner">
+            <div class="toggle-box">
+                <ul class="wish-filter">
+                    <li><p>최신순</p><span class="arrow"></span></li>
+                </ul>
+            </div>
             <!-- 플레이스 -->
             <ul class="place-wish-ul wish-ul" v-if="targetTab === '플레이스'">
                 <PlaceWishList v-for="placeWishItem in placeWishArray" :key="placeWishItem" :data="placeWishItem"/>
@@ -38,6 +45,11 @@
             <ul class="trainer-wish-ul wish-ul" v-if="targetTab === '트레이너'">
                 <TrainerWishList v-for="TrainerWishItem in trainerWishArray" :key="TrainerWishItem" :data="TrainerWishItem"/>
             </ul>
+
+            <!-- 플레이스 솔팅 모달창 -->
+            <PlaceWishSorting />
+            <!-- 트레이너 솔팅 모달창 -->
+            <TrainerWishSorting />
         </div>
     </div>
 </template>
