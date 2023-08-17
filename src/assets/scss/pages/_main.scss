@@ -15,8 +15,9 @@
         }
         .trainer-list{
             .swiper-wrapper{align-items:center;
-                .img-box{@include conSize(14vw, 14vw); background:rgba(217, 217, 217, 1); border-radius:8px;
+                .img-box{@include conSize(268px, 268px); background:rgba(217, 217, 217, 1); border-radius:8px;
                     img{width:100%; object-fit:cover;}
+                    @include responsive-991{@include conSize(100%, 100%);}
                 }
                 .txt-box{margin:8px 0 0 0;
                     img{margin:-2px 0 0 0;}

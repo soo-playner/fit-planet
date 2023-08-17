@@ -347,9 +347,11 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 ******************************************/
 @mixin TabList(){@include display(flex, center); border-bottom:1px solid #f1f1f1;
     li{flex:1; position:relative; padding:0 0 15px 0; text-align:center;
-        button{@include font(16px, 400);}
+        button{@include font(16px, 400);
+            @include responsive-480{font-size:14px;}
+        }
         &.active{
-            button{@include font(16px, 700);}
+            button{@include font(null, 700);}
             &::before{content:''; @include conSize(100%, 4px); @include position(absolute, null, null, 0, 0); background:$b;}
         }
     }

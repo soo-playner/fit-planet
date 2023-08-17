@@ -195,11 +195,14 @@
             .wish-filter{@include ulToggle;
                 ul{background:$f;}
             }
+            @include responsive-480{padding:17px 0;}
         }
         .wish-ul{display:grid; grid-template-columns:repeat(2, 1fr); column-gap:8px; row-gap:20px;
             li{
                 .img-box{@include conSize(100%, 500px); position:relative; background:#d9d9d9; border-radius:8px;
-                    .location{@include position(absolute, 10px, 13px);}
+                    .location{@include position(absolute, 10px, 13px);
+                        @include responsive-480{right:8px;}
+                    }
                     @include responsive-991{height:50vw;}
                     @include responsive-480{height:156px;}
                 }
@@ -213,9 +216,11 @@
                             }
                             .location{color:#979797}
                         }
-                        .heart{margin:5px 0 0 0; cursor:pointer;}
+                        .heart{margin:2px 0 0 0; cursor:pointer;}
                     }
-                    .pay-btn{@include aTag; @include conSize(null, 34px, 32px); margin:0; background:$f; border:1px solid $b; color:$b; cursor:pointer;}
+                    .pay-btn{@include aTag; @include conSize(null, 34px, 32px); margin:0; background:$f; border:1px solid $b; color:$b; cursor:pointer;
+                        @include responsive-480{@include conSize(null, 30px, 28px);}
+                    }
                 }
             }
         }

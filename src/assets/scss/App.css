@@ -142,6 +142,11 @@ span {
   font-size: 20px;
   font-weight: 700;
 }
+@media (max-width: 360px) {
+  .f-20-700 {
+    font-size: 18px;
+  }
+}
 
 .f-24-700 {
   font-size: 24px;
@@ -189,8 +194,6 @@ span {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  font-size: 16px;
-  font-weight: normal;
 }
 .at-header-inner .menu-ul {
   display: -webkit-box;
@@ -249,10 +252,20 @@ span {
           transform: rotate(-45deg);
   background: #000;
 }
+@media (max-width: 480px) {
+  .at-header-inner .menu-ul {
+    gap: 20px;
+  }
+}
 .at-header.active {
   height: 96px;
   padding: 30px 21px 0;
   background: transparent;
+}
+@media (max-width: 480px) {
+  .at-header {
+    padding: 12px 15px;
+  }
 }
 
 .Alert_container {
@@ -1214,8 +1227,8 @@ ul 안에 ul
           align-items: center;
 }
 .section01-inner .trainer-list .swiper-wrapper .img-box {
-  width: 14vw;
-  height: 14vw;
+  width: 268px;
+  height: 268px;
   background: rgb(217, 217, 217);
   border-radius: 8px;
 }
@@ -1223,6 +1236,12 @@ ul 안에 ul
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (max-width: 991px) {
+  .section01-inner .trainer-list .swiper-wrapper .img-box {
+    width: 100%;
+    height: 100%;
+  }
 }
 .section01-inner .trainer-list .swiper-wrapper .txt-box {
   margin: 8px 0 0 0;
@@ -7507,8 +7526,12 @@ ul 안에 ul
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 480px) {
+  .EventNewsTab_container_inner .tab-list li button {
+    font-size: 14px;
+  }
+}
 .EventNewsTab_container_inner .tab-list li.active button {
-  font-size: 16px;
   font-weight: 700;
 }
 .EventNewsTab_container_inner .tab-list li.active::before {
@@ -7975,8 +7998,12 @@ ul 안에 ul
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 480px) {
+  .SearchResult_container_inner .tab-and-filter .search-tab li button {
+    font-size: 14px;
+  }
+}
 .SearchResult_container_inner .tab-and-filter .search-tab li.active button {
-  font-size: 16px;
   font-weight: 700;
 }
 .SearchResult_container_inner .tab-and-filter .search-tab li.active::before {
@@ -8474,8 +8501,12 @@ ul 안에 ul
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 480px) {
+  .FAQ_container_inner .faq-tab-list li button {
+    font-size: 14px;
+  }
+}
 .FAQ_container_inner .faq-tab-list li.active button {
-  font-size: 16px;
   font-weight: 700;
 }
 .FAQ_container_inner .faq-tab-list li.active::before {
@@ -8527,8 +8558,12 @@ ul 안에 ul
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 480px) {
+  .Wish_container .WishListTab_container_inner .tab-list li button {
+    font-size: 14px;
+  }
+}
 .Wish_container .WishListTab_container_inner .tab-list li.active button {
-  font-size: 16px;
   font-weight: 700;
 }
 .Wish_container .WishListTab_container_inner .tab-list li.active::before {
@@ -8622,6 +8657,11 @@ ul 안에 ul
 .Wish_container_inner .toggle-box .wish-filter ul {
   background: #fff;
 }
+@media (max-width: 480px) {
+  .Wish_container_inner .toggle-box {
+    padding: 17px 0;
+  }
+}
 .Wish_container_inner .wish-ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -8641,6 +8681,11 @@ ul 안에 ul
   position: absolute;
   top: 10px;
   right: 13px;
+}
+@media (max-width: 480px) {
+  .Wish_container_inner .wish-ul li .img-box .location {
+    right: 8px;
+  }
 }
 @media (max-width: 991px) {
   .Wish_container_inner .wish-ul li .img-box {
@@ -8684,7 +8729,7 @@ ul 안에 ul
   color: #979797;
 }
 .Wish_container_inner .wish-ul li .txt-box .info .heart {
-  margin: 5px 0 0 0;
+  margin: 2px 0 0 0;
   cursor: pointer;
 }
 .Wish_container_inner .wish-ul li .txt-box .pay-btn {
@@ -8714,6 +8759,12 @@ ul 안에 ul
   border: 1px solid #000;
   color: #000;
   cursor: pointer;
+}
+@media (max-width: 480px) {
+  .Wish_container_inner .wish-ul li .txt-box .pay-btn {
+    height: 30px;
+    line-height: 28px;
+  }
 }
 
 /******************************************
