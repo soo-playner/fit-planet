@@ -1,7 +1,4 @@
-<script>
-    export default {
-        name : 'NotFind_Member'
-    }
+<script setup>
 </script>
 
 <template>

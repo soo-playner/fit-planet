@@ -1,21 +1,11 @@
-<script>
-    import OrderDeleteModal from '@/components/modal/order/OrderDelete';
+<script setup>
+    import OrderDeleteModal from '@/components/modal/order/OrderDelete'
+    import {ref} from 'vue'
 
-    export default {
-        name : 'OrderInquiryView',
-        components : {
-            OrderDeleteModal
-        },
-        data(){
-            return {
-                orderDelete : false
-            }
-        },
-        methods : {
-            orderDeleteFnc : function(){
-                this.orderDelete = !this.orderDelete;
-            }
-        }
+    const isOrderDeleted = ref(false);
+
+    const deleteOrder = function() {
+        isOrderDeleted.value = !isOrderDeleted.value;
     }
 </script>
 
@@ -98,7 +88,7 @@
                     </ul>
                 </div>
                 <div class="bott-btn">
-                    <button class="f-14-700" @clikc="orderDeleteFnc">주문내역 삭제</button>
+                    <button class="f-14-700" @click="deleteOrder">주문내역 삭제</button>
                     <button class="f-14-700">주문 취소하기</button>
                 </div>
             </div>
@@ -111,6 +101,6 @@
         </div>
 
         <!-- 주문 내역 삭제 모달창 -->
-        <OrderDeleteModal :class="{ active : orderDelete }" :orderDeleteFnc="orderDeleteFnc"/>
+        <OrderDeleteModal :class="{ active : isOrderDeleted }" :confirmDeletion="deleteOrder"/>
     </div>
 </template>

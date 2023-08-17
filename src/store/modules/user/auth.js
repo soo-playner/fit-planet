@@ -2,8 +2,13 @@ import Axios from "@/store/customAxios"
 
 const state = () => ({
     user: {
-        id: "",
-        name: "",
+        id: '',
+        name: '김위즈',
+        email: 'userwiz@gmail.com',
+        phone: '01039392020',
+        birthDate: '2020-02-10',
+        gender: 'F',
+        nickname: '위즈위즈',
     },
 })
 

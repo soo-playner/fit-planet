@@ -1,38 +1,41 @@
-<script>
-    export default {
-        name : 'AccountDelete',
-        data(){
-            return {
-                AccountDelete : false,
-                AccountDeleteReason : false,
-                displayCategory : false,
-                targetCategory : '탈퇴 이유를 선택해 주세요',
-                CategoryItems : [
-                    { id : 1, reason : '탈퇴 이유를 선택해 주세요' },
-                    { id : 2, reason : '사용하기 불편해요' },
-                    { id : 3, reason : '잘 사용하지 않아요' },
-                    { id : 4, reason : '플레이스, 트레이너에 대해 불만족스러워요' },
-                    { id : 5, reason : '새 계정을 만들고 싶어요' },
-                    { id : 6, reason : '기타' },
-                ]
-            }
-        },
-        methods : {
-            // 탈퇴 완료 모달창
-            AccountDeleteFnc : function(){
-                this.AccountDelete = !this.AccountDelete;
-            },
-            // 탈퇴 이유 선택 모달창
-            DeleteReasonFnc : function(){
-                this.AccountDeleteReason = !this.AccountDeleteReason;
-            },
-            // 탈퇴 이유 선택
-            reasonList : function(){
-                this.displayCategory = !this.displayCategory;
-            },
-        }, 
+<script setup>
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+
+    const accountDelete = ref(false);
+    const accountDeleteReason = ref(false);
+    const displayCategory = ref(false);
+    const targetCategory = ref('탈퇴 이유를 선택해 주세요');
+    const categoryItems = [
+        { id: 1, reason: '탈퇴 이유를 선택해 주세요' },
+        { id: 2, reason: '사용하기 불편해요' },
+        { id: 3, reason: '잘 사용하지 않아요' },
+        { id: 4, reason: '플레이스, 트레이너에 대해 불만족스러워요' },
+        { id: 5, reason: '새 계정을 만들고 싶어요' },
+        { id: 6, reason: '기타' },
+    ];
+    
+    // 탈퇴 완료 모달창
+    const accountDeleteFnc = function(){
+        accountDelete.value = !accountDelete.value;
     }
+
+    // 탈퇴 이유 선택 모달창
+    const deleteReasonFnc = function(){
+        accountDeleteReason.value = !accountDeleteReason.value;
+    }
+
+    // 탈퇴 이유 선택
+    const chooseReason = function(){
+        displayCategory.value = !displayCategory.value;
+    }
+    
+    const selectHandler = (reason) => {
+        targetCategory.value = reason;
+        chooseReason();
+    };
 </script>
+
 
 <template>
     <div class="AccountDelete_container main-layout">
@@ -49,14 +52,14 @@
                 <div class="leave-select">
                     <p class="f-14-400"><span class="member-nick">위즈위즈</span>님의 탈퇴 이유가 궁금해요</p>
                     <ul class="leave-select-ul">
-                        <li class="leave-select-li" @click="reasonList">
+                        <li class="leave-select-li" @click="chooseReason">
                             {{ targetCategory }}<span class="arrow"></span>
                         </li>
                         <ul :class="{ active : displayCategory }">
                             <li 
-                                v-for="cate in CategoryItems" 
+                                v-for="cate in categoryItems" 
                                 :key="cate.id" 
-                                @click="[targetCategory = cate.reason], [reasonList()]">
+                                @click="selectHandler(cate.reason)">
                                     {{ cate.reason }}
                             </li>
                         </ul>
@@ -70,29 +73,29 @@
                 <router-link to="/" class="f-16-700">뒤로가기</router-link>
                 <button 
                     class="f-14-400" 
-                    @click="AccountDeleteFnc"
+                    @click="accountDeleteFnc"
                     v-if="targetCategory != '탈퇴 이유를 선택해 주세요'">
                         탈퇴하기
                 </button>
                 <button 
                     class="f-14-400" 
-                    @click="DeleteReasonFnc"
+                    @click="deleteReasonFnc"
                     v-if="targetCategory === '탈퇴 이유를 선택해 주세요'">
                         탈퇴하기
                 </button>
             </div>
         </div>
         <!-- 탈퇴 이유 선택 모달창 -->
-        <div class="AccountDelete-reason-modal member_alert" :class="{ active : AccountDeleteReason }">
-            <div class="overlay" @click="DeleteReasonFnc"></div>
+        <div class="AccountDelete-reason-modal member_alert" :class="{ active : accountDeleteReason }">
+            <div class="overlay" @click="deleteReasonFnc"></div>
             <div class="AccountDelete-reason-modal-inner member_alert_inner">
                 <p class="f-18-700">탈퇴 이유를 선택해주세요</p>
-                <button class="f-16-700" @click="DeleteReasonFnc">확인</button>
+                <button class="f-16-700" @click="deleteReasonFnc">확인</button>
             </div>
         </div>
 
         <!-- 탈퇴 완료 모달창 -->
-        <div class="AccountDelete-modal member_alert" :class="{ active : AccountDelete }">
+        <div class="AccountDelete-modal member_alert" :class="{ active : accountDelete }">
             <div class="overlay" @click="$router.push('/Login')"></div>
             <div class="AccountDelete-modal-inner member_alert_inner">
                 <div class="txt-box">

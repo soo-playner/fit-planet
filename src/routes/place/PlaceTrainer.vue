@@ -1,7 +1,4 @@
-<script>
-    export default {
-        name : 'PlaceTrainer'
-    }
+<script setup>
 </script>
 
 <template>

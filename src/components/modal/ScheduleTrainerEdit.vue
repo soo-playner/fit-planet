@@ -1,64 +1,88 @@
-<script>
-export default {
-    name: "CalendaR",
-    components: {},
-    props: {
-        scheduleClose: Function,
-    },
-    data() {
-        return {
-            day: ["일", "월", "화", "수", "목", "금", "토"],
-            todayY: new Date().getFullYear(),
-            todayM: new Date().getMonth(),
-            todayD: new Date().getDate(),
-            emptyCount: new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay(),
-            dateLength: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate(),
-            selectedDate: new Date().getDate(),
-            selectedDay: [],
-            modalOpen: false,
-        };
-    },
-    methods: {
-        prevM() {
-            if (this.todayY === new Date().getFullYear() && this.todayM - 1 <= new Date().getMonth()) {
-                this.todayM = new Date().getMonth();
-                this.todayD = new Date().getDate();
-                this.emptyCount = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay();
-                this.dateLength = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
-                this.selectedDate = new Date().getDate();
-                return;
-            }
-            let currDate = new Date(this.todayY, this.todayM, this.todayD);
-            currDate.setMonth(this.todayM - 1);
-            this.setM(currDate);
-        },
-        nextM() {
-            let currDate = new Date(this.todayY, this.todayM, this.todayD);
-            currDate.setMonth(this.todayM + 1);
-            this.setM(currDate);
-        },
-        setM(currDate) {
-            this.todayY = currDate.getFullYear();
-            this.todayM = currDate.getMonth();
-            this.todayD = 1;
-            this.emptyCount = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
-            this.dateLength = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
-            this.selectedDate = 1;
-        },
-    },
-    watch: {
-        modalOpen(curr) {
-            if (!curr) {
-                setTimeout(() => {
-                    this.scheduleClose();
-                }, 500);
-            }
-        },
-    },
-    mounted() {
-        this.modalOpen = true;
-    },
-};
+<script setup>
+    import {defineProps, ref, onMounted , watch} from 'vue'
+
+    const {scheduleClose} = defineProps({
+        scheduleClose: Function
+    })
+
+    const modalOpen = ref(false)
+    
+    // 요일 설정
+    const day = ["일", "월", "화", "수", "목", "금", "토"]
+    const selectedDay = ref([])
+        
+    const dayClickHandler = function(el) {
+        if (selectedDay.value.includes(el)) {
+            selectedDay.value.splice(selectedDay.value.indexOf(el), 1);
+        } else {
+            selectedDay.value.push(el);
+        }
+
+        selectedDay.value.sort((a, b) => {
+            return day.indexOf(a) - day.indexOf(b);
+        });
+    }
+
+    // 달력 날짜 설정
+    const today = new Date();
+    const date = ref({
+        todayY: today.getFullYear(),
+        todayM: today.getMonth(),
+        todayD: today.getDate(),
+    })
+
+    const {todayY, todayM, todayD} = date.value;
+
+    const emptyCount = ref(new Date(todayY, todayM, 1).getDay())
+    const dateLength = ref(new Date(todayY, todayM+1, 0).getDate())
+    const selectedDate = ref(new Date().getDate())
+
+    // 지난 달
+    const prevM = function() {
+        // 현재 날짜보다 이전 달일 때 오늘 날짜로 덮어씌움
+        const {todayY, todayM, todayD} = date.value;
+
+        if (todayY === new Date().getFullYear() && todayM - 1 <= new Date().getMonth()) {
+            const now = new Date()
+            date.value.todayM = now.getMonth() 
+            date.value.todayD = now.getDate() 
+            emptyCount.value = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
+            dateLength.value = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+            selectedDate.value = now.getDate();
+            return;
+        }
+        let currDate = new Date(todayY, todayM, todayD);
+        currDate.setMonth(todayM - 1);
+        setM(currDate);
+    }
+    
+    // 다음 달
+    const nextM = function() {
+        const {todayY, todayM, todayD} = date.value;
+        let currDate = new Date(todayY, todayM, todayD);
+        currDate.setMonth(todayM + 1);
+        setM(currDate);
+    }
+
+    // 현재 날짜 설정
+    const setM = function(currDate) {
+        date.value = {todayY: currDate.getFullYear(), todayM: currDate.getMonth(), todayD: 1};
+        emptyCount.value = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
+        dateLength.value = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
+        selectedDate.value = 1;
+    }
+
+    onMounted (() => {
+        modalOpen.value = true;
+    })
+
+    watch((modalOpen), (curr) => {
+        if (!curr) {
+            setTimeout(() => {
+                scheduleClose();
+            }, 500);
+        }
+    })
 </script>
 
 <template>
@@ -83,16 +107,7 @@ export default {
                             v-for="(el, idx) in day"
                             :key="idx"
                             :class="{ active: selectedDay.includes(el) }"
-                            @click="
-                                if (selectedDay.includes(el)) {
-                                    selectedDay.splice(selectedDay.indexOf(el), 1);
-                                } else {
-                                    selectedDay.push(el);
-                                }
-                                selectedDay.sort((a, b) => {
-                                    return day.indexOf(a) - day.indexOf(b);
-                                });
-                            "
+                            @click="dayClickHandler(el)"
                         >
                             {{ el }}
                         </li>
@@ -102,11 +117,11 @@ export default {
                     <div class="apply">
                         <div class="f-14-400">
                             <p>
-                                <span>{{ todayY }}</span
+                                <span>{{ date.todayY }}</span
                                 >년
                             </p>
                             <p>
-                                <span>{{ todayM < 9 ? "0" + (todayM + 1) : todayM + 1 }}</span
+                                <span>{{ date.todayM < 9 ? "0" + (date.todayM + 1) : date.todayM + 1 }}</span
                                 >월
                             </p>
                             <p>
@@ -118,7 +133,7 @@ export default {
                     </div>
                     <div class="calendar_wrap">
                         <header>
-                            <h1>{{ todayY }}년 {{ todayM < 9 ? "0" + (todayM + 1) : todayM + 1 }}월</h1>
+                            <h1>{{ date.todayY }}년 {{ date.todayM < 9 ? "0" + (date.todayM + 1) : date.todayM + 1 }}월</h1>
                             <div class="btn_wrap">
                                 <img src="@/assets/image/back.png" class="prev" data-type="prev" @click="prevM" />
                                 <img src="@/assets/image/back.png" class="next" @click="nextM" />
@@ -134,9 +149,9 @@ export default {
                                     v-for="(el, idx) in dateLength"
                                     :key="idx"
                                     class="date"
-                                    :class="[{ selected: selectedDate == idx + 1 }, { prevDate: todayD > idx + 1 }]"
+                                    :class="[{ selected: selectedDate == idx + 1 }, { prevDate: date.todayD > idx + 1 }]"
                                     @click="
-                                        if (todayD <= idx + 1) {
+                                        if (date.todayD <= idx + 1) {
                                             selectedDate = idx + 1;
                                         }
                                     "

@@ -1,12 +1,10 @@
-<script>
-    export default {
-        name : 'CancleInquiry'
-    }
+<script setup>
+
 </script>
 
 <template>
-    <div class="CancleInquiry_container main-layout">
-        <div class="CancleInquiry_container_inner mob-inner">
+    <div class="CancelInquiry_container main-layout">
+        <div class="CancelInquiry_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">
                 <div class="left-column f-12-400">

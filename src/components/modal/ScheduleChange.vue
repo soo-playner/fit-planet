@@ -1,22 +1,12 @@
-<script>
+<script setup>
     import VueDatePicker from '@vuepic/vue-datepicker';
     import '@vuepic/vue-datepicker/dist/main.css'
+    import {ref} from 'vue'
 
-    export default {
-        name : 'ScheduleChange',
-        components : {
-            VueDatePicker
-        },
-        data () {
-            return {
-                toggleClass : false
-            }
-        },
-        methods : {
-            toggleDay(){
-                this.toggleClass = !this.toggleClass
-            }
-        }
+    const toggleClass = ref(false)
+
+    const toggleDay = function(){
+        toggleClass.value = !toggleClass.value
     }
 </script>
 

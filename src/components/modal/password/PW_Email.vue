@@ -1,10 +1,9 @@
-<script>
-    export default {
-        name : "PW_Email_Modal",
-        props : {
-            EmailPWFnc : Function
-        }
-    }
+<script setup>
+    import {defineProps} from 'vue'
+
+    const {EmailPWFnc} = defineProps({
+        EmailPWFnc : Function
+    })
 </script>
 
 <template>
