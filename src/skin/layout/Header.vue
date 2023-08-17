@@ -56,7 +56,8 @@
                     }
                     case "/Authority":
                     case "/place/pay/complete":
-                    case "/Inquiry/complete": {
+                    case "/Inquiry/complete":
+                    case "/Review/Select": {
                         return {
                             close : true
                         };
@@ -88,7 +89,8 @@
                             home : true
                         };
                     }
-                    case "/review/detail" : {
+                    case "/review/detail" :
+                    case "/my-review" : {
                         return {
                             back : true,
                             write : true,
@@ -216,7 +218,7 @@
             </ul>
         </div>
 
-        <Alert :class="{ active: AlertOpen }" />
-        <Search :class="{ active: SearchOpen }" />
+        <Alert :class="{ active : AlertOpen }" />
+        <Search :class="{ active : SearchOpen }" />
     </header>
 </template>

@@ -96,7 +96,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             }
         }
         .alert-list{
-            li{padding:20px; border-bottom:1px solid #d9d9d9;
+            li{display:-webkit-box; position:relative; padding:20px; border-bottom:1px solid #d9d9d9;
+                .txt-box{width:100%;}
                 .top-column{@include display(flex, flex-end, space-between); margin:0 0 4px 0;
                     .time{@include font(12px, 400, #979797);}
                 }
@@ -111,6 +112,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                     }
                     .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;}
                 }
+                .test{@include conSize(72px, 100%); @include display(flex, center, center); position:absolute; left:100%; top:0; background:#979797;}
                 &.notConfirm{background:#F1F1F1;}
                 &.couponAlert{
                     .txt-box{width:100%;

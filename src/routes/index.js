@@ -110,7 +110,7 @@ const routes = [
     { path : '/review/select', component : ReviewSelect, name : 'ReviewSelect' },
     { path : '/review/write', component : ReviewWrite, name : 'ReviewWrite' },
     // 마이페이지
-    { path: "/myPage", component: MyPage, name: "MyPage" },
+    { path: "/mypage", component: MyPage, name: "MyPage" },
     { path: "/coupon", component: Coupon, name: "Coupon" },
     { path: "/profile_sns_login", component: Profile_Type1, name: "Profile_Type1" },
     { path: "/profile_email_login", component: Profile_Type2, name: "Profile_Type2" },

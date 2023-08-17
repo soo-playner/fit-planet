@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     export default {
         name : 'Alert',
         data(){
@@ -12,14 +12,21 @@
             }
         }
     }
+</script> -->
+
+<script setup>
+    import AlertManage_Modal from '@/components/modal/alert/AlertManage';
+
+    var alertCurrent = false;
+    const alertCurrentFnc = () => {
+        alertCurrent = !alertCurrent
+    }
 </script>
 
 <template>
     <!-- 
         각 알림 컨텐츠들 좌측으로 드래그 시 삭제 버튼 노출
         읽지 않은 알림들은 회색 배경 처리 -> 클래스명 notConfirm
-
-        css 파일 -> _Member.scss
     -->
     <div class="Alert_container">
         <div class="Alert_container_inner mob-inner">
@@ -30,19 +37,22 @@
             <ul class="alert-list">
                 <!-- 아침 8시 알림, 탭하면 홈으로 이동 -->
                 <li class="notConfirm">
-                    <div class="top-column">
-                        <p class="alert-name f-14-700">운동 일정 알림</p><span class="time">3분전</span>
-                    </div>
-                    <div class="bott-column">
-                        <div class="txt-box">
-                            <div class="alert-con">오늘 운동, 잊지 않으셨죠? 오늘도 열심히 파이팅 해보자구요!</div>
-                            <div class="f-14-400 place-info">
-                                <p><span class="trainer-name">김위즈</span>트레이너</p>
-                                <p class="work-name">바디프로필 프로젝트 30회</p>
-                            </div>
+                    <div class="txt-box">
+                        <div class="top-column">
+                            <p class="alert-name f-14-700">운동 일정 알림</p><span class="time">3분전</span>
                         </div>
-                        <div class="alert-img"></div>
+                        <div class="bott-column">
+                            <div class="txt-box">
+                                <div class="alert-con">오늘 운동, 잊지 않으셨죠? 오늘도 열심히 파이팅 해보자구요!</div>
+                                <div class="f-14-400 place-info">
+                                    <p><span class="trainer-name">김위즈</span>트레이너</p>
+                                    <p class="work-name">바디프로필 프로젝트 30회</p>
+                                </div>
+                            </div>
+                            <div class="alert-img"></div>
+                        </div>    
                     </div>
+                    <div class="test"><img src="@/assets/image/trash.png" alt=""></div>
                 </li>
                 <!-- 전날 저녁 10시 알림, 탭하면 홈으로 이동 -->
                 <li class="notConfirm">
@@ -91,32 +101,8 @@
                 </li>
             </ul>
         </div>
-        <div class="alert-manage-modal member_alert" :class="{ active : alertCurrent }">
-            <div class="overlay" @click="alertCurrentFnc"></div>
-            <div class="alert-manage-modal-inner mob-inner member_alert_inner">
-                <div class="manage-tit"><p class="f-16-700">알림 관리</p><button class="close" @click="alertCurrentFnc"></button></div>
-                <ul class="manage-list">
-                    <li>
-                        <input type="radio" id="alert_1_1" name="alert_1" value="모두 읽은 상태로 표시">
-                        <label for="alert_1_1">
-                            모두 읽은 상태로 표시
-                            <span class="outSide">
-                                <span></span>
-                            </span>
-                        </label>
-                    </li>
-                    <li>
-                        <input type="radio" id="alert_1_2" name="alert_1" value="모두 삭제하기">
-                        <label for="alert_1_2">
-                            모두 삭제하기
-                            <span class="outSide">
-                                <span></span>
-                            </span>
-                        </label>
-                    </li>
-                </ul>
-                <button class="bott-btn f-16-700" @click="alertCurrentFnc">확인</button>
-            </div>
-        </div>
+
+        <!-- 알림창 관리 모달창 -->
+        <AlertManage_Modal :class="{ active : alertCurrent }"/>
     </div>
 </template>

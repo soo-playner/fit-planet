@@ -8,6 +8,20 @@
     &.active{opacity:1; visibility:visible;}
 }
 
+// 플레이스 상세 - 문의하기 모달창
+.work-inquiry-modal{@include conSize(100%, 100%); @include display(flex, flex-end); opacity:0; visibility:hidden; @include position(fixed, 0, null, null, 0, 99); transition:all .3s $easing;
+    .overlay{@include overLay;}
+    &-inner{width:100%; position:relative; bottom:-100%; padding:34px 20px; background:$f; border-radius:16px 16px 0 0; transition:all .8s $easing;
+        .inquiry-form{@include display(flex); column-gap:16px;
+            a{flex:1; min-height:150px; @include display(flex, center, center, column); row-gap:12px; background:#F1F1F1; border-radius:16px}
+        }
+        .work-inquiry-modal-close{@include aTag; @include conSize(null, 44px, 44px); margin:20px 0 0 0; background:$f; border:1px solid $b; color:$b; cursor:pointer;}
+    }
+    &.active{opacity:1; visibility:visible;
+        .work-inquiry-modal-inner{bottom:0;}
+    }
+}
+
 // 운동 일정 변경 모달창 /components/modal/ScheduleChange.vue
 .ScheduleChange_alert{@include conSize(100%, 100%); @include display(flex, flex-end); position:fixed; top:0; z-index:100; 
     .overlay{@include overLay;}
@@ -123,8 +137,26 @@
     }
 }
 
-// 모달창 vue transtion 애니메이션
+// 리뷰 - 신고 이유 모달창
+.review-report-modal{@include display(flex, flex-end);
+    &-inner{width:100%; max-width:100%; padding:0;
+        .top-column{@include display(flex, center, space-between); margin:0; padding:24px 20px; border-bottom:1px solid #d9d9d9;
+            .close{@include conSize(21px, 21px); @include display(flex, center, center); position:relative; margin:0; cursor:pointer;
+                &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
+                &::before{transform:rotate(45deg)}
+                &::after{transform:rotate(-45deg)}
+            }
+        }
+        .report-list{
+            li{@include radioBox1; padding:20px 15px; border-bottom:1px solid #d9d9d9;
+                .txt-box{margin:0;}
+            }
+        }
+        button{width:calc(100% - 40px); margin:10px auto 32px;}
+    }
+}
 
+// 모달창 vue transtion 애니메이션
 .slide-enter-from {
     transform: translateY(100%);
 }
