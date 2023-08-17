@@ -11,7 +11,7 @@
 </script>
 
 <template>
-    <div class="Search_container main-layout">
+    <div class="Search_container">
         <div class="Search_container_inner mob-inner">
             <!-- 검색창 -->
             <div class="search-input">

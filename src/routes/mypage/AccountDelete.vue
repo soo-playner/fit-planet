@@ -5,8 +5,6 @@
     import accountDeleteReason_Modal from '@/components/modal/mypage/AccountDeleteReason';
     import accountDeleteComplete_Modal from '@/components/modal/mypage/AccountDeleteComplete';
 
-    const accountDelete = ref(false);
-    const accountDeleteReason = ref(false);
     const displayCategory = ref(false);
     const targetCategory = ref('탈퇴 이유를 선택해 주세요');
     const categoryItems = [

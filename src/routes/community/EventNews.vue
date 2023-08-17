@@ -1,5 +1,5 @@
 <script setup>
-import EventNews_Tab from "./EventNews_Tab.vue";
+import EventNews_Tab from "./components/EventNews_Tab";
 import NewsList from "@/components/community/NewsList.vue";
 import EventList from "@/components/community/EventList.vue";
 import { ref } from "vue";
