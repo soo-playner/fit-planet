@@ -57,7 +57,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 다음 버튼
 .next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;}
 // 패스워드 가이드
-.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left}
+.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left;
+    @include responsive-360{line-height:1.5; margin:15px 0 0 0;}
+}
 // 인증 시 시간 텍스트
 .pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
 
@@ -88,10 +90,11 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 /components/Header.vue
 ******************************************/
 .at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 100); padding:12px 21px; background:$f;
-    &-inner{@include display(flex, center, space-between, null); position: relative;
+    &-inner{@include display(flex, center, space-between); position: relative;
         h1{@include center(absolute);}
-        .menu-ul{@include display(flex, center, null, null); gap:30px;
-            li{@include display(flex, center, null, null); cursor:pointer;
+        .menu-ul{@include display(flex, center); gap:30px;
+            li{@include display(flex, center); cursor:pointer;
+                a{@include display(flex, center);}
                 &.progress{font-size: 14px;}
                 .search{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
             }
@@ -103,7 +106,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 // 알림창
-.Alert_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); background:$f; transition:all .5s $easing;
+.Alert_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); overflow-y:auto; padding:0 0 47px 0; background:$f; transition:all .5s $easing;
     &_inner{
         .alert-tit{@include display(flex, center, space-between); padding:12px 20px; @include font(12px, 400);
             p{@include display(flex);
@@ -118,17 +121,24 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                 .txt-box{width:100%;}
                 .top-column{@include display(flex, flex-end, space-between); margin:0 0 4px 0;
                     .time{@include font(12px, 400, #979797);}
+                    @include responsive-360{margin:0 0 7px 0;}
                 }
                 .bott-column{@include display(flex, null, space-between); column-gap:20px;
                     .txt-box{width:calc(100% - 84px); @include display(flex, null, space-between, column); row-gap:8px;
-                        .alert-con{@include font(14px, 400);}
+                        .alert-con{@include font(14px, 400);
+                            @include responsive-360{font-size:12px;}
+                        }
                         .place-info{@include display(flex);
                             p{@include afterLine; @include display(flex); column-gap:5px; padding-right:7px; @include font(12px, 400, #979797);
                                 &::after{height:10px; background:#979797}
                             }
                         }
+                        @include responsive-360{width:100%; row-gap:3px;}
                     }
-                    .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;}
+                    .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;
+                        @include responsive-360{margin:10px 0 0 0;}
+                    }
+                    @include responsive-360{flex-flow:column;}
                 }
                 .test{@include conSize(72px, 100%); @include display(flex, center, center); position:absolute; left:100%; top:0; background:#979797;}
                 &.notConfirm{background:#F1F1F1;}
@@ -146,7 +156,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 // 검색창
-.Search_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); background:$f; transition:all .5s $easing;
+.Search_container{@include conSize(100%, 100%); @include position(fixed, 48px, -100%, null, null, 999); overflow-y:auto; background:$f; transition:all .5s $easing;
     &_inner{
         & > div{padding:20px;}
         // 검색 인풋창

@@ -33,7 +33,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/">
+                    <router-link to="/wish">
                         <div class="quick-menu-icon quick-menu-icon-4"></div>
                         <p class="f-12-400">찜</p>
                     </router-link>

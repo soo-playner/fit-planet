@@ -14,7 +14,7 @@
             notVisiable1 : [
                 /* 인트로 */ "Splash", "Intro", 
                 /* 로그인 */ "Login",  
-                /* 아이디 찾기 */ "FindID_Step1", "FindID_Step2", "FindID_Step3",
+                /* 아이디 찾기 */ "FindID_Step3",
                 /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",  
             ],
             // 풋터 미노출
@@ -29,7 +29,9 @@
                 /* 마이페이지 */ "MyPage", "Profile_Type1", "Profile_Type2",
                 /* 후기 */ "ReviewSelect",
                 /* 회원 탈퇴 */ "AccountDelete",
-                /* 주문 목록 */ "OrderInquiry", "OrderInquiryView",
+                /* 주문 목록 */ "OrderInquiry", "OrderInquiryView", "CancelInquiry",
+                /* 약관 정책 */ "Terms",
+                /* 이메일 문의 */ "InquiryComplete",
             ],
         }),
     }

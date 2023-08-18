@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 
+import rangeBar from '@/components/layout/RangeBar';
+
 const facilities = ref([
     { id: "1", tit: "주차장" },
     { id: "2", tit: "락커" },
@@ -14,17 +16,24 @@ const facilities = ref([
     { id: "10", tit: "체성분검사" },
 ]);
 
-const machine = ref([{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }]);
+const machine = ref(
+    [
+        { title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }, { title: "등" }, { title: "어깨" }, { title: "유산소" }, 
+    ]
+);
 
 const machineTag = ref([
     ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
     ["브이스쿼트", "힙 어브덕션", "핵스쿼트 머신", "레그프레스", "파워 레그프레스 머신", "레그 익스텐션 머신", "레그 컬 머신"],
     ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
+    ["어시스트 풀업", "풀다운 머신", "백 익스텐션 머신", "시티드로우", "티바로우"],
+    ["숄더 프레스 머신", "사이드레터럴레이즈 머신", "리버스 펙덱 머신"],
+    ["러닝머신", "스텝밀", "스텝퍼"],
 ]);
 </script>
 
 <template>
-    <div class="filter_container">
+    <div class="filter_container main-layout">
         <div class="filter_container_inner mob-inner">
             <!-- 수강기간 -->
             <div class="ticket-date">
@@ -39,6 +48,7 @@ const machineTag = ref([
                     <p><span>1개월</span>~<span>12개월</span></p>
                     <div class="ticket-date-bar"></div>
                 </div>
+                <rangeBar/>
             </div>
             <!-- 가격 -->
             <div class="ticket-expense">
@@ -93,8 +103,8 @@ const machineTag = ref([
             </div>
         </div>
         <div class="filter-bott-btn">
-            <button>초기화</button>
-            <button>플레이스 200개 보기</button>
+            <button class="f-16-700">초기화</button>
+            <button class="f-16-700">플레이스 200개 보기</button>
         </div>
     </div>
 </template>

@@ -12,6 +12,7 @@
         tabs : Array,
         targetTab : String,
     });
+    
 </script>
 
 <template>

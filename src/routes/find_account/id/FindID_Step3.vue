@@ -7,7 +7,7 @@
         <div class="member_container_inner mob-inner">
             <div class="id-guide">
                 <div class="f-20-700">1개의 아이디를 찾았어요</div>
-                <p>개인정보 보호를 위해 아이디는 일부만 제공합니다.</p>
+                <p class="f-14-400">개인정보 보호를 위해 아이디는 일부만 제공합니다.</p>
             </div>
             <ul class="id-list">
                 <li>

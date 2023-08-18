@@ -15,6 +15,6 @@
                 <span class="pass-time f-12-400">02:55</span>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner">인증 완료</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/find/id/step3')">인증 완료</button>
     </div>
 </template>

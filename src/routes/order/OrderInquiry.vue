@@ -63,7 +63,7 @@
                         <div class="right-column center-img"></div>
                     </div>
                     <div class="bott-row">
-                        <router-link to="/">취소 상세 보기</router-link>
+                        <router-link to="/cancelInquiry">취소 상세 보기</router-link>
                         <router-link to="/">같은 운동 결제하기</router-link>
                     </div>
                 </li>

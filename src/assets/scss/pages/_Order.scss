@@ -80,7 +80,7 @@
         // 환불 예정 가이드
         .refund-expected-guide{background:#F1F1F1;
             p{@include display(flex, center, center); @include font(14px, 400, #979797);
-                span{font-weight:700;}
+                span{margin:0 0 0 5px; font-weight:700;}
             }
         }
         // 주문 상품

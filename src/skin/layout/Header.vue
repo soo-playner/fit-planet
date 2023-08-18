@@ -25,7 +25,9 @@
             },
             headerType() {
                 switch (this.$route.fullPath) {
-                    case "/": {
+                    case "/":
+                    case "/Class":
+                    case "/not/class": {
                         return {
                             logo: true,
                             alarm: true,
@@ -107,6 +109,9 @@
             },
             headerTitle() {
                 switch (this.$route.fullPath) {
+                    case "/find/id/step1": {
+                        return "아이디 찾기";
+                    }
                     case "/find/pw/step1":
                     case "/find/pw/step2": {
                         return "비밀번호 찾기";
@@ -168,8 +173,8 @@
                     case "/Review/Select": {
                         return "후기 작성";
                     }
-                    case "/profile_email_login":
-                    case "/profile_sns_login": {
+                    case "/Profile_email_login":
+                    case "/Profile_sns_login": {
                         return "회원정보";
                     }
                     case "/Inquiry":
@@ -213,8 +218,12 @@
                 <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
                 <li v-if="headerType()['write']"><img src="@/assets/image/write.png" alt="글쓰기" /></li>
                 <li v-if="headerType()['search']" @click="SearchOpenFnc"><span class="search"></span></li>
-                <li v-if="headerType()['mypage']"><img src="@/assets/image/person.png" alt="마이페이지" /></li>
-                <li v-if="headerType()['home']"><img src="@/assets/image/home.png" alt="홈" /></li>
+                <li v-if="headerType()['mypage']">
+                    <router-link to="/MyPage"><img src="@/assets/image/person.png" alt="마이페이지" /></router-link>
+                </li>
+                <li v-if="headerType()['home']">
+                    <router-link to="/"><img src="@/assets/image/home.png" alt="홈" /></router-link>
+                </li>
                 <li v-if="headerType()['setting']"><img src="@/assets/image/setting.png" alt="설정" /></li>
                 <li v-if="headerType()['close']"><img src="@/assets/image/close.png" alt="닫기" /></li>
                 <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
