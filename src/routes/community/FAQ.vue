@@ -1,13 +1,7 @@
 <script setup>
-//import { EffectCoverflow } from "swiper";
 import { onMounted } from "vue";
 
-//const active = ref("회원정보");
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
-
-// const changeActive = (faqItem) => {
-//     active.value = faqItem;
-// };
 
 onMounted(() => {
     const faqLi = document.querySelectorAll('.faq-li');
