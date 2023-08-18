@@ -827,6 +827,9 @@ button:focus, button:active, input:focus, input:active {
 
 .form-group {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .form-group input[type=text],
 .form-group input[type=password],
