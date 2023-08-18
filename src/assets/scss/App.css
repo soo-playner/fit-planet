@@ -8635,6 +8635,7 @@ ul 안에 ul
           align-items: center;
   border-bottom: 1px solid #f1f1f1;
   display: -webkit-box;
+  position: relative;
   overflow-x: auto;
 }
 .FAQ_container_inner .faq-tab-list li {
@@ -8673,12 +8674,19 @@ ul 안에 ul
   padding: 0 22px 15px;
   cursor: pointer;
 }
-.FAQ_container_inner .faq-tab-list li button {
-  color: #D9D9D9;
-}
-.FAQ_container_inner .faq-tab-list li.active button {
+.FAQ_container_inner .faq-tab-list li.active {
   font-weight: 700;
-  color: #000;
+}
+.FAQ_container_inner .faq-tab-list li::before {
+  display: none;
+}
+.FAQ_container_inner .faq-tab-list .nav-indicator {
+  height: 4px;
+  position: absolute;
+  padding: 0;
+  background: #000;
+  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 /******************************************

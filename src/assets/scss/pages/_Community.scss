@@ -174,13 +174,15 @@
 ******************************************/
 .FAQ_container{
     &_inner{
-        .faq-tab-list{@include TabList; display:-webkit-box; overflow-x:auto;
+        .faq-tab-list{@include TabList; display:-webkit-box; position:relative; overflow-x:auto;
             li{flex:initial; padding:0 22px 15px; cursor:pointer; 
-                button{color:#D9D9D9;}
-                &.active{
-                    button{font-weight:700; color:$b;}
+                //button{color:#D9D9D9;}
+                &.active{font-weight:700;
+                    //button{font-weight:700; color:$b;}
                 }
+                &::before{display:none;}
             }
+            .nav-indicator{height:4px; position:absolute; padding:0; background:$b; transition:all .35s $easing;}
         }
     }
 }
