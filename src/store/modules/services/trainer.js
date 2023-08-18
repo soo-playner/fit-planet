@@ -13,7 +13,7 @@ const state = () => ({
             pricePerSession: 50000,
         },
         {
-            name : '김위즈2',
+            name : '박위즈4',
             scope : '4.0',
             totalScope : '12',
             gymName : '위즈짐',
@@ -22,7 +22,7 @@ const state = () => ({
             pricePerSession: 29900,
         },
         {
-            name : '김위즈3',
+            name : '이위즈3',
             scope : '1.3',
             totalScope : '12',
             gymName : '위즈짐',
@@ -69,6 +69,7 @@ const mutations = {
 }
 
 export default {
+    namespaced: true,   // 유일 속성명
     state,
     getters,
     actions,
