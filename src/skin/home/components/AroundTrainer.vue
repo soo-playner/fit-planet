@@ -11,7 +11,7 @@
         spaceBetween: 8,
     }
 
-    const trainers = computed(() => store.state.trainer.trainers);
+    const trainers = store.state.trainer.trainers;
 
     onMounted(() => {
     })
