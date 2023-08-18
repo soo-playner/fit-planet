@@ -56,7 +56,8 @@
                     }
                     case "/Authority":
                     case "/place/pay/complete":
-                    case "/Inquiry/complete": {
+                    case "/Inquiry/complete":
+                    case "/Review/Select": {
                         return {
                             close : true
                         };
@@ -86,6 +87,15 @@
                         return {
                             back : true,
                             home : true
+                        };
+                    }
+                    case "/review/detail" :
+                    case "/my-review" : {
+                        return {
+                            back : true,
+                            write : true,
+                            search : true,
+                            mypage : true
                         };
                     }
                     default: {
@@ -125,11 +135,14 @@
                     case "/place/pay/complete": {
                         return "결제 완료";
                     }
-                    case "/terms": {
-                        return "약관 및 정책";
+                    case "/Place/Review": {
+                        return "이용 후기";
                     }
-                    case "/inquiry": {
-                        return "이메일 문의";
+                    case "/Place/Trainer": {
+                        return "1:1 트레이너";
+                    }
+                    case "/Terms": {
+                        return "약관 및 정책";
                     }
                     case "/faq": {
                         return "자주 묻는 질문";
@@ -198,6 +211,7 @@
             <div></div>
             <ul class="menu-ul">
                 <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
+                <li v-if="headerType()['write']"><img src="@/assets/image/write.png" alt="글쓰기" /></li>
                 <li v-if="headerType()['search']" @click="SearchOpenFnc"><span class="search"></span></li>
                 <li v-if="headerType()['mypage']"><img src="@/assets/image/person.png" alt="마이페이지" /></li>
                 <li v-if="headerType()['home']"><img src="@/assets/image/home.png" alt="홈" /></li>
@@ -207,7 +221,7 @@
             </ul>
         </div>
 
-        <Alert :class="{ active: AlertOpen }" />
-        <Search :class="{ active: SearchOpen }" />
+        <Alert :class="{ active : AlertOpen }" />
+        <Search :class="{ active : SearchOpen }" />
     </header>
 </template>

@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
 import "swiper/components/pagination";
 
+import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
+
 const swiperOption1 = {
     slidesPerView: 1,
     pagination: true,
@@ -23,6 +25,11 @@ const ticket = [
     { name: "1개월 수강권", cost: "59,000원", totalCost: "59,000원" },
     { name: "3개월 수강권", cost: "49,000원", totalCost: "147,000원", discount: "30,000원 할인" },
 ];
+
+const freeList = [
+    { title : '수건' }, { title : '샤워실' }, { title : 'Wi-fi' }, { title : '체형분석' }, { title : '체성분검사' }, 
+    { title : '주차장' }, { title : '사우나' }, { title : '찜질방' }, 
+]
 
 const machine = [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }];
 
@@ -178,7 +185,7 @@ function toggleInquiry() {
                 <div class="place-explain-content">
                     <span>최고, 최신의 운동기구를 갖춘</span>
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
-                    <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해 </span>
+                    <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해</span>
                     <span>맞춤 운동 및 식단 처방을 제공합니다.</span>
                 </div>
                 <div class="more f-12-400">더 보기<span></span></div>
@@ -217,37 +224,9 @@ function toggleInquiry() {
                 <div class="free">
                     <div class="free-tit f-12-400">무료</div>
                     <ul class="free-list">
-                        <li>
-                            <div class="free-icon free-icon-1"></div>
-                            <p>수건</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-2"></div>
-                            <p>샤워실</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-3"></div>
-                            <p>Wi-fi</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-4"></div>
-                            <p>체형분석</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-5"></div>
-                            <p>체성분검사</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-6"></div>
-                            <p>주차장</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-7"></div>
-                            <p>사우나</p>
-                        </li>
-                        <li>
-                            <div class="free-icon free-icon-8"></div>
-                            <p>찜질방</p>
+                        <li v-for="(freeItem, idx) in freeList" :key="freeItem">
+                            <div :class="['free-icon', `free-icon-${idx + 1}`]"></div>
+                            <p>{{ freeItem.title }}</p>
                         </li>
                     </ul>
                 </div>
@@ -333,15 +312,6 @@ function toggleInquiry() {
             <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 선택하기</router-link>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <div class="work-inquiry-modal" :class="{ active: inquiryActive }">
-            <div class="overlay" @click="toggleInquiry"></div>
-            <div class="work-inquiry-modal-inner">
-                <div class="inquiry-form">
-                    <router-link to="tel:010-1234-5678" class="f-14-700"><img src="@/assets/image/call.png" alt="전화 문의" />전화 문의</router-link>
-                    <router-link to="#" class="f-14-700"><img src="@/assets/image/talk.png" alt="카카오톡 문의" />카카오톡 문의</router-link>
-                </div>
-                <div class="work-inquiry-modal-close f-16-700" @click="toggleInquiry">다음에 하기</div>
-            </div>
-        </div>
+        <placeDetail_Modal/>
     </div>
 </template>

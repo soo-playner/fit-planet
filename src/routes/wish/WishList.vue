@@ -1,57 +1,55 @@
-<script>
-    export default {
-        name : 'WishList'
-    }
+<script setup>
+    import { ref } from "vue";
+
+    import WishList_Tab from './components/WishList_Tab';
+    import PlaceWishList from '@/components/wish/PlaceWishList';
+    import TrainerWishList from '@/components/wish/TrainerWishList';
+    import PlaceWishSorting from '@/components/modal/wish/PlaceWishSorting';
+    import TrainerWishSorting from '@/components/modal/wish/TrainerWishSorting';
+
+    const tabs = ["플레이스", "트레이너"];
+    const targetTab = ref("플레이스");
+    const changeTab = (newTab) => {
+        targetTab.value = newTab;
+    };
+
+    const placeWishArray = [
+        { center : '위즈짐1', scope : '4.3', totalScope : '12', location : '서울 강남구 대치동' },
+        { center : '위즈짐2', scope : '4.3', totalScope : '12', location : '서울 강남구 대치동' },
+        { center : '위즈짐3', scope : '4.3', totalScope : '12', location : '서울 강남구 대치동' },
+        { center : '위즈짐4', scope : '4.3', totalScope : '12', location : '서울 강남구 대치동' }
+    ]
+
+    const trainerWishArray = [
+        { name : '김위즈1', scope : '4.3', totalScope : '12' },
+        { name : '김위즈2', scope : '4.3', totalScope : '12' },
+        { name : '김위즈3', scope : '4.3', totalScope : '12' },
+        { name : '김위즈4', scope : '4.3', totalScope : '12' },
+    ]
 </script>
 
 <template>
     <div class="Wish_container main-layout">
+        <WishList_Tab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"/>
         <div class="Wish_container_inner mob-inner">
+            <div class="toggle-box">
+                <ul class="wish-filter">
+                    <li><p>최신순</p><span class="arrow"></span></li>
+                </ul>
+            </div>
             <!-- 플레이스 -->
-            <ul class="place-wish-ul wish-ul">
-                <li class="place-wish-li wish-li" v-for="placeWishItem in 4" :key="placeWishItem">
-                    <div class="img-box">
-                        <img class="location" src="@/assets/image/quick-menu-icon-2-on.png" alt="위치">
-                    </div>
-                    <div class="txt-box">
-                        <div class="info">
-                            <div class="info-detail">
-                                <div class="f-14-700 center-name">위즈짐</div>
-                                <div class="scope">
-                                    <div class="starBox">
-                                        <div class="star">★</div>
-                                    </div>
-                                    <p class="f-12-400">4.3<span>(12)</span></p>
-                                </div>
-                                <span class="f-12-400 location">서울 강남구 대치동</span>
-                            </div>
-                            <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="찜"></div>
-                        </div>
-                        <button class="pay-btn f-14-700">결제하기</button>
-                    </div>
-                </li>
+            <ul class="place-wish-ul wish-ul" v-if="targetTab === '플레이스'">
+                <PlaceWishList v-for="placeWishItem in placeWishArray" :key="placeWishItem" :data="placeWishItem"/>
             </ul>
             <!-- 트레이너 -->
-            <ul class="place-wish-ul wish-ul">
-                <li class="place-wish-li wish-li" v-for="TrainerWishItem in 4" :key="TrainerWishItem">
-                    <div class="img-box"></div>
-                    <div class="txt-box">
-                        <div class="info">
-                            <div class="info-detail">
-                                <div class="f-14-700 trainer-name">김위즈 트레이너</div>
-                                <div class="scope">
-                                    <div class="starBox">
-                                        <div class="star">★</div>
-                                    </div>
-                                    <p class="f-12-400">4.3<span>(12)</span></p>
-                                </div>
-                            </div>
-                            <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="찜"></div>
-                        </div>
-                        <button class="pay-btn f-14-700">결제하기</button>
-                    </div>
-                </li>
+            <ul class="trainer-wish-ul wish-ul" v-if="targetTab === '트레이너'">
+                <TrainerWishList v-for="TrainerWishItem in trainerWishArray" :key="TrainerWishItem" :data="TrainerWishItem"/>
             </ul>
+
+            <!-- 플레이스 솔팅 모달창 -->
+            <PlaceWishSorting />
+            <!-- 트레이너 솔팅 모달창 -->
+            <TrainerWishSorting />
         </div>
     </div>
 </template>

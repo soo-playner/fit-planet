@@ -33,20 +33,20 @@
 </script>
 
 <template>
-  <div class="coupon_container main-layout">
-    <div class="coupon_container_inner mob-inner">
-      <div class="coupon-input">
-        <div class="form-group">
-          <input v-model="couponNumber" type="text" name="coupon-num" id="coupon-num" placeholder="쿠폰 번호 입력">
+    <div class="coupon_container main-layout">
+        <div class="coupon_container_inner mob-inner">
+            <div class="coupon-input">
+                <div class="form-group">
+                    <input v-model="couponNumber" type="text" name="coupon-num" id="coupon-num" placeholder="쿠폰 번호 입력">
+                </div>
+                <button class="f-14-700" @click="redeemCoupon">받기</button>
+            </div>
+            <ul class="coupon-list">
+                <CouponList v-for="couponItem in couponList" :key="couponItem" :data="couponItem"></CouponList>
+            </ul>
         </div>
-        <button class="f-14-700" @click="redeemCoupon">받기</button>
-      </div>
-      <ul class="coupon-list">
-        <CouponList v-for="couponItem in couponList" :key="couponItem" :data="couponItem"></CouponList>
-      </ul>
-    </div>
 
-    <!-- 쿠폰 발급 모달창 -->
-    <CouponIssueModal :class="{ active: isCouponReceived }" :closeModal="confirmCouponRedemption" />
-  </div>
+        <!-- 쿠폰 발급 모달창 -->
+        <CouponIssueModal :class="{ active: isCouponReceived }" :closeModal="confirmCouponRedemption" />
+    </div>
 </template>

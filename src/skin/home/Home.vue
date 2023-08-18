@@ -1,12 +1,10 @@
 <script>
 import AroundTrainer from "./components/AroundTrainer";
-import RangeBar from "../../components/layout/RangeBar.vue";
 
 export default {
     name: "MainPage",
     components: {
         AroundTrainer,
-        RangeBar,
     },
     data() {
         return {
@@ -22,7 +20,6 @@ export default {
 </script>
 <template>
     <main class="main_container main-layout">
-        <RangeBar :defaultMinValue="0" :defaultMaxValue="100" :defaultRangeR="75" :defaultRangeL="25" />
         <section class="section section01 first-section">
             <div class="section01-inner mob-inner main-layout-inner">
                 <div class="intro-txt-box">
