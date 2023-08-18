@@ -61,6 +61,7 @@ const mutations = {
 }
 
 export default {
+    namespaced: true,   // 유일 속성명
     state,
     getters,
     actions,

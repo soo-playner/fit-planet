@@ -1,5 +1,5 @@
 <script setup>
-import JoinCurrent from "../../components/layout/JoinCurrent.vue";
+import JoinCurrent from "@/components/layout/JoinCurrent.vue";
 import { ref, computed } from "vue";
 
 const isCheckedAll = ref(false);
@@ -18,6 +18,19 @@ function toggleAllTerms() {
     isCheckedAll.value = !isCheckedAll.value;
     terms.forEach((term) => (term.checked.value = isCheckedAll.value));
 }
+
+// 단일 약관 체크박스 클릭 핸들러
+function checkSingleTerm(checkedTerm) {
+    let checkedCnt = 0;
+
+    terms.forEach(term => {
+        if (term === checkedTerm) term.checked.value = !term.checked.value;
+        if (term.checked.value) checkedCnt++;
+    })
+
+    isCheckedAll.value = checkedCnt === terms.length;
+}
+
 </script>
 
 <template>
@@ -30,7 +43,7 @@ function toggleAllTerms() {
             </div>
             <div class="check-list">
                 <div class="form-group" v-for="term in terms" :key="term.id">
-                    <input type="checkbox" :name="term.id" :id="term.id" value="약관 전체동의" :checked="term.checked.value" />
+                    <input type="checkbox" :name="term.id" :id="term.id" value="약관 전체동의" :checked="term.checked.value" @change="checkSingleTerm(term)" />
                     <label :for="term.id" class="f-14-400"><span></span>{{ term.label }}</label>
                     <button v-if="term.required" class="arrow"></button>
                 </div>
