@@ -174,6 +174,9 @@ export default {
                 case "/Review/Select": {
                     return "후기 작성";
                 }
+                case "/interest/region": {
+                    return "관심지역 추가";
+                }
                 case "/Profile_email_login":
                 case "/Profile_sns_login": {
                     return "회원정보";

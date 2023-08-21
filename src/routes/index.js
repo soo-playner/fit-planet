@@ -42,6 +42,7 @@ import ReviewDetail from "../routes/review/ReviewDetail";
 import MyReview from "../routes/review/MyReview";
 import ReviewSelect from "../routes/review/ReviewSelect";
 import ReviewWrite from "../routes/review/ReviewWrite";
+import InterestRegion from "../routes/review/InterestRegion";
 import OrderInquiry from "../routes/order/OrderInquiry";
 import OrderInquiryView from "../routes/order/OrderInquiryView";
 import CancelInquiry from "../routes/order/CancelInquiry";
@@ -109,6 +110,7 @@ const routes = [
     { path : '/my-review', component : MyReview, name : 'MyReview' },
     { path : '/review/select', component : ReviewSelect, name : 'ReviewSelect' },
     { path : '/review/write', component : ReviewWrite, name : 'ReviewWrite' },
+    { path : '/interest/region', component : InterestRegion, name : 'InterestRegion' },
     // 마이페이지
     { path: "/mypage", component: MyPage, name: "MyPage" },
     { path: "/coupon", component: Coupon, name: "Coupon" },

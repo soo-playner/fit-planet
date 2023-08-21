@@ -54,6 +54,23 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &::before{@include conSize(14px, 14px); background:none; border:2px solid $b; border-radius:50%;}
     &::after{@include conSize(2px, 8px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
 }
+// 화살표
+@mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
+    &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
+    &::before{right:4px; transform:rotate(45deg)}
+    &::after{transform:rotate(-45deg)}
+}
+@mixin arrow2(){@include conSize(10px, 18px); @include display(flex, center, center); position:relative;
+    &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
+    &::before{right:6px; transform:rotate(45deg)}
+    &::after{transform:rotate(-45deg)}
+}
+// 닫기 버튼
+@mixin close(){@include conSize(21px, 21px); @include display(flex, center, center); position:relative; margin:0; cursor:pointer;
+    &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
+    &::before{transform:rotate(45deg)}
+    &::after{transform:rotate(-45deg)}
+}
 // 다음 버튼
 .next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;}
 // 패스워드 가이드
@@ -83,7 +100,6 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-360(){font-size:18px;}
 }
 .f-24-700{@include font(24px, 700, null);}
-
 
 /******************************************
 헤더 
@@ -188,10 +204,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
             }
             &-ul{
                 li{@include display(flex, center, space-between); padding:9px 0; @include font(14px, 400); border-bottom:1px solid #D9D9D9;
-                    button{@include conSize(18px, 18px); @include display(flex, center, center); position:relative; cursor:pointer;
-                        &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
-                        &::before{transform:rotate(45deg)}
-                        &::after{transform:rotate(-45deg)}
+                    button{@include close; @include conSize(18px, 18px);
+                        &::before, &::after{@include conSize(100%, 1px);}
                     }
                 }
             }

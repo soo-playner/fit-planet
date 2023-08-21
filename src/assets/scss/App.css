@@ -642,8 +642,8 @@ span {
   border-bottom: 1px solid #D9D9D9;
 }
 .Search_container_inner .recent-search-word-ul li button {
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -654,12 +654,15 @@ span {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  margin: 0;
   cursor: pointer;
+  width: 18px;
+  height: 18px;
 }
 .Search_container_inner .recent-search-word-ul li button::before, .Search_container_inner .recent-search-word-ul li button::after {
   content: "";
   width: 100%;
-  height: 1px;
+  height: 2px;
   position: absolute;
   background: #000;
 }
@@ -670,6 +673,10 @@ span {
 .Search_container_inner .recent-search-word-ul li button::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.Search_container_inner .recent-search-word-ul li button::before, .Search_container_inner .recent-search-word-ul li button::after {
+  width: 100%;
+  height: 1px;
 }
 .Search_container.active {
   right: 0;
@@ -873,9 +880,6 @@ button:focus, button:active, input:focus, input:active {
 
 .form-group {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }
 .form-group input[type=text],
 .form-group input[type=password],
@@ -7624,6 +7628,168 @@ ul 안에 ul
 }
 .ReviewWrite_container_inner .review-warning .next-step-btn {
   margin: 20px 0 0 0;
+}
+
+/******************************************
+관심 지역 추가
+/routes/review/InterestRegion.vue
+******************************************/
+.region_container_inner .form-group2 input {
+  border-radius: 22px;
+}
+.region_container_inner .form-group2 input::-webkit-input-placeholder {
+  font-size: 14px;
+}
+.region_container_inner .form-group2 input::-moz-placeholder {
+  font-size: 14px;
+}
+.region_container_inner .form-group2 input:-ms-input-placeholder {
+  font-size: 14px;
+}
+.region_container_inner .form-group2 input::-ms-input-placeholder {
+  font-size: 14px;
+}
+.region_container_inner .form-group2 input::placeholder {
+  font-size: 14px;
+}
+.region_container_inner .form-group2 .search {
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+}
+.region_container_inner .form-group2 .search::before, .region_container_inner .form-group2 .search::after {
+  content: "";
+  position: absolute;
+  background: #000;
+}
+.region_container_inner .form-group2 .search::before {
+  width: 14px;
+  height: 14px;
+  background: none;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+.region_container_inner .form-group2 .search::after {
+  width: 2px;
+  height: 8px;
+  right: 4px;
+  bottom: 2px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background: #000;
+}
+.region_container_inner .favorites .txt-box span {
+  color: #979797;
+}
+.region_container_inner .favorites .add-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 320px;
+  -webkit-column-gap: 6px;
+     -moz-column-gap: 6px;
+          column-gap: 6px;
+}
+.region_container_inner .favorites .add-box .add-region-ul li {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  background: #D9D9D9;
+  border-radius: 8px;
+}
+.region_container_inner .favorites .add-box .add-region-ul li .close {
+  width: 21px;
+  height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.region_container_inner .favorites .add-box .add-region-ul li .close::before, .region_container_inner .favorites .add-box .add-region-ul li .close::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background: #000;
+}
+.region_container_inner .favorites .add-box .add-region-ul li .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.region_container_inner .favorites .add-box .add-region-ul li .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.region_container_inner .favorites .add-box .add-region-ul li .close::before, .region_container_inner .favorites .add-box .add-region-ul li .close::after {
+  background: #fff;
+}
+.region_container_inner .favorites .add-box .add-region-ul li .region-list {
+  text-align: center;
+}
+.region_container_inner .favorites .add-box .add-box-btn {
+  background: #F1F1F1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.region_container_inner .favorites .add-box .add-box-btn span {
+  width: 48px;
+  height: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid #D9D9D9;
+  border-radius: 50%;
+}
+.region_container_inner .favorites .add-box .add-box-btn span::before, .region_container_inner .favorites .add-box .add-box-btn span::after {
+  content: "";
+  position: absolute;
+  opacity: 0.4;
+  background: #d9d9d9;
+}
+.region_container_inner .favorites .add-box .add-box-btn span::before {
+  width: 16px;
+  height: 3px;
+}
+.region_container_inner .favorites .add-box .add-box-btn span::after {
+  width: 3px;
+  height: 16px;
+}
+@media (max-width: 991px) {
+  .region_container_inner .favorites .add-box {
+    grid-template-rows: 220px;
+  }
 }
 
 /******************************************
