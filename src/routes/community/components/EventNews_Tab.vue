@@ -1,28 +1,39 @@
 <script setup>
-import { ref, defineProps } from "vue";
+// import { ref, defineProps } from "vue";
 
-const tabs = ["공지", "이벤트"];
-const num = ref(1);
+// const tabs = ["공지", "이벤트"];
+// const num = ref(1);
 
-const tab = (idx) => {
-    num.value = idx;
-};
+// const tab = (idx) => {
+//     num.value = idx;
+// };
 
-// props
-const props = defineProps({
-    tabs: Array,
-    targetTab: String,
+// // props
+// const props = defineProps({
+//     tabs: Array,
+//     targetTab: String,
+// });
+import { onMounted } from 'vue';
+import useTabAnimation from '@/assets/js/common';
+
+const {li, nav, clickLiFnc} = useTabAnimation();
+const eventNewsList = ["공지", "이벤트"];
+
+onMounted(() => {
+    clickLiFnc();
 });
 </script>
 
 <template>
-    <div class="EventNewsTab_container">
-        <div class="EventNewsTab_container_inner mob-inner">
-            <ul class="tab-list">
-                <li v-for="(tabItem, idx) in props.tabs" :key="idx" :class="{ active: tabItem == props.targetTab }" @click="$emit('tabChange', tabItem)">
-                    <button>{{ tabItem }}</button>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <ul class="tab-list">
+        <li 
+            ref="li"
+            class="tab-li active"
+            v-for="eventNewsItem in eventNewsList" 
+            :key="eventNewsItem" 
+            @click="clickLiFnc">
+                {{ eventNewsItem }}
+        </li>
+        <span ref="nav" class="nav-indicator"></span>
+    </ul>
 </template>

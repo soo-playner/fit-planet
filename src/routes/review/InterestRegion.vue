@@ -31,12 +31,9 @@ const recentRegion = [ '서울시 강남구', '서울시 강남구', '서울시 
                 </div>
             </div>
             <!-- 최근 검색한 지역 -->
-            <div class="recent-search-region">
-                <div class="txt-box">
-                    <p class="f-16-700">최근 검색한 지역</p>
-                    <span>모두 지우기</span>
-                </div>
-                <ul class="recent-search-region-ul">
+            <div class="recent-search-region search-layout">
+                <div class="f-16-700 search-layout-tit"><p>최근 검색한 지역</p><button class="f-12-400">모두 지우기</button></div>
+                <ul class="recent-search-region-ul search-layout-ul">
                     <li v-for="recentRegionItem in recentRegion" :key="recentRegionItem">
                         <p>{{ recentRegionItem }}</p>
                         <button class="delete-btn"></button>

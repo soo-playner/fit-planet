@@ -1,40 +1,28 @@
 <script setup>
-import { onMounted } from "vue";
-
-const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
-
-onMounted(() => {
-    const faqLi = document.querySelectorAll('.faq-li');
-    const nav = document.querySelector('.nav-indicator');
-
-    function navFnc(el){
-        // 클릭 시 갖고 있던 active 삭제
-        faqLi.forEach((items) => {
-            items.classList.remove('active');
-        });
-        
-        // active 클래스를 가진 li 태그의 값 가져오도록
-        nav.style.width = `${el.clientWidth}px`;
-        nav.style.left = `${el.offsetLeft}px`;
-        nav.style.bottom = '0';
-
-        // active 추가
-        el.classList.add('active');
-    }
-
-    faqLi.forEach((items) => {
-        items.addEventListener('click', (e) => { navFnc(e.target) });
-        items.classList.contains('active') && navFnc(items);
-    });
-});
+import faqTab from './components/FAQ_Tab';
 </script>
 
 <template>
     <div class="FAQ_container main-layout">
         <div class="FAQ_container_inner mob-inner">
-            <ul class="faq-tab-list">
-                <li class="faq-li active" v-for="faqItem in faqList" :key="faqItem">{{ faqItem }}</li> 
-                <span class="nav-indicator"></span>
+            <faqTab/>
+            <ul>
+                <li>회원정보</li>
+            </ul>
+            <ul>
+                <li>결제</li>
+            </ul>
+            <ul>
+                <li>환불</li>
+            </ul>
+            <ul>
+                <li>후기</li>
+            </ul>
+            <ul>
+                <li>오류</li>
+            </ul>
+            <ul>
+                <li>기타</li>
             </ul>
         </div>
     </div>

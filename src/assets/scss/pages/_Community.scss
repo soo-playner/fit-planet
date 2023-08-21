@@ -10,6 +10,9 @@
 
 .EventNews_container{
     &_inner{
+        .tab-list{@include useTab; display:flex; overflow-x:initial;
+            li{flex:1;}
+        }
         .news-list{padding:0 20px;
             li{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
                 span{margin:5px 0 0 0; color:#979797}
@@ -174,16 +177,7 @@
 ******************************************/
 .FAQ_container{
     &_inner{
-        .faq-tab-list{@include TabList; display:-webkit-box; position:relative; overflow-x:auto;
-            li{flex:initial; padding:0 22px 15px; cursor:pointer; 
-                //button{color:#D9D9D9;}
-                &.active{font-weight:700;
-                    //button{font-weight:700; color:$b;}
-                }
-                &::before{display:none;}
-            }
-            .nav-indicator{height:4px; position:absolute; padding:0; background:$b; transition:all .35s $easing;}
-        }
+        .faq-tab-list{@include useTab;}
     }
 }
 
@@ -192,12 +186,10 @@
 /routes/wish
 ******************************************/
 .Wish_container{
-    .WishListTab_container{
-        &_inner{
-            .tab-list{@include TabList;}
-        }
-    }
     &_inner{padding:0 20px;
+        .tab-list{@include useTab; display:flex; overflow-x:initial;
+            li{flex:1;}
+        }
         .toggle-box{@include display(flex); padding:22px 0;
             .wish-filter{@include ulToggle;
                 ul{background:$f;}

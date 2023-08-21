@@ -176,14 +176,15 @@
 ******************************************/
 .region_container{
     &_inner{
-        .form-group2{
+        & > div{padding:0 20px;}
+        .form-group2{padding-bottom:14px; border-bottom:1px solid #D9D9D9;
             input{border-radius:22px;
                 &::placeholder{font-size:14px}
             }
-            .search{@include searchBtn;}
+            .search{@include searchBtn; right:34px;}
         }
-        .favorites{
-            .txt-box{
+        .favorites{margin:24px 0 32px;
+            .txt-box{margin:0 0 20px 0;
                 span{color:#979797}
             }
             .add-box{display:grid; grid-template-columns:repeat(2, 1fr); grid-template-rows:320px; column-gap:6px;
@@ -203,6 +204,11 @@
                     }
                 }
                 @include responsive-991{grid-template-rows:220px;}
+            }
+        }
+        .recent-search-region{
+            li{
+                p{@include font(12px, 400)}
             }
         }
     }

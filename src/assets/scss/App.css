@@ -610,74 +610,6 @@ span {
 .Search_container_inner .recent-work .recent-work-ul li:last-child {
   margin: 0 20px 0 0;
 }
-.Search_container_inner .recent-search-word-tit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0 0 3px 0;
-}
-.Search_container_inner .recent-search-word-tit button {
-  color: #979797;
-  cursor: pointer;
-}
-.Search_container_inner .recent-search-word-ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 9px 0;
-  font-size: 14px;
-  font-weight: 400;
-  border-bottom: 1px solid #D9D9D9;
-}
-.Search_container_inner .recent-search-word-ul li button {
-  width: 21px;
-  height: 21px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
-  margin: 0;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-}
-.Search_container_inner .recent-search-word-ul li button::before, .Search_container_inner .recent-search-word-ul li button::after {
-  content: "";
-  width: 100%;
-  height: 2px;
-  position: absolute;
-  background: #000;
-}
-.Search_container_inner .recent-search-word-ul li button::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.Search_container_inner .recent-search-word-ul li button::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.Search_container_inner .recent-search-word-ul li button::before, .Search_container_inner .recent-search-word-ul li button::after {
-  width: 100%;
-  height: 1px;
-}
 .Search_container.active {
   right: 0;
 }
@@ -1006,7 +938,7 @@ textarea {
 .form-group2 input[type=email] {
   width: 100%;
   height: 44px;
-  line-height: 44px;
+  line-height: 42px;
   padding: 0 16px;
   font-size: 12px;
   font-weight: 400;
@@ -1045,7 +977,7 @@ textarea {
 }
 .form-group2 input[type=file] + label {
   height: 44px;
-  line-height: 44px;
+  line-height: 42px;
   display: block;
   padding: 0 16px;
   font-size: 12px;
@@ -1123,6 +1055,78 @@ ul 안에 ul
 ******************************************/
 /******************************************
 최근 검색한 지역, 검색어 
+******************************************/
+.search-layout-tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 3px 0;
+}
+.search-layout-tit button {
+  color: #979797;
+  cursor: pointer;
+}
+.search-layout-ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 9px 0;
+  font-size: 14px;
+  font-weight: 400;
+  border-bottom: 1px solid #D9D9D9;
+}
+.search-layout-ul li button {
+  width: 21px;
+  height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+.search-layout-ul li button::before, .search-layout-ul li button::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background: #000;
+}
+.search-layout-ul li button::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.search-layout-ul li button::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.search-layout-ul li button::before, .search-layout-ul li button::after {
+  width: 100%;
+  height: 1px;
+}
+
+/******************************************
+탭 애니메이션 레이아웃
 ******************************************/
 /* NotoSansKR */
 @font-face {
@@ -3937,6 +3941,9 @@ ul 안에 ul
 계정 삭제
 /routes/mypage/AccountDelete.vue
 ******************************************/
+.AccountDelete_container {
+  padding-bottom: 42px;
+}
 .AccountDelete_container_inner {
   min-height: 100vh;
   display: -webkit-box;
@@ -7637,6 +7644,13 @@ ul 안에 ul
 관심 지역 추가
 /routes/review/InterestRegion.vue
 ******************************************/
+.region_container_inner > div {
+  padding: 0 20px;
+}
+.region_container_inner .form-group2 {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #D9D9D9;
+}
 .region_container_inner .form-group2 input {
   border-radius: 22px;
 }
@@ -7665,6 +7679,7 @@ ul 안에 ul
   top: 12px;
   right: 16px;
   cursor: pointer;
+  right: 34px;
 }
 .region_container_inner .form-group2 .search::before, .region_container_inner .form-group2 .search::after {
   content: "";
@@ -7686,6 +7701,12 @@ ul 안에 ul
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   background: #000;
+}
+.region_container_inner .favorites {
+  margin: 24px 0 32px;
+}
+.region_container_inner .favorites .txt-box {
+  margin: 0 0 20px 0;
 }
 .region_container_inner .favorites .txt-box span {
   color: #979797;
@@ -7794,6 +7815,10 @@ ul 안에 ul
     grid-template-rows: 220px;
   }
 }
+.region_container_inner .recent-search-region li p {
+  font-size: 12px;
+  font-weight: 400;
+}
 
 /******************************************
 뉴스, 이벤트
@@ -7838,6 +7863,74 @@ ul 안에 ul
   background: #000;
 }
 
+.EventNews_container_inner .tab-list {
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+  display: -webkit-box;
+  position: relative;
+  overflow-x: auto;
+  display: flex;
+  overflow-x: initial;
+}
+.EventNews_container_inner .tab-list li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  padding: 0 0 15px 0;
+  text-align: center;
+}
+.EventNews_container_inner .tab-list li button {
+  font-size: 16px;
+  font-weight: 400;
+}
+@media (max-width: 480px) {
+  .EventNews_container_inner .tab-list li button {
+    font-size: 14px;
+  }
+}
+.EventNews_container_inner .tab-list li.active button {
+  font-weight: 700;
+}
+.EventNews_container_inner .tab-list li.active::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000;
+}
+.EventNews_container_inner .tab-list li {
+  -webkit-box-flex: initial;
+      -ms-flex: initial;
+          flex: initial;
+  padding: 0 22px 15px;
+  cursor: pointer;
+}
+.EventNews_container_inner .tab-list li.active {
+  font-weight: 700;
+}
+.EventNews_container_inner .tab-list li::before {
+  display: none;
+}
+.EventNews_container_inner .tab-list .nav-indicator {
+  height: 4px;
+  position: absolute;
+  padding: 0;
+  background: #000;
+  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.EventNews_container_inner .tab-list li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 .EventNews_container_inner .news-list {
   padding: 0 20px;
 }
@@ -8865,16 +8958,23 @@ ul 안에 ul
 찜
 /routes/wish
 ******************************************/
-.Wish_container .WishListTab_container_inner .tab-list {
-  display: -webkit-box;
+.Wish_container_inner {
+  padding: 0 20px;
+}
+.Wish_container_inner .tab-list {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 1px solid #f1f1f1;
+  display: -webkit-box;
+  position: relative;
+  overflow-x: auto;
+  display: flex;
+  overflow-x: initial;
 }
-.Wish_container .WishListTab_container_inner .tab-list li {
+.Wish_container_inner .tab-list li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -8882,19 +8982,19 @@ ul 안에 ul
   padding: 0 0 15px 0;
   text-align: center;
 }
-.Wish_container .WishListTab_container_inner .tab-list li button {
+.Wish_container_inner .tab-list li button {
   font-size: 16px;
   font-weight: 400;
 }
 @media (max-width: 480px) {
-  .Wish_container .WishListTab_container_inner .tab-list li button {
+  .Wish_container_inner .tab-list li button {
     font-size: 14px;
   }
 }
-.Wish_container .WishListTab_container_inner .tab-list li.active button {
+.Wish_container_inner .tab-list li.active button {
   font-weight: 700;
 }
-.Wish_container .WishListTab_container_inner .tab-list li.active::before {
+.Wish_container_inner .tab-list li.active::before {
   content: "";
   width: 100%;
   height: 4px;
@@ -8903,8 +9003,31 @@ ul 안에 ul
   left: 0;
   background: #000;
 }
-.Wish_container_inner {
-  padding: 0 20px;
+.Wish_container_inner .tab-list li {
+  -webkit-box-flex: initial;
+      -ms-flex: initial;
+          flex: initial;
+  padding: 0 22px 15px;
+  cursor: pointer;
+}
+.Wish_container_inner .tab-list li.active {
+  font-weight: 700;
+}
+.Wish_container_inner .tab-list li::before {
+  display: none;
+}
+.Wish_container_inner .tab-list .nav-indicator {
+  height: 4px;
+  position: absolute;
+  padding: 0;
+  background: #000;
+  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.Wish_container_inner .tab-list li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .Wish_container_inner .toggle-box {
   display: -webkit-box;

@@ -33,7 +33,7 @@
 </script>
 
 <template>
-    <div class="coupon_container main-layout">
+    <div class="coupon_container main-layout notFooter-layout">
         <div class="coupon_container_inner mob-inner">
             <div class="coupon-input">
                 <div class="form-group">

@@ -276,7 +276,7 @@
 계정 삭제
 /routes/mypage/AccountDelete.vue
 ******************************************/
-.AccountDelete_container{
+.AccountDelete_container{padding-bottom:42px;
     &_inner{min-height:100vh; @include display(flex, null, space-between, column); padding:0 20px;
         .top-column{
             .txt-box{margin:0 0 60px 0; text-align:center;

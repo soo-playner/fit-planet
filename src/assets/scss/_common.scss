@@ -197,19 +197,6 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
                 }
             }
         }
-        // 최근 검색어
-        .recent-search-word{
-            &-tit{@include display(flex, flex-end, space-between); margin:0 0 3px 0; 
-                button{color:#979797; cursor:pointer;}
-            }
-            &-ul{
-                li{@include display(flex, center, space-between); padding:9px 0; @include font(14px, 400); border-bottom:1px solid #D9D9D9;
-                    button{@include close; @include conSize(18px, 18px);
-                        &::before, &::after{@include conSize(100%, 1px);}
-                    }
-                }
-            }
-        }
     }
     &.active{right:0;}
 }

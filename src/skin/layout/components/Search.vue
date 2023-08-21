@@ -31,9 +31,9 @@
                 </ul>
             </div>
             <!-- 최근 검색어 -->
-            <div class="recent-search-word">
-                <div class="recent-search-word-tit f-16-700"><p>최근 검색어</p><button class="f-12-400">모두 지우기</button></div>
-                <ul class="recent-search-word-ul">
+            <div class="recent-search-word search-layout">
+                <div class="recent-search-word-tit f-16-700 search-layout-tit"><p>최근 검색어</p><button class="f-12-400">모두 지우기</button></div>
+                <ul class="recent-search-word-ul search-layout-ul">
                     <li v-for="recentWordItem in recentWord" :key="recentWordItem">
                         <p>{{ recentWordItem }}</p>
                         <button class="delete-btn"></button>
