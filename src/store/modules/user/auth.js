@@ -38,7 +38,11 @@ const actions = {
                 resolve({isDuplicate: false})
             }, 1000)
         })
-    }
+    },
+    // 닉네임 변경
+    changeNickname({commit, state}, params) {
+        
+    },
 }
 
 // mutations: state 업데이트용 동기 트랜잭션
