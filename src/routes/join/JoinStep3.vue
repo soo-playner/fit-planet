@@ -4,7 +4,7 @@ import { ref } from "vue";
 import { useStore } from 'vuex';
 
 const nickname = ref("");
-const shouldDisableNext = ref(true);
+const canRegister = ref(false);
 const isDuplicate = ref(null);
 
 const store = useStore();
@@ -15,14 +15,14 @@ const checkBtnClickHandler = () => {
     // 닉네임 중복 확인 api 호출
     store.dispatch(CHECK_DUPLICATE_NICKNAME, {nickname: nickname.value})
         .then((res) => {
-            shouldDisableNext.value = res.isDuplicate;
+            canRegister.value = !res.isDuplicate;
             isDuplicate.value = res.isDuplicate;
         });
 }
 
 // 중복확인 성공하고 input 변경하는 경우
 const resetDuplicateFlag = () => {
-    shouldDisableNext.value = true;
+    if (!!canRegister.value) canRegister.value = false;
 }
 </script>
 
@@ -37,6 +37,6 @@ const resetDuplicateFlag = () => {
             </div>
             <p v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>    
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/complete')" :disabled="shouldDisableNext">가입 완료</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/complete')" :disabled="canRegister">가입 완료</button>
     </div>
 </template>
