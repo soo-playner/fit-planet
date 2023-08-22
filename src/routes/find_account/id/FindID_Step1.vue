@@ -34,9 +34,9 @@ watch(timeCount, () => {
     <div class="member_container id-step2">
         <div class="member_container_inner mob-inner">
             <div class="form-group">
-                <input type="tel" name="mb_phone" id="mb_phone" v-model="form.mb_phone.value" />
+                <input type="tel" name="mb_phone" id="mb_phone" v-model="form.mb_phone.value" placeholder="휴대폰 번호(-제외)" />
             </div>
-            <p v-show="form.mb_phone.value && !isFormValid.mb_phone.value">{{ errorText.mb_phone }}</p>
+            <p class="f-12-400 vail" v-show="form.mb_phone.value && !isFormValid.mb_phone.value">{{ errorText.mb_phone }}</p>
             <div class="form-group" v-if="getCertNum">
                 <input type="text" name="pass_num" id="pass_num" placeholder="" />
                 <span class="pass-time f-12-400">{{ countFormatting() }}</span>

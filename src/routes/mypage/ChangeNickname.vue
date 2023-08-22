@@ -39,7 +39,7 @@ const confirmChange = () => {
     <!-- 
         path : /Change/Nickname
     -->
-    <div class="ChangeNickname_container main-layout">
+    <div class="ChangeNickname_container main-layout notFooter-layout2">
         <div class="ChangeNickname_container_inner mob-inner">
             <div class="changeNick-guide txt-box">
                 <p class="f-14-400">핏플래닛에서 사용할 닉네임을 입력해주세요.</p>

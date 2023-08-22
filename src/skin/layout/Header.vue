@@ -110,12 +110,16 @@ export default {
         },
         headerTitle() {
             switch (this.$route.fullPath) {
-                case "/find/id/step1": {
+                case "/find/id/step1":
+                case "/find/id/step2": {
                     return "아이디 찾기";
                 }
                 case "/find/pw/step1":
                 case "/find/pw/step2": {
                     return "비밀번호 찾기";
+                }
+                case "/find/pw/email/step1": {
+                    return "이메일로 비밀번호 찾기";
                 }
                 case "/pw/reset": {
                     return "비밀번호 재설정";

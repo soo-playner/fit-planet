@@ -19,7 +19,7 @@ const EmailPWFnc = () => {
             <div class="form-group">
                 <input v-model="form.mb_id.value" type="email" id="mb_id" name="mb_id" placeholder="아이디(이메일)" />
             </div>
-            <p v-show="form.mb_id.value && !isFormValid.mb_id.value">{{ errorText.mb_id }}</p>
+            <p class="f-12-400 vail" v-show="form.mb_id.value && !isFormValid.mb_id.value">{{ errorText.mb_id }}</p>
         </div>
         <!-- 메일을 통해 임시 비밀번호 수신 -->
         <button class="next-step-btn f-16-700 mob-inner" @click="EmailPWFnc" :disabled="!nextCondition()">임시 비밀번호 요청</button>

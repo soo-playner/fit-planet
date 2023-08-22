@@ -17,8 +17,10 @@ const EmailSendFnc = () => {
                     <input type="email" id="mb_email" name="mb_email" placeholder="이메일 주소" />
                 </div>
             </div>
-            <router-link to="#" class="next-step-btn f-16-700" @click="EmailSendFnc">인증메일 요청</router-link>
+            
         </div>
+        <router-link to="#" class="next-step-btn mob-inner f-16-700" @click="EmailSendFnc">인증메일 요청</router-link>
+
         <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
             <div class="overlay" @click="EmailSendFnc"></div>
             <div class="member_alert_inner mob-inner">

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="ChangePassword_container main-layout">
+    <div class="ChangePassword_container main-layout notFooter-layout2">
         <div class="ChangePassword_container_inner mob-inner">
             <div class="ChangePassword-guide txt-box">
                 <p class="f-14-400">기존에 사용했던 비밀번호를 입력해주세요</p>

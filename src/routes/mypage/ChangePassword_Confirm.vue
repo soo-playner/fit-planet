@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="ChangePassword_Confirm_container main-layout">
+    <div class="ChangePassword_Confirm_container main-layout notFooter-layout2">
         <div class="ChangePassword_Confirm_container_inner mob-inner">
             <div class="txt-box">
                 <p class="f-14-400">새 비밀번호를 입력해주세요</p>
