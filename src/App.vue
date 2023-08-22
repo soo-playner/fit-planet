@@ -33,6 +33,7 @@
                 /* 약관 정책 */ "Terms",
                 /* 이메일 문의 */ "InquiryComplete",
                 /* 쿠폰 */ "Coupon",
+                /* 이벤트, 뉴스 */ "EventNews"
             ],
         }),
     }

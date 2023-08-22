@@ -3,13 +3,12 @@
 import { onMounted } from 'vue';
 import useTabAnimation from '@/assets/js/common';
 
-const {li, nav, tabContent, clickLiFnc} = useTabAnimation();
+const {li, nav, clickLiFnc} = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 
 onMounted(() => {
     clickLiFnc();
 });
-
 </script>
 
 <template>
@@ -32,8 +31,7 @@ onMounted(() => {
                 <ul 
                     v-for="faqItem in faqList"
                     :id="faqItem"
-                    class="con"
-                    ref="tabContent">
+                    class="con">
                     <li class="q-box">
                         <div class="f-14-400">{{ faqItem }}</div> <span class="arrow"></span>
                     </li>

@@ -437,3 +437,12 @@ ul 안에 ul
     }
     .nav-indicator{height:4px; position:absolute; padding:0; background:$b; transition:all .35s $easing;}    
 }
+.tabContentWrap{@include conSize(100%, 100%); @include display(flex); position:relative; z-index:1; box-sizing:content-box; transition-property:transform; transition:all .5s $easing;
+    ul{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;
+        li{border-bottom:1px solid #D9D9D9;
+            .arrow{@include arrow2;}
+            &.q-box{@include display(flex, center, space-between); padding:12px 0;}
+            &.a-box{max-height:0; opacity:0; visibility:hidden;}
+        } 
+    }
+}

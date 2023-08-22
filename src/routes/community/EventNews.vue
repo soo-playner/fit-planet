@@ -1,5 +1,5 @@
 <script setup>
-import EventNews_Tab from "./components/EventNews_Tab";
+//import EventNews_Tab from "./components/EventNews_Tab";
 import NewsList from "@/components/community/NewsList.vue";
 import EventList from "@/components/community/EventList.vue";
 import { ref } from "vue";
@@ -25,18 +25,42 @@ const eventListArray = ref([
 const changeTab = (newTab) => {
     targetTab.value = newTab;
 };
+
+//
+import { onMounted } from 'vue';
+import useTabAnimation from '@/assets/js/common';
+
+const {li, nav, clickLiFnc} = useTabAnimation();
+const eventNewsList = ["공지", "이벤트"];
+
+onMounted(() => {
+    clickLiFnc();
+});
 </script>
 
 <template>
     <div class="EventNews_container main-layout">
         <div class="EventNews_container_inner mob-inner">
-            <EventNews_Tab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"/>
-            <ul class="news-list" v-if="targetTab === '공지'">
-                <NewsList v-for="newsItem in newsListArray" :key="newsItem.title" :data="newsItem"></NewsList>
+            <ul class="tab-list">
+                <li 
+                    ref="li"
+                    class="tab-li active"
+                    v-for="eventNewsItem in eventNewsList" 
+                    :key="eventNewsItem" 
+                    @click="clickLiFnc">
+                        {{ eventNewsItem }}
+                </li>
+                <span ref="nav" class="nav-indicator"></span>
             </ul>
-            <ul class="event-list" v-if="targetTab === '이벤트'">
-                <EventList v-for="eventItem in eventListArray" :key="eventItem.image" :data="eventItem"></EventList>
-            </ul>
+            <!-- <EventNews_Tab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"/> -->
+            <div class="tabContentWrap">
+                <ul class="news-list">
+                    <NewsList v-for="newsItem in newsListArray" :key="newsItem.title" :data="newsItem"></NewsList>
+                </ul>
+                <ul class="event-list">
+                    <EventList v-for="eventItem in eventListArray" :key="eventItem.image" :data="eventItem"></EventList>
+                </ul>
+            </div>
         </div>
     </div>
 </template>

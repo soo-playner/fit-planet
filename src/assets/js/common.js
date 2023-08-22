@@ -1,18 +1,22 @@
 import { ref } from 'vue'
 
-// 탭 애니메이션 -> 참고 페이지 faq
+/******************************************
+탭 애니메이션
+-> 사용 페이지 faq / Event-news
+
+사용 시 아래와 같이 tabContentWrap 로 감싸주고,
+<div class="tabContentWrap">
+    <ul></ul>
+    <ul></ul>
+</div>
+상위 _inner 클래스에 가상요소 css 적용해주기 -> commnuity.scss FAQ_container 참조
+******************************************/
 export default function useTabAnimation() {
     const li = ref(null)
     const nav = ref(null)
-    const tabContent = ref(null)
 
     function clickLiFnc() {
         function navFnc(el){
-            // 클릭 시 각 컨텐츠의 active 클래스 제거
-            tabContent.value.forEach((tabContents) => {
-                tabContents.classList.remove('active');
-            });
-
             // 클릭 시 각 li 태그의 active 클래스 제거
             li.value.forEach((items, index) => {
                 items.classList.remove('active');
@@ -39,5 +43,5 @@ export default function useTabAnimation() {
     }
 
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return {li, nav, tabContent, clickLiFnc}
+    return {li, nav, clickLiFnc}
 }

@@ -9,7 +9,7 @@
 }
 
 .EventNews_container{
-    &_inner{
+    &_inner{position:relative;
         .tab-list{@include useTab; display:flex; overflow-x:initial;
             li{flex:1;}
         }
@@ -25,6 +25,9 @@
                 img{@include conSize(100%, 100%); object-fit:cover;}
             }
         }
+        &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
+        &::before{left:-100%;}
+        &::after{right:-100%;}
     }
 }
 
