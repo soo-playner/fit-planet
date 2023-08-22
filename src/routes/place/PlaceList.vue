@@ -4,7 +4,7 @@ import { useStore } from "vuex";
 import PlaceData from "@/components/place/PlaceData";
 
 const store = useStore();
-const placeInfo = ref(store.state.placeInfo);
+const placeInfo = ref(store.state.place.places);
 </script>
 
 <template>
