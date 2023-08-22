@@ -1,7 +1,30 @@
 <script setup>
-// 필요한 경우 import 문을 사용하여 다른 모듈을 가져올 수 있습니다.
+import { ref, watch } from "vue";
 
-// 컴포넌트의 이름을 지정합니다.
+const getCertNum = ref(false);
+const timeCount = ref({ min: 1, sec: 0 });
+const startCount = () => {
+    if (!timeCount.value.min && !timeCount.value.sec) {
+        getCertNum.value = false;
+        timeCount.value = { min: 1, sec: 0 };
+        return;
+    }
+    setTimeout(() => {
+        if (timeCount.value.sec === 0) {
+            return (timeCount.value = { min: timeCount.value.min - 1, sec: 59 });
+        } else {
+            timeCount.value = { ...timeCount.value, sec: timeCount.value.sec - 1 };
+        }
+    }, 1000);
+};
+const countFormatting = () => {
+    let min = "0" + timeCount.value.min;
+    let sec = timeCount.value.sec > 9 ? timeCount.value.sec : "0" + timeCount.value.sec;
+    return min + ":" + sec;
+};
+watch(timeCount, () => {
+    if (getCertNum.value) startCount();
+});
 </script>
 
 <template>
@@ -10,11 +33,22 @@
             <div class="form-group">
                 <input type="tel" name="mb_phone" id="mb_phone" value="01012345678" />
             </div>
-            <div class="form-group">
-                <input type="text" name="pass_num" id="pass_num" placeholder="726506" />
-                <span class="pass-time f-12-400">02:55</span>
+            <div class="form-group" v-if="getCertNum">
+                <input type="text" name="pass_num" id="pass_num" placeholder="" />
+                <span class="pass-time f-12-400">{{ countFormatting() }}</span>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/find/id/step3')">인증 완료</button>
+        <!-- <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/find/id/step3')">인증 완료</button> -->
+        <button
+            v-if="!getCertNum"
+            class="next-step-btn f-16-700 mob-inner"
+            @click="
+                getCertNum = true;
+                startCount();
+            "
+        >
+            인증번호 요청
+        </button>
+        <button v-if="getCertNum" class="next-step-btn f-16-700 mob-inner" @click="getCertNum = true">인증 완료</button>
     </div>
 </template>
