@@ -29,13 +29,30 @@ const actions = {
         }).catch(err => {
             
         })
-    }
+    },
+    // 닉네임 중복 확인
+    checkDuplicateNickname({commit, state}, nickname) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                commit("updateUser", nickname)
+                resolve({isDuplicate: false})
+            }, 1000)
+        })
+    },
+    // 닉네임 변경
+    changeNickname({commit, state}, params) {
+        
+    },
 }
 
 // mutations: state 업데이트용 동기 트랜잭션
 const mutations = {
     setUser(state, user) {
         state.user = user;
+    },
+    // payload: [Object] 유저가 기입한 정보
+    updateUser(state, payload) {
+        state.user = {...state.user, ...payload};
     }
 }
 
