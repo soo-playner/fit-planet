@@ -96,7 +96,7 @@ const routes = [
     { path : '/place', component : Place, name : 'Place' }, 
     { path : '/filter', component : Filter, name : 'Filter' }, 
     { path : '/place/list', component : PlaceList, name : 'PlaceList' }, 
-    { path : '/place/detail', component : PlaceDetail, name : 'PlaceDetail' }, 
+    { path : '/place/:id', component : PlaceDetail, name : 'PlaceDetail' }, 
     { path : '/place/review', component : PlaceReview, name : 'PlaceReview' }, 
     { path : '/place/machine', component : PlaceMachine, name : 'PlaceMachine' },
     { path : '/place/machine-choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
