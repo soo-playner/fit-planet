@@ -4201,9 +4201,9 @@ ul 안에 ul
           flex-flow: column;
   padding: 0 20px;
 }
-.ChangeNickname_container_inner .txt-box,
-.ChangePassword_container_inner .txt-box,
-.ChangePassword_Confirm_container_inner .txt-box {
+.ChangeNickname_container_inner .txt-box > p:first-of-type,
+.ChangePassword_container_inner .txt-box > p:first-of-type,
+.ChangePassword_Confirm_container_inner .txt-box > p:first-of-type {
   text-align: center;
 }
 .ChangeNickname_container_inner .txt-box button,

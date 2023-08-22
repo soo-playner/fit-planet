@@ -236,7 +236,8 @@
 .ChangePassword_container,
 .ChangePassword_Confirm_container{
     &_inner{min-height:calc(100vh - 100px); @include display(flex, null, space-between, column); padding:0 20px;
-        .txt-box{text-align:center;
+        .txt-box{
+            >p:first-of-type{text-align: center;}
             button{@include liTag; line-height:27px; display:block; @include position(absolute, 50%, 0); transform:translateY(-50%); word-break:initial; border-color:$b;}
         }
         .bott-btn{@include aTag; @include conSize(null, 44px, 42px);}
