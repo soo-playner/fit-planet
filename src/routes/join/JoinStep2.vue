@@ -1,7 +1,7 @@
 <script setup>
 import JoinCurrent from "@/components/layout/JoinCurrent.vue";
 import useValidations from "@/composables/useValidations";
-const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations();
+const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_id", "mb_password", "mb_password_cfm"]);
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showP
             <div class="form-group">
                 <input v-model="form.mb_password.value" :type="isPwdVisible ? 'text' : 'password'" name="mb_password" id="mb_password" placeholder="비밀번호" required />
                 <div class="etc">
-                    <span class="pw-exposure" @click="showPwd" :class="{ active: isFormValid.mb_password }">
+                    <span class="pw-exposure" @click="showPwd" :class="{ active: isPwdVisible }">
                         <img src="@/assets/image/eye.png" alt="비밀번호 노출 여부" />
                     </span>
                     <span class="check-confirm" :class="{ active: isFormValid.mb_password.value }">
@@ -32,7 +32,7 @@ const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showP
             <div class="form-group">
                 <input v-model="form.mb_password_cfm.value" :type="isPwdConfirmedVisible ? 'text' : 'password'" name="mb_password_cfm" id="mb_password_cfm" placeholder="비밀번호 확인" required />
                 <div class="etc">
-                    <span class="pw-exposure" @click="showPwdConfirmed" :class="{ active: isFormValid.mb_password_cfm }">
+                    <span class="pw-exposure" @click="showPwdConfirmed" :class="{ active: isPwdConfirmedVisible }">
                         <img src="@/assets/image/eye.png" alt="비밀번호 노출 여부" />
                     </span>
                     <span class="check-confirm" :class="{ active: isFormValid.mb_password_cfm.value }">

@@ -1,5 +1,8 @@
 <script setup>
 import { ref, watch } from "vue";
+import useValidations from "@/composables/useValidations";
+
+const { form, isFormValid, errorText, nextCondition } = useValidations(["mb_phone"]);
 
 const getCertNum = ref(false);
 const timeCount = ref({ min: 1, sec: 0 });
@@ -31,8 +34,9 @@ watch(timeCount, () => {
     <div class="member_container id-step2">
         <div class="member_container_inner mob-inner">
             <div class="form-group">
-                <input type="tel" name="mb_phone" id="mb_phone" value="01012345678" />
+                <input type="tel" name="mb_phone" id="mb_phone" v-model="form.mb_phone.value" />
             </div>
+            <p v-show="form.mb_phone.value && !isFormValid.mb_phone.value">{{ errorText.mb_phone }}</p>
             <div class="form-group" v-if="getCertNum">
                 <input type="text" name="pass_num" id="pass_num" placeholder="" />
                 <span class="pass-time f-12-400">{{ countFormatting() }}</span>
@@ -46,6 +50,7 @@ watch(timeCount, () => {
                 getCertNum = true;
                 startCount();
             "
+            :disabled="!nextCondition()"
         >
             인증번호 요청
         </button>
