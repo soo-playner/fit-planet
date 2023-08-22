@@ -16,7 +16,7 @@ export default function useTabAnimation() {
             // 클릭 시 각 li 태그의 active 클래스 제거
             li.value.forEach((items, index) => {
                 items.classList.remove('active');
-
+                // (컨텐츠의 width 값 * 클릭한 li 태그의 index)로 슬라이드 되도록
                 items.onclick = () => {
                     const tabContentWrap = document.querySelector('.tabContentWrap');
                     tabContentWrap.style.transform = `translate3d(${-tabContentWrap.clientWidth * index}px, 0, 0)`;
@@ -30,12 +30,6 @@ export default function useTabAnimation() {
 
             // li 태그 active 클래스 추가
             el.classList.add('active');
-
-            const thisTab = el.dataset.menu; // 클릭한 li 태그의 data-set 값 가져옴
-            const thisTabContent = document.getElementById(thisTab); // 해당 data-set 값을 가진 컨텐츠를 찾아옴
-            thisTabContent.classList.add('active'); // 컨텐츠에 active 클래스 추가
-
-            
         }
 
         li.value.forEach((items) => {
