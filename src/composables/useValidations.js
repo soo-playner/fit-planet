@@ -1,6 +1,6 @@
 import { ref, watch } from "vue";
 
-export default function useValidations() {
+export default function useValidations(option) {
     const form = {
         mb_id: ref(""),
         mb_password: ref(""),
@@ -13,10 +13,9 @@ export default function useValidations() {
     };
     console.log(form.mb_id.value);
     const errorText = {
-        //이거안됨
-        mb_id: !isFormValid.mb_id.value ? "유효하지 않은 아이디입니다." : "d",
-        mb_password: isFormValid.mb_password.value.length !== 0 ? "비밀번호는 영문, 숫자, 특수문자 조합 8자리 이상이어야 합니다." : "",
-        mb_password_cfm: isFormValid.mb_password.value.length !== 0 ? "입력된 비밀번호와 동일하지 않습니다." : "",
+        mb_id: "유효하지 않은 아이디입니다.",
+        mb_password: "비밀번호는 영문, 숫자, 특수문자 조합 8자리 이상이어야 합니다.",
+        mb_password_cfm: "입력된 비밀번호와 동일하지 않습니다.",
     };
     const isPwdVisible = ref(false);
     const isPwdConfirmedVisible = ref(false);
@@ -36,9 +35,14 @@ export default function useValidations() {
         isFormValid.mb_password_cfm.value = form.mb_password.value === form.mb_password_cfm.value;
     });
     const nextCondition = () => {
-        return Object.values(isFormValid).every((el) => {
-            return el.value;
-        });
+        if (!option)
+            return Object.values(isFormValid).every((el) => {
+                return el.value;
+            });
+        else
+            return option.every((el) => {
+                return isFormValid[el].value;
+            });
     };
     const showPwd = () => {
         isPwdVisible.value = !isPwdVisible.value;
