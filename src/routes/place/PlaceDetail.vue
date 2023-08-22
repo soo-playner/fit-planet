@@ -2,8 +2,12 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper-bundle.min.css";
 import "swiper/components/pagination";
-
+import { useRoute } from 'vue-router'
 import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
+
+const route = useRoute();
+// TODO: 쿼리로 넘어온 id로 상세 데이터 읽어오기
+const placeId = route.params.id;
 
 const swiperOption1 = {
     slidesPerView: 1,
@@ -255,7 +259,7 @@ function toggleInquiry() {
                         <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
                     </ul>
                 </div>
-                <router-link to="/PlaceMachine" class="place-machine-all-btn f-14-400">운동기구 모두 보기</router-link>
+                <router-link to="/place/machine" class="place-machine-all-btn f-14-400">운동기구 모두 보기</router-link>
             </div>
             <!-- 1:1 트레이너 -->
             <div class="place-trainer">
