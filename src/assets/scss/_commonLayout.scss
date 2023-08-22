@@ -53,49 +53,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         &::after{bottom:-7px;}
     }
 }
-@mixin placeList(){@include conSize(132px, null, null); @include position(absolute, 40px, 0, null, null, 99); padding:8px; background:$f; border-radius:8px; box-shadow:0px 3px 9px rgba(0,0,0, .05);
-    li{line-height:1.2; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #D9D9D9;
-        a{@include font(12px, 400, $b);}
-        &:last-child{padding-bottom:0; margin-bottom:0; border-bottom:none;}
-    }
-}
-@mixin placeImgBox(){@include conSize(92px, 92px); margin:0 auto; border-radius:8px; background:#D9D9D9;}
-@mixin placeHistory(){margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #F1F1F1;
-    .top-column{@include display(flex, center, space-between); margin:0 0 10px 0;
-        .f-12-400{@include display(flex); color:#979797;
-            p{position:relative; margin-right:5px; padding-right:5px;
-                &::after{content:''; @include conSize(1px, 11px); @include position(absolute, 4px, 0); background:#979797;}
-                &:last-child{margin-right:0; padding-right:0;
-                    &::after{display:none;}
-                }
-            }
-        }
-        .lnb{@include display(flex); column-gap:25px;
-            .heart{@include display(flex, center); cursor:pointer;}
-            .menu-dot{@include menuDot();
-                .place-list{@include placeList();}
-            }
-        }
-    }
-    .mid-column{@include display(flex, null, space-between); column-gap:24px; margin:0 0 8px 0;
-        .txt-box{width:calc(100% - 92px); @include display(flex, null, space-between); flex-flow:column;
-            & > div:last-child{@include display(flex); column-gap:7px;
-                p{@include display(flex); column-gap:5px}
-            }
-            @include responsive-360{width:100%; row-gap:3px;}
-        }
-        .img-box{@include placeImgBox(); margin:0;
-            @include responsive-360{margin:5px 0 0 0}
-        }
-        @include responsive-360{flex-flow:column;}
-    }
-    .bott-column{
-        div{@include display(flex, center, space-between); padding:6px 12px; background:#F1F1F1; border-radius:50px;}
-        a{@include conSize(null, 26px, 24px); display:block; padding:0 12px; background:$f; border:1px solid $b; border-radius:13px;}
-        & > a{@include aTag(); background:$f; color:$b;}
-    }
-    &:last-child{margin-bottom:0; padding-bottom:0; border-bottom:none;}
-}
+
 @mixin placeMachineList(){
     .place-machine{
         // &-tit{margin:0 0 20px 0;}
@@ -139,6 +97,65 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
+}
+
+/******************************************
+메인 페이지
+******************************************/
+@mixin placeList(){@include conSize(132px, null, null); @include position(absolute, 40px, 0, null, null, 99); padding:8px; background:$f; border-radius:8px; box-shadow:0px 3px 9px rgba(0,0,0, .05);
+    li{line-height:1.2; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #D9D9D9;
+        a{@include font(12px, 400, $b);}
+        &:last-child{padding-bottom:0; margin-bottom:0; border-bottom:none;}
+    }
+}
+@mixin placeImgBox(){@include conSize(92px, 92px); margin:0 auto; border-radius:8px; background:#D9D9D9;}
+@mixin placeHistory(){margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #F1F1F1;
+    .top-column{@include display(flex, center, space-between); margin:0 0 10px 0;
+        .f-12-400{@include display(flex); color:#979797;
+            p{position:relative; margin-right:5px; padding-right:5px;
+                &::after{content:''; @include conSize(1px, 11px); @include position(absolute, 4px, 0); background:#979797;}
+                &:last-child{margin-right:0; padding-right:0;
+                    &::after{display:none;}
+                }
+            }
+        }
+        .lnb{@include display(flex); column-gap:25px;
+            .heart{@include display(flex, center); cursor:pointer;}
+            .menu-dot{@include menuDot();
+                .place-list{@include placeList();}
+            }
+        }
+    }
+    .mid-column{@include display(flex, null, space-between); column-gap:24px; margin:0 0 8px 0;
+        .txt-box{width:calc(100% - 92px); @include display(flex, null, space-between); flex-flow:column;
+            & > div:last-child{@include display(flex); column-gap:7px;
+                p{@include display(flex); column-gap:5px}
+            }
+            @include responsive-360{width:100%; row-gap:3px;}
+        }
+        .img-box{@include placeImgBox(); margin:0;
+            @include responsive-360{margin:5px 0 0 0}
+        }
+        @include responsive-360{flex-flow:column;}
+    }
+    .bott-column{
+        div{@include display(flex, center, space-between); padding:6px 12px; background:#F1F1F1; border-radius:50px;}
+        a{@include conSize(null, 26px, 24px); display:block; padding:0 12px; background:$f; border:1px solid $b; border-radius:13px;}
+        & > a{@include aTag(); background:$f; color:$b;}
+    }
+    &:last-child{margin-bottom:0; padding-bottom:0; border-bottom:none;}
+}
+
+// 프로그레스 박스
+@mixin placeProgress(){
+    .progress-bar{position:relative; padding:24px 0 0 0;
+        .progress-bubble{min-width:40px; display:inline-block; @include position(absolute, 0); padding:0 10px; background:$b; color:$f; text-align:center;}
+        //input{width:100%;}
+        .progress-value{@include conSize(100%, 8px); overflow:hidden; margin:6px 0 0 0; background:#D9D9D9; border-radius:4px;
+            .step{@include conSize(8px, 8px); background:$b; border-radius:4px;}
+        }
+    }
+    .progress-date{@include display(flex, null, space-between); margin:6px 0 0 0;}
 }
 
 /******************************************
