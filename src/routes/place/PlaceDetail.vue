@@ -236,7 +236,7 @@ function toggleInquiry() {
                 </div>
                 <div class="pay">
                     <div class="pay-tit f-12-400">유료</div>
-                    <ul class="free-list">
+                    <ul class="pay-list">
                         <li>
                             <div class="pay-icon pay-icon-1"></div>
                             <p class="pay-target">개인 락커</p>
@@ -259,7 +259,7 @@ function toggleInquiry() {
                         <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
                     </ul>
                 </div>
-                <router-link to="/place/machine" class="place-machine-all-btn f-14-400">운동기구 모두 보기</router-link>
+                <router-link to="/place/machine" class="place-machine-all-btn next-step-btn f-14-400">운동기구 모두 보기</router-link>
             </div>
             <!-- 1:1 트레이너 -->
             <div class="place-trainer">

@@ -189,11 +189,14 @@ export default {
                 case "/Inquiry/complete": {
                     return "이메일 문의";
                 }
-                case "/Change/Nickname": {
+                case "/Change/Nickname":
+                case "/change/nickname": {
                     return "닉네임 변경";
                 }
                 case "/Change/Password":
-                case "/Change/Password/Confirm": {
+                case "/change/password":
+                case "/Change/Password/Confirm":
+                case "/change/password/confirm": {
                     return "비밀번호 변경";
                 }
                 default: {
