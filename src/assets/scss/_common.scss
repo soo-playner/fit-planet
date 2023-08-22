@@ -35,6 +35,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 @mixin responsive-360(){
     @media(max-width:360px){@content;}
 }
+@mixin responsive-320(){
+    @media(max-width:320px){@content;}
+}
 
 // 믹스인
 @mixin conSize($width:null, $height:null, $lh:null){width:$width; height:$height; line-height:$lh;}
@@ -84,20 +87,20 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
 .f-14-400{@include font(14px, 400, null);
-    @include responsive-360(){font-size:12px;}
+    @include responsive-320(){font-size:12px;}
 }
 .f-14-700{@include font(14px, 700, null);
-    @include responsive-360(){font-size:12px;}
+    @include responsive-320(){font-size:12px;}
 }
 .f-16-400{@include font(16px, 400, null);
-    @include responsive-360(){font-size:14px;}
+    @include responsive-320(){font-size:14px;}
 }
 .f-16-700{@include font(16px, 700, null);
-    @include responsive-360(){font-size:14px;}
+    @include responsive-320(){font-size:14px;}
 }
 .f-18-700{@include font(18px, 700, null);}
 .f-20-700{@include font(20px, 700, null);
-    @include responsive-360(){font-size:18px;}
+    @include responsive-320(){font-size:18px;}
 }
 .f-24-700{@include font(24px, 700, null);}
 

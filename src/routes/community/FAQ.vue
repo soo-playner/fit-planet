@@ -1,37 +1,47 @@
 <script setup>
-import faqTab from './components/FAQ_Tab';
+//import faqTab from './components/FAQ_Tab';
+import { onMounted } from 'vue';
+import useTabAnimation from '@/assets/js/common';
 
+const {li, nav, tabContent, clickLiFnc} = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
-//const faqList2 = ["memberInfo", "payment", "refund", "review", "error", "etc"];
+
+onMounted(() => {
+    clickLiFnc();
+});
+
 </script>
 
 <template>
     <div class="FAQ_container main-layout">
         <div class="FAQ_container_inner mob-inner">
-            <faqTab />
-            <ul 
-                v-for="faqItem in faqList"
-                :id="faqItem">
-                <li>{{ faqItem }}</li>
+            <!-- <faqTab /> -->
+            <ul class="faq-tab-list">
+                <li 
+                ref="li" 
+                class="faq-li active"
+                v-for="faqItem in faqList" 
+                :key="faqItem" 
+                @click="clickLiFnc"
+                :data-menu="faqItem">
+                    {{ faqItem }}
+                </li> 
+                <span ref="nav" class="nav-indicator"></span>
             </ul>
-            <!-- <ul id="memberInfo">
-                <li>회원정보</li>
-            </ul>
-            <ul id="payment">
-                <li>결제</li>
-            </ul>
-            <ul id="refund">
-                <li>환불</li>
-            </ul>
-            <ul id="review">
-                <li>후기</li>
-            </ul>
-            <ul id="error">
-                <li>오류</li>
-            </ul>
-            <ul id="etc">
-                <li>기타</li>
-            </ul> -->
+            <div class="tabContentWrap">
+                <ul 
+                    v-for="faqItem in faqList"
+                    :id="faqItem"
+                    class="con"
+                    ref="tabContent">
+                    <li class="q-box">
+                        <div class="f-14-400">{{ faqItem }}</div> <span class="arrow"></span>
+                    </li>
+                    <li class="a-box f-12-400">
+                        <p>sdfsdfsdfsfsff</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>

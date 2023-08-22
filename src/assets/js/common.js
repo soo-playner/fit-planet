@@ -4,13 +4,23 @@ import { ref } from 'vue'
 export default function useTabAnimation() {
     const li = ref(null)
     const nav = ref(null)
-    //const tabContent = ref(null)
+    const tabContent = ref(null)
 
     function clickLiFnc() {
         function navFnc(el){
-            // 클릭 시 갖고 있던 active 삭제
-            li.value.forEach((items) => {
+            // 클릭 시 각 컨텐츠의 active 클래스 제거
+            tabContent.value.forEach((tabContents) => {
+                tabContents.classList.remove('active');
+            });
+
+            // 클릭 시 각 li 태그의 active 클래스 제거
+            li.value.forEach((items, index) => {
                 items.classList.remove('active');
+
+                items.onclick = () => {
+                    const tabContentWrap = document.querySelector('.tabContentWrap');
+                    tabContentWrap.style.transform = `translate3d(${-tabContentWrap.clientWidth * index}px, 0, 0)`;
+                }
             });
             
             // active 클래스를 가진 li 태그의 값 가져오도록
@@ -18,8 +28,14 @@ export default function useTabAnimation() {
             nav.value.style.left = `${el.offsetLeft}px`;
             nav.value.style.bottom = '0';
 
-            // active 추가
+            // li 태그 active 클래스 추가
             el.classList.add('active');
+
+            const thisTab = el.dataset.menu; // 클릭한 li 태그의 data-set 값 가져옴
+            const thisTabContent = document.getElementById(thisTab); // 해당 data-set 값을 가진 컨텐츠를 찾아옴
+            thisTabContent.classList.add('active'); // 컨텐츠에 active 클래스 추가
+
+            
         }
 
         li.value.forEach((items) => {
@@ -29,5 +45,5 @@ export default function useTabAnimation() {
     }
 
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return {li, nav, clickLiFnc}
+    return {li, nav, tabContent, clickLiFnc}
 }

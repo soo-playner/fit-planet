@@ -176,8 +176,20 @@
 /components/community/FAQ.vue
 ******************************************/
 .FAQ_container{
-    &_inner{
+    &_inner{position:relative;
         .faq-tab-list{@include useTab;}
+        .tabContentWrap{@include conSize(100%, 100%); @include display(flex); position:relative; z-index:1; box-sizing:content-box; transition-property:transform; transition:all .5s $easing;
+            ul{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;
+                li{border-bottom:1px solid #D9D9D9;
+                    .arrow{@include arrow2;}
+                    &.q-box{@include display(flex, center, space-between); padding:12px 0;}
+                    &.a-box{max-height:0; opacity:0; visibility:hidden;}
+                } 
+            }
+        }
+        &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
+        &::before{left:-100%;}
+        &::after{right:-100%;}
     }
 }
 
