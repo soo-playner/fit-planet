@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export default function useTabAnimation() {
     const li = ref(null)
     const nav = ref(null)
-    const tabContent = ref(null)
+    //const tabContent = ref(null)
 
     function clickLiFnc() {
         function navFnc(el){
@@ -26,8 +26,6 @@ export default function useTabAnimation() {
             items.addEventListener('click', (e) => { navFnc(e.target) });
             items.classList.contains('active') && navFnc(items);
         });
-
-        
     }
 
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여

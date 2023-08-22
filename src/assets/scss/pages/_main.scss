@@ -89,22 +89,56 @@
                             span{@include afterLine();}
                         }
                     }
-                    .place-progress-box{
-                        .progress-bar{position:relative;
-                            .progress-bubble{min-width:40px; display:inline-block; padding:0 10px; background:$b; color:$f; text-align:center;}
-                            //input{width:100%;}
-                            .progress-value{@include conSize(100%, 8px); overflow:hidden; margin:6px 0 0 0; background:#D9D9D9; border-radius:4px;
-                                .step{@include conSize(8px, 8px); background:$b; border-radius:4px;}
-                            }
-                        }
-                        .progress-date{@include display(flex, null, space-between); margin:6px 0 0 0;}
-                    }
+                    .place-progress-box{@include placeProgress;}
                     a{@include aTag();}
                 }
             }
         }
         .Class-section02-inner{padding:20px;
             .place-history{@include placeHistory();}
+        }
+    }
+}
+
+/******************************************
+메인 페이지(운동 종료)
+/components/layout/Complete_Home.vue
+******************************************/
+.complete_home_container{
+    &_inner{
+        .first-section{
+            &-inner{
+                .top-column{position:relative;
+                    .txt-box{text-align:center;}
+                    .close{@include close; @include position(absolute, 2px, 0);}
+                }
+                .place-info{
+                    .img-box{@include placeImgBox; margin:16px auto 8px;}
+                    .txt-box{text-align:center;
+                        & > span{color:#979797;}
+                        p{@include display(flex, null, center);
+                            &:first-child{color:#979797}
+                            &:last-child span{@include afterLine();}
+                        }
+                    }
+                }
+                .place-progress-box{@include placeProgress;
+                    .progress-bar{
+                        .progress-bubble{right:0;}
+                        .progress-value{
+                            .step{width:100%;}
+                        }
+                    }
+                }
+                .next-step-btn{@include conSize(null, 38px, 36px); @include display(flex, center, center); column-gap:8px; margin:12px 0 0 0;
+                    img{filter:invert(1);}
+                }
+            }
+        }
+        .second-section{
+            &-inner{padding:20px;
+                .place-history{@include placeHistory;}
+            }
         }
     }
 }
