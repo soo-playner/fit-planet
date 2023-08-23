@@ -44,7 +44,7 @@
 <template>
     <Header v-if="!notVisiable1.includes($route.name)" />
     <router-view v-slot="{Component, route}">
-        <transition name="slide-fade" mode="out-in">
+        <transition name="slide-fade">
             <component :is="Component" :key="route.name"></component>
         </transition>
     </router-view>

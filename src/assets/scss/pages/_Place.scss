@@ -3,7 +3,7 @@
 /components/routes/place/PlaceList.vue
 ******************************************/
 .placeList_container{
-    &_inner{padding:20px;
+    &_inner{
         .filter-scroll{@include filterScroll;}
         .PlaceData-form{@include placeList2;}
         .map-move{

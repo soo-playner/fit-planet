@@ -4751,9 +4751,6 @@ ul 안에 ul
 플레이스 리스트 
 /components/routes/place/PlaceList.vue
 ******************************************/
-.placeList_container_inner {
-  padding: 20px;
-}
 .placeList_container_inner .filter-scroll {
   display: -webkit-box;
   -webkit-column-gap: 5px;
