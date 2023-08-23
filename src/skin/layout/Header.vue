@@ -1,218 +1,213 @@
-<script>
+<script setup>
+import { ref } from "vue";
+import { useRoute } from "vue-router";
 import Alert from "./components/Alert";
 import Search from "./components/Search";
 
-export default {
-    name: "Header",
-    components: {
-        Alert,
-        Search,
-    },
-    data() {
-        return {
-            AlertOpen: false,
-            SearchOpen: false,
-            headerActive: ["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"],
-        };
-    },
-    methods: {
-        AlertOpenFnc: function () {
-            this.AlertOpen = !this.AlertOpen;
-            this.SearchOpen = false;
-        },
-        SearchOpenFnc: function () {
-            this.SearchOpen = !this.SearchOpen;
-            this.AlertOpen = false;
-        },
-        headerType() {
-            switch (this.$route.fullPath) {
-                case "/":
-                case "/Class":
-                case "/not/class": {
-                    return {
-                        logo: true,
-                        alarm: true,
-                        search: true,
-                        mypage: true,
-                    };
-                }
-                case "/join/step1": {
-                    return {
-                        back: true,
-                        overallProgress: 3,
-                        currentProgress: 1,
-                    };
-                }
-                case "/join/step2": {
-                    return {
-                        back: true,
-                        overallProgress: 3,
-                        currentProgress: 2,
-                    };
-                }
-                case "/join/step3": {
-                    return {
-                        back: true,
-                        overallProgress: 3,
-                        currentProgress: 3,
-                    };
-                }
-                case "/Authority":
-                case "/place/pay/complete":
-                case "/Inquiry/complete":
-                case "/Review/Select": {
-                    return {
-                        close: true,
-                    };
-                }
-                case "/filter": {
-                    return {
-                        back: true,
-                        close: true,
-                    };
-                }
-                case "/Place/Detail": {
-                    return {
-                        back: true,
-                        search: true,
-                        mypage: true,
-                    };
-                }
-                case "/Terms":
-                case "/Inquiry":
-                case "/faq":
-                case "/event-news":
-                case "/coupon":
-                case "/orderinquiry":
-                case "/orderinquiryView":
-                case "/cancelInquiry":
-                case "/mypage":
-                case "/MyPage": {
-                    return {
-                        back: true,
-                        home: true,
-                    };
-                }
-                case "/review/detail":
-                case "/my-review": {
-                    return {
-                        back: true,
-                        write: true,
-                        search: true,
-                        mypage: true,
-                    };
-                }
-                case "/wish": {
-                    return {
-                        search: true,
-                        mypage: true,
-                    };
-                }
-                default: {
-                    return {
-                        back: true,
-                    };
-                }
-            }
-        },
-        headerTitle() {
-            switch (this.$route.fullPath) {
-                case "/find/id/step1":
-                case "/find/id/step2": {
-                    return "아이디 찾기";
-                }
-                case "/find/pw/step1":
-                case "/find/pw/step2": {
-                    return "비밀번호 찾기";
-                }
-                case "/find/pw/email/step1": {
-                    return "이메일로 비밀번호 찾기";
-                }
-                case "/pw/reset": {
-                    return "비밀번호 재설정";
-                }
-                case "/join/step1": {
-                    return "서비스 이용 동의";
-                }
-                case "/join/step2": {
-                    return "회원가입";
-                }
-                case "/join/step3": {
-                    return "닉네임 등록";
-                }
-                case "/filter": {
-                    return "필터";
-                }
-                case "/place/machine-choice": {
-                    return "운동 선택하기";
-                }
-                case "/place/pay": {
-                    return "결제하기";
-                }
-                case "/place/pay/complete": {
-                    return "결제 완료";
-                }
-                case "/Place/Review": {
-                    return "이용 후기";
-                }
-                case "/Place/Trainer": {
-                    return "1:1 트레이너";
-                }
-                case "/Terms": {
-                    return "약관 및 정책";
-                }
-                case "/faq": {
-                    return "자주 묻는 질문";
-                }
-                case "/coupon": {
-                    return "마이쿠폰";
-                }
-                case "/orderinquiry": {
-                    return "주문목록";
-                }
-                case "/orderinquiryView":
-                case "/OrderInquiryView": {
-                    return "주문 상세";
-                }
-                case "/cancelInquiry": {
-                    return "취소 상세";
-                }
-                case "/Account/Delete": {
-                    return "회원 탈퇴";
-                }
-                case "/MyPage": {
-                    return "마이";
-                }
-                case "/Review/Select": {
-                    return "후기 작성";
-                }
-                case "/interest/region": {
-                    return "관심지역 추가";
-                }
-                case "/Profile_email_login":
-                case "/Profile_sns_login": {
-                    return "회원정보";
-                }
-                case "/Inquiry":
-                case "/Inquiry/complete": {
-                    return "이메일 문의";
-                }
-                case "/Change/Nickname":
-                case "/change/nickname": {
-                    return "닉네임 변경";
-                }
-                case "/Change/Password":
-                case "/change/password":
-                case "/Change/Password/Confirm":
-                case "/change/password/confirm": {
-                    return "비밀번호 변경";
-                }
-                default: {
-                    return false;
-                }
-            }
-        },
-    },
+const route = useRoute();
+
+const AlertOpen = ref(false);
+const SearchOpen = ref(false);
+const headerActive = ref(["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"]);
+
+const AlertOpenFnc = () => {
+    AlertOpen.value = !AlertOpen.value;
+    SearchOpen.value = false;
+};
+
+const SearchOpenFnc = () => {
+    SearchOpen.value = !SearchOpen.value;
+    AlertOpen.value = false;
+};
+
+const headerType = () => {
+    switch (route.fullPath) {
+        case "/":
+        case "/Class":
+        case "/not/class": {
+            return {
+                logo: true,
+                alarm: true,
+                search: true,
+                mypage: true,
+            };
+        }
+        case "/join/step1": {
+            return {
+                back: true,
+                overallProgress: 3,
+                currentProgress: 1,
+            };
+        }
+        case "/join/step2": {
+            return {
+                back: true,
+                overallProgress: 3,
+                currentProgress: 2,
+            };
+        }
+        case "/join/step3": {
+            return {
+                back: true,
+                overallProgress: 3,
+                currentProgress: 3,
+            };
+        }
+        case "/Authority":
+        case "/place/pay/complete":
+        case "/Inquiry/complete":
+        case "/Review/Select": {
+            return {
+                close: true,
+            };
+        }
+        case "/filter": {
+            return {
+                back: true,
+                close: true,
+            };
+        }
+        case "/Place/Detail": {
+            return {
+                back: true,
+                search: true,
+                mypage: true,
+            };
+        }
+        case "/Terms":
+        case "/Inquiry":
+        case "/faq":
+        case "/event-news":
+        case "/coupon":
+        case "/orderinquiry":
+        case "/orderinquiryView":
+        case "/cancelInquiry":
+        case "/mypage":
+        case "/MyPage": {
+            return {
+                back: true,
+                home: true,
+            };
+        }
+        case "/review/detail":
+        case "/my-review": {
+            return {
+                back: true,
+                write: true,
+                search: true,
+                mypage: true,
+            };
+        }
+        case "/wish": {
+            return {
+                search: true,
+                mypage: true,
+            };
+        }
+        default: {
+            return {
+                back: true,
+            };
+        }
+    }
+};
+
+const headerTitle = () => {
+    switch (route.fullPath) {
+        case "/find/id/step1":
+        case "/find/id/step2": {
+            return "아이디 찾기";
+        }
+        case "/find/pw/step1":
+        case "/find/pw/step2": {
+            return "비밀번호 찾기";
+        }
+        case "/find/pw/email/step1": {
+            return "이메일로 비밀번호 찾기";
+        }
+        case "/pw/reset": {
+            return "비밀번호 재설정";
+        }
+        case "/join/step1": {
+            return "서비스 이용 동의";
+        }
+        case "/join/step2": {
+            return "회원가입";
+        }
+        case "/join/step3": {
+            return "닉네임 등록";
+        }
+        case "/filter": {
+            return "필터";
+        }
+        case "/place/machine-choice": {
+            return "운동 선택하기";
+        }
+        case "/place/pay": {
+            return "결제하기";
+        }
+        case "/place/pay/complete": {
+            return "결제 완료";
+        }
+        case "/Place/Review": {
+            return "이용 후기";
+        }
+        case "/Place/Trainer": {
+            return "1:1 트레이너";
+        }
+        case "/Terms": {
+            return "약관 및 정책";
+        }
+        case "/faq": {
+            return "자주 묻는 질문";
+        }
+        case "/coupon": {
+            return "마이쿠폰";
+        }
+        case "/orderinquiry": {
+            return "주문목록";
+        }
+        case "/orderinquiryView":
+        case "/OrderInquiryView": {
+            return "주문 상세";
+        }
+        case "/cancelInquiry": {
+            return "취소 상세";
+        }
+        case "/Account/Delete": {
+            return "회원 탈퇴";
+        }
+        case "/MyPage": {
+            return "마이";
+        }
+        case "/Review/Select": {
+            return "후기 작성";
+        }
+        case "/interest/region": {
+            return "관심지역 추가";
+        }
+        case "/Profile_email_login":
+        case "/Profile_sns_login": {
+            return "회원정보";
+        }
+        case "/Inquiry":
+        case "/Inquiry/complete": {
+            return "이메일 문의";
+        }
+        case "/Change/Nickname":
+        case "/change/nickname": {
+            return "닉네임 변경";
+        }
+        case "/Change/Password":
+        case "/change/password":
+        case "/Change/Password/Confirm":
+        case "/change/password/confirm": {
+            return "비밀번호 변경";
+        }
+        default: {
+            return false;
+        }
+    }
 };
 </script>
 

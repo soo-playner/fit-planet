@@ -1,35 +1,29 @@
-<script>
+<script setup>
 import ScheduleTrainerEdit from "../../components/modal/ScheduleTrainerEdit.vue";
-export default {
-    name: "Class_MainPage",
-    components: { ScheduleTrainerEdit },
-    data() {
-        return {
-            history: [
-                {
-                    payDate: "4.1 토",
-                    current: "운동 완료",
-                    trainerName: "김위즈",
-                    center: "위즈짐",
-                    exerciseName: "바디프로필 프로젝트 30회",
-                    startDate: "4.3 월",
-                    endDate: "7.3 월",
-                },
-                {
-                    payDate: "4.1 토",
-                    current: "운동 완료",
-                    trainerName: "김위즈",
-                    center: "위즈짐",
-                    exerciseName: "바디프로필 프로젝트 30회",
-                    startDate: "4.3 월",
-                    endDate: "7.3 월",
-                },
-            ],
-            scheduleOpen: false,
-        };
-    },
-};
+import { ref } from "vue";
 
+const history = ref([
+    {
+        payDate: "4.1 토",
+        current: "운동 완료",
+        trainerName: "김위즈",
+        center: "위즈짐",
+        exerciseName: "바디프로필 프로젝트 30회",
+        startDate: "4.3 월",
+        endDate: "7.3 월",
+    },
+    {
+        payDate: "4.1 토",
+        current: "운동 완료",
+        trainerName: "김위즈",
+        center: "위즈짐",
+        exerciseName: "바디프로필 프로젝트 30회",
+        startDate: "4.3 월",
+        endDate: "7.3 월",
+    },
+]);
+
+const scheduleOpen = ref(false);
 </script>
 
 <template>
