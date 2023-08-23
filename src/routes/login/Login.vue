@@ -3,7 +3,7 @@ import { RouterLink } from "vue-router";
 </script>
 
 <template>
-    <div class="login_container">
+    <div class="login_container member_container">
         <div class="login_container_inner mob-inner">
             <div class="intro-txt-box">
                 <div class="img-box"><img src="@/assets/image/login_logo.png" alt="핏플래닛 로고" /></div>
@@ -12,10 +12,13 @@ import { RouterLink } from "vue-router";
             <div class="login-form">
                 <div class="login-form-input1">
                     <div class="form-group">
-                        <input type="text" placeholder="이메일" name="mb_id" />
+                        <input type="text" placeholder="아이디(이메일)" name="mb_id" />
                     </div>
                     <div class="form-group password">
                         <input type="password" placeholder="비밀번호" name="mb_password" />
+                        <div class="etc">
+                            <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부"></span>
+                        </div>
                     </div>
                     <RouterLink to="" class="login-btn f-16-700">이메일 로그인</RouterLink>
                 </div>

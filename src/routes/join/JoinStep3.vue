@@ -36,8 +36,8 @@ const resetDuplicateFlag = () => {
                 <input type="text" v-model="form.mb_nickname.value" name="mb_nickname" id="mb_nickname" placeholder="닉네임 입력" @change="resetDuplicateFlag" />
                 <button class="f-14-700" @click="checkBtnClickHandler">중복 확인</button>
             </div>
-            <p v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>
-            <p v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>
+            <p class="vail f-12-400" v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>
+            <p class="vail f-12-400" v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>
         </div>
         <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/complete')" :disabled="canRegister && !nextCondition()">가입 완료</button>
     </div>

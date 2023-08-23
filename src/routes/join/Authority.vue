@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vuex';
+
 const authorityList = [
     {
         title: "기기 및 앱 기록",
@@ -6,21 +8,25 @@ const authorityList = [
         class: "authority-con-1",
     },
     {
-        title: "사진/카메라(선택)",
-        description: "플레이스&트레이너에 대한 사진 리뷰 업로드",
+        title: "사진/카메라",
+        subTitle : "(선택)",
+        description: "플레이스&트레이너에 대한\n 사진 리뷰 업로드",
         class: "authority-con-2",
     },
     {
-        title: "위치(선택)",
+        title: "위치",
+        subTitle : "(선택)",
         description: "현재 위치 주변의 플레이스&트레이너 검색",
         class: "authority-con-3",
     },
     {
-        title: "알림(선택)",
+        title: "알림",
+        subTitle : "(선택)",
         description: "운동 일정 및 이벤트 알림 수신",
         class: "authority-con-4",
     },
 ];
+
 </script>
 
 <template>
@@ -39,8 +45,8 @@ const authorityList = [
             <ul class="authority-list">
                 <li v-for="(item, index) in authorityList" :key="index">
                     <div class="txt-box">
-                        <p class="f-16-700">{{ item.title }}</p>
-                        <span class="f-12-400">{{ item.description }}</span>
+                        <p class="f-16-700">{{ item.title }}<span class="f-14-400">{{ item.subTitle }}</span></p>
+                        <span class="f-12-400" v-html="item.description.replace('\n', '<br />')"></span>
                     </div>
                     <div :class="['authority-con', item.class]"></div>
                 </li>
