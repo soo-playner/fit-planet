@@ -114,7 +114,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         .back{height:24px;}
         .menu-ul{@include display(flex, center); gap:30px;
             li{@include display(flex, center); cursor:pointer;
-                a{@include display(flex, center);}
+                a{height:24px; @include display(flex, center);}
                 &.progress{font-size: 14px;}
                 .search{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
             }
@@ -309,3 +309,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     // @include responsive-991{max-width:100%;}
     @include responsive-720{max-width:400px;}
 }
+
+.slide-fade-enter{transform:translateX(100%);}
+.slide-fade-enter-active,
+.slide-fade-leave-active{transition:all .5s $easing;}
+.slide-fade-leave-to{transform:translateX(-100%);}

@@ -40,8 +40,17 @@
 
 </script>
 
+
 <template>
-    <Header v-if="!notVisiable1.includes($route.name)"></Header>
-    <router-view></router-view>
-    <Footer v-if="!notVisiable2.includes($route.name)"></Footer>
+    <Header v-if="!notVisiable1.includes($route.name)" />
+    <router-view v-slot="{Component, route}">
+        <transition name="slide-fade" mode="out-in">
+            <component :is="Component" :key="route.name"></component>
+        </transition>
+    </router-view>
+    <Footer v-if="!notVisiable2.includes($route.name)" />
 </template>
+
+<style>
+
+</style>
