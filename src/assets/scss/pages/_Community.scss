@@ -9,25 +9,24 @@
 }
 
 .EventNews_container{
-    &_inner{position:relative;
-        .tab-list{@include useTab; display:flex; overflow-x:initial;
+    &_inner{
+        .tab-list{display:flex; overflow-x:initial;
             li{flex:1;}
         }
-        .news-list{padding:0 20px;
-            li{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
-                span{margin:5px 0 0 0; color:#979797}
-                .arrow{@include arrow2; transform:rotate(-90deg); margin:0 0 10px 0;}
+        .tabContentWrap{
+            .news-list{padding:0 20px;
+                li{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
+                    span{margin:5px 0 0 0; color:#979797}
+                    .arrow{@include arrow2; transform:rotate(-90deg); margin:0 0 10px 0;}
+                }
+            }
+            .event-list{padding:20px;
+                li{@include conSize(100%, 105px); margin:0 0 15px 0; overflow:hidden; background:#f1f1f1; border-radius:10px;
+                    &:last-child{margin:0;}
+                    img{@include conSize(100%, 100%); object-fit:cover;}
+                }
             }
         }
-        .event-list{padding:20px;
-            li{@include conSize(100%, 105px); margin:0 0 15px 0; overflow:hidden; background:#f1f1f1; border-radius:10px;
-                &:last-child{margin:0;}
-                img{@include conSize(100%, 100%); object-fit:cover;}
-            }
-        }
-        &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
-        &::before{left:-100%;}
-        &::after{right:-100%;}
     }
 }
 
@@ -130,7 +129,9 @@
             .search-btn{@include searchBtn;}
         }
         .tab-and-filter{
-            .search-tab{@include TabList; margin:28px 0 20px 0;}
+            .search-tab{display:flex; margin:28px 0 20px 0;
+                li{flex:1;}
+            }
             .filter-scroll{@include filterScroll; padding:0 20px;
                 img{margin:0;}
             }
@@ -180,9 +181,8 @@
 ******************************************/
 .FAQ_container{
     &_inner{position:relative;
-        .faq-tab-list{@include useTab;}
-        .tabContentWrap{@include conSize(100%, 100%); @include display(flex); position:relative; z-index:1; box-sizing:content-box; transition-property:transform; transition:all .5s $easing;
-            ul{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;
+        .tabContentWrap{
+            ul{
                 li{border-bottom:1px solid #D9D9D9;
                     .arrow{@include arrow2;}
                     &.q-box{@include display(flex, center, space-between); padding:12px 0;}
@@ -190,9 +190,6 @@
                 } 
             }
         }
-        &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
-        &::before{left:-100%;}
-        &::after{right:-100%;}
     }
 }
 

@@ -44,7 +44,7 @@ const confirmChange = () => {
             <div class="changeNick-guide txt-box">
                 <p class="f-14-400">핏플래닛에서 사용할 닉네임을 입력해주세요.</p>
                 <div class="form-group">
-                    <input type="text" v-model="form.mb_nickname.value" name="mb_nickname" id="mb_nickname" placeholder="닉네임 입력" @change="resetDuplicateFlag" />
+                    <input type="text" v-model="form.mb_nickname.value" name="mb_nickname" id="mb_nickname" placeholder="위즈위즈" @change="resetDuplicateFlag" />
                     <button class="f-14-700" @click="checkBtnClickHandler">중복 확인</button>
                 </div>
                 <p v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>

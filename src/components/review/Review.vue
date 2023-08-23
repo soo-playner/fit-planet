@@ -17,7 +17,7 @@ const openOptionMenu = () => {
 </script>
 
 <template>
-    <div class="total-review-form" >
+    <div class="total-review-form">
         <div class="review-writer">
             <div class="left-row">
                 <div class="user-profile"></div>

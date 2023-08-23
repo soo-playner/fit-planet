@@ -39,12 +39,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="EventNews_container main-layout">
-        <div class="EventNews_container_inner mob-inner">
-            <ul class="tab-list">
+    <div class="EventNews_container main-layout slide-wrap">
+        <div class="EventNews_container_inner mob-inner slide-wrap-inner">
+            <ul class="tab-list slide-ul">
                 <li 
                     ref="li"
-                    class="tab-li active"
+                    class="tab-li slide-li active"
                     v-for="eventNewsItem in eventNewsList" 
                     :key="eventNewsItem" 
                     @click="clickLiFnc">

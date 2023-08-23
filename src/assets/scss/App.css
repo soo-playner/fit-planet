@@ -1207,6 +1207,113 @@ ul 안에 ul
   visibility: hidden;
 }
 
+.slide-wrap-inner {
+  position: relative;
+}
+.slide-wrap-inner .slide-ul {
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+  display: -webkit-box;
+  position: relative;
+  overflow-x: auto;
+}
+.slide-wrap-inner .slide-ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  padding: 0 0 15px 0;
+  text-align: center;
+}
+.slide-wrap-inner .slide-ul li button {
+  font-size: 16px;
+  font-weight: 400;
+}
+@media (max-width: 480px) {
+  .slide-wrap-inner .slide-ul li button {
+    font-size: 14px;
+  }
+}
+.slide-wrap-inner .slide-ul li.active button {
+  font-weight: 700;
+}
+.slide-wrap-inner .slide-ul li.active::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000;
+}
+.slide-wrap-inner .slide-ul li {
+  -webkit-box-flex: initial;
+      -ms-flex: initial;
+          flex: initial;
+  padding: 0 22px 15px;
+  color: #D9D9D9;
+  cursor: pointer;
+}
+.slide-wrap-inner .slide-ul li.active {
+  font-weight: 700;
+  color: #000;
+}
+.slide-wrap-inner .slide-ul li::before {
+  display: none;
+}
+.slide-wrap-inner .slide-ul .nav-indicator {
+  height: 4px;
+  position: absolute;
+  padding: 0;
+  background: #000;
+  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.slide-wrap-inner .tabContentWrap {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.slide-wrap-inner .tabContentWrap ul {
+  width: 100%;
+  height: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  padding: 0 20px;
+}
+.slide-wrap-inner::before, .slide-wrap-inner::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+}
+.slide-wrap-inner::before {
+  left: -100%;
+}
+.slide-wrap-inner::after {
+  right: -100%;
+}
+
 /* NotoSansKR */
 @font-face {
   font-family: "NotoSansKR";
@@ -4264,6 +4371,7 @@ ul 안에 ul
 .ChangeNickname_container_inner,
 .ChangePassword_container_inner,
 .ChangePassword_Confirm_container_inner {
+  width: 100%;
   min-height: calc(100vh - 100px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8404,19 +8512,9 @@ ul 안에 ul
   background: #000;
 }
 
-.EventNews_container_inner {
-  position: relative;
-}
 .EventNews_container_inner .tab-list {
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid #f1f1f1;
   display: -webkit-box;
-  position: relative;
-  overflow-x: auto;
+  display: -ms-flexbox;
   display: flex;
   overflow-x: initial;
 }
@@ -8424,63 +8522,11 @@ ul 안에 ul
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  position: relative;
-  padding: 0 0 15px 0;
-  text-align: center;
 }
-.EventNews_container_inner .tab-list li button {
-  font-size: 16px;
-  font-weight: 400;
-}
-@media (max-width: 480px) {
-  .EventNews_container_inner .tab-list li button {
-    font-size: 14px;
-  }
-}
-.EventNews_container_inner .tab-list li.active button {
-  font-weight: 700;
-}
-.EventNews_container_inner .tab-list li.active::before {
-  content: "";
-  width: 100%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #000;
-}
-.EventNews_container_inner .tab-list li {
-  -webkit-box-flex: initial;
-      -ms-flex: initial;
-          flex: initial;
-  padding: 0 22px 15px;
-  color: #D9D9D9;
-  cursor: pointer;
-}
-.EventNews_container_inner .tab-list li.active {
-  font-weight: 700;
-  color: #000;
-}
-.EventNews_container_inner .tab-list li::before {
-  display: none;
-}
-.EventNews_container_inner .tab-list .nav-indicator {
-  height: 4px;
-  position: absolute;
-  padding: 0;
-  background: #000;
-  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-.EventNews_container_inner .tab-list li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.EventNews_container_inner .news-list {
+.EventNews_container_inner .tabContentWrap .news-list {
   padding: 0 20px;
 }
-.EventNews_container_inner .news-list li {
+.EventNews_container_inner .tabContentWrap .news-list li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8493,11 +8539,11 @@ ul 안에 ul
   padding: 12px 0;
   border-bottom: 1px solid #D9D9D9;
 }
-.EventNews_container_inner .news-list li span {
+.EventNews_container_inner .tabContentWrap .news-list li span {
   margin: 5px 0 0 0;
   color: #979797;
 }
-.EventNews_container_inner .news-list li .arrow {
+.EventNews_container_inner .tabContentWrap .news-list li .arrow {
   width: 10px;
   height: 18px;
   display: -webkit-box;
@@ -8514,26 +8560,26 @@ ul 안에 ul
           transform: rotate(-90deg);
   margin: 0 0 10px 0;
 }
-.EventNews_container_inner .news-list li .arrow::before, .EventNews_container_inner .news-list li .arrow::after {
+.EventNews_container_inner .tabContentWrap .news-list li .arrow::before, .EventNews_container_inner .tabContentWrap .news-list li .arrow::after {
   content: "";
   width: 100%;
   height: 2px;
   position: absolute;
   background: #000;
 }
-.EventNews_container_inner .news-list li .arrow::before {
+.EventNews_container_inner .tabContentWrap .news-list li .arrow::before {
   right: 6px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.EventNews_container_inner .news-list li .arrow::after {
+.EventNews_container_inner .tabContentWrap .news-list li .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.EventNews_container_inner .event-list {
+.EventNews_container_inner .tabContentWrap .event-list {
   padding: 20px;
 }
-.EventNews_container_inner .event-list li {
+.EventNews_container_inner .tabContentWrap .event-list li {
   width: 100%;
   height: 105px;
   margin: 0 0 15px 0;
@@ -8541,29 +8587,14 @@ ul 안에 ul
   background: #f1f1f1;
   border-radius: 10px;
 }
-.EventNews_container_inner .event-list li:last-child {
+.EventNews_container_inner .tabContentWrap .event-list li:last-child {
   margin: 0;
 }
-.EventNews_container_inner .event-list li img {
+.EventNews_container_inner .tabContentWrap .event-list li img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.EventNews_container_inner::before, .EventNews_container_inner::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 99;
-  background: #fff;
-}
-.EventNews_container_inner::before {
-  left: -100%;
-}
-.EventNews_container_inner::after {
-  right: -100%;
 }
 
 /******************************************
@@ -8954,40 +8985,12 @@ ul 안에 ul
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid #f1f1f1;
   margin: 28px 0 20px 0;
 }
 .SearchResult_container_inner .tab-and-filter .search-tab li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  position: relative;
-  padding: 0 0 15px 0;
-  text-align: center;
-}
-.SearchResult_container_inner .tab-and-filter .search-tab li button {
-  font-size: 16px;
-  font-weight: 400;
-}
-@media (max-width: 480px) {
-  .SearchResult_container_inner .tab-and-filter .search-tab li button {
-    font-size: 14px;
-  }
-}
-.SearchResult_container_inner .tab-and-filter .search-tab li.active button {
-  font-weight: 700;
-}
-.SearchResult_container_inner .tab-and-filter .search-tab li.active::before {
-  content: "";
-  width: 100%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #000;
 }
 .SearchResult_container_inner .tab-and-filter .filter-scroll {
   display: -webkit-box;
@@ -9456,94 +9459,6 @@ ul 안에 ul
 .FAQ_container_inner {
   position: relative;
 }
-.FAQ_container_inner .faq-tab-list {
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid #f1f1f1;
-  display: -webkit-box;
-  position: relative;
-  overflow-x: auto;
-}
-.FAQ_container_inner .faq-tab-list li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-  padding: 0 0 15px 0;
-  text-align: center;
-}
-.FAQ_container_inner .faq-tab-list li button {
-  font-size: 16px;
-  font-weight: 400;
-}
-@media (max-width: 480px) {
-  .FAQ_container_inner .faq-tab-list li button {
-    font-size: 14px;
-  }
-}
-.FAQ_container_inner .faq-tab-list li.active button {
-  font-weight: 700;
-}
-.FAQ_container_inner .faq-tab-list li.active::before {
-  content: "";
-  width: 100%;
-  height: 4px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #000;
-}
-.FAQ_container_inner .faq-tab-list li {
-  -webkit-box-flex: initial;
-      -ms-flex: initial;
-          flex: initial;
-  padding: 0 22px 15px;
-  color: #D9D9D9;
-  cursor: pointer;
-}
-.FAQ_container_inner .faq-tab-list li.active {
-  font-weight: 700;
-  color: #000;
-}
-.FAQ_container_inner .faq-tab-list li::before {
-  display: none;
-}
-.FAQ_container_inner .faq-tab-list .nav-indicator {
-  height: 4px;
-  position: absolute;
-  padding: 0;
-  background: #000;
-  -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-.FAQ_container_inner .tabContentWrap {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  z-index: 1;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-.FAQ_container_inner .tabContentWrap ul {
-  width: 100%;
-  height: 100%;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  position: relative;
-  padding: 0 20px;
-}
 .FAQ_container_inner .tabContentWrap ul li {
   border-bottom: 1px solid #D9D9D9;
 }
@@ -9593,21 +9508,6 @@ ul 안에 ul
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-}
-.FAQ_container_inner::before, .FAQ_container_inner::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 99;
-  background: #fff;
-}
-.FAQ_container_inner::before {
-  left: -100%;
-}
-.FAQ_container_inner::after {
-  right: -100%;
 }
 
 /******************************************

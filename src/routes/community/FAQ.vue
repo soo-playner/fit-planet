@@ -12,13 +12,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="FAQ_container main-layout">
-        <div class="FAQ_container_inner mob-inner">
+    <div class="FAQ_container main-layout slide-wrap">
+        <div class="FAQ_container_inner mob-inner slide-wrap-inner">
             <!-- <faqTab /> -->
-            <ul class="faq-tab-list">
+            <ul class="faq-tab-list slide-ul">
                 <li 
                 ref="li" 
-                class="faq-li active"
+                class="faq-li slide-li active"
                 v-for="faqItem in faqList" 
                 :key="faqItem" 
                 @click="clickLiFnc"
@@ -30,6 +30,7 @@ onMounted(() => {
             <div class="tabContentWrap">
                 <ul 
                     v-for="faqItem in faqList"
+                    :key="faqItem"
                     :id="faqItem"
                     class="con">
                     <li class="q-box">

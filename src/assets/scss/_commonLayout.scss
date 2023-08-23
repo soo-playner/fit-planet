@@ -446,3 +446,14 @@ ul 안에 ul
         } 
     }
 }
+.slide-wrap{
+    &-inner{position:relative;
+        .slide-ul{@include useTab;}
+        .tabContentWrap{@include conSize(100%, 100%); @include display(flex); position:relative; z-index:1; box-sizing:content-box; transition-property:transform; transition:all .5s $easing;
+            ul{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;}
+        }
+        &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
+        &::before{left:-100%;}
+        &::after{right:-100%;}
+    }
+}

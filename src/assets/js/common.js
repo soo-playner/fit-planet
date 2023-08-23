@@ -2,14 +2,23 @@ import { ref } from 'vue'
 
 /******************************************
 탭 애니메이션
--> 사용 페이지 faq / Event-news
+-> 사용 페이지 faq / Event-news / searchResult / wishlist
 
-사용 시 아래와 같이 tabContentWrap 로 감싸주고,
-<div class="tabContentWrap">
-    <ul></ul>
-    <ul></ul>
+사용 시 아래와 같은 구조로 감싸주기 -> css는 commonLayout.scss(탭 애니메이션 레이아웃) 참조
+<div class="slide-wrap">
+    <div class="slide-wrap-inner">
+        // 탭할 태그
+        <ul class="slide-ul">
+            <li class="slide-li"></li>
+        </ul>
+        // 탭에 맞는 컨텐츠 노출 시 감싸는 태그
+        <div class="tabContentWrap">
+            // 탭에 맞는 컨텐츠 태그
+            <ul></ul>
+            <ul></ul>
+        </div>
+    </div>
 </div>
-상위 _inner 클래스에 가상요소 css 적용해주기 -> commnuity.scss FAQ_container 참조
 ******************************************/
 export default function useTabAnimation() {
     const li = ref(null)

@@ -1,19 +1,29 @@
 <script setup>
 import PlaceData from "@/components/place/PlaceData";
 import TrainerData from "@/components/place/TrainerData";
-import SearchTab from "./Search_Tab";
-import { ref } from "vue";
+// import SearchTab from "./Search_Tab";
+// import { ref } from "vue";
 
-const tabs = ["플레이스", "트레이너"];
-const targetTab = ref("플레이스");
-const changeTab = (tabItem) => {
-    targetTab.value = tabItem;
-};
+// const tabs = ["플레이스", "트레이너"];
+// const targetTab = ref("플레이스");
+// const changeTab = (tabItem) => {
+//     targetTab.value = tabItem;
+// };
+
+import { onMounted, ref } from 'vue';
+import useTabAnimation from '@/assets/js/common';
+
+const {li, nav, clickLiFnc} = useTabAnimation();
+const searchArray = ["플레이스", "트레이너"];
+
+onMounted(() => {
+    clickLiFnc();
+});
 </script>
 
 <template>
-    <div class="SearchResult_container main-layout">
-        <div class="SearchResult_container_inner mob-inner">
+    <div class="SearchResult_container main-layout slide-wrap">
+        <div class="SearchResult_container_inner mob-inner slide-wrap-inner">
             <!-- 검색창 -->
             <div class="search-input">
                 <div class="form-group2">
@@ -23,8 +33,18 @@ const changeTab = (tabItem) => {
             </div>
             <!-- 플레이스/트레이너 탭, 필터 -->
             <div class="tab-and-filter">
-                <ul class="search-tab">
-                    <SearchTab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"></SearchTab>
+                <ul class="search-tab slide-ul">
+                    <!-- <SearchTab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"></SearchTab> -->
+                    <li 
+                    ref="li" 
+                    class="search-tab-li slide-li active"
+                    v-for="searchItem in searchArray" 
+                    :key="searchItem" 
+                    @click="clickLiFnc"
+                    :data-menu="searchItem">
+                        {{ searchItem }}
+                    </li> 
+                    <span ref="nav" class="nav-indicator"></span>
                 </ul>
                 <ul class="filter-scroll">
                     <li>거리순<span class="arrow"></span></li>
@@ -37,8 +57,10 @@ const changeTab = (tabItem) => {
                 </ul>
             </div>
             <!-- 탭에 맞는 컴포넌트 노출 -->
-            <PlaceData v-for="placeListItem in $store.state.placeInfo" :key="placeListItem" :data="placeListItem" v-if="targetTab === '플레이스'"> </PlaceData>
-            <TrainerData v-for="trainerListItem in $store.state.trainerInfo" :key="trainerListItem" :data="trainerListItem" v-if="targetTab === '트레이너'"> </TrainerData>
+            <div class="tabContentWrap">
+                <PlaceData v-for="placeListItem in $store.state.placeInfo" :key="placeListItem" :data="placeListItem"/>
+                <TrainerData v-for="trainerListItem in $store.state.trainerInfo" :key="trainerListItem" :data="trainerListItem"/>
+            </div>
         </div>
     </div>
 </template>

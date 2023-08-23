@@ -86,7 +86,8 @@ export default {
                 case "/orderinquiry":
                 case "/orderinquiryView":
                 case "/cancelInquiry":
-                case "/mypage": {
+                case "/mypage":
+                case "/MyPage": {
                     return {
                         back: true,
                         home: true,
@@ -97,6 +98,12 @@ export default {
                     return {
                         back: true,
                         write: true,
+                        search: true,
+                        mypage: true,
+                    };
+                }
+                case "/wish": {
+                    return {
                         search: true,
                         mypage: true,
                     };
@@ -163,7 +170,8 @@ export default {
                 case "/orderinquiry": {
                     return "주문목록";
                 }
-                case "/orderinquiryView": {
+                case "/orderinquiryView":
+                case "/OrderInquiryView": {
                     return "주문 상세";
                 }
                 case "/cancelInquiry": {
