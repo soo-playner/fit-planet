@@ -198,15 +198,15 @@
 /routes/wish
 ******************************************/
 .Wish_container{
-    &_inner{padding:0 20px;
+    &_inner{
         .tab-list{@include useTab; display:flex; overflow-x:initial;
             li{flex:1;}
         }
-        .toggle-box{@include display(flex); padding:22px 0;
+        .toggle-box{@include display(flex); padding:22px 20px;
             .wish-filter{@include ulToggle;
                 ul{background:$f;}
             }
-            @include responsive-480{padding:17px 0;}
+            @include responsive-480{padding:17px 15px;}
         }
         .wish-ul{display:grid; grid-template-columns:repeat(2, 1fr); column-gap:8px; row-gap:20px;
             li{

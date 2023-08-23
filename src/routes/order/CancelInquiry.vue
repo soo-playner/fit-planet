@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="CancelInquiry_container main-layout">
+    <div class="CancelInquiry_container main-layout notFooter-layout">
         <div class="CancelInquiry_container_inner mob-inner">
             <!-- 주문 일시, 번호 -->
             <div class="order-current">
@@ -32,16 +32,16 @@
                         <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="플레이스 찜하기"></div>
                     </li>
                     <li>
-                        <div>6개월 수강권</div>
-                        <div>234,000원</div>
+                        <div class="f-14-400">6개월 수강권</div>
+                        <div class="f-14-400">234,000원</div>
                     </li>
                     <li>
-                        <div>운동복 6개월</div>
-                        <div>50,000원</div>
+                        <div class="f-14-400">운동복 6개월</div>
+                        <div class="f-14-400">50,000원</div>
                     </li>
                     <li>
-                        <div>개인락커 6개월</div>
-                        <div>50,000원</div>
+                        <div class="f-14-400">개인락커 6개월</div>
+                        <div class="f-14-400">50,000원</div>
                     </li>
                 </ul>
             </div>

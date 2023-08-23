@@ -32,7 +32,7 @@ span {
 }
 
 .main-layout {
-  padding: 56px 0 82px 0;
+  padding: 48px 0 82px 0;
 }
 .main-layout .first-section {
   background: #f1f1f1;
@@ -200,6 +200,9 @@ span {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+.at-header-inner .back {
+  height: 24px;
 }
 .at-header-inner .menu-ul {
   display: -webkit-box;
@@ -675,6 +678,13 @@ span {
 .at-footer-inner ul li a p {
   margin: 5px 0 0 0;
   color: #979797;
+}
+.at-footer-inner ul li a.router-link-exact-active .quick-menu-icon {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+.at-footer-inner ul li a.router-link-exact-active p {
+  color: #000;
 }
 
 .calendar_wrap {
@@ -1207,6 +1217,9 @@ ul 안에 ul
   visibility: hidden;
 }
 
+.slide-wrap {
+  overflow: hidden;
+}
 .slide-wrap-inner {
   position: relative;
 }
@@ -9540,9 +9553,6 @@ ul 안에 ul
 찜
 /routes/wish
 ******************************************/
-.Wish_container_inner {
-  padding: 0 20px;
-}
 .Wish_container_inner .tab-list {
   display: -ms-flexbox;
   display: flex;
@@ -9617,7 +9627,7 @@ ul 안에 ul
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 22px 0;
+  padding: 22px 20px;
 }
 .Wish_container_inner .toggle-box .wish-filter {
   height: 28px;
@@ -9694,7 +9704,7 @@ ul 안에 ul
 }
 @media (max-width: 480px) {
   .Wish_container_inner .toggle-box {
-    padding: 17px 0;
+    padding: 17px 15px;
   }
 }
 .Wish_container_inner .wish-ul {
@@ -9957,8 +9967,18 @@ ul 안에 ul
 }
 .orderinquiry_container_inner .order-list .bott-row a, .orderinquiry_container_inner .order-list .bott-row div {
   width: 100%;
-  height: 38px;
-  line-height: 37px;
+  height: auto;
+  line-height: 1;
+  min-height: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 14px;
   font-weight: 700;
   color: #000;
@@ -9991,6 +10011,11 @@ ul 안에 ul
 }
 .OrderInquiryView_container_inner > div:last-child {
   border-bottom: 0;
+}
+@media (max-width: 320px) {
+  .OrderInquiryView_container_inner > div {
+    padding: 15px;
+  }
 }
 .OrderInquiryView_container_inner .order-current {
   display: -webkit-box;
@@ -10032,6 +10057,14 @@ ul 안에 ul
   height: 10px;
   background: #979797;
 }
+@media (max-width: 320px) {
+  .OrderInquiryView_container_inner .order-current {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
 .OrderInquiryView_container_inner .member-info {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -10059,6 +10092,11 @@ ul 안에 ul
 }
 .OrderInquiryView_container_inner .member-info-input > div:last-child {
   margin: 0;
+}
+@media (max-width: 320px) {
+  .OrderInquiryView_container_inner .member-info-input > div {
+    font-size: 12px;
+  }
 }
 .OrderInquiryView_container_inner .member-info-input span {
   width: 80px;
@@ -10341,6 +10379,11 @@ ul 안에 ul
 .CancelInquiry_container_inner > div {
   padding: 20px;
 }
+@media (max-width: 320px) {
+  .CancelInquiry_container_inner > div {
+    padding: 15px;
+  }
+}
 .CancelInquiry_container_inner .order-current {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10381,6 +10424,14 @@ ul 안에 ul
   height: 10px;
   background: #979797;
 }
+@media (max-width: 320px) {
+  .CancelInquiry_container_inner .order-current {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
 .CancelInquiry_container_inner .refund-expected-guide {
   background: #F1F1F1;
 }
@@ -10401,6 +10452,17 @@ ul 안에 ul
 .CancelInquiry_container_inner .refund-expected-guide p span {
   margin: 0 0 0 5px;
   font-weight: 700;
+}
+@media (max-width: 320px) {
+  .CancelInquiry_container_inner .refund-expected-guide p {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+  }
+  .CancelInquiry_container_inner .refund-expected-guide p span {
+    display: inline;
+    margin: 0;
+  }
 }
 .CancelInquiry_container_inner .order-product {
   border-bottom: 9px solid #f1f1f1;

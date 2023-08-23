@@ -1,6 +1,4 @@
 <script setup>
-import { computed } from 'vuex';
-
 const authorityList = [
     {
         title: "기기 및 앱 기록",
