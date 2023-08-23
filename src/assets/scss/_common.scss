@@ -78,7 +78,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;}
 // 패스워드 가이드
 .password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left;
-    @include responsive-360{line-height:1.5; margin:15px 0 0 0;}
+    @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
 }
 // 인증 시 시간 텍스트
 .pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}

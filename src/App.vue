@@ -13,7 +13,6 @@
             // 헤더 미노출
             notVisiable1 : [
                 /* 인트로 */ "Splash", "Intro", 
-                /* 로그인 */ "Login",  
             ],
             // 풋터 미노출
             notVisiable2 : [

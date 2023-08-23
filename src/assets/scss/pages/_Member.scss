@@ -31,9 +31,9 @@
             }
         }
         // 완료
-        &.complete{ justify-content:flex-end; position:relative; z-index:99; background:#F1F1F1;
+        &.complete{justify-content:flex-end; position:relative; z-index:99; background:#F1F1F1;
             canvas{@include conSize(100%, 100%); @include position(absolute, 0, null, null, 0, -1);}
-            .member_container_inner{min-height:calc(100vh - 303px); @include display(flex, null, space-between, column);
+            .member_container_inner{min-height:calc(100vh - 363px); @include display(flex, null, space-between, column);
                 .txt-box{text-align:center;
                     & > div:first-child{margin:0 0 8px 0;}
                 }
@@ -64,9 +64,9 @@
             .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
         }
     // 권한
-    &.authority{
-        .intro-txt-box{margin:0 0 35px 0; text-align:center;
-            & > div:first-child{margin:0 0 12px 0;}
+    &.authority{min-height:calc(100vh + 41px); padding:108px 24px 52px;
+        .intro-txt-box{margin:0 0 40px 0; text-align:center;
+            & > div:first-child{margin:0 0 6px 0;}
         }
         .authority-list{padding:0 20px;
             li{@include display(flex, center, space-between); padding:0 0 16px 0; margin:0 0 16px 0; border-bottom:1px solid #f1f1f1;
@@ -79,10 +79,10 @@
                 &:last-child{padding:0; margin:0; border-bottom:0;}
             }
         }
-        .authority-guide{@extend .password-guide; margin:40px 0 20px 0; text-align:center;}
+        .authority-guide{@extend .password-guide; margin:0 0 18px 0; text-align:center;}
     }
     .vail{margin:10px 0 0 0;}
-    @include responsive-360{padding:123px 15px 52px;}
+    @include responsive-320{padding:123px 15px 52px;}
 }
 
 
@@ -114,8 +114,8 @@
 로그인 시작 페이지
 /routes/login/Login.vue
 ******************************************/
-.login_container{
-    &_inner{max-width:500px; height:100vh; padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
+.login_container{min-height:auto; display:initial; padding:0;
+    &_inner{max-width:500px; height:calc(100vh + 59px); padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
         .intro-txt-box{
             p{margin:6px 0 0 0;}
         }
@@ -142,7 +142,7 @@
                 }
             }
         }
-        @include responsive-360{padding:188px 15px 59px;}
+        @include responsive-320{padding:188px 15px 59px;}
     }
 }
 

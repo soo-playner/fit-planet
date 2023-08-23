@@ -57,7 +57,7 @@ export default {
                         currentProgress: 3,
                     };
                 }
-                case "/Authority":
+                case "/authority":
                 case "/place/pay/complete":
                 case "/Inquiry/complete":
                 case "/Review/Select": {
