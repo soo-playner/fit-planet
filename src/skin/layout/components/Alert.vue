@@ -1,27 +1,11 @@
-<!-- <script>
-    export default {
-        name : 'Alert',
-        data(){
-            return {
-                alertCurrent : false,
-            }
-        },
-        methods : {
-            alertCurrentFnc : function(){
-                this.alertCurrent = !this.alertCurrent
-            }
-        }
-    }
-</script> -->
-
 <script setup>
-    import AlertManage_Modal from '@/components/modal/alert/AlertManage';
-    import { ref } from 'vue';
+import AlertManage_Modal from "@/components/modal/alert/AlertManage";
+import { ref } from "vue";
 
-    const isManage = ref(false);
-    const AlertManageFnc = function() {
-        isManage.value = !isManage.value;
-    }
+const isManage = ref(false);
+const AlertManageFnc = function () {
+    isManage.value = !isManage.value;
+};
 </script>
 
 <template>
@@ -40,7 +24,8 @@
                 <li class="notConfirm">
                     <div class="txt-box">
                         <div class="top-column">
-                            <p class="alert-name f-14-700">운동 일정 알림</p><span class="time">3분전</span>
+                            <p class="alert-name f-14-700">운동 일정 알림</p>
+                            <span class="time">3분전</span>
                         </div>
                         <div class="bott-column">
                             <div class="txt-box">
@@ -51,15 +36,16 @@
                                 </div>
                             </div>
                             <div class="alert-img"></div>
-                        </div>    
+                        </div>
                     </div>
-                    <div class="test"><img src="@/assets/image/trash.png" alt=""></div>
+                    <div class="test"><img src="@/assets/image/trash.png" alt="" /></div>
                 </li>
                 <!-- 전날 저녁 10시 알림, 탭하면 홈으로 이동 -->
                 <li class="notConfirm">
                     <div class="txt-box">
                         <div class="top-column">
-                            <p class="alert-name f-14-700">운동 시작 알림</p><span class="time">07.02</span>
+                            <p class="alert-name f-14-700">운동 시작 알림</p>
+                            <span class="time">07.02</span>
                         </div>
                         <div class="bott-column">
                             <div class="txt-box">
@@ -72,13 +58,14 @@
                             <div class="alert-img"></div>
                         </div>
                     </div>
-                    <div class="test"><img src="@/assets/image/trash.png" alt=""></div>
+                    <div class="test"><img src="@/assets/image/trash.png" alt="" /></div>
                 </li>
                 <!-- 운동 마지막 날 알림, 탭하면 후기 작성 페이지로 이동 -->
                 <li class="reviewInduce">
                     <div class="txt-box">
                         <div class="top-column">
-                            <p class="alert-name f-14-700">운동 후기 작성</p><span class="time">07.01</span>
+                            <p class="alert-name f-14-700">운동 후기 작성</p>
+                            <span class="time">07.01</span>
                         </div>
                         <div class="bott-column">
                             <div class="txt-box">
@@ -91,13 +78,14 @@
                             <div class="alert-img"></div>
                         </div>
                     </div>
-                    <div class="test"><img src="@/assets/image/trash.png" alt=""></div>
+                    <div class="test"><img src="@/assets/image/trash.png" alt="" /></div>
                 </li>
                 <!-- 저녁 8시 알림, 탭하면 쿠폰함 페이지로 이동 -->
                 <li class="couponAlert">
                     <div class="txt-box">
                         <div class="top-column">
-                            <p class="alert-name f-14-700">쿠폰 기한 임박</p><span class="time">07.01</span>
+                            <p class="alert-name f-14-700">쿠폰 기한 임박</p>
+                            <span class="time">07.01</span>
                         </div>
                         <div class="bott-column">
                             <div class="txt-box">
@@ -107,12 +95,12 @@
                             <div class="alert-img"></div>
                         </div>
                     </div>
-                    <div class="test"><img src="@/assets/image/trash.png" alt=""></div>
+                    <div class="test"><img src="@/assets/image/trash.png" alt="" /></div>
                 </li>
             </ul>
         </div>
 
         <!-- 알림창 관리 모달창 -->
-        <AlertManage_Modal :class="{ active : isManage }" :confirmManage="AlertManageFnc"/>
+        <AlertManage_Modal :class="{ active: isManage }" :confirmManage="AlertManageFnc" />
     </div>
 </template>

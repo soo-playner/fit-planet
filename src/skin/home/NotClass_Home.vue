@@ -1,8 +1,4 @@
-<script>
-    export default {
-        name : 'NotClass_MainPage'
-    }
-</script>
+<script setup></script>
 
 <template>
     <div class="NotClass_main_container main-layout">
@@ -47,7 +43,7 @@
                                     <p>운동 완료</p>
                                 </div>
                                 <div class="lnb">
-                                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기"></div>
+                                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
                                     <div class="menu-dot">
                                         <span></span>
                                         <ul class="place-list">
@@ -69,8 +65,11 @@
                                 <div class="img-box"></div>
                             </div>
                             <div class="bott-column">
-                                <div class="f-12-400"><p>운동은 어떠셨나요? 후기를 적어주세요</p><router-link to="/" class="f-12-400">후기 쓰기</router-link></div>
-                                <router-link to='/' class="f-14-700"><img src="@/assets/image/wallet.png" alt="결제하기">같은 운동 결제하기</router-link>
+                                <div class="f-12-400">
+                                    <p>운동은 어떠셨나요? 후기를 적어주세요</p>
+                                    <router-link to="/" class="f-12-400">후기 쓰기</router-link>
+                                </div>
+                                <router-link to="/" class="f-14-700"><img src="@/assets/image/wallet.png" alt="결제하기" />같은 운동 결제하기</router-link>
                             </div>
                         </div>
                         <div class="place-history">
@@ -80,7 +79,7 @@
                                     <p>운동 완료</p>
                                 </div>
                                 <div class="lnb">
-                                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기"></div>
+                                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
                                     <div class="menu-dot">
                                         <span></span>
                                         <ul class="place-list">
@@ -102,8 +101,11 @@
                                 <div class="img-box"></div>
                             </div>
                             <div class="bott-column">
-                                <div class="f-12-400"><p>운동은 어떠셨나요? 후기를 적어주세요</p><router-link to="/" class="f-12-400">후기 쓰기</router-link></div>
-                                <router-link to='/' class="f-14-700"><img src="@/assets/image/wallet.png" alt="결제하기">같은 운동 결제하기</router-link>
+                                <div class="f-12-400">
+                                    <p>운동은 어떠셨나요? 후기를 적어주세요</p>
+                                    <router-link to="/" class="f-12-400">후기 쓰기</router-link>
+                                </div>
+                                <router-link to="/" class="f-14-700"><img src="@/assets/image/wallet.png" alt="결제하기" />같은 운동 결제하기</router-link>
                             </div>
                         </div>
                     </div>

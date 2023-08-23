@@ -1,23 +1,15 @@
-<script>
+<script setup>
 import AroundTrainer from "./components/AroundTrainer";
+import { ref } from "vue";
 
-export default {
-    name: "MainPage",
-    components: {
-        AroundTrainer,
-    },
-    data() {
-        return {
-            show: true,
-        };
-    },
-    methods: {
-        trainerShow() {
-            this.show = !this.show;
-        },
-    },
+// 반응형 변수와 함수 정의
+const show = ref(true);
+
+const trainerShow = () => {
+    show.value = !show.value;
 };
 </script>
+
 <template>
     <main class="main_container main-layout">
         <section class="section section01 first-section">
