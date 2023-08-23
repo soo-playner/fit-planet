@@ -138,7 +138,7 @@
 
 // 리뷰 - 신고 이유 모달창
 .review-report-modal{@include display(flex, flex-end);
-    &-inner{width:100%; max-width:100%; padding:0;
+    &-inner{width:100%; max-width:100%; bottom:-100%; padding:0; transition:all .5s $easing;
         .top-column{@include display(flex, center, space-between); margin:0; padding:24px 20px; border-bottom:1px solid #d9d9d9;
             .close{@include close;}
         }
@@ -149,6 +149,14 @@
         }
         button{width:calc(100% - 40px); margin:10px auto 32px;}
     }
+    &.active{
+        .review-report-modal-inner{bottom:0;}
+    }
+}
+
+// 리뷰 - 신고 완료 모달창
+.report-confirm-modal{
+    .f-18-700{margin:0 0 12px 0;}
 }
 
 // 모달창 vue transtion 애니메이션

@@ -1,4 +1,10 @@
 <script setup>
+    import {defineProps} from 'vue'
+
+    const { reportReason } = defineProps({
+        reportReason : Function
+    });
+
     const reportList = [
         { title : '마음에 들지 않습니다' },
         { title : '스팸' },
@@ -14,7 +20,7 @@
 
 <template>
     <div class="review-report-modal member_alert">
-        <div class="overlay" @click="confirmDeletion"></div>
+        <div class="overlay" @click="reportReason"></div>
         <div class="review-report-modal-inner mob-inner member_alert_inner">
             <div class="top-column">
                 <p class="f-16-700">이 게시글을 신고하는 이유</p>

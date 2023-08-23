@@ -1634,10 +1634,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.NotClass_main_container_inner .NotClass-section01-inner .place-ref .place-info-1 .place-list li a {
+.NotClass_main_container_inner .NotClass-section01-inner .place-ref .place-info-1 .place-list li a, .NotClass_main_container_inner .NotClass-section01-inner .place-ref .place-info-1 .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .NotClass_main_container_inner .NotClass-section01-inner .place-ref .place-info-1 .place-list li:last-child {
   padding-bottom: 0;
@@ -1824,10 +1825,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.NotClass_main_container_inner .NotClass-section02-inner .place-history .top-column .lnb .menu-dot .place-list li a {
+.NotClass_main_container_inner .NotClass-section02-inner .place-history .top-column .lnb .menu-dot .place-list li a, .NotClass_main_container_inner .NotClass-section02-inner .place-history .top-column .lnb .menu-dot .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .NotClass_main_container_inner .NotClass-section02-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child {
   padding-bottom: 0;
@@ -2011,10 +2013,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.Class_main_container_inner .Class-section01-inner .place-ref .place-info-1 .place-list li a {
+.Class_main_container_inner .Class-section01-inner .place-ref .place-info-1 .place-list li a, .Class_main_container_inner .Class-section01-inner .place-ref .place-info-1 .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .Class_main_container_inner .Class-section01-inner .place-ref .place-info-1 .place-list li:last-child {
   padding-bottom: 0;
@@ -2223,10 +2226,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.Class_main_container_inner .Class-section02-inner .place-history .top-column .lnb .menu-dot .place-list li a {
+.Class_main_container_inner .Class-section02-inner .place-history .top-column .lnb .menu-dot .place-list li a, .Class_main_container_inner .Class-section02-inner .place-history .top-column .lnb .menu-dot .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .Class_main_container_inner .Class-section02-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child {
   padding-bottom: 0;
@@ -2619,10 +2623,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.complete_home_container_inner .second-section-inner .place-history .top-column .lnb .menu-dot .place-list li a {
+.complete_home_container_inner .second-section-inner .place-history .top-column .lnb .menu-dot .place-list li a, .complete_home_container_inner .second-section-inner .place-history .top-column .lnb .menu-dot .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .complete_home_container_inner .second-section-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child {
   padding-bottom: 0;
@@ -3383,7 +3388,10 @@ ul 안에 ul
 .review-report-modal-inner {
   width: 100%;
   max-width: 100%;
+  bottom: -100%;
   padding: 0;
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .review-report-modal-inner .top-column {
   display: -webkit-box;
@@ -3490,6 +3498,13 @@ ul 안에 ul
 .review-report-modal-inner button {
   width: calc(100% - 40px);
   margin: 10px auto 32px;
+}
+.review-report-modal.active .review-report-modal-inner {
+  bottom: 0;
+}
+
+.report-confirm-modal .f-18-700 {
+  margin: 0 0 12px 0;
 }
 
 .slide-enter-from {
@@ -5934,10 +5949,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.PlaceReview_container_inner .total-review-form .review-writer .right-row .review-sorting-list li a {
+.PlaceReview_container_inner .total-review-form .review-writer .right-row .review-sorting-list li a, .PlaceReview_container_inner .total-review-form .review-writer .right-row .review-sorting-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .right-row .review-sorting-list li:last-child {
   padding-bottom: 0;
@@ -7825,10 +7841,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.review_layout_inner .review-detail-ul li .review-writer .right-row .review-sorting-list li a {
+.review_layout_inner .review-detail-ul li .review-writer .right-row .review-sorting-list li a, .review_layout_inner .review-detail-ul li .review-writer .right-row .review-sorting-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .review_layout_inner .review-detail-ul li .review-writer .right-row .review-sorting-list li:last-child {
   padding-bottom: 0;
@@ -9861,10 +9878,11 @@ ul 안에 ul
   margin-bottom: 5px;
   border-bottom: 1px solid #D9D9D9;
 }
-.orderinquiry_container_inner .order-list .top-row .menu-dot .list li a {
+.orderinquiry_container_inner .order-list .top-row .menu-dot .list li a, .orderinquiry_container_inner .order-list .top-row .menu-dot .list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
+  cursor: pointer;
 }
 .orderinquiry_container_inner .order-list .top-row .menu-dot .list li:last-child {
   padding-bottom: 0;

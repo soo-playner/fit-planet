@@ -103,8 +103,8 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 메인 페이지
 ******************************************/
 @mixin placeList(){@include conSize(132px, null, null); @include position(absolute, 40px, 0, null, null, 99); padding:8px; background:$f; border-radius:8px; box-shadow:0px 3px 9px rgba(0,0,0, .05);
-    li{line-height:1.2; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #D9D9D9;
-        a{@include font(12px, 400, $b);}
+    li{line-height:1.2; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #D9D9D9; 
+        a, button{@include font(12px, 400, $b); cursor:pointer;}
         &:last-child{padding-bottom:0; margin-bottom:0; border-bottom:none;}
     }
 }

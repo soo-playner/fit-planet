@@ -27,14 +27,14 @@
                 /* 마이페이지 */ "MyPage", "Profile_Type1", "Profile_Type2", 
                 /* 닉네임 변경 */ "ChangeNickname",
                 /* 비밀번호 변경 */ "ChangePassword", "ChangePassword_Confirm",
-                /* 후기 */ "ReviewSelect", "InterestRegion",
+                /* 후기 */ "ReviewSelect", "ReviewWrite", "InterestRegion",
                 /* 회원 탈퇴 */ "AccountDelete",
                 /* 주문 목록 */ "OrderInquiry", "OrderInquiryView", "CancelInquiry",
                 /* 약관 정책 */ "Terms",
                 /* 이메일 문의 */ "InquiryComplete",
                 /* 쿠폰 */ "Coupon",
                 /* 이벤트, 뉴스 */ "EventNews",
-                /* 자주 묻는 질문 */ "FAQ"
+                /* 자주 묻는 질문 */ "FAQ",
             ],
         }),
     }

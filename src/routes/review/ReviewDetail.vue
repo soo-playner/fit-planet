@@ -1,4 +1,20 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import ReviewReport from '@/components/modal/review/ReviewReport';
+import ReviewReportConfirm from '@/components/modal/review/ReviewReportConfirm';
+
+// 신고하기
+const reviewReport = ref(false);
+const reportReason = () => {
+    reviewReport.value = !reviewReport.value;
+};
+
+// 신고 완료
+const reportReview = ref(false);
+const reportConfirm = () => {
+    reportReview.value = !reportReview.value;
+};
+</script>
 
 <template>
     <div class="ReviewDetail_container main-layout review_layout">
@@ -22,7 +38,7 @@
                                 <span></span>
                                 <ul class="review-sorting-list">
                                     <li><router-link to="/">공유하기</router-link></li>
-                                    <li><router-link to="/">신고하기</router-link></li>
+                                    <li><button @click="reportReason">신고하기</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -51,5 +67,10 @@
                 </li>
             </ul>
         </div>
+
+        <!-- 신고 하기 모달창 -->
+        <ReviewReport :class="{ active: reviewReport }" :reportReason="reportReason" :reportConfirm="reportConfirm" />
+        <!-- 신고 완료 모달창 -->
+        <ReviewReportConfirm :class="{ active: reportReview }" :reportConfirm="reportConfirm" />
     </div>
 </template>
