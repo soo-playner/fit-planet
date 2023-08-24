@@ -14,7 +14,7 @@
     import { onMounted, ref } from 'vue';
     import useTabAnimation from '@/assets/js/common';
 
-    const {li, nav, clickLiFnc} = useTabAnimation();
+    const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
     const wishList = ["플레이스", "트레이너"];
 
     onMounted(() => {
@@ -56,7 +56,7 @@
                     <li><p>최신순</p><span class="arrow"></span></li>
                 </ul>
             </div>
-            <div class="tabContentWrap">
+            <div class="tabContentWrap" ref="tabContentWrap">
                 <!-- 플레이스 -->
                 <ul class="place-wish-ul wish-ul">
                     <PlaceWishList v-for="placeWishItem in placeWishArray" :key="placeWishItem" :data="placeWishItem"/>

@@ -3,15 +3,15 @@
         { id : '1', name : '주문목록', link : '/orderinquiry' },
         { id : '2', name : '마이쿠폰', link : '/coupon' },
         { id : '3', name : '마이후기', link : '/my-review' },
-        { id : '4', name : '찜', link : '/' },
+        { id : '4', name : '찜', link : '/wish' },
     ]
 
     const generalMenu = [
-        { name : '공지/이벤트', link : '/News' },
-        { name : '자주 묻는 질문', link : '/' },
-        { name : '이메일 문의', link : '/Inquiry' },
+        { name : '공지/이벤트', link : '/event-news' },
+        { name : '자주 묻는 질문', link : '/faq' },
+        { name : '이메일 문의', link : '/inquiry' },
         { name : '신고 내역', link : '/' },
-        { name : '약관 및 정책', link : '/Terms' },
+        { name : '약관 및 정책', link : '/terms' },
         { name : '현재 버전 1.0', link : '/' },
     ]
 </script>

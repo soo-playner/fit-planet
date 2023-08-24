@@ -9,10 +9,11 @@ import { ref } from 'vue'
     <div class="slide-wrap-inner">
         // 탭할 태그
         <ul class="slide-ul">
-            <li class="slide-li"></li>
+            <li ref="li" class="slide-li"></li>
+            <span ref="nav" class="nav-indicator"></span>
         </ul>
         // 탭에 맞는 컨텐츠 노출 시 감싸는 태그
-        <div class="tabContentWrap">
+        <div class="tabContentWrap" ref="tabContentWrap">
             // 탭에 맞는 컨텐츠 태그
             <ul></ul>
             <ul></ul>
@@ -23,6 +24,7 @@ import { ref } from 'vue'
 export default function useTabAnimation() {
     const li = ref(null)
     const nav = ref(null)
+    const tabContentWrap = ref(null)
 
     function clickLiFnc() {
         function navFnc(el){
@@ -31,8 +33,7 @@ export default function useTabAnimation() {
                 items.classList.remove('active');
                 // (컨텐츠의 width 값 * 클릭한 li 태그의 index)로 슬라이드 되도록
                 items.onclick = () => {
-                    const tabContentWrap = document.querySelector('.tabContentWrap');
-                    tabContentWrap.style.transform = `translate3d(${-tabContentWrap.clientWidth * index}px, 0, 0)`;
+                    tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
                 }
             });
             
@@ -52,7 +53,7 @@ export default function useTabAnimation() {
     }
 
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return {li, nav, clickLiFnc}
+    return {li, nav, tabContentWrap, clickLiFnc}
 }
 
 /******************************************

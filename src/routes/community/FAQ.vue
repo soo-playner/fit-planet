@@ -3,7 +3,7 @@
 import { onMounted } from 'vue';
 import useTabAnimation from '@/assets/js/common';
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 
 onMounted(() => {
@@ -27,7 +27,7 @@ onMounted(() => {
                 </li> 
                 <span ref="nav" class="nav-indicator"></span>
             </ul>
-            <div class="tabContentWrap">
+            <div class="tabContentWrap" ref="tabContentWrap">
                 <ul 
                     v-for="faqItem in faqList"
                     :key="faqItem"

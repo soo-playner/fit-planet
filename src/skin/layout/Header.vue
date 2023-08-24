@@ -75,6 +75,7 @@ const headerType = () => {
             };
         }
         case "/Terms":
+        case "/terms":
         case "/Inquiry":
         case "/faq":
         case "/event-news":
@@ -155,7 +156,8 @@ const headerTitle = () => {
         case "/Place/Trainer": {
             return "1:1 트레이너";
         }
-        case "/Terms": {
+        case "/Terms":
+        case "/terms": {
             return "약관 및 정책";
         }
         case "/faq": {

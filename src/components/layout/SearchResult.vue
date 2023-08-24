@@ -13,7 +13,7 @@ import TrainerData from "@/components/place/TrainerData";
 import { onMounted, ref } from 'vue';
 import useTabAnimation from '@/assets/js/common';
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
 const searchArray = ["플레이스", "트레이너"];
 
 onMounted(() => {
@@ -57,7 +57,7 @@ onMounted(() => {
                 </ul>
             </div>
             <!-- 탭에 맞는 컴포넌트 노출 -->
-            <div class="tabContentWrap">
+            <div class="tabContentWrap" ref="tabContentWrap">
                 <PlaceData v-for="placeListItem in $store.state.placeInfo" :key="placeListItem" :data="placeListItem"/>
                 <TrainerData v-for="trainerListItem in $store.state.trainerInfo" :key="trainerListItem" :data="trainerListItem"/>
             </div>

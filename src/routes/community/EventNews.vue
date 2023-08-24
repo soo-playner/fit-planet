@@ -30,7 +30,7 @@ const changeTab = (newTab) => {
 import { onMounted } from 'vue';
 import useTabAnimation from '@/assets/js/common';
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
 const eventNewsList = ["공지", "이벤트"];
 
 onMounted(() => {
@@ -53,7 +53,7 @@ onMounted(() => {
                 <span ref="nav" class="nav-indicator"></span>
             </ul>
             <!-- <EventNews_Tab :tabs="tabs" :targetTab="targetTab" @tabChange="changeTab"/> -->
-            <div class="tabContentWrap">
+            <div class="tabContentWrap" ref="tabContentWrap">
                 <ul class="news-list">
                     <NewsList v-for="newsItem in newsListArray" :key="newsItem.title" :data="newsItem"></NewsList>
                 </ul>
