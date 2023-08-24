@@ -54,3 +54,11 @@ export default function useTabAnimation() {
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
     return {li, nav, clickLiFnc}
 }
+
+/******************************************
+모바일 100vh 스크롤 이슈 
+******************************************/
+// css는 height:calc(var(--vh, 1vh) * 100); 작성해주면 됨
+let vh = 0;
+vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);

@@ -1,4 +1,7 @@
 // 공통
+:root{--vh : 100%;}
+html, body{height:100vh; height:var(--vh);}
+
 body{margin:0; padding:0; box-sizing:border-box;
     &::-webkit-scrollbar{display:none;}
 }

@@ -2,7 +2,7 @@
 회원가입, 로그인, 비밀번호
 /routes/join
 ******************************************/
-.member_container{min-height:calc(100vh + 52px); @include display(flex, null, space-between, column); padding:123px 24px 52px;
+.member_container{height:calc(var(--vh, 1vh) * 100);/*min-height:calc(100vh + 52px);*/ @include display(flex, null, space-between, column); padding:123px 24px 52px;
     &_inner{width:100%;}
     .etc{@include display(flex, center); column-gap:12px; @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%);
         .check-confirm, .pw-exposure{@include display(flex, center);
@@ -64,7 +64,7 @@
             .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
         }
     // 권한
-    &.authority{min-height:calc(100vh + 41px); padding:108px 24px 52px;
+    &.authority{height:calc(var(--vh, 1vh) * 100);/*min-height:calc(100vh + 41px);*/ padding:108px 24px 52px;
         .intro-txt-box{margin:0 0 40px 0; text-align:center;
             & > div:first-child{margin:0 0 6px 0;}
         }
@@ -115,7 +115,7 @@
 /routes/login/Login.vue
 ******************************************/
 .login_container{min-height:auto; display:initial; padding:0;
-    &_inner{max-width:500px; height:calc(100vh + 59px); padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
+    &_inner{max-width:500px; height:calc(var(--vh, 1vh) * 100);/*height:calc(100vh + 59px);*/ padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
         .intro-txt-box{
             p{margin:6px 0 0 0;}
         }
@@ -197,7 +197,7 @@
     &_inner{min-height:calc(100vh - 96px);
         .profile-edit{padding:20px;
             .profile-img{@include conSize(102px, 102px); position:relative; margin:0 auto; background:#D9D9D9; border-radius:50%;}
-            .album{@include position(absolute, null, 0, 0); 
+            .album{@include position(absolute, null, 0, 0); overflow:hidden;
                 input[type='file']{position:absolute; left:0; opacity:0;}
             }
         }
