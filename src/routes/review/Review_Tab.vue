@@ -4,7 +4,7 @@
     <ul class="filter-scroll">
         <li>거리순<span class="arrow"></span></li>
         <li>마이후기</li>
-        <li><img src="@/assets/image/location.png" alt="" />서울시 강남구</li>
+        <li><img src="@/assets/image/location.png" alt="" class="location" />서울시 강남구</li>
         <li>모든 지역</li>
         <li>관심 지역 +</li>
     </ul>

@@ -33,7 +33,7 @@ const trainerShow = () => {
                             </ul>
                         </ul>
                         <div class="location">
-                            <div class="img-box"><img src="../../assets/image/location.png" alt="위치 표시" /></div>
+                            <div class="img-box"><img src="../../assets/image/location.png" alt="위치 표시" class="location" /></div>
                             <p class="f-12-400">서울시 강남구</p>
                         </div>
                     </div>
