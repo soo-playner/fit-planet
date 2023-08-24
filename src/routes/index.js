@@ -27,8 +27,6 @@ import FindPW_Email_Step1 from "../routes/find_account/password/FindPW_Email_Ste
 import FindPW_Email_Step2 from "../routes/find_account/password/FindPW_Email_Step2";
 import PW_Reset from "../routes/find_account/password/PW_Reset";
 import Place from "../routes/place/Place";
-import Filter from "../routes/place/Filter";
-import FilterTrainer from "../routes/place/FilterTrainer";
 import PlaceList from "../routes/place/PlaceList";
 import PlaceDetail from "../routes/place/PlaceDetail";
 import PlaceReview from "../routes/place/PlaceReview";
@@ -96,8 +94,6 @@ const routes = [
     { path: "/PW_Reset", component: PW_Reset, name: "PW_Reset" },
     // 플레이스
     { path: "/place", component: Place, name: "Place" },
-    { path: "/filter", component: Filter, name: "Filter" },
-    { path: "/filterTrainer", component: FilterTrainer, name: "FilterTrainer" },
     { path: "/place/list", component: PlaceList, name: "PlaceList" },
     { path: "/place/:id", component: PlaceDetail, name: "PlaceDetail" },
     { path: "/place/review", component: PlaceReview, name: "PlaceReview" },

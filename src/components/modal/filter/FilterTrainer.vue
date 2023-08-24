@@ -1,5 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
+
+const props = defineProps({
+    close: Function,
+});
 
 import RangeBar from "@/components/layout/RangeBar";
 
@@ -10,6 +14,12 @@ const priceRangeMax = ref(120000);
 </script>
 
 <template>
+    <header class="at-header">
+        <div class="at-header-inner">
+            <div class="back" @click="close"><img src="@/assets/image/back.png" alt="뒤로가기" /></div>
+            <h1 class="f-16-400">필터</h1>
+        </div>
+    </header>
     <div class="filter_container main-layout">
         <div class="filter_container_inner mob-inner">
             <!-- 수강기간 -->

@@ -57,13 +57,14 @@ export default {
 <style>
 .range-wrap {
     margin: 18px 0;
+    width: 100%;
     /* border: 1px solid red; */
 }
 
 .middle {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    /* max-width: 500px; */
 }
 
 .slider {
@@ -117,7 +118,7 @@ export default {
 
     border-radius: 50%;
     background-color: #000;
-    z-index: 100;
+    z-index: 10;
 }
 
 .slider > .thumb.left {
@@ -157,7 +158,7 @@ input[type="range"]::-webkit-slider-thumb {
 <template>
     <div class="range-wrap">
         <!-- 사용예시 : <RangeBar :defaultMinValue="0" :defaultMaxValue="100" :defaultRangeL="25" :defaultRangeR="75"/> -->
-        <input id="range" type="range" />
+        <!-- <input id="range" type="range" /> -->
         <div class="middle">
             <div class="multi-range-slider">
                 <!-- 실제 슬라이더 -->
