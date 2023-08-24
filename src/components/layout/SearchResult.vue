@@ -13,7 +13,7 @@ import FilterTrainer from "@/components/modal/filter/FilterTrainer";
 // };
 
 import { onMounted, ref } from "vue";
-import useTabAnimation from "@/assets/js/common";
+import useTabAnimation from "@/composables/useTabAnimation";
 
 const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const searchArray = ["플레이스", "트레이너"];

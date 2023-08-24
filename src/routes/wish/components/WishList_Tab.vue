@@ -12,10 +12,10 @@
 //     tabs : Array,
 //     targetTab : String,
 // });
-import { onMounted } from 'vue';
-import useTabAnimation from '@/assets/js/common';
+import { onMounted } from "vue";
+import useTabAnimation from "@/composables/useTabAnimation";
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const { li, nav, clickLiFnc } = useTabAnimation();
 const wishList = ["플레이스", "트레이너"];
 
 onMounted(() => {
@@ -32,14 +32,9 @@ onMounted(() => {
             @click="$emit('tabChange', tabItem)">
                 {{ tabItem }}
         </li> -->
-        <li 
-        ref="li" 
-        class="faq-li active"
-        v-for="wishItem in wishList" 
-        :key="wishItem" 
-        @click="clickLiFnc">
+        <li ref="li" class="faq-li active" v-for="wishItem in wishList" :key="wishItem" @click="clickLiFnc">
             {{ wishItem }}
-        </li> 
+        </li>
         <span ref="nav" class="nav-indicator"></span>
     </ul>
 </template>

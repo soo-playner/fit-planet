@@ -1,8 +1,8 @@
 <script setup>
-import { onMounted } from 'vue';
-import useTabAnimation from '@/assets/js/common';
+import { onMounted } from "vue";
+import useTabAnimation from "@/composables/useTabAnimation";
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const { li, nav, clickLiFnc } = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 
 onMounted(() => {
@@ -12,15 +12,9 @@ onMounted(() => {
 
 <template>
     <ul class="faq-tab-list">
-        <li 
-        ref="li" 
-        class="faq-li active"
-        v-for="faqItem in faqList" 
-        :key="faqItem" 
-        @click="clickLiFnc"
-        :data-menu="faqItem">
+        <li ref="li" class="faq-li active" v-for="faqItem in faqList" :key="faqItem" @click="clickLiFnc" :data-menu="faqItem">
             {{ faqItem }}
-        </li> 
+        </li>
         <span ref="nav" class="nav-indicator"></span>
     </ul>
 </template>

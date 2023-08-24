@@ -13,10 +13,10 @@
 //     tabs: Array,
 //     targetTab: String,
 // });
-import { onMounted } from 'vue';
-import useTabAnimation from '@/assets/js/common';
+import { onMounted } from "vue";
+import useTabAnimation from "@/composables/useTabAnimation";
 
-const {li, nav, clickLiFnc} = useTabAnimation();
+const { li, nav, clickLiFnc } = useTabAnimation();
 const eventNewsList = ["공지", "이벤트"];
 
 onMounted(() => {
@@ -26,13 +26,8 @@ onMounted(() => {
 
 <template>
     <ul class="tab-list">
-        <li 
-            ref="li"
-            class="tab-li active"
-            v-for="eventNewsItem in eventNewsList" 
-            :key="eventNewsItem" 
-            @click="clickLiFnc">
-                {{ eventNewsItem }}
+        <li ref="li" class="tab-li active" v-for="eventNewsItem in eventNewsList" :key="eventNewsItem" @click="clickLiFnc">
+            {{ eventNewsItem }}
         </li>
         <span ref="nav" class="nav-indicator"></span>
     </ul>

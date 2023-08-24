@@ -27,10 +27,10 @@ const changeTab = (newTab) => {
 };
 
 //
-import { onMounted } from 'vue';
-import useTabAnimation from '@/assets/js/common';
+import { onMounted } from "vue";
+import useTabAnimation from "@/composables/useTabAnimation";
 
-const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
+const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const eventNewsList = ["공지", "이벤트"];
 
 onMounted(() => {
@@ -42,13 +42,8 @@ onMounted(() => {
     <div class="EventNews_container main-layout slide-wrap">
         <div class="EventNews_container_inner mob-inner slide-wrap-inner">
             <ul class="tab-list slide-ul">
-                <li 
-                    ref="li"
-                    class="tab-li slide-li active"
-                    v-for="eventNewsItem in eventNewsList" 
-                    :key="eventNewsItem" 
-                    @click="clickLiFnc">
-                        {{ eventNewsItem }}
+                <li ref="li" class="tab-li slide-li active" v-for="eventNewsItem in eventNewsList" :key="eventNewsItem" @click="clickLiFnc">
+                    {{ eventNewsItem }}
                 </li>
                 <span ref="nav" class="nav-indicator"></span>
             </ul>

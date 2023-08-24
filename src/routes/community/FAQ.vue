@@ -1,9 +1,9 @@
 <script setup>
 //import faqTab from './components/FAQ_Tab';
-import { onMounted } from 'vue';
-import useTabAnimation from '@/assets/js/common';
+import { onMounted } from "vue";
+import useTabAnimation from "@/composables/useTabAnimation";
 
-const {li, nav, tabContentWrap, clickLiFnc} = useTabAnimation();
+const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 
 onMounted(() => {
@@ -16,25 +16,16 @@ onMounted(() => {
         <div class="FAQ_container_inner mob-inner slide-wrap-inner">
             <!-- <faqTab /> -->
             <ul class="faq-tab-list slide-ul">
-                <li 
-                ref="li" 
-                class="faq-li slide-li active"
-                v-for="faqItem in faqList" 
-                :key="faqItem" 
-                @click="clickLiFnc"
-                :data-menu="faqItem">
+                <li ref="li" class="faq-li slide-li active" v-for="faqItem in faqList" :key="faqItem" @click="clickLiFnc" :data-menu="faqItem">
                     {{ faqItem }}
-                </li> 
+                </li>
                 <span ref="nav" class="nav-indicator"></span>
             </ul>
             <div class="tabContentWrap" ref="tabContentWrap">
-                <ul 
-                    v-for="faqItem in faqList"
-                    :key="faqItem"
-                    :id="faqItem"
-                    class="con">
+                <ul v-for="faqItem in faqList" :key="faqItem" :id="faqItem" class="con">
                     <li class="q-box">
-                        <div class="f-14-400">{{ faqItem }}</div> <span class="arrow"></span>
+                        <div class="f-14-400">{{ faqItem }}</div>
+                        <span class="arrow"></span>
                     </li>
                     <li class="a-box f-12-400">
                         <p>sdfsdfsdfsfsff</p>
