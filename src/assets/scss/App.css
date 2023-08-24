@@ -4436,7 +4436,7 @@ ul 안에 ul
 .ChangePassword_container_inner,
 .ChangePassword_Confirm_container_inner {
   width: 100%;
-  min-height: calc(100vh - 100px);
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4447,7 +4447,7 @@ ul 안에 ul
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  padding: 0 20px;
+  padding: 28px 20px 0;
 }
 .ChangeNickname_container_inner .txt-box > p:first-of-type,
 .ChangePassword_container_inner .txt-box > p:first-of-type,
@@ -4500,6 +4500,11 @@ ul 안에 ul
   border-radius: 19px;
   height: 44px;
   line-height: 42px;
+}
+
+.ChangePassword_container,
+.ChangePassword_Confirm_container {
+  padding: 48px 0 82px 0;
 }
 
 /******************************************
