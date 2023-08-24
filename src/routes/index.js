@@ -37,6 +37,7 @@ import PlaceTrainer from "../routes/place/PlaceTrainer";
 import PlacePay from "../routes/place/PlacePay";
 import PlacePay_Complete from "../routes/place/PlacePay_Complete";
 import PlaceTicket_Complete from "../routes/place/PlaceTicket_Complete";
+import DiscoverList from "../routes/place/DiscoverList";
 import TrainerDetail from "../routes/trainer/TrainerDetail";
 import Review from "../routes/review/Review";
 import ReviewDetail from "../routes/review/ReviewDetail";
@@ -104,6 +105,7 @@ const routes = [
     { path : '/place/pay', component : PlacePay, name : 'PlacePay' },
     { path : '/place/pay/complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
     { path : '/place/ticket/complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
+    { path : '/discover', component : DiscoverList, name : 'DiscoverList' },
     // 트레이너
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
     // 후기

@@ -14,7 +14,7 @@ import { ref } from 'vue'
         </ul>
         // 탭에 맞는 컨텐츠 노출 시 감싸는 태그
         <div ref="tabContentWrap" class="tabContentWrap">
-            // 탭에 맞는 컨텐츠 태그
+            // 탭에 맞는 컨텐츠 태그 , ul 또는 div 사용
             <ul></ul>
             <ul></ul>
         </div>

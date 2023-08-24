@@ -1,7 +1,7 @@
 <script setup>
     const quick = [
         { link : '/' , title : '홈' },
-        { link : '/place/list' , title : '발견' },
+        { link : '/discover' , title : '발견' },
         { link : '/place/review' , title : '후기' },
         { link : '/wish' , title : '찜' },
     ]
