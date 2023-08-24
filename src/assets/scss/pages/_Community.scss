@@ -109,8 +109,8 @@
 문의 완료
 /routes/commnuity/InquiryComplete.vue 
 ******************************************/
-.InquiryComplete_container{
-    &_inner{min-height:calc(100vh - 132px); @include display(flex, center, space-between, column); padding:190px 20px 0;
+.InquiryComplete_container{height:calc(var(--vh, 1vh) * 100);
+    &_inner{height:100%; @include display(flex, center, space-between, column); padding:190px 20px 32px;
         .top-row{text-align:center;
             .complete-txt-box{margin:15px 0;}
         }

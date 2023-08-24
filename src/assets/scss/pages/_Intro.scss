@@ -7,7 +7,7 @@
     &_inner{height:calc(var(--vh, 1vh) * 100); @include display(flex, center, center);}
 }
 .intro_container{background:$b;
-    &-inner{max-width:500px; height:calc(var(--vh, 1vh) * 100); @include display(flex, null, space-between, column); padding:188px 0 52px;
+    &-inner{max-width:500px; height:calc(var(--vh, 1vh) * 100); @include display(flex, null, space-between, column); padding:144px 0 52px;
         .intro-txt-box{text-align:center;
             p{margin:0 0 14px 0; color:$f;}
         }

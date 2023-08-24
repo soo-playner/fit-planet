@@ -114,8 +114,8 @@
 로그인 시작 페이지
 /routes/login/Login.vue
 ******************************************/
-.login_container{min-height:auto; display:initial; padding:0;
-    &_inner{max-width:500px; height:calc(var(--vh, 1vh) * 100);/*height:calc(100vh + 59px);*/ padding:188px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
+.login_container{height:calc(var(--vh, 1vh) * 100); display:block; padding:0;
+    &_inner{max-width:500px; height:100%; padding:108px 36px 59px; @include display(flex, null, space-between, column); text-align:center;
         .intro-txt-box{
             p{margin:6px 0 0 0;}
         }
@@ -142,7 +142,7 @@
                 }
             }
         }
-        @include responsive-320{padding:188px 15px 59px;}
+        @include responsive-320{padding:108px 15px 59px;}
     }
 }
 
@@ -150,8 +150,8 @@
 마이 페이지
 /routes/mypage/MyPage.vue
 ******************************************/
-.mypage_container{padding-bottom:0;
-    &_inner{min-height:100vh; background:#f1f1f1;
+.mypage_container{height:calc(var(--vh, 1vh) * 100);
+    &_inner{
         & > div{padding:20px; background:$f;}
         .my-profile{@include display(flex, center, space-between); border-bottom:1px solid #D9D9D9; cursor:pointer;
             &-info{@include display(flex, center); column-gap:12px;
@@ -177,13 +177,12 @@
             }
             .review-guide{@include conSize(100%, 50px, 48px); position:relative; margin:15px 0 0 0; border:1px solid $b; border-radius:25px; text-align:center;}
         }
-        .quick-link{background:$f;
+        .quick-link{padding-bottom:24px; background:$f;
             li{padding:0 20px;
                 a{@include display(flex, center, space-between); padding:12px 0; border-bottom:1px solid #D9D9D9;
                     p{@include font(14px, 400); }
                     .arrow{@include arrow2; transform:rotate(-90deg)}
                 }
-                &:last-child a{border-bottom:0;}
             }
         }
     }
@@ -193,8 +192,8 @@
 회원정보
 /routes/mypage/Profile.vue
 ******************************************/
-.profile_container{
-    &_inner{min-height:calc(100vh - 96px);
+.profile_container{height:calc(var(--vh, 1vh) * 100); @include display(flex, null, space-between, column);
+    &_inner{width:100%;
         .profile-edit{padding:20px;
             .profile-img{@include conSize(102px, 102px); position:relative; margin:0 auto; background:#D9D9D9; border-radius:50%;}
             .album{@include position(absolute, null, 0, 0); overflow:hidden;
@@ -221,7 +220,7 @@
             }
         }
     }
-    .profile-other{@include display(flex, center, center); column-gap:20px; margin:24px 0 0 0;
+    .profile-other{@include display(flex, center, center); column-gap:20px;
         a{position:relative; color:#979797;
             &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:#979797}
         }
@@ -281,8 +280,8 @@
 계정 삭제
 /routes/mypage/AccountDelete.vue
 ******************************************/
-.AccountDelete_container{padding-bottom:42px;
-    &_inner{min-height:100vh; @include display(flex, null, space-between, column); padding:0 20px;
+.AccountDelete_container{height:calc(var(--vh, 1vh) * 100); padding:76px 0 42px 0;
+    &_inner{height:100%; @include display(flex, null, space-between, column); padding:0 20px;
         .top-column{
             .txt-box{margin:0 0 60px 0; text-align:center;
                 p{margin:10px 0 0 0;}

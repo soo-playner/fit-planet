@@ -13,7 +13,7 @@ import { ref } from 'vue'
             <span ref="nav" class="nav-indicator"></span>
         </ul>
         // 탭에 맞는 컨텐츠 노출 시 감싸는 태그
-        <div class="tabContentWrap" ref="tabContentWrap">
+        <div ref="tabContentWrap" class="tabContentWrap">
             // 탭에 맞는 컨텐츠 태그
             <ul></ul>
             <ul></ul>
