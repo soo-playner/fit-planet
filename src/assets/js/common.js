@@ -35,6 +35,9 @@ export default function useTabAnimation() {
                 items.onclick = () => {
                     tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
                 }
+                items.touchmove = () => {
+                    tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
+                }
             });
             
             // active 클래스를 가진 li 태그의 값 가져오도록

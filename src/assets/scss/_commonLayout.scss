@@ -316,8 +316,12 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                     &:last-child{margin:5px 0 0 0;}
                 }
             }
+            @include responsive-320{width:100%; order:2; gap:8px 0;}
         }
-        .right-row{@include conSize(102px, 102px); background:#D9D9D9; border-radius:8px;}
+        .right-row{@include conSize(102px, 102px); background:#D9D9D9; border-radius:8px;
+            @include responsive-320{order:1;}
+        }
+        @include responsive-320{flex-flow:column; gap:10px 0;}
     }
     .bott-column{line-height:1.7; padding:8px 12px; margin:8px 0 0 0; background:#f1f1f1; border-radius:8px; color:#979797}
     &:last-child{border-bottom:0;}

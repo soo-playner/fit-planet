@@ -5374,11 +5374,36 @@ ul 안에 ul
 .discover_container_inner .trainer-discover-list .top-column .left-row .location-info p:last-child {
   margin: 5px 0 0 0;
 }
+@media (max-width: 320px) {
+  .discover_container_inner .trainer-discover-list .top-column .left-row {
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    gap: 8px 0;
+  }
+}
 .discover_container_inner .trainer-discover-list .top-column .right-row {
   width: 102px;
   height: 102px;
   background: #D9D9D9;
   border-radius: 8px;
+}
+@media (max-width: 320px) {
+  .discover_container_inner .trainer-discover-list .top-column .right-row {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+@media (max-width: 320px) {
+  .discover_container_inner .trainer-discover-list .top-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    gap: 10px 0;
+  }
 }
 .discover_container_inner .trainer-discover-list .bott-column {
   line-height: 1.7;
@@ -9812,11 +9837,36 @@ ul 안에 ul
 .SearchResult_container_inner .TrainerData-form .top-column .left-row .location-info p:last-child {
   margin: 5px 0 0 0;
 }
+@media (max-width: 320px) {
+  .SearchResult_container_inner .TrainerData-form .top-column .left-row {
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    gap: 8px 0;
+  }
+}
 .SearchResult_container_inner .TrainerData-form .top-column .right-row {
   width: 102px;
   height: 102px;
   background: #D9D9D9;
   border-radius: 8px;
+}
+@media (max-width: 320px) {
+  .SearchResult_container_inner .TrainerData-form .top-column .right-row {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+@media (max-width: 320px) {
+  .SearchResult_container_inner .TrainerData-form .top-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    gap: 10px 0;
+  }
 }
 .SearchResult_container_inner .TrainerData-form .bott-column {
   line-height: 1.7;
