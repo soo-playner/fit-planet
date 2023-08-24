@@ -3576,7 +3576,8 @@ ul 안에 ul
   background: #000;
 }
 .splash_container_inner {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
