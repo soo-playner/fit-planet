@@ -47,8 +47,8 @@ const confirmChange = () => {
                     <input type="text" v-model="form.mb_nickname.value" name="mb_nickname" id="mb_nickname" placeholder="위즈위즈" @change="resetDuplicateFlag" />
                     <button class="f-14-700" @click="checkBtnClickHandler">중복 확인</button>
                 </div>
-                <p v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>
-                <p v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>
+                <p class="vail f-12-400" v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>
+                <p class="vail f-12-400" v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>
             </div>
             <button class="changeNick-btn bott-btn f-16-700" :disabled="canChangeNickname && !nextCondition()" @click="confirmChange">닉네임 변경하기</button>
         </div>

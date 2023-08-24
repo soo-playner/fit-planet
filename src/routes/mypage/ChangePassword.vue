@@ -9,7 +9,7 @@ const { form } = useValidations();
             <div class="ChangePassword-guide txt-box">
                 <p class="f-14-400">기존에 사용했던 비밀번호를 입력해주세요</p>
                 <div class="form-group">
-                    <input v-model="form.mb_password.value" type="text" name="mb-nick" id="mb-nick" placeholder="기존 비밀번호 입력" />
+                    <input v-model="form.mb_password.value" type="password" name="mb-password" id="mb-password" placeholder="기존 비밀번호 입력" />
                     <div class="etc">
                         <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부"></span>
                     </div>

@@ -81,7 +81,6 @@
         }
         .authority-guide{@extend .password-guide; margin:39px 0 18px 0; text-align:center;}
     }
-    .vail{margin:10px 0 0 0;}
     @include responsive-320{padding:123px 15px 52px;}
 }
 
@@ -206,7 +205,7 @@
                     span{margin:0 0 8px 0; color:#979797}
                     p{line-height:1;}
                 }
-                button{@include liTag; line-height:26px; border-color:#979797;}
+                button{@include liTag; line-height:26px; border-color:#979797; color:$b;}
             }
         }
         .person-info{
@@ -233,7 +232,7 @@
 ******************************************/
 .ChangeNickname_container,
 .ChangePassword_container,
-.ChangePassword_Confirm_container{
+.ChangePassword_Confirm_container{height:calc(var(--vh, 1vh) * 100); padding:48px 0 52px 0;
     &_inner{width:100%; height:100%; @include display(flex, null, space-between, column); padding:28px 20px 0;
         .txt-box{
             >p:first-of-type{text-align: center;}
@@ -243,8 +242,6 @@
         //@include responsive-360{min-height:calc(var(--vh, 1vh) * 100);}
     }
 }
-.ChangePassword_container,
-.ChangePassword_Confirm_container{padding:48px 0 82px 0;}
 
 /******************************************
 쿠폰
