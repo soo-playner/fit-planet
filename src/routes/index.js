@@ -97,6 +97,7 @@ const routes = [
     // 플레이스
     { path: "/place", component: Place, name: "Place" },
     { path: "/filter", component: Filter, name: "Filter" },
+    { path: "/filterTrainer", component: FilterTrainer, name: "FilterTrainer" },
     { path: "/place/list", component: PlaceList, name: "PlaceList" },
     { path: "/place/:id", component: PlaceDetail, name: "PlaceDetail" },
     { path: "/place/review", component: PlaceReview, name: "PlaceReview" },
