@@ -16,6 +16,7 @@ span{display:block;}
 .notFooter-layout{padding-bottom:0;}
 .notFooter-layout2{padding-bottom:32px;}
 .mob-inner{max-width:1000px; position:relative; margin:0 auto;}
+.vail{margin:10px 0 0 0;}
 
 $b:#000;
 $f:#fff;
@@ -114,7 +115,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:12px 21px; background:$f;
     &-inner{@include display(flex, center, space-between); position: relative;
         h1{@include center(absolute);}
-        .back{height:24px;}
+        .back{@include arrow2; width:13px;
+            &::before{right:auto; transform:rotate(-42deg); margin:0 0 8px 0}
+            &::after{transform:rotate(42deg); margin:8px 0 0 0;}
+        }
         .menu-ul{@include display(flex, center); gap:30px;
             li{@include display(flex, center); cursor:pointer;
                 a{height:24px; @include display(flex, center);}
