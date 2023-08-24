@@ -8137,7 +8137,7 @@ ul 안에 ul
 .filter-scroll li {
   color: #979797;
 }
-.filter-scroll li img {
+.filter-scroll li img.location {
   margin: 0 5px 0 0;
 }
 

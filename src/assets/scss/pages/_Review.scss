@@ -1,7 +1,7 @@
 // 리뷰 탭
 .filter-scroll{@include filterScroll; padding:20px 0; margin:0 20px;
     li{color:#979797;
-        img{margin:0 5px 0 0;}
+        img.location{margin:0 5px 0 0;}
     }
 }
 .review-induce{@include conSize(null, 64px, 64px); @include display(flex, center, space-between); padding:20px; margin:0 0 20px 0; background:#F1F1F1;
