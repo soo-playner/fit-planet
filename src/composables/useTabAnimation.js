@@ -35,9 +35,6 @@ export default function useTabAnimation() {
                 items.onclick = () => {
                     tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
                 };
-                items.touchmove = () => {
-                    tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
-                };
             });
 
             // active 클래스를 가진 li 태그의 값 가져오도록
@@ -56,9 +53,19 @@ export default function useTabAnimation() {
             items.classList.contains("active") && navFnc(items);
         });
     }
+    
+    function touchFnc() {
+        function touchMove(e) {
+            const touchValue = e.changedTouches[0].pageX + tabContentWrap.value.clientWidth;
+            console.log(touchValue)
+            tabContentWrap.value.style.transform = `translateX(${-touchValue})px`;
+        }
+
+        tabContentWrap.value.addEventListener('touchmove', touchMove, false);
+    }
 
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return { li, nav, tabContentWrap, clickLiFnc };
+    return { li, nav, tabContentWrap, clickLiFnc, touchFnc };
 }
 
 /******************************************
