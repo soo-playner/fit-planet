@@ -315,5 +315,5 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
 .slide-fade-enter{transform:translateX(100%);}
 .slide-fade-enter-active,
-.slide-fade-leave-active{transition:all .2s $easing;}
+.slide-fade-leave-active{transition:all .5s $easing;}
 .slide-fade-leave-to{transform:translateX(-100%);}
