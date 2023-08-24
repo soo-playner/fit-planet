@@ -224,7 +224,7 @@ const headerTitle = () => {
         :class="headerActive.includes($route.name) ? 'active' : ''"
     >
         <div class="at-header-inner">
-            <div class="back" v-if="headerType()['back']"><img src="@/assets/image/back.png" alt="뒤로가기" /></div>
+            <div class="back" v-if="headerType()['back']" @click="$router.go('-1')"><img src="@/assets/image/back.png" alt="뒤로가기" /></div>
             <div class="logo" v-if="headerType()['logo']">
                 <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
             </div>
