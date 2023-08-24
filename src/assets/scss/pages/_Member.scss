@@ -79,7 +79,7 @@
                 &:last-child{padding:0; margin:0; border-bottom:0;}
             }
         }
-        .authority-guide{@extend .password-guide; margin:0 0 18px 0; text-align:center;}
+        .authority-guide{@extend .password-guide; margin:39px 0 18px 0; text-align:center;}
     }
     .vail{margin:10px 0 0 0;}
     @include responsive-320{padding:123px 15px 52px;}
