@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-import rangeBar from '@/components/layout/RangeBar';
+import RangeBar from "@/components/layout/RangeBar";
 
 const facilities = ref([
     { id: "1", tit: "주차장" },
@@ -16,11 +16,7 @@ const facilities = ref([
     { id: "10", tit: "체성분검사" },
 ]);
 
-const machine = ref(
-    [
-        { title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }, { title: "등" }, { title: "어깨" }, { title: "유산소" }, 
-    ]
-);
+const machine = ref([{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }, { title: "등" }, { title: "어깨" }, { title: "유산소" }]);
 
 const machineTag = ref([
     ["파워렉", "스미스머신", "치닝디핑", "케이블 머신"],
@@ -30,6 +26,11 @@ const machineTag = ref([
     ["숄더 프레스 머신", "사이드레터럴레이즈 머신", "리버스 펙덱 머신"],
     ["러닝머신", "스텝밀", "스텝퍼"],
 ]);
+
+const dateRangeMin = ref(0);
+const dateRangeMax = ref(12);
+const priceRangeMin = ref(40000);
+const priceRangeMax = ref(120000);
 </script>
 
 <template>
@@ -45,17 +46,40 @@ const machineTag = ref([
                     </ul>
                 </div>
                 <div class="ticket-date-adjust">
-                    <p><span>1개월</span>~<span>12개월</span></p>
-                    <div class="ticket-date-bar"></div>
+                    <p>
+                        <span>{{ dateRangeMin }}개월</span>~<span>{{ dateRangeMax }}개월</span>
+                    </p>
+                    <RangeBar
+                        :defaultMinValue="0"
+                        :defaultMaxValue="12"
+                        :defaultRangeL="0"
+                        :defaultRangeR="12"
+                        @changeRange="
+                            dateRangeMax = $event.max;
+                            dateRangeMin = $event.min;
+                            console.log($event);
+                        "
+                    />
                 </div>
-                <rangeBar/>
             </div>
             <!-- 가격 -->
             <div class="ticket-expense">
                 <div class="ticket-expense-tit f-14-700"><p>가격(1개월 기준)</p></div>
                 <div class="ticket-expense-adjust">
-                    <p><span>40,000원</span>~<span>120,000원</span></p>
-                    <div class="ticket-date-bar"></div>
+                    <p>
+                        <span>{{ priceRangeMin }}원</span>~<span>{{ priceRangeMax }}원</span>
+                    </p>
+                    <RangeBar
+                        :defaultMinValue="0"
+                        :defaultMaxValue="12"
+                        :defaultRangeL="4"
+                        :defaultRangeR="12"
+                        @changeRange="
+                            priceRangeMin = $event.min * 10000;
+                            priceRangeMax = $event.max * 10000;
+                            console.log($event);
+                        "
+                    />
                 </div>
             </div>
             <!-- 플레이스 타입 -->

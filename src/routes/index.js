@@ -28,6 +28,7 @@ import FindPW_Email_Step2 from "../routes/find_account/password/FindPW_Email_Ste
 import PW_Reset from "../routes/find_account/password/PW_Reset";
 import Place from "../routes/place/Place";
 import Filter from "../routes/place/Filter";
+import FilterTrainer from "../routes/place/FilterTrainer";
 import PlaceList from "../routes/place/PlaceList";
 import PlaceDetail from "../routes/place/PlaceDetail";
 import PlaceReview from "../routes/place/PlaceReview";
@@ -94,27 +95,28 @@ const routes = [
     // 비밀번호 재설정
     { path: "/PW_Reset", component: PW_Reset, name: "PW_Reset" },
     // 플레이스
-    { path : '/place', component : Place, name : 'Place' }, 
-    { path : '/filter', component : Filter, name : 'Filter' }, 
-    { path : '/place/list', component : PlaceList, name : 'PlaceList' }, 
-    { path : '/place/:id', component : PlaceDetail, name : 'PlaceDetail' }, 
-    { path : '/place/review', component : PlaceReview, name : 'PlaceReview' }, 
-    { path : '/place/machine', component : PlaceMachine, name : 'PlaceMachine' },
-    { path : '/place/machine-choice', component : PlaceMachine_Choice, name : 'PlaceMachine_Choice' },
-    { path : '/place/trainer', component : PlaceTrainer, name : 'PlaceTrainer' },
-    { path : '/place/pay', component : PlacePay, name : 'PlacePay' },
-    { path : '/place/pay/complete', component : PlacePay_Complete, name : 'PlacePay_Complete' },
-    { path : '/place/ticket/complete', component : PlaceTicket_Complete, name : 'PlaceTicket_Complete' },
-    { path : '/discover', component : DiscoverList, name : 'DiscoverList' },
+    { path: "/place", component: Place, name: "Place" },
+    { path: "/filter", component: Filter, name: "Filter" },
+    { path: "/filterTrainer", component: FilterTrainer, name: "FilterTrainer" },
+    { path: "/place/list", component: PlaceList, name: "PlaceList" },
+    { path: "/place/:id", component: PlaceDetail, name: "PlaceDetail" },
+    { path: "/place/review", component: PlaceReview, name: "PlaceReview" },
+    { path: "/place/machine", component: PlaceMachine, name: "PlaceMachine" },
+    { path: "/place/machine-choice", component: PlaceMachine_Choice, name: "PlaceMachine_Choice" },
+    { path: "/place/trainer", component: PlaceTrainer, name: "PlaceTrainer" },
+    { path: "/place/pay", component: PlacePay, name: "PlacePay" },
+    { path: "/place/pay/complete", component: PlacePay_Complete, name: "PlacePay_Complete" },
+    { path: "/place/ticket/complete", component: PlaceTicket_Complete, name: "PlaceTicket_Complete" },
+    { path: "/discover", component: DiscoverList, name: "DiscoverList" },
     // 트레이너
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
     // 후기
-    { path : '/review', component : Review, name : 'Review' },
-    { path : '/review/detail', component : ReviewDetail, name : 'ReviewDetail' },
-    { path : '/my-review', component : MyReview, name : 'MyReview' },
-    { path : '/review/select', component : ReviewSelect, name : 'ReviewSelect' },
-    { path : '/review/write', component : ReviewWrite, name : 'ReviewWrite' },
-    { path : '/interest/region', component : InterestRegion, name : 'InterestRegion' },
+    { path: "/review", component: Review, name: "Review" },
+    { path: "/review/detail", component: ReviewDetail, name: "ReviewDetail" },
+    { path: "/my-review", component: MyReview, name: "MyReview" },
+    { path: "/review/select", component: ReviewSelect, name: "ReviewSelect" },
+    { path: "/review/write", component: ReviewWrite, name: "ReviewWrite" },
+    { path: "/interest/region", component: InterestRegion, name: "InterestRegion" },
     // 마이페이지
     { path: "/mypage", component: MyPage, name: "MyPage" },
     { path: "/coupon", component: Coupon, name: "Coupon" },

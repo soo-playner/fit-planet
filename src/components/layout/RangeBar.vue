@@ -5,8 +5,8 @@ export default {
         return {
             thumbRightX: null,
             thumbLeftX: null,
-            rangeRight: 0,
-            rangeLeft: 0,
+            rangeRight: 1,
+            rangeLeft: 1,
         };
     },
     props: {
@@ -33,13 +33,36 @@ export default {
             this.rangeRight = 100 - percent + "%";
         },
     },
+    mounted() {
+        this.thumbRightX = (1 - this.defaultRangeR / this.defaultMaxValue) * 100 + "%";
+        this.thumbLeftX = (this.defaultRangeL / this.defaultMaxValue) * 100 + "%";
+        this.rangeRight = (1 - this.defaultRangeR / this.defaultMaxValue) * 100 + "%";
+        this.rangeLeft = (this.defaultRangeL / this.defaultMaxValue) * 100 + "%";
+    },
+    watch: {
+        rangeRight() {
+            console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
+            console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
+            this.$emit("changeRange", { min: this.$refs.inputLeft.value, max: this.$refs.inputRight.value });
+        },
+        rangeLeft() {
+            console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
+            console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
+            this.$emit("changeRange", { min: this.$refs.inputLeft.value, max: this.$refs.inputRight.value });
+        },
+    },
 };
 </script>
 
 <style>
+.range-wrap {
+    margin: 18px 0;
+    /* border: 1px solid red; */
+}
+
 .middle {
     position: relative;
-    width: 50%;
+    width: 100%;
     max-width: 500px;
 }
 
@@ -75,19 +98,35 @@ export default {
 .slider > .thumb {
     position: absolute;
     z-index: 3;
-    width: 30px;
-    height: 30px;
-    background-color: #ccc;
+    width: 24px;
+    height: 24px;
+    background-color: #f1f1f1;
+    border: 1px solid #d9d9d9;
     border-radius: 50%;
+}
+
+.slider > .thumb::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+    background-color: #000;
+    z-index: 100;
 }
 
 .slider > .thumb.left {
     left: 25%;
-    transform: translate(-15px, -10px);
+    transform: translate(-12px, -8px);
 }
 .slider > .thumb.right {
     right: 25%;
-    transform: translate(15px, -10px);
+    transform: translate(12px, -8px);
 }
 
 input[type="range"] {
@@ -96,7 +135,7 @@ input[type="range"] {
     pointer-events: none;
     -webkit-appearance: none;
     z-index: 2;
-    height: 10px;
+    height: 8px;
     width: 100%;
     opacity: 0;
 }
@@ -104,8 +143,8 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
     /* 겹쳐진 두 thumb를 모두 활성화 */
     pointer-events: all;
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     border-radius: 0;
     border: 0 none;
     background-color: red;
@@ -116,34 +155,36 @@ input[type="range"]::-webkit-slider-thumb {
 </style>
 
 <template>
-    <!-- 사용예시 : <RangeBar :defaultMinValue="0" :defaultMaxValue="100" :defaultRangeR="75" :defaultRangeL="25" /> -->
-    <input id="range" type="range" />
-    <div class="middle">
-        <div class="multi-range-slider">
-            <!-- 실제 슬라이더 -->
-            <input
-                type="range"
-                :min="defaultMinValue"
-                :max="defaultMaxValue"
-                :value="thumbLeftX ? Math.floor(Number(thumbLeftX.split('%')[0])) : defaultRangeL"
-                ref="inputLeft"
-                :oninput="setLeftValue"
-            />
-            <input
-                type="range"
-                :min="defaultMinValue"
-                :max="defaultMaxValue"
-                :value="thumbRightX ? Math.floor(100 - Number(thumbRightX.split('%')[0])) : defaultRangeR"
-                ref="inputRight"
-                :oninput="setRigthValue"
-            />
+    <div class="range-wrap">
+        <!-- 사용예시 : <RangeBar :defaultMinValue="0" :defaultMaxValue="100" :defaultRangeL="25" :defaultRangeR="75"/> -->
+        <input id="range" type="range" />
+        <div class="middle">
+            <div class="multi-range-slider">
+                <!-- 실제 슬라이더 -->
+                <input
+                    type="range"
+                    :min="defaultMinValue"
+                    :max="defaultMaxValue"
+                    :value="thumbLeftX ? Math.round(defaultMaxValue * (Number(thumbLeftX.split('%')[0]) / 100)) : defaultRangeL"
+                    ref="inputLeft"
+                    :oninput="setLeftValue"
+                />
+                <input
+                    type="range"
+                    :min="defaultMinValue"
+                    :max="defaultMaxValue"
+                    :value="thumbRightX ? Math.round(defaultMaxValue * ((100 - Number(thumbRightX.split('%')[0])) / 100)) : defaultRangeR"
+                    ref="inputRight"
+                    :oninput="setRigthValue"
+                />
 
-            <!-- 커스텀 슬라이더 -->
-            <div class="slider">
-                <div class="track"></div>
-                <div class="range" ref="range" v-bind:style="{ left: rangeLeft, right: rangeRight }"></div>
-                <div class="thumb left" ref="thumbLeft" v-bind:style="{ left: thumbLeftX }"></div>
-                <div class="thumb right" ref="thumbRight" v-bind:style="{ right: thumbRightX }"></div>
+                <!-- 커스텀 슬라이더 -->
+                <div class="slider">
+                    <div class="track"></div>
+                    <div class="range" ref="range" v-bind:style="{ left: rangeLeft, right: rangeRight }"></div>
+                    <div class="thumb left" ref="thumbLeft" v-bind:style="{ left: thumbLeftX }"></div>
+                    <div class="thumb right" ref="thumbRight" v-bind:style="{ right: thumbRightX }"></div>
+                </div>
             </div>
         </div>
     </div>

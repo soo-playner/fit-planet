@@ -7847,6 +7847,22 @@ ul 안에 ul
   font-weight: 400;
   color: #D9D9D9;
 }
+.filter_container_inner .place-type ul li.gender,
+.filter_container_inner .etc-opt ul li.gender {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+}
 .filter_container_inner .facilities-tit {
   margin: 0 0 18px 0;
 }
