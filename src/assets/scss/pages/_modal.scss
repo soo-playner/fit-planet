@@ -209,6 +209,16 @@
     }
 }
 
+// 문의 작성 모달창
+.inquiry-cancel-modal{
+    &-inner{
+        .txt-box{margin:0 0 20px 0;
+            .f-18-700{margin:0 0 12px 0;}
+        }
+    }
+    .bott-btn{@include bottLnb2;}
+}
+
 // 모달창 vue transtion 애니메이션
 .slide-enter-from {
     transform: translateY(100%);
