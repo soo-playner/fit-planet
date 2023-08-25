@@ -40,6 +40,9 @@
             }
         }
     // 아이디 찾기
+    &.id-step1,
+    &.id-step2,
+    &.id-step3{padding-top:80px;}
         // 아이디 찾기_번호2
         &.id-step3{
             .id-guide{text-align:center;
@@ -60,6 +63,8 @@
         }
     // 비밀번호 찾기
         // 비밀번호 찾기 1-1
+        &.FindPW_Email_Step2,
+        &.pw-reset{padding-top:80px;}
         &.pw-step1{
             .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
         }

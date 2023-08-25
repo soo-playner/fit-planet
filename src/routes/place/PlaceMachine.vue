@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div class="PlaceMachine_container">
+    <div class="PlaceMachine_container main-layout">
         <div class="PlaceMachine_container_inner mob-inner">
             <div class="PlaceMachine-form">
                 <div class="place-machine-list">

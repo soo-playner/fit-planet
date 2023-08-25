@@ -3,7 +3,7 @@
 import { onMounted } from "vue";
 import useTabAnimation from "@/composables/useTabAnimation";
 
-const { li, nav, tabContentWrap, clickLiFnc, touchStart, touchMove, touchEnd } = useTabAnimation();
+const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 
 onMounted(() => {

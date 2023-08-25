@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <div class="ticket_complete_container">
+    <div class="ticket_complete_container main-layout">
         <div class="ticket_complete_container_inner mob-inner">
             <!-- 수강권 등록 완료 안내 -->
             <div class="ticket-complete-guide">

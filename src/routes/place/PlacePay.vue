@@ -16,7 +16,7 @@
 </script>
 
 <template>
-    <div class="PlacePay_container">
+    <div class="PlacePay_container main-layout">
         <div class="PlacePay_container_inner mob-inner">
             <!-- 주문상품 -->
             <div class="choice-product">

@@ -103,7 +103,7 @@ const routes = [
     { path: "/place/pay", component: PlacePay, name: "PlacePay" },
     { path: "/place/pay/complete", component: PlacePay_Complete, name: "PlacePay_Complete" },
     { path: "/place/ticket/complete", component: PlaceTicket_Complete, name: "PlaceTicket_Complete" },
-    { path: "/discover", component: DiscoverList, name: "DiscoverList" },
+    { path: "/discover", component: DiscoverList, name: "DiscoverList" }, // 발견
     // 트레이너
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
     // 후기

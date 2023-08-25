@@ -24,7 +24,8 @@ const headerType = () => {
     switch (route.fullPath) {
         case "/":
         case "/Class":
-        case "/not/class": {
+        case "/not/class":
+        case "/complete/class": {
             return {
                 logo: true,
                 alarm: true,
@@ -56,7 +57,8 @@ const headerType = () => {
         case "/authority":
         case "/place/pay/complete":
         case "/Inquiry/complete":
-        case "/Review/Select": {
+        case "/Review/Select":
+        case "/Review/Write": {
             return {
                 close: true,
             };
@@ -126,7 +128,8 @@ const headerTitle = () => {
         case "/find/pw/email/step1": {
             return "이메일로 비밀번호 찾기";
         }
-        case "/pw/reset": {
+        case "/pw/reset":
+        case "/PW_Reset": {
             return "비밀번호 재설정";
         }
         case "/join/step1": {
@@ -182,7 +185,8 @@ const headerTitle = () => {
         case "/MyPage": {
             return "마이";
         }
-        case "/Review/Select": {
+        case "/Review/Select":
+        case "/Review/Write": {
             return "후기 작성";
         }
         case "/interest/region": {

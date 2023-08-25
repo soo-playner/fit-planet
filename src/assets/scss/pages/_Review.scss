@@ -174,7 +174,7 @@
 관심 지역 추가
 /routes/review/InterestRegion.vue
 ******************************************/
-.region_container{
+.region_container{padding-top:80px;
     &_inner{
         & > div{padding:0 20px;}
         .form-group2{padding-bottom:14px; border-bottom:1px solid #D9D9D9;

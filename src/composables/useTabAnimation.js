@@ -26,6 +26,11 @@ export default function useTabAnimation() {
     const nav = ref(null);
     const tabContentWrap = ref(null);
 
+    let curPos = 0;
+    let position = 0;
+    let start_x, end_x;
+    
+
     function clickLiFnc() {
         function navFnc(el) {
             // 클릭 시 각 li 태그의 active 클래스 제거
@@ -54,34 +59,11 @@ export default function useTabAnimation() {
         });
     }
 
-    function touchStart(e) {
-        //console.log('touchstart');
-        e.preventDefault();
 
-        //tabContentWrap.value.addEventListener('touchstart', touchStart, false);
-    }
-
-    function touchMove(e) {
-        //console.log('touchmove');
-        e.preventDefault();
-
-        const moveValue = e.changedTouches[0].pageX// + tabContentWrap.value.clientWidth;
-        tabContentWrap.value.style.transform = `translate3d(-${moveValue}, 0, 0)px`;
-        console.log(moveValue)
-
-        //tabContentWrap.value.addEventListener('touchmove', touchMove, false);
-    }
-
-    function touchEnd(e) {
-        //console.log('touchend');
-        e.preventDefault();
-
-        //tabContentWrap.value.addEventListener('touchend', touchEnd, false);
-    }
 
     
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return { li, nav, tabContentWrap, clickLiFnc, touchStart, touchMove, touchEnd };
+    return { li, nav, tabContentWrap, clickLiFnc };
 }
 
 /******************************************

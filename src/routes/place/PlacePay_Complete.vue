@@ -12,7 +12,7 @@ const openTicketModal = () => {
 </script>
 
 <template>
-    <div class="PlacePayComplete_container">
+    <div class="PlacePayComplete_container main-layout">
         <div class="PlacePayComplete_container_inner mob-inner">
             <!-- 결제 완료 안내 -->
             <div class="pay-complete-guide">
