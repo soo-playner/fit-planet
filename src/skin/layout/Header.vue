@@ -9,6 +9,7 @@ const route = useRoute();
 const AlertOpen = ref(false);
 const SearchOpen = ref(false);
 const headerActive = ref(["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"]);
+const headerPageName = ref(["Discover",]);
 
 const AlertOpenFnc = () => {
     AlertOpen.value = !AlertOpen.value;
@@ -101,7 +102,8 @@ const headerType = () => {
                 mypage: true,
             };
         }
-        case "/wish": {
+        case "/wish":
+        case "/discover": {
             return {
                 search: true,
                 mypage: true,
@@ -215,6 +217,14 @@ const headerTitle = () => {
         }
     }
 };
+
+const pageName = () => {
+    switch (route.fullPath) {
+        case "/discover" : {
+            return "발견";
+        }
+    }
+}
 </script>
 
 <template>
@@ -225,35 +235,58 @@ const headerTitle = () => {
                 1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
             }%)`,
         }"
-        :class="headerActive.includes($route.name) ? 'active' : ''"
+        :class="
+            [headerActive.includes($route.name) ? 'active' : '', 
+            $route.name === 'DiscoverList' ? 'discover' : '']
+        "
     >
         <div class="at-header-inner">
-            <div class="back" v-if="headerType()['back']" @click="$router.go('-1')"></div>
-            <div class="logo" v-if="headerType()['logo']">
-                <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
+            <div class="left">
+                <div v-if="headerType()['back']" @click="$router.go('-1')" class="back"></div>
+                <div v-if="headerType()['logo']" class="logo">
+                    <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
+                </div>
+                <h1 v-if="pageName()" class="f-20-700">{{ pageName() }}</h1>
             </div>
-            <h1 v-if="headerTitle()" class="f-16-400">{{ headerTitle() }}</h1>
-            <div></div>
-            <ul class="menu-ul">
-                <li v-if="headerType()['alarm']" @click="AlertOpenFnc"><img src="@/assets/image/alarm.png" alt="알림" /></li>
-                <li v-if="headerType()['write']"><img src="@/assets/image/write.png" alt="글쓰기" /></li>
-                <li v-if="headerType()['search']" @click="SearchOpenFnc"><span class="search"></span></li>
-                <li
-                    v-if="headerType()['mypage']"
-                    @click="
-                        AlertOpen = false;
-                        SearchOpen = false;
-                    "
-                >
-                    <router-link to="/MyPage"><img src="@/assets/image/person.png" alt="마이페이지" /></router-link>
-                </li>
-                <li v-if="headerType()['home']">
-                    <router-link to="/"><img src="@/assets/image/home.png" alt="홈" /></router-link>
-                </li>
-                <li v-if="headerType()['setting']"><img src="@/assets/image/setting.png" alt="설정" /></li>
-                <li v-if="headerType()['close']"><img src="@/assets/image/close.png" alt="닫기" /></li>
-                <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
-            </ul>
+            <div class="center">
+                <h1 v-if="headerTitle()" class="f-16-400">{{ headerTitle() }}</h1>
+            </div>
+            <div class="right">
+                <ul class="menu-ul">
+                    <li v-if="headerType()['alarm']" @click="AlertOpenFnc">
+                        <img src="@/assets/image/alarm.png" alt="알림" />
+                    </li>
+                    <li v-if="headerType()['write']">
+                        <img src="@/assets/image/write.png" alt="글쓰기" />
+                    </li>
+                    <li v-if="headerType()['search']" @click="SearchOpenFnc">
+                        <span class="search"></span>
+                    </li>
+                    <li
+                        v-if="headerType()['mypage']"
+                        @click="
+                            AlertOpen = false;
+                            SearchOpen = false;
+                        "
+                    >
+                        <router-link to="/MyPage"><img src="@/assets/image/person.png" alt="마이페이지" /></router-link>
+                    </li>
+                    <li v-if="headerType()['home']">
+                        <router-link to="/"><img src="@/assets/image/home.png" alt="홈" /></router-link>
+                    </li>
+                    <li v-if="headerType()['setting']">
+                        <img src="@/assets/image/setting.png" alt="설정" />
+                    </li>
+                    <li v-if="headerType()['close']">
+                        <img src="@/assets/image/close.png" alt="닫기" />
+                    </li>
+                    <li v-if="headerType()['overallProgress']" class="progress">
+                        {{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="discover-place f-16-400" v-if="$route.name === 'DiscoverList'">서울시 강남구 대치동</div>
         </div>
 
         <Alert :class="{ active: AlertOpen }" />
