@@ -92,6 +92,12 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         &:first-child{background:$f; color:$b; border:1px solid $b;}
     }
 }
+@mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
+    button{@include conSize(100%, 44px, 42px); border:1px solid; border-radius:22px;
+        &:first-child{border-color:$b; background:$f; color:$b;}
+        &:last-child{border-color:$b; background:$b; color:$f;}
+    }
+}
 
 .starBox{@include display(flex)}
 
