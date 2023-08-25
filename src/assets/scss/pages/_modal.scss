@@ -192,6 +192,23 @@
     }
 }
 
+// 프로그램 추가 결제 모달창
+.addPayment-modal{
+    .addPayment-modal-inner{padding-top:46px;}
+    .txt-box{margin:0 0 46px 0;}
+    .bott-btn{@include bottLnb2;}
+}
+
+//  운동기록 삭제 모달창
+.placeList-delete-modal{
+    &-inner{
+        .txt-box{margin:0 0 20px 0;
+            .f-18-700{margin:0 0 12px 0;}
+        }
+        .bott-btn{@include bottLnb2;}
+    }
+}
+
 // 모달창 vue transtion 애니메이션
 .slide-enter-from {
     transform: translateY(100%);
