@@ -53,19 +53,35 @@ export default function useTabAnimation() {
             items.classList.contains("active") && navFnc(items);
         });
     }
-    
-    function touchFnc() {
-        function touchMove(e) {
-            const touchValue = e.changedTouches[0].pageX + tabContentWrap.value.clientWidth;
-            console.log(touchValue)
-            tabContentWrap.value.style.transform = `translateX(${-touchValue})px`;
-        }
 
-        tabContentWrap.value.addEventListener('touchmove', touchMove, false);
+    function touchStart(e) {
+        //console.log('touchstart');
+        e.preventDefault();
+
+        //tabContentWrap.value.addEventListener('touchstart', touchStart, false);
     }
 
+    function touchMove(e) {
+        //console.log('touchmove');
+        e.preventDefault();
+
+        const moveValue = e.changedTouches[0].pageX// + tabContentWrap.value.clientWidth;
+        tabContentWrap.value.style.transform = `translate3d(-${moveValue}, 0, 0)px`;
+        console.log(moveValue)
+
+        //tabContentWrap.value.addEventListener('touchmove', touchMove, false);
+    }
+
+    function touchEnd(e) {
+        //console.log('touchend');
+        e.preventDefault();
+
+        //tabContentWrap.value.addEventListener('touchend', touchEnd, false);
+    }
+
+    
     // 컴포넌트에서 애니메이션 적용할 요소에다가 return한 변수를 ref값으로 부여
-    return { li, nav, tabContentWrap, clickLiFnc, touchFnc };
+    return { li, nav, tabContentWrap, clickLiFnc, touchStart, touchMove, touchEnd };
 }
 
 /******************************************

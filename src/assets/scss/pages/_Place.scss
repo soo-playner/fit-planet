@@ -51,8 +51,8 @@
 /components/routes/trainer/TrainerDetail.vue
 ******************************************/
 .detail_container{
-    &_inner{
-        & > div{padding:20px; border-bottom:1px solid #D9D9D9;
+    &_inner{overflow:hidden;
+        & > div{border-bottom:1px solid #D9D9D9;
             &.place-map{padding:0; border:none;}
             &:last-child{margin-bottom:0; border-bottom:0;}
         }
@@ -70,7 +70,7 @@
             }
         }
         // 플레이스 정보
-        .place-info{@include display(flex, null, space-between);
+        .place-info{@include display(flex, null, space-between); padding:20px;
             .left-row{
                 .place-info-txt{
                     p{@include display(flex); column-gap:5px;}
@@ -91,7 +91,7 @@
             }
         }
         // 플레이스 상품
-        .place-ticket{
+        .place-ticket{padding:20px;
             .swiper-slide{min-height:128px; @include display(flex, null, space-between, column); padding:16px; background:#D9D9D9; border-radius:8px;
                 div:last-child{@include display(flex, flex-end, null, column);}
                 &:last-child{@include allBtn; align-items:center; justify-content:center; background:none;}
@@ -99,7 +99,7 @@
             }
         }
         // 이용 후기
-        .place-review{padding-right:0;
+        .place-review{padding:20px 0 20px 20px;
             &-tit{@include display(flex); column-gap:8px;
                 div{@include display(flex, center); column-gap:4px;
                     img{margin:-2px 0 0 0;}
@@ -121,7 +121,7 @@
             .more{@include more;}
         }
         // 운영시간
-        .place-operate{
+        .place-operate{padding:20px;
             &-detail{
                 & > *{@include font(12px, 400)}
                 & > div{
@@ -134,7 +134,7 @@
             }
         }
         // 편의시설
-        .place-convenience{
+        .place-convenience{padding:20px;
             .free{margin:0 0 30px 0;
                 &-tit{margin:0 0 15px 0;}
                 &-list{display:flex; flex-flow:wrap; row-gap:15px;
@@ -152,12 +152,12 @@
         }
         // 운동 기구
         @include placeMachineList;
-        .place-machine{position:relative;
+        .place-machine{position:relative; padding:20px;
             &-all-btn{background:$f; color:$b; border:1px solid #979797;}
             &::before{content:''; width:100%; height:50px; position:absolute; bottom:0;}
         }
         // 1:1 트레이너
-        .place-trainer{
+        .place-trainer{padding:20px 0 20px 20px; 
             &-tit{@include display(flex, flex-end); column-gap:8px;
                 span{color:#979797}
             }
@@ -165,8 +165,8 @@
             &-all-btn{@include aTag; @include conSize(null, 44px, 44px); margin:16px 0 0 0; background:$f; border:1px solid #979797; color:$b;}
         }
         // 환불정책
-        .place-refunt{
-            &-content{@include font(12px, 400);}
+        .place-refunt{padding:20px;
+            &-content{margin:0; @include font(12px, 400);}
             .more{@include more;}
         }
     }
