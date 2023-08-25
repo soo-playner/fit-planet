@@ -3635,6 +3635,15 @@ ul 안에 ul
   margin: 0 0 12px 0;
 }
 
+.ticket-complete-modal .txt-box,
+.schedule-complete-modal .txt-box {
+  margin: 0 0 24px 0;
+}
+.ticket-complete-modal .txt-box .f-18-700,
+.schedule-complete-modal .txt-box .f-18-700 {
+  margin: 0 0 12px 0;
+}
+
 .slide-enter-from {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);

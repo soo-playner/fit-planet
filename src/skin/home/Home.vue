@@ -52,5 +52,5 @@ const trainerShow = () => {
                 <router-link to="" class="f-12-400">운동 둘러보기</router-link>
             </div>
         </section>
-    </main>
+    </main>    
 </template>

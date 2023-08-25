@@ -183,6 +183,14 @@
     .f-18-700{margin:0 0 12px 0;}
 }
 
+// 수강권, 일정 등록 완료 모달창
+.ticket-complete-modal,
+.schedule-complete-modal{
+    .txt-box{margin:0 0 24px 0;
+        .f-18-700{margin:0 0 12px 0;}
+    }
+}
+
 // 모달창 vue transtion 애니메이션
 .slide-enter-from {
     transform: translateY(100%);
