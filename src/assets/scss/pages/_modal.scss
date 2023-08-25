@@ -24,6 +24,9 @@
     button{margin:15px 0 0 0;}
 }
 
+/******************************************
+플레이스
+******************************************/
 // 플레이스 상세 - 문의하기 모달창
 .work-inquiry-modal{@include conSize(100%, 100%); @include display(flex, flex-end); opacity:0; visibility:hidden; @include position(fixed, 0, null, null, 0, 99); transition:all .3s $easing;
     .overlay{@include overLay;}
@@ -117,7 +120,10 @@
     }
 }
 
-// 주문내역 삭제 모달창 /routes/order/OrderInquiry.vue
+/******************************************
+주문
+******************************************/
+// 주문내역 삭제 /routes/order/OrderInquiry.vue
 .order-delete-modal{opacity:0; visibility:hidden; transition:all .3s $easing;
     .txt-box{margin:0 0 20px 0;
         p{margin:0 0 9px 0;}
@@ -130,7 +136,21 @@
     &.active{opacity:1; visibility:visible;}
 }
 
-// 쿠폰 발급 모달창 /routes/mypage/coupon.vue
+// 주문내역 취소, 운동 일정 등록
+.order-cancel-modal,
+.schedule-register-modal{
+    &-inner{padding-top:24px;
+        .txt-box{margin:0 0 16px 0;
+            .f-18-700{margin:0 0 12px 0;}
+        }
+        .bott-btn{@include bottLnb2}
+    }
+}
+
+/******************************************
+쿠폰
+******************************************/
+// 쿠폰 발급 /routes/mypage/coupon.vue
 .coupon-issue-modal{opacity:0; visibility:hidden; transition:all .3s $easing;
     &-inner{
         .txt-box{margin:0 0 27px 0;
