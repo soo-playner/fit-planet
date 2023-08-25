@@ -4,14 +4,22 @@ import reviewList from "@/components/review/ReviewList";
 
 const reviewListData = [
     {
-        write: "위즈위즈",
+        writer: "위즈위즈1",
+        scope: 4,
+        trainer: "김위즈",
         comment: "김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!",
-        name: "김위즈",
     },
     {
-        write: "위즈위",
+        writer: "위즈위즈1",
+        scope: 3,
+        trainer: "김위즈",
         comment: "김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!",
-        name: "김위즈",
+    },
+    {
+        writer: "위즈위즈1",
+        scope: 5,
+        trainer: "김위즈",
+        comment: "김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요!",
     },
 ];
 </script>

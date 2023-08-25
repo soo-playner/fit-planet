@@ -6,26 +6,27 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="TrainerData-form">
-        <div class="top-column">
-            <div class="left-row">
-                <div class="trainer-info">
-                    <p class="f-16-700">{{ props.data.trainerName }} 트레이너</p>
-                    <div class="starBox">
-                        <div class="star">★</div>
-                        <p class="total-scope f-12-400">
-                            <span>{{ props.data.trainerScope }}</span>
-                            <span>({{ props.data.trainerTotalScope }})</span>
-                        </p>
+    <li class="trainer-review-li review-li">
+        <div class="img-box"></div>
+        <div class="txt-box">
+            <div class="info">
+                <div class="info-detail">
+                    <div class="f-14-700 trainer-name">
+                        {{ props.data.writer }}
                     </div>
-                </div>
-                <div class="location-info f-12-400">
-                    <p><img src="@/assets/image/place-map.png" alt="플레이스 위치" />{{ props.data.trainerCenterName }}</p>
-                    <p>{{ props.data.trainerLocation }}</p>
+                    <div class="scope">
+                        <div class="starBox">
+                            <div class="star" v-for="star in props.data.scope" :key="star">★</div>
+                            <div class="star_empty" v-for="star in 5 - props.data.scope" :key="star">☆</div>
+                        </div>
+                    </div>
+                    <p class="review-con">{{ props.data.comment }}</p>
                 </div>
             </div>
-            <div class="right-row trainer-img-box"></div>
+            <button class="trainer-btn f-12-400">
+                <img src="@/assets/image/trainer-icon.png" />
+                {{ props.data.trainer }} 트레이너
+            </button>
         </div>
-        <div class="bott-column trainer-comment f-12-400">“{{ props.data.trainerComment }}”</div>
-    </div>
+    </li>
 </template>
