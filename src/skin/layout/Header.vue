@@ -9,7 +9,7 @@ const route = useRoute();
 const AlertOpen = ref(false);
 const SearchOpen = ref(false);
 const headerActive = ref(["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"]);
-const headerPageName = ref(["Discover",]);
+const headerPageName = ref(["Discover"]);
 
 const AlertOpenFnc = () => {
     AlertOpen.value = !AlertOpen.value;
@@ -146,6 +146,9 @@ const headerTitle = () => {
         case "/filter": {
             return "필터";
         }
+        case "/place/machine": {
+            return "운동기구";
+        }
         case "/place/machine-choice": {
             return "운동 선택하기";
         }
@@ -220,11 +223,11 @@ const headerTitle = () => {
 
 const pageName = () => {
     switch (route.fullPath) {
-        case "/discover" : {
+        case "/discover": {
             return "발견";
         }
     }
-}
+};
 </script>
 
 <template>
@@ -235,10 +238,7 @@ const pageName = () => {
                 1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
             }%)`,
         }"
-        :class="
-            [headerActive.includes($route.name) ? 'active' : '', 
-            $route.name === 'DiscoverList' ? 'discover' : '']
-        "
+        :class="[headerActive.includes($route.name) ? 'active' : '', $route.name === 'DiscoverList' ? 'discover' : '']"
     >
         <div class="at-header-inner">
             <div class="left">
@@ -280,9 +280,7 @@ const pageName = () => {
                     <li v-if="headerType()['close']">
                         <img src="@/assets/image/close.png" alt="닫기" />
                     </li>
-                    <li v-if="headerType()['overallProgress']" class="progress">
-                        {{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}
-                    </li>
+                    <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
                 </ul>
             </div>
 
