@@ -86,16 +86,16 @@ function toggleInquiry() {
                 <div class="left-row">
                     <div class="place-info-txt">
                         <p class="f-18-700"><span class="trainer-name">김위즈</span>트레이너</p>
+                        <p class="f-12-400 gray2">
+                            <span><img src="@/assets/image/place-map.png" alt="">위즈짐</span>
+                            <span>서울 강남구 대치동</span>
+                        </p>
                     </div>
                     <div class="place-info-scope">
                         <div class="starBox">
                             <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/empty_scope.png" alt="별점" /></div>
                         </div>
-                        <div class="scope-current f-12-400">4.3<span>(12)</span></div>
+                        <div class="scope-current f-12-400">4.3<span class="gray2">(12)</span></div>
                     </div>
                 </div>
                 <div class="right-row">
@@ -142,7 +142,7 @@ function toggleInquiry() {
                         <img src="@/assets/image/scope.png" alt="별점" />
                         <p class="f-12-400">
                             <span>4.3</span>
-                            <span>(12)</span>
+                            <span class="gray2">(12)</span>
                         </p>
                     </div>
                 </div>
@@ -246,51 +246,21 @@ function toggleInquiry() {
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
                     <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해 </span>
                     <span>맞춤 운동 및 식단 처방을 제공합니다.</span>
+                    <div class="more f-12-400">더 보기<span></span></div>
                 </div>
-                <div class="more f-12-400">더 보기<span></span></div>
             </div>
             <!-- 운동시설 -->
             <div class="place-facility">
-                <div class="place-facility-tit">운동시설</div>
+                <div class="place-facility-tit f-14-400">운동시설</div>
                 <ul class="place-facility-list">
                     <li>
-                        <div class="place-facility-list-tit f-14-700">플레이스 no.1</div>
                         <div class="place-facility-list-detail">
                             <div class="place-img">
                                 <Swiper>
-                                    <SwiperSlide>1</SwiperSlide>
-                                    <SwiperSlide>2</SwiperSlide>
-                                    <SwiperSlide>3</SwiperSlide>
-                                    <SwiperSlide>4</SwiperSlide>
-                                </Swiper>
-                            </div>
-                            <div class="place-info">
-                                <div class="left-row">
-                                    <div class="place-info-txt">
-                                        <p class="f-18-700">위즈짐</p>
-                                        <span class="f-12-400 location"><img src="@/assets/image/place-map.png" alt="위치" />서울 강남구 삼성로86길 11 거봉INC 3층</span>
-                                    </div>
-                                    <ul class="place-info-filter">
-                                        <li>운동복</li>
-                                        <li>락커</li>
-                                        <li>주차</li>
-                                    </ul>
-                                </div>
-                                <div class="right-row">
-                                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="place-facility-list-tit f-14-700">플레이스 no.2</div>
-                        <div class="place-facility-list-detail">
-                            <div class="place-img">
-                                <Swiper>
-                                    <SwiperSlide>1</SwiperSlide>
-                                    <SwiperSlide>2</SwiperSlide>
-                                    <SwiperSlide>3</SwiperSlide>
-                                    <SwiperSlide>4</SwiperSlide>
+                                    <SwiperSlide></SwiperSlide>
+                                    <SwiperSlide></SwiperSlide>
+                                    <SwiperSlide></SwiperSlide>
+                                    <SwiperSlide></SwiperSlide>
                                 </Swiper>
                             </div>
                             <div class="place-info">
@@ -335,12 +305,12 @@ function toggleInquiry() {
                             <p>10:00 - 18:00</p>
                         </div>
                     </div>
-                    <div class="f-12-400">*위 시간 이외의 스케줄은 전화/카카오톡 문의 바랍니다.</div>
+                    <div class="f-12-400 gray1">*위 시간 이외의 스케줄은 전화/카카오톡 문의 바랍니다.</div>
                 </div>
             </div>
             <!-- 자격사항 -->
             <div class="qualify">
-                <div class="qualify-tit">자격사항</div>
+                <div class="qualify-tit f-14-400">자격사항</div>
                 <div class="qualify-content">
                     <p class="f-12-400">2급 생활스포츠지도사</p>
                     <p class="f-12-400">스포츠영양코치 Level 1</p>
@@ -352,7 +322,7 @@ function toggleInquiry() {
             </div>
             <!-- 학력 -->
             <div class="ability">
-                <div class="ability-tit">학력</div>
+                <div class="ability-tit f-14-400">학력</div>
                 <div class="ability-content">
                     <p>위즈대학교 스포츠 경호학과</p>
                 </div>

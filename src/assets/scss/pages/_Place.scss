@@ -79,7 +79,13 @@
         .place-info{@include display(flex, null, space-between); padding:20px;
             .left-row{
                 .place-info-txt{
-                    p{@include display(flex); column-gap:5px;}
+                    p{@include display(flex, center); column-gap:5px;
+                        &.f-12-400{column-gap:0;
+                            span{@include display(flex, center); @include afterLine;
+                                &::after{height:11px; background:#ACACAC}
+                            }
+                        }
+                    }
                     .location{@include display(flex, center); color:#979797;}
                 }
                 .place-info-scope{@include display(flex, center); column-gap:6px; margin:8px 0;
@@ -120,11 +126,13 @@
                 }
                 .review-content{min-height:130px; padding:16px; background:#F1F1F1; border-radius:8px;}
             }
-            .review-all-btn{@include aTag; @include conSize(null, 44px, 44px); margin:16px 0 0 0; background:$f; border:1px solid #979797; color:$b;}
+            .review-all-btn{@include aTag; @include conSize(calc(100% - 20px), 44px, 44px); margin:16px 20px 0 0; background:$f; border:1px solid #979797; color:$b;}
         }
         // 플레이스 설명
-        .place-explain{min-height:166px; line-height:1.6; position:relative; margin:20px; padding:12px; background:#F1F1F1; border-radius:8px;
-            .more{@include more;}
+        .place-explain{padding:20px; 
+            &-content{min-height:166px; line-height:1.6; position:relative; padding:12px; background:#F1F1F1; border-radius:8px;
+                .more{@include more;}
+            }
         }
         // 운영시간
         .place-operate{padding:20px;
@@ -138,6 +146,18 @@
                     &:last-child{@include display(flex); column-gap:10px;}
                 }
             }
+        }
+        // 자격사항
+        .qualify{padding:20px;
+            &-tit{margin:0 0 20px 0;}
+            &-content{min-height:166px; line-height:1.8; position:relative; padding:12px; background:#F1F1F1; border-radius:8px;
+                .more{@include more;}
+            }
+        }
+        // 학력
+        .ability{padding:20px;
+            &-tit{margin:0 0 20px 0;}
+            &-content{padding:12px; @include font(12px, 400); background:#F1F1F1; border-radius:8px;}
         }
         // 편의시설
         .place-convenience{padding:20px;
@@ -153,6 +173,22 @@
                 &-list{display:flex;
                     li{flex:1;}
                     p{@include font(12px, 400)}
+                }
+            }
+        }
+        // 운동 시설
+        .place-facility{padding:20px;
+            &-tit{margin:0 0 20px 0;}
+            &-list{
+                &-detail{overflow:hidden; border-radius:8px;
+                    .place-img{@include conSize(100%, 20vw); background:#D9D9D9} // 임시로 속성 쓴 거니 추후 수정 필요
+                    .place-info{background:#F1F1F1;
+                        .left-row{
+                            .place-info-filter{margin:8px 0 0 0;
+                                li{background:$f; border:none; color:$b;}
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -172,8 +208,9 @@
         }
         // 환불정책
         .place-refunt{padding:20px;
-            &-content{margin:0; @include font(12px, 400);}
-            .more{@include more;}
+            &-content{min-height:166px; line-height:1.8; position:relative; margin:0; padding:12px; @include font(12px, 400); background:#F1F1F1; border-radius:8px;
+                .more{@include more;}
+            }
         }
     }
     // 문의하기/운동 선택하기 버튼

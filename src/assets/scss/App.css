@@ -176,6 +176,10 @@ span {
   color: #979797;
 }
 
+.gray2 {
+  color: #ACACAC;
+}
+
 /******************************************
 헤더 
 /components/Header.vue
@@ -5687,9 +5691,48 @@ ul 안에 ul
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-column-gap: 5px;
      -moz-column-gap: 5px;
           column-gap: 5px;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 {
+  -webkit-column-gap: 0;
+     -moz-column-gap: 0;
+          column-gap: 0;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-right: 5px;
+  padding-right: 5px;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 span::after {
+  content: "";
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  background: #000;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 span:last-child {
+  margin-right: 0;
+  padding-right: 0;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 span:last-child::after {
+  display: none;
+}
+.detail_container_inner .place-info .left-row .place-info-txt p.f-12-400 span::after {
+  height: 11px;
+  background: #ACACAC;
 }
 .detail_container_inner .place-info .left-row .place-info-txt .location {
   display: -webkit-box;
@@ -5918,23 +5961,26 @@ ul 안에 ul
   background: #000;
   color: #fff;
   border-radius: 19px;
+  width: calc(100% - 20px);
   height: 44px;
   line-height: 44px;
-  margin: 16px 0 0 0;
+  margin: 16px 20px 0 0;
   background: #fff;
   border: 1px solid #979797;
   color: #000;
 }
 .detail_container_inner .place-explain {
+  padding: 20px;
+}
+.detail_container_inner .place-explain-content {
   min-height: 166px;
   line-height: 1.6;
   position: relative;
-  margin: 20px;
   padding: 12px;
   background: #F1F1F1;
   border-radius: 8px;
 }
-.detail_container_inner .place-explain .more {
+.detail_container_inner .place-explain-content .more {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5950,7 +5996,7 @@ ul 안에 ul
   color: #979797;
   cursor: pointer;
 }
-.detail_container_inner .place-explain .more span {
+.detail_container_inner .place-explain-content .more span {
   width: 6px;
   height: 8px;
   display: -webkit-box;
@@ -5964,19 +6010,19 @@ ul 안에 ul
           justify-content: center;
   position: relative;
 }
-.detail_container_inner .place-explain .more span::before, .detail_container_inner .place-explain .more span::after {
+.detail_container_inner .place-explain-content .more span::before, .detail_container_inner .place-explain-content .more span::after {
   content: "";
   width: 100%;
   height: 1px;
   position: absolute;
   background: #979797;
 }
-.detail_container_inner .place-explain .more span::before {
+.detail_container_inner .place-explain-content .more span::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   margin: 0 0 4px 0;
 }
-.detail_container_inner .place-explain .more span::after {
+.detail_container_inner .place-explain-content .more span::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin: 4px 0 0 0;
@@ -6031,6 +6077,80 @@ ul 안에 ul
      -moz-column-gap: 10px;
           column-gap: 10px;
 }
+.detail_container_inner .qualify {
+  padding: 20px;
+}
+.detail_container_inner .qualify-tit {
+  margin: 0 0 20px 0;
+}
+.detail_container_inner .qualify-content {
+  min-height: 166px;
+  line-height: 1.8;
+  position: relative;
+  padding: 12px;
+  background: #F1F1F1;
+  border-radius: 8px;
+}
+.detail_container_inner .qualify-content .more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #979797;
+  cursor: pointer;
+}
+.detail_container_inner .qualify-content .more span {
+  width: 6px;
+  height: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+.detail_container_inner .qualify-content .more span::before, .detail_container_inner .qualify-content .more span::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background: #979797;
+}
+.detail_container_inner .qualify-content .more span::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 0 0 4px 0;
+}
+.detail_container_inner .qualify-content .more span::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin: 4px 0 0 0;
+}
+.detail_container_inner .ability {
+  padding: 20px;
+}
+.detail_container_inner .ability-tit {
+  margin: 0 0 20px 0;
+}
+.detail_container_inner .ability-content {
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  background: #F1F1F1;
+  border-radius: 8px;
+}
 .detail_container_inner .place-convenience {
   padding: 20px;
 }
@@ -6071,6 +6191,32 @@ ul 안에 ul
 .detail_container_inner .place-convenience .pay-list p {
   font-size: 12px;
   font-weight: 400;
+}
+.detail_container_inner .place-facility {
+  padding: 20px;
+}
+.detail_container_inner .place-facility-tit {
+  margin: 0 0 20px 0;
+}
+.detail_container_inner .place-facility-list-detail {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.detail_container_inner .place-facility-list-detail .place-img {
+  width: 100%;
+  height: 20vw;
+  background: #D9D9D9;
+}
+.detail_container_inner .place-facility-list-detail .place-info {
+  background: #F1F1F1;
+}
+.detail_container_inner .place-facility-list-detail .place-info .left-row .place-info-filter {
+  margin: 8px 0 0 0;
+}
+.detail_container_inner .place-facility-list-detail .place-info .left-row .place-info-filter li {
+  background: #fff;
+  border: none;
+  color: #000;
 }
 .detail_container_inner .place-machine-tit {
   margin: 0 0 10px 0;
@@ -6265,11 +6411,17 @@ ul 안에 ul
   padding: 20px;
 }
 .detail_container_inner .place-refunt-content {
+  min-height: 166px;
+  line-height: 1.8;
+  position: relative;
   margin: 0;
+  padding: 12px;
   font-size: 12px;
   font-weight: 400;
+  background: #F1F1F1;
+  border-radius: 8px;
 }
-.detail_container_inner .place-refunt .more {
+.detail_container_inner .place-refunt-content .more {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6285,7 +6437,7 @@ ul 안에 ul
   color: #979797;
   cursor: pointer;
 }
-.detail_container_inner .place-refunt .more span {
+.detail_container_inner .place-refunt-content .more span {
   width: 6px;
   height: 8px;
   display: -webkit-box;
@@ -6299,19 +6451,19 @@ ul 안에 ul
           justify-content: center;
   position: relative;
 }
-.detail_container_inner .place-refunt .more span::before, .detail_container_inner .place-refunt .more span::after {
+.detail_container_inner .place-refunt-content .more span::before, .detail_container_inner .place-refunt-content .more span::after {
   content: "";
   width: 100%;
   height: 1px;
   position: absolute;
   background: #979797;
 }
-.detail_container_inner .place-refunt .more span::before {
+.detail_container_inner .place-refunt-content .more span::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   margin: 0 0 4px 0;
 }
-.detail_container_inner .place-refunt .more span::after {
+.detail_container_inner .place-refunt-content .more span::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   margin: 4px 0 0 0;
