@@ -10361,11 +10361,6 @@ ul 안에 ul
           justify-content: space-between;
   padding: 12px 0;
 }
-.FAQ_container_inner .tabContentWrap ul li.a-box {
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-}
 
 /******************************************
 찜

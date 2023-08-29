@@ -186,7 +186,7 @@
                 li{border-bottom:1px solid #D9D9D9;
                     .arrow{@include arrow2;}
                     &.q-box{@include display(flex, center, space-between); padding:12px 0;}
-                    &.a-box{max-height:0; opacity:0; visibility:hidden;}
+                    // &.a-box{max-height:0; opacity:0; visibility:hidden;}
                 } 
             }
         }

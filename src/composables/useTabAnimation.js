@@ -21,15 +21,17 @@ import { computed, ref } from "vue";
     </div>
 </div>
 ******************************************/
-export default function useTabAnimation() {
+export default function useTabAnimation(faqList) {
     const li = ref(null);
     const nav = ref(null);
     const tabContentWrap = ref(null);
-    const tabContent = ref([]);
+    const tabContent = ref([1, 2, 3, 4, 5, 6]);
     const test = computed(() => tabContent.value.length);
     let curPos = 0;
     let position = 0;
-    let start_x, end_x;
+    // let start_x, end_x;
+    const start_x = ref(null);
+    const end_x = ref(null);
     //let contentWidth = tabContentWrap.value.clientWidth;
 
     function clickLiFnc() {
@@ -60,28 +62,65 @@ export default function useTabAnimation() {
         });
     }
 
+    function navFnc(el) {
+        // 클릭 시 각 li 태그의 active 클래스 제거
+        li.value.forEach((items, index) => {
+            items.classList.remove("active");
+            // (컨텐츠의 width 값 * 클릭한 li 태그의 index)로 슬라이드 되도록
+            items.onclick = () => {
+                tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
+            };
+        });
+
+        // active 클래스를 가진 li 태그의 값 가져오도록
+        nav.value.style.width = `${li.value[curPos].clientWidth}px`;
+        nav.value.style.left = `${li.value[curPos].offsetLeft}px`;
+        nav.value.style.bottom = "0";
+
+        // li 태그 active 클래스 추가
+        el.classList.add("active");
+    }
+
     function prev() {
-        if(curPos > 0){
+        if (curPos > 0) {
+            console.log("prev");
             position += tabContentWrap.value.clientWidth;
             tabContentWrap.value.style.transform = `translateX(${position}px)`;
             curPos = curPos - 1;
+
+            li.value.forEach((items) => {
+                items.addEventListener("click", () => {
+                    navFnc(li.value[curPos]);
+                });
+                items.classList.contains("active") && navFnc(items);
+            });
         }
     }
     function next() {
-        if(curPos < test.value){
+        // if (curPos < test.value) {
+
+        if (curPos < faqList.length - 1) {
+            console.log("next");
             position -= tabContentWrap.value.clientWidth;
             tabContentWrap.value.style.transform = `translateX(${position}px)`;
             curPos = curPos + 1;
+
+            li.value.forEach((items) => {
+                items.addEventListener("click", () => {
+                    navFnc(li.value[curPos]);
+                });
+                items.classList.contains("active") && navFnc(items);
+            });
         }
     }
     function touchStart(e) {
-        start_x = e.touches[0].pageX
+        start_x.value = e.touches[0].pageX;
     }
     function touchEnd(e) {
-        end_x = e.changedTouches[0].pageX;
-        if(start_x > end_x){
+        end_x.value = e.changedTouches[0].pageX;
+        if (start_x.value > end_x.value) {
             next();
-        }else{
+        } else if (start_x.value < end_x.value) {
             prev();
         }
     }
