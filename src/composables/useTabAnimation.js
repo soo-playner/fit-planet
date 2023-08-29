@@ -52,6 +52,8 @@ export default function useTabAnimation(faqList) {
 
             // li 태그 active 클래스 추가
             el.classList.add("active");
+            curPos = li.value.indexOf(el);
+            console.log(curPos);
         }
 
         li.value.forEach((items) => {
@@ -60,6 +62,8 @@ export default function useTabAnimation(faqList) {
             });
             items.classList.contains("active") && navFnc(items);
         });
+
+        console.log(curPos);
     }
 
     function navFnc(el) {
@@ -68,7 +72,7 @@ export default function useTabAnimation(faqList) {
             items.classList.remove("active");
             // (컨텐츠의 width 값 * 클릭한 li 태그의 index)로 슬라이드 되도록
             items.onclick = () => {
-                tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * index}px, 0, 0)`;
+                tabContentWrap.value.style.transform = `translate3d(${-tabContentWrap.value.clientWidth * curPos}px, 0, 0)`;
             };
         });
 
@@ -78,15 +82,15 @@ export default function useTabAnimation(faqList) {
         nav.value.style.bottom = "0";
 
         // li 태그 active 클래스 추가
-        el.classList.add("active");
+        li.value[curPos].classList.add("active");
     }
 
     function prev() {
         if (curPos > 0) {
-            console.log("prev");
-            position += tabContentWrap.value.clientWidth;
-            tabContentWrap.value.style.transform = `translateX(${position}px)`;
+            console.log(curPos);
             curPos = curPos - 1;
+            position = tabContentWrap.value.clientWidth * curPos;
+            tabContentWrap.value.style.transform = `translateX(${-position}px)`;
 
             li.value.forEach((items) => {
                 items.addEventListener("click", () => {
@@ -95,14 +99,14 @@ export default function useTabAnimation(faqList) {
                 items.classList.contains("active") && navFnc(items);
             });
         }
+
+        console.log(curPos);
     }
     function next() {
-        // if (curPos < test.value) {
-
         if (curPos < faqList.length - 1) {
-            console.log("next");
-            position -= tabContentWrap.value.clientWidth;
-            tabContentWrap.value.style.transform = `translateX(${position}px)`;
+            position = tabContentWrap.value.clientWidth * (curPos + 1);
+            console.log(position);
+            tabContentWrap.value.style.transform = `translateX(${-position}px)`;
             curPos = curPos + 1;
 
             li.value.forEach((items) => {
@@ -112,6 +116,8 @@ export default function useTabAnimation(faqList) {
                 items.classList.contains("active") && navFnc(items);
             });
         }
+
+        console.log(curPos);
     }
     function touchStart(e) {
         start_x.value = e.touches[0].pageX;
