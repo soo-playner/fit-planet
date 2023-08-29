@@ -439,13 +439,28 @@
 플레이스 상세 페이지 - 결제 완료
 /components/routes/place/PlacePay_Complete.vue
 ******************************************/
-.PlacePayComplete_container{padding-top:80px;
-    &_inner{
+.payComplete{padding-top:80px;
+    &-inner{
         & > div{padding:20px; border-bottom:9px solid #f1f1f1;
             &:last-child{border-bottom:0;}
         }
         // 결제 완료 안내
         .pay-complete-guide{@include completeGuide;}
+        .inquiry-list{@include display(flex, center); column-gap:8px; margin:20px 0;
+            li{flex:1; min-height:210px; @include display(flex, center, center, column); row-gap:12px; border:1px solid $b; border-radius:8px;
+                @include responsive-480{min-height:150px;}
+            }
+        }
+        // 양식
+        .ex-inquiry-form{
+            &-tit{margin:0 0 16px 0; text-align:center;}
+            &-content{padding:20px; background:#F1F1F1; border-radius:8px; text-align:center;
+                p{@include display(flex, null, center); @include font(14px, 400);
+                    span{font-weight:700;}
+                }
+                button{min-width:200px; @include conSize(null, 38px, 36px); margin:12px 0 0 0; background:$f; border:1px solid #979797; border-radius:19px; color:$b;}
+            }
+        }
         // 수강회원 정보
         .member-info{
             &-tit{margin:0 0 10px 0;}

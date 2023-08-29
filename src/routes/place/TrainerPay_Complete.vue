@@ -1,18 +1,4 @@
-<script setup>
-import { ref } from "vue";
-import VueDatePicker from "@vuepic/vue-datepicker";
-import "@vuepic/vue-datepicker/dist/main.css";
-import ScheduleTrainerEdit from "../../components/modal/ScheduleTrainerEdit.vue";
-
-// Data and methods
-const ticketModal = ref(false);
-
-const openTicketModal = () => {
-    ticketModal.value = !ticketModal.value;
-};
-
-const scheduleOpen = ref(false);
-</script>
+<script setup></script>
 
 <template>
     <div class="PlacePayComplete_container main-layout notFooter-layout payComplete">
@@ -22,16 +8,29 @@ const scheduleOpen = ref(false);
                 <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료" /></div>
                 <div class="f-20-700">
                     <p>결제 완료!</p>
-                    <p>수강권을 등록해볼까요?</p>
+                    <p>트레이너와 일정을 정해볼까요?</p>
                 </div>
-                <p class="f-14-400">
-                    <span>수강권을 등록하면</span>
-                    <span>설정한 날짜부터 운동을 시작할 수 있어요</span>
-                </p>
-                <button class="f-16-700" @click="scheduleOpen = true">수강권 등록하기</button>
+                <ul class="inquiry-list">
+                    <li><img src="@/assets/image/call.png" alt="전화하기"><p class="f-14-700">트레이너에게 전화</p></li>
+                    <li><img src="@/assets/image/message.png" alt="카톡하기"><p class="f-14-700">트레이너에게 카톡</p></li>
+                </ul>
+                <button class="f-16-700" @click="scheduleOpen = true">정했어요! 일정 등록하기</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>
             </div>
-            <!-- 수강회원 정보 -->
+
+            <!-- 양식  -->
+            <div class="ex-inquiry-form">
+                <div class="ex-inquiry-form-tit f-14-400">아래 양식대로 문의하면 빠른 일정 조율이 가능해요</div>
+                <div class="ex-inquiry-form-content">
+                    <p>"안녕하세요 핏플래닛을 통해</p>
+                    <p><span>[프로그램명]</span>을 등록한 <span>[이름]</span>입니다.</p>
+                    <p><span>[희망 요일], [희망 시간대]</span> 가능합니다.</p>
+                    <p><span>[희망 운동 시작일]</span>부터 시작하고 싶어요."</p>
+                    <button>양식 복사하기</button>
+                </div>
+            </div>
+
+            <!-- 수강회원 정보 --> 
             <div class="member-info">
                 <div class="member-info-tit f-16-700">수강회원 정보</div>
                 <div class="member-info-input">
@@ -108,40 +107,5 @@ const scheduleOpen = ref(false);
             </div>
         </div>
 
-        <!-- 수강권 등록 모달창 -->
-        <!-- <div class="PlacePayComplete_modal" v-bind:class="{ openTicketModal: ticketModal }">
-            <div class="overlay" @click="openTicketModal"></div>
-            <div class="PlacePayComplete_modal_inner">
-                <div class="txt-box">
-                    <div class="f-18-700">운동 시작일을 설정해 주세요</div>
-                    <p class="f-14-400">
-                        <span>등록해주신 시작일을 기준으로</span>
-                        <span>수강권이 사용돼요</span>
-                    </p>
-                </div>
-                <div class="datePicker">
-                    <div class="apply f-14-400">
-                        <p><span>2023</span>년</p>
-                        <p><span>07</span>월</p>
-                        <p><span>10</span>일</p>
-                        에 시작해요
-                    </div>
-                    <VueDatePicker></VueDatePicker>
-                </div>
-                <div class="apply-btn">
-                    <button class="f-16-700" @click="openTicketModal">나중에 하기</button>
-                    <button class="f-16-700" @click="$router.push('/PlaceTicketComplete')">수강권 등록하기</button>
-                </div>
-            </div>
-        </div> -->
-
-        <ScheduleTrainerEdit
-            v-if="scheduleOpen"
-            :scheduleClose="
-                () => {
-                    scheduleOpen = false;
-                }
-            "
-        />
     </div>
 </template>

@@ -58,6 +58,8 @@ const headerType = () => {
         }
         case "/authority":
         case "/place/pay/complete":
+        case "/place/ticket/complete":
+        case "/trainer/pay/complete":
         case "/Inquiry/complete":
         case "/Review/Select":
         case "/Review/Write": {
@@ -170,7 +172,9 @@ const headerTitle = () => {
         case "/place/pay": {
             return "결제하기";
         }
-        case "/place/pay/complete": {
+        case "/place/pay/complete":
+        case "/place/ticket/complete":
+        case "/trainer/pay/complete": {
             return "결제 완료";
         }
         case "/Place/Review": {
