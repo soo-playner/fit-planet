@@ -39,10 +39,11 @@ import PlaceMachine_Choice from "../routes/place/PlaceMachine_Choice";
 import PlaceTrainer from "../routes/place/PlaceTrainer";
 import PlacePay from "../routes/place/PlacePay";
 import PlacePay_Complete from "../routes/place/PlacePay_Complete";
-import TrainerPay_Complete from "../routes/place/TrainerPay_Complete";
 import PlaceTicket_Complete from "../routes/place/PlaceTicket_Complete";
 import DiscoverList from "../routes/place/DiscoverList";
 import TrainerDetail from "../routes/trainer/TrainerDetail";
+import TrainerPay_Complete from "../routes/trainer/TrainerPay_Complete";
+import TrainerTicket_Complete from "../routes/trainer/TrainerTicket_Complete";
 import Review from "../routes/review/Review";
 import ReviewDetail from "../routes/review/ReviewDetail";
 import MyReview from "../routes/review/MyReview";
@@ -111,11 +112,12 @@ const routes = [
     { path: "/place/trainer", component: PlaceTrainer, name: "PlaceTrainer" },
     { path: "/place/pay", component: PlacePay, name: "PlacePay" },
     { path: "/place/pay/complete", component: PlacePay_Complete, name: "PlacePay_Complete" },
-    { path: "/trainer/pay/complete", component: TrainerPay_Complete, name: "TrainerPay_Complete" },
     { path: "/place/ticket/complete", component: PlaceTicket_Complete, name: "PlaceTicket_Complete" },
     { path: "/discover", component: DiscoverList, name: "DiscoverList" }, // 발견
     // 트레이너
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
+    { path: "/trainer/pay/complete", component: TrainerPay_Complete, name: "TrainerPay_Complete" },
+    { path: "/trainer/ticket/complete", component: TrainerTicket_Complete, name: "TrainerTicket_Complete" },
     // 후기
     { path: "/review", component: Review, name: "Review" },
     { path: "/review/detail", component: ReviewDetail, name: "ReviewDetail" },
