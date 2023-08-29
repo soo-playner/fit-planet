@@ -212,6 +212,11 @@
     }
 }
 
+// 플레이스 상세페이지 결제완료 후 나가기 모달창
+.ticket-complete-modal{
+    .bott-btn{@include bottLnb2}
+}
+
 // 프로그램 추가 결제 모달창
 .addPayment-modal{
     .addPayment-modal-inner{padding-top:46px;}

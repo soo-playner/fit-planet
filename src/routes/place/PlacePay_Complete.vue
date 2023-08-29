@@ -1,7 +1,8 @@
 <script setup>
+import { ref } from "vue";
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
-import { ref } from "vue";
+import ScheduleTrainerEdit from "../../components/modal/ScheduleTrainerEdit.vue";
 
 // Data and methods
 const ticketModal = ref(false);
@@ -9,6 +10,8 @@ const ticketModal = ref(false);
 const openTicketModal = () => {
     ticketModal.value = !ticketModal.value;
 };
+
+const scheduleOpen = ref(false);
 </script>
 
 <template>
@@ -25,7 +28,7 @@ const openTicketModal = () => {
                     <span>수강권을 등록하면</span>
                     <span>설정한 날짜부터 운동을 시작할 수 있어요</span>
                 </p>
-                <button class="f-16-700" @click="openTicketModal">수강권 등록하기</button>
+                <button class="f-16-700" @click="scheduleOpen = true">수강권 등록하기</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>
             </div>
             <!-- 수강회원 정보 -->
@@ -104,8 +107,9 @@ const openTicketModal = () => {
                 </div>
             </div>
         </div>
+
         <!-- 수강권 등록 모달창 -->
-        <div class="PlacePayComplete_modal" v-bind:class="{ openTicketModal: ticketModal }">
+        <!-- <div class="PlacePayComplete_modal" v-bind:class="{ openTicketModal: ticketModal }">
             <div class="overlay" @click="openTicketModal"></div>
             <div class="PlacePayComplete_modal_inner">
                 <div class="txt-box">
@@ -129,6 +133,15 @@ const openTicketModal = () => {
                     <button class="f-16-700" @click="$router.push('/PlaceTicketComplete')">수강권 등록하기</button>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <ScheduleTrainerEdit
+            v-if="scheduleOpen"
+            :scheduleClose="
+                () => {
+                    scheduleOpen = false;
+                }
+            "
+        />
     </div>
 </template>
