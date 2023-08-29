@@ -1614,17 +1614,20 @@ ul 안에 ul
 /components/layout/NotClass_MainPage.vue
 ******************************************/
 .notClass_home_container .first-section .mob-inner,
-.class_home_container .first-section .mob-inner {
+.class_home_container .first-section .mob-inner,
+.progress_home_container .first-section .mob-inner {
   padding: 24px 20px;
 }
 .notClass_home_container .first-section .mob-inner .top-column .menu-dot,
-.class_home_container .first-section .mob-inner .top-column .menu-dot {
+.class_home_container .first-section .mob-inner .top-column .menu-dot,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot {
   position: relative;
   cursor: pointer;
   text-align: center;
 }
 .notClass_home_container .first-section .mob-inner .top-column .menu-dot span,
-.class_home_container .first-section .mob-inner .top-column .menu-dot span {
+.class_home_container .first-section .mob-inner .top-column .menu-dot span,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot span {
   width: 5px;
   height: 5px;
   position: absolute;
@@ -1637,7 +1640,9 @@ ul 안에 ul
 }
 .notClass_home_container .first-section .mob-inner .top-column .menu-dot span::before, .notClass_home_container .first-section .mob-inner .top-column .menu-dot span::after,
 .class_home_container .first-section .mob-inner .top-column .menu-dot span::before,
-.class_home_container .first-section .mob-inner .top-column .menu-dot span::after {
+.class_home_container .first-section .mob-inner .top-column .menu-dot span::after,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot span::before,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot span::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -1647,15 +1652,18 @@ ul 안에 ul
   border-radius: 50%;
 }
 .notClass_home_container .first-section .mob-inner .top-column .menu-dot span::before,
-.class_home_container .first-section .mob-inner .top-column .menu-dot span::before {
+.class_home_container .first-section .mob-inner .top-column .menu-dot span::before,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot span::before {
   top: -7px;
 }
 .notClass_home_container .first-section .mob-inner .top-column .menu-dot span::after,
-.class_home_container .first-section .mob-inner .top-column .menu-dot span::after {
+.class_home_container .first-section .mob-inner .top-column .menu-dot span::after,
+.progress_home_container .first-section .mob-inner .top-column .menu-dot span::after {
   bottom: -7px;
 }
 .notClass_home_container .first-section .mob-inner .top-column .place-list,
-.class_home_container .first-section .mob-inner .top-column .place-list {
+.class_home_container .first-section .mob-inner .top-column .place-list,
+.progress_home_container .first-section .mob-inner .top-column .place-list {
   width: 132px;
   position: absolute;
   top: 40px;
@@ -1670,7 +1678,8 @@ ul 안에 ul
   right: 20px;
 }
 .notClass_home_container .first-section .mob-inner .top-column .place-list li,
-.class_home_container .first-section .mob-inner .top-column .place-list li {
+.class_home_container .first-section .mob-inner .top-column .place-list li,
+.progress_home_container .first-section .mob-inner .top-column .place-list li {
   line-height: 1.2;
   padding-bottom: 5px;
   margin-bottom: 5px;
@@ -1678,26 +1687,31 @@ ul 안에 ul
 }
 .notClass_home_container .first-section .mob-inner .top-column .place-list li a, .notClass_home_container .first-section .mob-inner .top-column .place-list li button,
 .class_home_container .first-section .mob-inner .top-column .place-list li a,
-.class_home_container .first-section .mob-inner .top-column .place-list li button {
+.class_home_container .first-section .mob-inner .top-column .place-list li button,
+.progress_home_container .first-section .mob-inner .top-column .place-list li a,
+.progress_home_container .first-section .mob-inner .top-column .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
   cursor: pointer;
 }
 .notClass_home_container .first-section .mob-inner .top-column .place-list li:last-child,
-.class_home_container .first-section .mob-inner .top-column .place-list li:last-child {
+.class_home_container .first-section .mob-inner .top-column .place-list li:last-child,
+.progress_home_container .first-section .mob-inner .top-column .place-list li:last-child {
   padding-bottom: 0;
   margin-bottom: 0;
   border-bottom: none;
 }
 .notClass_home_container .first-section .mob-inner .mid-column,
-.class_home_container .first-section .mob-inner .mid-column {
+.class_home_container .first-section .mob-inner .mid-column,
+.progress_home_container .first-section .mob-inner .mid-column {
   margin: 16px 0 12px 0;
   padding: 0 0 12px 0;
   border-bottom: 1px solid #D9D9D9;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-img-box,
-.class_home_container .first-section .mob-inner .mid-column .place-img-box {
+.class_home_container .first-section .mob-inner .mid-column .place-img-box,
+.progress_home_container .first-section .mob-inner .mid-column .place-img-box {
   width: 92px;
   height: 92px;
   margin: 0 auto;
@@ -1705,12 +1719,15 @@ ul 안에 ul
   background: #D9D9D9;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box {
   margin: 8px 0 0 0;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box > div, .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box p,
 .class_home_container .first-section .mob-inner .mid-column .place-txt-box > div,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box p {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box p,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box > div,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1719,19 +1736,22 @@ ul 안에 ul
           justify-content: center;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box > div,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box > div {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box > div,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box > div {
   -webkit-column-gap: 3px;
      -moz-column-gap: 3px;
           column-gap: 3px;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box p span,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box p span {
   position: relative;
   margin-right: 5px;
   padding-right: 5px;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box p span::after,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span::after {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span::after,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box p span::after {
   content: "";
   width: 1px;
   height: 13px;
@@ -1741,36 +1761,43 @@ ul 안에 ul
   background: #000;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child {
   margin-right: 0;
   padding-right: 0;
 }
 .notClass_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child::after,
-.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child::after {
+.class_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child::after,
+.progress_home_container .first-section .mob-inner .mid-column .place-txt-box p span:last-child::after {
   display: none;
 }
 .notClass_home_container .first-section .mob-inner .bott-column,
-.class_home_container .first-section .mob-inner .bott-column {
+.class_home_container .first-section .mob-inner .bott-column,
+.progress_home_container .first-section .mob-inner .bott-column {
   text-align: center;
 }
 .notClass_home_container .first-section .mob-inner .bott-column button,
-.class_home_container .first-section .mob-inner .bott-column button {
+.class_home_container .first-section .mob-inner .bott-column button,
+.progress_home_container .first-section .mob-inner .bott-column button {
   height: 38px;
   line-height: 36px;
   margin: 12px 0 0 0;
 }
 .notClass_home_container .second-section .mob-inner,
-.class_home_container .second-section .mob-inner {
+.class_home_container .second-section .mob-inner,
+.progress_home_container .second-section .mob-inner {
   padding: 20px;
 }
 .notClass_home_container .second-section .mob-inner .place-history,
-.class_home_container .second-section .mob-inner .place-history {
+.class_home_container .second-section .mob-inner .place-history,
+.progress_home_container .second-section .mob-inner .place-history {
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #F1F1F1;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column,
-.class_home_container .second-section .mob-inner .place-history .top-column {
+.class_home_container .second-section .mob-inner .place-history .top-column,
+.progress_home_container .second-section .mob-inner .place-history .top-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1783,20 +1810,23 @@ ul 안에 ul
   margin: 0 0 10px 0;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .f-12-400,
-.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 {
+.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400,
+.progress_home_container .second-section .mob-inner .place-history .top-column .f-12-400 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   color: #979797;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p,
-.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p {
+.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p,
+.progress_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p {
   position: relative;
   margin-right: 5px;
   padding-right: 5px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p::after,
-.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p::after {
+.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p::after,
+.progress_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p::after {
   content: "";
   width: 1px;
   height: 11px;
@@ -1806,16 +1836,19 @@ ul 안에 ul
   background: #979797;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child,
-.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child {
+.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child,
+.progress_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child {
   margin-right: 0;
   padding-right: 0;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child::after,
-.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child::after {
+.class_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child::after,
+.progress_home_container .second-section .mob-inner .place-history .top-column .f-12-400 p:last-child::after {
   display: none;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1824,7 +1857,8 @@ ul 안에 ul
           column-gap: 25px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .heart,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .heart {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .heart,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .heart {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1834,12 +1868,14 @@ ul 안에 ul
   cursor: pointer;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot {
   position: relative;
   cursor: pointer;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span {
   width: 5px;
   height: 5px;
   position: absolute;
@@ -1852,7 +1888,9 @@ ul 안에 ul
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before, .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after,
 .class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after {
   content: "";
   width: 100%;
   height: 100%;
@@ -1862,15 +1900,18 @@ ul 안에 ul
   border-radius: 50%;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::before {
   top: -7px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot span::after {
   bottom: -7px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list {
   width: 132px;
   position: absolute;
   top: 40px;
@@ -1883,7 +1924,8 @@ ul 안에 ul
           box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.05);
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li {
   line-height: 1.2;
   padding-bottom: 5px;
   margin-bottom: 5px;
@@ -1891,20 +1933,24 @@ ul 안에 ul
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li a, .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li button,
 .class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li a,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li button {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li button,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li a,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li button {
   font-size: 12px;
   font-weight: 400;
   color: #000;
   cursor: pointer;
 }
 .notClass_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child,
-.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child {
+.class_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child,
+.progress_home_container .second-section .mob-inner .place-history .top-column .lnb .menu-dot .place-list li:last-child {
   padding-bottom: 0;
   margin-bottom: 0;
   border-bottom: none;
 }
 .notClass_home_container .second-section .mob-inner .place-history .mid-column,
-.class_home_container .second-section .mob-inner .place-history .mid-column {
+.class_home_container .second-section .mob-inner .place-history .mid-column,
+.progress_home_container .second-section .mob-inner .place-history .mid-column {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1917,7 +1963,8 @@ ul 안에 ul
   margin: 0 0 8px 0;
 }
 .notClass_home_container .second-section .mob-inner .place-history .mid-column .txt-box,
-.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box {
+.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box,
+.progress_home_container .second-section .mob-inner .place-history .mid-column .txt-box {
   width: calc(100% - 92px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1931,7 +1978,8 @@ ul 안에 ul
           flex-flow: column;
 }
 .notClass_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child,
-.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child {
+.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child,
+.progress_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1940,7 +1988,8 @@ ul 안에 ul
           column-gap: 7px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child p,
-.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child p {
+.class_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child p,
+.progress_home_container .second-section .mob-inner .place-history .mid-column .txt-box > div:last-child p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1950,13 +1999,15 @@ ul 안에 ul
 }
 @media (max-width: 360px) {
   .notClass_home_container .second-section .mob-inner .place-history .mid-column .txt-box,
-  .class_home_container .second-section .mob-inner .place-history .mid-column .txt-box {
+  .class_home_container .second-section .mob-inner .place-history .mid-column .txt-box,
+  .progress_home_container .second-section .mob-inner .place-history .mid-column .txt-box {
     width: 100%;
     row-gap: 3px;
   }
 }
 .notClass_home_container .second-section .mob-inner .place-history .mid-column .img-box,
-.class_home_container .second-section .mob-inner .place-history .mid-column .img-box {
+.class_home_container .second-section .mob-inner .place-history .mid-column .img-box,
+.progress_home_container .second-section .mob-inner .place-history .mid-column .img-box {
   width: 92px;
   height: 92px;
   margin: 0 auto;
@@ -1966,13 +2017,15 @@ ul 안에 ul
 }
 @media (max-width: 360px) {
   .notClass_home_container .second-section .mob-inner .place-history .mid-column .img-box,
-  .class_home_container .second-section .mob-inner .place-history .mid-column .img-box {
+  .class_home_container .second-section .mob-inner .place-history .mid-column .img-box,
+  .progress_home_container .second-section .mob-inner .place-history .mid-column .img-box {
     margin: 5px 0 0 0;
   }
 }
 @media (max-width: 360px) {
   .notClass_home_container .second-section .mob-inner .place-history .mid-column,
-  .class_home_container .second-section .mob-inner .place-history .mid-column {
+  .class_home_container .second-section .mob-inner .place-history .mid-column,
+  .progress_home_container .second-section .mob-inner .place-history .mid-column {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
@@ -1980,7 +2033,8 @@ ul 안에 ul
   }
 }
 .notClass_home_container .second-section .mob-inner .place-history .bott-column div,
-.class_home_container .second-section .mob-inner .place-history .bott-column div {
+.class_home_container .second-section .mob-inner .place-history .bott-column div,
+.progress_home_container .second-section .mob-inner .place-history .bott-column div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1995,7 +2049,8 @@ ul 안에 ul
   border-radius: 50px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .bott-column a,
-.class_home_container .second-section .mob-inner .place-history .bott-column a {
+.class_home_container .second-section .mob-inner .place-history .bott-column a,
+.progress_home_container .second-section .mob-inner .place-history .bott-column a {
   height: 26px;
   line-height: 24px;
   display: block;
@@ -2005,7 +2060,8 @@ ul 안에 ul
   border-radius: 13px;
 }
 .notClass_home_container .second-section .mob-inner .place-history .bott-column > a,
-.class_home_container .second-section .mob-inner .place-history .bott-column > a {
+.class_home_container .second-section .mob-inner .place-history .bott-column > a,
+.progress_home_container .second-section .mob-inner .place-history .bott-column > a {
   width: 100%;
   height: 38px;
   line-height: 36px;
@@ -2029,7 +2085,8 @@ ul 안에 ul
   color: #000;
 }
 .notClass_home_container .second-section .mob-inner .place-history .bott-column button,
-.class_home_container .second-section .mob-inner .place-history .bott-column button {
+.class_home_container .second-section .mob-inner .place-history .bott-column button,
+.progress_home_container .second-section .mob-inner .place-history .bott-column button {
   width: 100%;
   height: 38px;
   line-height: 36px;
@@ -2039,7 +2096,8 @@ ul 안에 ul
   color: #000;
 }
 .notClass_home_container .second-section .mob-inner .place-history:last-child,
-.class_home_container .second-section .mob-inner .place-history:last-child {
+.class_home_container .second-section .mob-inner .place-history:last-child,
+.progress_home_container .second-section .mob-inner .place-history:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
@@ -2049,15 +2107,18 @@ ul 안에 ul
 메인 페이지(플레이스 수강권 등록)
 /components/layout/Class_MainPage.vue
 ******************************************/
-.class_home_container .first-section .mob-inner .mid-column {
+.class_home_container .first-section .mob-inner .mid-column,
+.progress_home_container .first-section .mob-inner .mid-column {
   margin: 4px 0 24px 0;
   border: none;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar {
   position: relative;
   padding: 24px 0 0 0;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble {
   min-width: 40px;
   display: inline-block;
   position: absolute;
@@ -2067,7 +2128,8 @@ ul 안에 ul
   color: #fff;
   text-align: center;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value {
   width: 100%;
   height: 8px;
   overflow: hidden;
@@ -2075,13 +2137,15 @@ ul 안에 ul
   background: #D9D9D9;
   border-radius: 4px;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value .step {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value .step,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value .step {
   width: 8px;
   height: 8px;
   background: #000;
   border-radius: 4px;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-date {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-date,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-date {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2090,10 +2154,12 @@ ul 안에 ul
           justify-content: space-between;
   margin: 6px 0 0 0;
 }
-.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble {
+.class_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble,
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble {
   left: 0;
 }
-.class_home_container .first-section .mob-inner .bott-column button {
+.class_home_container .first-section .mob-inner .bott-column button,
+.progress_home_container .first-section .mob-inner .bott-column button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2107,11 +2173,13 @@ ul 안에 ul
      -moz-column-gap: 8px;
           column-gap: 8px;
 }
-.class_home_container .first-section .mob-inner .bott-column button img {
+.class_home_container .first-section .mob-inner .bott-column button img,
+.progress_home_container .first-section .mob-inner .bott-column button img {
   -webkit-filter: invert(1);
           filter: invert(1);
 }
-.class_home_container .second-section .place-history .bott-column button {
+.class_home_container .second-section .place-history .bott-column button,
+.progress_home_container .second-section .place-history .bott-column button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2124,6 +2192,19 @@ ul 안에 ul
   -webkit-column-gap: 8px;
      -moz-column-gap: 8px;
           column-gap: 8px;
+}
+
+/******************************************
+운동 진행 중
+/components/layout/ProgressHome.vue
+******************************************/
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-bubble {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.progress_home_container .first-section .mob-inner .bott-column .place-progress-box .progress-bar .progress-value .step {
+  width: 50%;
 }
 
 /******************************************

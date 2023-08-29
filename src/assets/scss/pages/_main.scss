@@ -42,7 +42,8 @@
 /components/layout/NotClass_MainPage.vue
 ******************************************/
 .notClass_home_container,
-.class_home_container{
+.class_home_container,
+.progress_home_container{
     .first-section{
         .mob-inner{padding:24px 20px;
             .top-column{
@@ -73,7 +74,8 @@
 메인 페이지(플레이스 수강권 등록)
 /components/layout/Class_MainPage.vue
 ******************************************/
-.class_home_container{
+.class_home_container,
+.progress_home_container{
     .first-section{
         .mob-inner{
             .mid-column{margin:4px 0 24px 0; border:none;}
@@ -93,6 +95,27 @@
         .place-history{
             .bott-column{
                 button{@include display(flex, center, center); column-gap:8px;}
+            }
+        }
+    }
+}
+
+/******************************************
+운동 진행 중
+/components/layout/ProgressHome.vue
+******************************************/
+.progress_home_container{
+    .first-section{
+        .mob-inner{
+            .bott-column{
+                .place-progress-box{
+                    .progress-bar{
+                        .progress-bubble{left:50%; transform:translateX(-50%)}
+                        .progress-value{
+                            .step{width:50%;}
+                        }
+                    }
+                }
             }
         }
     }
