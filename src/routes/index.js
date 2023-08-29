@@ -9,9 +9,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import Splash from "../skin/intro/Splash";
 import Intro from "../skin/intro/Intro";
 import Home from "../skin/home/Home";
-import Class_Home from "../skin/home/Class_Home";
-import NotClass_Home from "../skin/home/NotClass_Home";
-import Complete_Home from "../skin/home/Complete_Home";
+import Class_Home from "../skin/home/ClassHome";
+import NotClass_Home from "../skin/home/NotClassHome";
+import ProgressHome from "../skin/home/ProgressHome";
+import Complete_Home from "../skin/home/CompleteHome";
 import Login from "../routes/login/Login";
 import JoinStep1 from "../routes/join/JoinStep1";
 import JoinStep2 from "../routes/join/JoinStep2";
@@ -71,9 +72,10 @@ const routes = [
     { path: "/intro", component: Intro, name: "Intro" },
     // 메인
     { path: "/", component: Home, name: "Home" }, // 첫 방문
-    { path: "/class", component: Class_Home, name: "Class_Home" }, // 플레이스 수강권 등록
-    { path: "/not/class", component: NotClass_Home, name: "NotClass_Home" }, // 플레이스 수강권 미등록
-    { path: "/complete/class", component: Complete_Home, name: "Complete_Home" }, // 운동 종료
+    { path: "/class", component: Class_Home, name: "ClassHome" }, // 플레이스 수강권 등록
+    { path: "/not/class", component: NotClass_Home, name: "NotClassHome" }, // 플레이스 수강권 미등록
+    { path: "/progress/class", component: ProgressHome, name: "ProgressHome" }, // 운동 진행 중
+    { path: "/complete/class", component: Complete_Home, name: "CompleteHome" }, // 운동 종료
     // 로그인
     { path: "/login", component: Login, name: "Login", meta: { title: "로그인" } },
     // 회원가입

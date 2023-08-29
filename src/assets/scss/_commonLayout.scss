@@ -148,6 +148,8 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         div{@include display(flex, center, space-between); padding:6px 12px; background:#F1F1F1; border-radius:50px;}
         a{@include conSize(null, 26px, 24px); display:block; padding:0 12px; background:$f; border:1px solid $b; border-radius:13px;}
         & > a{@include aTag(); background:$f; color:$b;}
+        
+        button{@include conSize(100%, 38px, 36px); margin:8px 0 0 0; border:1px solid $b; border-radius:19px; color:$b;}
     }
     &:last-child{margin-bottom:0; padding-bottom:0; border-bottom:none;}
 }
@@ -418,7 +420,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 /******************************************
 ul 안에 ul
 ******************************************/
-@mixin ulToggle(){@include conSize(null, 28px, 28px); position:relative; z-index:10; padding:0 12px; border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
+@mixin ulToggle(){@include conSize(null, 28px, 28px); position:relative; z-index:10; padding:0 12px; border:1px solid #D9D9D9; border-radius:50px; background:$f; cursor:pointer;
     & > li{@include display(flex, center, null, null); @include font(12px, 400);
         .arrow{@include arrow();}
     }

@@ -27,7 +27,7 @@
         &.step3{
             .nickname-guide{margin:0 0 32px 0; text-align:center;}
             .form-group{
-                button{@include liTag; @include conSize(null, 30px, 28px); @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); border-color:$b;}
+                button{@include liTag; @include conSize(null, 30px, 28px); @include position(absolute, 50%, 0, null, null, null); transform:translateY(-50%); border-color:$b; color:$b;}
             }
         }
         // 완료
