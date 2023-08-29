@@ -43,7 +43,8 @@
 ******************************************/
 .notClass_home_container,
 .class_home_container,
-.progress_home_container{
+.progress_home_container,
+.progressImpend_home_container{
     .first-section{
         .mob-inner{padding:24px 20px;
             .top-column{
@@ -75,7 +76,8 @@
 /components/layout/Class_MainPage.vue
 ******************************************/
 .class_home_container,
-.progress_home_container{
+.progress_home_container,
+.progressImpend_home_container{
     .first-section{
         .mob-inner{
             .mid-column{margin:4px 0 24px 0; border:none;}
@@ -113,6 +115,27 @@
                         .progress-bubble{left:50%; transform:translateX(-50%)}
                         .progress-value{
                             .step{width:50%;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/******************************************
+운동 종료 임박
+/components/layout/ProgressImpendHome.vue
+******************************************/
+.progressImpend_home_container{
+    .first-section{
+        .mob-inner{
+            .bott-column{
+                .place-progress-box{
+                    .progress-bar{
+                        .progress-bubble{left:auto; transform:translateX(0); right:5%;}
+                        .progress-value{
+                            .step{width:95%;}
                         }
                     }
                 }

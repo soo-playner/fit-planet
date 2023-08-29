@@ -170,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <div class="bott-pay-btn">
+        <div class="bott-pay-btn" style="opacity:0;">
             <div class="place-name f-14-700">위즈짐</div>
             <ul class="choice-machine-list">
                 <li>

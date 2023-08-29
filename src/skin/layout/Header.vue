@@ -26,6 +26,7 @@ const headerType = () => {
         case "/":
         case "/Class":
         case "/not/class":
+        case "/not/class/trainer":
         case "/complete/class": {
             return {
                 logo: true,

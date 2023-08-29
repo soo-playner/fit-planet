@@ -10,8 +10,11 @@ import Splash from "../skin/intro/Splash";
 import Intro from "../skin/intro/Intro";
 import Home from "../skin/home/Home";
 import Class_Home from "../skin/home/ClassHome";
+import ClassHome_2 from "../skin/home/ClassHome_2";
 import NotClass_Home from "../skin/home/NotClassHome";
+import NotClassHome_2 from "../skin/home/NotClassHome_2";
 import ProgressHome from "../skin/home/ProgressHome";
+import ProgressImpendHome from "../skin/home/ProgressImpendHome";
 import Complete_Home from "../skin/home/CompleteHome";
 import Login from "../routes/login/Login";
 import JoinStep1 from "../routes/join/JoinStep1";
@@ -73,8 +76,11 @@ const routes = [
     // 메인
     { path: "/", component: Home, name: "Home" }, // 첫 방문
     { path: "/class", component: Class_Home, name: "ClassHome" }, // 플레이스 수강권 등록
+    { path: "/class/trainer", component: ClassHome_2, name: "ClassHome_2" }, // 트레이너 수강권 등록
     { path: "/not/class", component: NotClass_Home, name: "NotClassHome" }, // 플레이스 수강권 미등록
+    { path: "/not/class/trainer", component: NotClassHome_2, name: "NotClassHome_2" }, // 트레이너 수강권 미등록
     { path: "/progress/class", component: ProgressHome, name: "ProgressHome" }, // 운동 진행 중
+    { path: "/progress/impend/class", component: ProgressImpendHome, name: "ProgressImpendHome" }, // 운동 종료 임박
     { path: "/complete/class", component: Complete_Home, name: "CompleteHome" }, // 운동 종료
     // 로그인
     { path: "/login", component: Login, name: "Login", meta: { title: "로그인" } },
