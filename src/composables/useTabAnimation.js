@@ -1,4 +1,4 @@
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 /******************************************
 탭 애니메이션
@@ -25,8 +25,6 @@ export default function useTabAnimation(faqList) {
     const li = ref(null);
     const nav = ref(null);
     const tabContentWrap = ref(null);
-    const tabContent = ref([1, 2, 3, 4, 5, 6]);
-    const test = computed(() => tabContent.value.length);
     let curPos = 0;
     let position = 0;
     // let start_x, end_x;
@@ -53,7 +51,6 @@ export default function useTabAnimation(faqList) {
             // li 태그 active 클래스 추가
             el.classList.add("active");
             curPos = li.value.indexOf(el);
-            console.log(curPos);
         }
 
         li.value.forEach((items) => {
@@ -62,13 +59,11 @@ export default function useTabAnimation(faqList) {
             });
             items.classList.contains("active") && navFnc(items);
         });
-
-        console.log(curPos);
     }
 
-    function navFnc(el) {
+    function navFnc() {
         // 클릭 시 각 li 태그의 active 클래스 제거
-        li.value.forEach((items, index) => {
+        li.value.forEach((items) => {
             items.classList.remove("active");
             // (컨텐츠의 width 값 * 클릭한 li 태그의 index)로 슬라이드 되도록
             items.onclick = () => {
@@ -87,25 +82,21 @@ export default function useTabAnimation(faqList) {
 
     function prev() {
         if (curPos > 0) {
-            console.log(curPos);
             curPos = curPos - 1;
             position = tabContentWrap.value.clientWidth * curPos;
             tabContentWrap.value.style.transform = `translateX(${-position}px)`;
 
             li.value.forEach((items) => {
                 items.addEventListener("click", () => {
-                    navFnc(li.value[curPos]);
+                    navFnc();
                 });
                 items.classList.contains("active") && navFnc(items);
             });
         }
-
-        console.log(curPos);
     }
     function next() {
         if (curPos < faqList.length - 1) {
             position = tabContentWrap.value.clientWidth * (curPos + 1);
-            console.log(position);
             tabContentWrap.value.style.transform = `translateX(${-position}px)`;
             curPos = curPos + 1;
 
@@ -116,8 +107,6 @@ export default function useTabAnimation(faqList) {
                 items.classList.contains("active") && navFnc(items);
             });
         }
-
-        console.log(curPos);
     }
     function touchStart(e) {
         start_x.value = e.touches[0].pageX;
