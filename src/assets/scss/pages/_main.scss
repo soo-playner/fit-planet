@@ -41,38 +41,8 @@
 메인 페이지(플레이스 수강권 미등록)
 /components/layout/NotClass_MainPage.vue
 ******************************************/
-/*
-.NotClass_main_container{
-    &_inner{
-        .NotClass-section01-inner{
-            .place-ref{
-                .place-info-1{position:relative; margin:0 0 16px 0;
-                    & > p{@include menuDot(); text-align:center;}
-                    .place-list{@include placeList;}
-                }
-                .place-info-2{text-align:center;
-                    .place-img-box{@include placeImgBox();}
-                    .place-txt-box{
-                        &-1{margin:10px 0 10px 0; padding-bottom:10px; border-bottom:1px solid #D9D9D9;
-                            p{@include display(flex, null, center);
-                                &:first-child{color:#979797}
-                                &:last-child span{@include afterLine();}
-                            }
-                        }
-                        &-2{
-                            a{@include aTag();}
-                        }
-                    }
-                }
-            }
-        }
-        .NotClass-section02-inner{padding:20px;
-            .place-history{@include placeHistory();}
-        }
-    }
-}
-*/
-.notClass_home_container{
+.notClass_home_container,
+.class_home_container{
     .first-section{
         .mob-inner{padding:24px 20px;
             .top-column{
@@ -103,27 +73,27 @@
 메인 페이지(플레이스 수강권 등록)
 /components/layout/Class_MainPage.vue
 ******************************************/
-.Class_main_container{
-    &_inner{
-        .Class-section01-inner{
-            .place-ref{
-                .place-info-1{position:relative;
-                    .menu-dot{@include menuDot(); text-align:center; color:#979797;}
-                    .place-list{@include placeList();}
-                }
-                .place-info-2{
-                    .place-txt-box{text-align:center;
-                        p:last-child{@include display(flex, null, center);
-                            span{@include afterLine();}
-                        }
+.class_home_container{
+    .first-section{
+        .mob-inner{
+            .mid-column{margin:4px 0 24px 0; border:none;}
+            .bott-column{
+                .place-progress-box{@include placeProgress;
+                    .progress-bar{
+                        .progress-bubble{left:0;}
                     }
-                    .place-progress-box{@include placeProgress;}
-                    a{@include aTag();}
+                }
+                button{@include display(flex, center, center); column-gap:8px;
+                    img{filter:invert(1)}
                 }
             }
         }
-        .Class-section02-inner{padding:20px;
-            .place-history{@include placeHistory();}
+    }
+    .second-section{
+        .place-history{
+            .bott-column{
+                button{@include display(flex, center, center); column-gap:8px;}
+            }
         }
     }
 }
