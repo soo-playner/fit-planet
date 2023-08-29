@@ -9,7 +9,7 @@ ul, ol{list-style:none;}
 a{text-decoration:none; color:#000;}
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
 span{display:block;}
-.main-layout{padding:48px 0 82px 0;
+.main-layout{padding:54px 0 82px 0;
     .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
     &-inner{padding:24px 20px 28px;}
 }

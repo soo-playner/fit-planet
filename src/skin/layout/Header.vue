@@ -14,7 +14,7 @@ const headerPageName = ref(["Discover"]);
 const AlertOpenFnc = () => {
     AlertOpen.value = !AlertOpen.value;
     SearchOpen.value = false;
-};
+}; 
 
 const SearchOpenFnc = () => {
     SearchOpen.value = !SearchOpen.value;
@@ -102,9 +102,23 @@ const headerType = () => {
                 mypage: true,
             };
         }
-        case "/wish":
         case "/discover": {
             return {
+                search: true,
+                mypage: true,
+            };
+        }
+        case "/review": {
+            return {
+                back: false,
+                write: true,
+                search: true,
+                mypage: true,
+            };
+        }
+        case "/wish": {
+            return {
+                back: false,
                 search: true,
                 mypage: true,
             };
@@ -226,6 +240,12 @@ const pageName = () => {
         case "/discover": {
             return "발견";
         }
+        case "/review": {
+            return "후기";
+        }
+        case "/wish": {
+            return "찜";
+        }
     }
 };
 </script>
@@ -284,7 +304,7 @@ const pageName = () => {
                 </ul>
             </div>
 
-            <div class="discover-place f-16-400" v-if="$route.name === 'DiscoverList'">서울시 강남구 대치동</div>
+            <div class="discover-place f-16-400" v-if="$route.name === 'DiscoverList'">서울시 강남구 대치 동</div>
         </div>
 
         <Alert :class="{ active: AlertOpen }" />
