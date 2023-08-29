@@ -19,7 +19,7 @@
 /components/routes/place/DiscoverList.vue
 ******************************************/
 .discover_container{position:relative; 
-    overflow-y: scroll;
+    //overflow-y: scroll;
     .map{@include conSize(100%, 100%); position:fixed;
         iframe{@include conSize(100vw, 100vh);}
     }
@@ -311,7 +311,9 @@
         .choice-product{@include display(flex, center, space-between); padding-top:20px; padding-bottom:20px;}
         // 수강회원 정보
         .member-info{padding-top:16px; padding-bottom:16px;
-            &-tit{margin:0 0 16px 0;}
+            &-tit{@include display(flex, center, space-between); margin:0 0 16px 0;
+                button{@include conSize(null, 24px, 22px); padding:0 7px; border:1px solid #979797; border-radius:12px;}
+            }
             &-input{
                 & > div{@include display(flex, center); margin:0 0 8px 0;
                     &:last-child{margin:0;}
@@ -361,7 +363,7 @@
             .my-card{
                 .top-row{margin:0 0 17px 0;}
                 .swiper-container{padding:0 0 0 75px;}
-                &-edit{@include conSize(null, 24px, 24px); padding:0 8px; border:1px solid #979797; border-radius:12px; color:#979797; cursor:pointer;}
+                &-edit{@include conSize(null, 24px, 22px); padding:0 8px; border:1px solid #979797; border-radius:12px; color:#979797; cursor:pointer;}
             }
         }
         // 결제금액
@@ -389,7 +391,7 @@
             }
         }
         // 결제하기
-        .last-pay-btn{padding-top:20px; padding-bottom:33px;
+        .last-pay-btn{padding-top:20px; padding-bottom:33px; border:none;
             p{margin:0 0 16px 0; text-align:center;}
             button{@include aTag; @include conSize(null, 44px, 44px); column-gap:5px;}
         }

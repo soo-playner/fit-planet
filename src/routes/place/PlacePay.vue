@@ -25,7 +25,10 @@
             </div>
             <!-- 수강회원 정보 -->
             <div class="member-info">
-                <div class="member-info-tit f-16-400">수강회원 정보</div>
+                <div class="member-info-tit">
+                    <div class="f-16-400">수강회원 정보</div>
+                    <button class="f-14-400 gray1">개인정보 수정</button>
+                </div>
                 <div class="member-info-input">
                     <div class="name">
                         <span class="f-14-400">이름</span>
@@ -41,7 +44,7 @@
             <div class="coupon">
                 <div class="coupon-tit">쿠폰</div>
                 <ul class="coupon-list" @click="useCoupon"  v-bind:class="{couponOpen : isCouponActive}">
-                    <li class="f-14-400">사용가능 쿠폰 0장 / 전체 0장<span class="arrow"></span></li>
+                    <li class="f-14-400 gray1">사용가능 쿠폰 0장 / 전체 0장<span class="arrow"></span></li>
                     <ul>
                         <li>쿠폰1</li>
                         <li>쿠폰2</li>

@@ -5213,7 +5213,6 @@ ul 안에 ul
 ******************************************/
 .discover_container {
   position: relative;
-  overflow-y: scroll;
 }
 .discover_container .map {
   width: 100%;
@@ -7065,7 +7064,23 @@ ul 안에 ul
   padding-bottom: 16px;
 }
 .PlacePay_container_inner .member-info-tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 0 16px 0;
+}
+.PlacePay_container_inner .member-info-tit button {
+  height: 24px;
+  line-height: 22px;
+  padding: 0 7px;
+  border: 1px solid #979797;
+  border-radius: 12px;
 }
 .PlacePay_container_inner .member-info-input > div {
   display: -webkit-box;
@@ -7240,7 +7255,7 @@ ul 안에 ul
 }
 .PlacePay_container_inner .payment-method .my-card-edit {
   height: 24px;
-  line-height: 24px;
+  line-height: 22px;
   padding: 0 8px;
   border: 1px solid #979797;
   border-radius: 12px;
@@ -7331,6 +7346,7 @@ ul 안에 ul
 .PlacePay_container_inner .last-pay-btn {
   padding-top: 20px;
   padding-bottom: 33px;
+  border: none;
 }
 .PlacePay_container_inner .last-pay-btn p {
   margin: 0 0 16px 0;
