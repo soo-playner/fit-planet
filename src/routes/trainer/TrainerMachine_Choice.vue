@@ -51,8 +51,8 @@
                     <div class="place-choice-list-layout-tit">1:2 PT <span class="f-14-400">친구, 연인, 혹은 가족과 함께 변화에 도전하세요</span></div>
                     <ul>
                         <li class="flex-flow">
-                            <input type="radio" id="training2_1_1" name="training2" value="2:1 PT 10회">
-                            <label for="training2_1_1">
+                            <input type="radio" id="training1_1_3" name="training1" value="2:1 PT 10회">
+                            <label for="training1_1_3">
                                 <div class="top-row each-tit">
                                     <span class="outSide">
                                         <span></span>
@@ -69,14 +69,14 @@
                     </ul>
                 </div>
             </div>
-            <!-- 운동 선택 - 바디프로필 프로젝트 -->
+            <!-- 운동 선택 - 바디 프로필 프로젝트 -->
             <div class="place-choice-form border">
                 <div class="place-choice-list-layout notBoder">
                     <div class="place-choice-list-layout-tit">바디프로필 프로젝트 <span class="f-14-400">가장 빛나는 나의 모습을 기록해봐요</span></div>
                     <ul>
                         <li class="flex-flow">
-                            <input type="radio" id="training3_1_1" name="training3" value="바디 프로필 프로젝트 30회">
-                            <label for="training3_1_1">
+                            <input type="radio" id="training1_1_4" name="training1" value="바디 프로필 프로젝트 30회">
+                            <label for="training1_1_4">
                                 <div class="top-row each-tit">
                                     <span class="outSide">
                                         <span></span>

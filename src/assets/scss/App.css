@@ -7372,8 +7372,7 @@ ul 안에 ul
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .discount {
   color: #979797;
 }
-.place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-product {
-  width: 6rem;
+.place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-product { /*width:6rem;*/
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

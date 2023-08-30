@@ -327,7 +327,7 @@
                 div{@include display(flex, center);
                     .discount{color:#979797}
 
-                    .choice-product{width:6rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+                    .choice-product{/*width:6rem;*/ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
                     .choice-pay{column-gap:8px;
                         p{@include font(14px, 400)}
                     }
