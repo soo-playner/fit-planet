@@ -1,10 +1,20 @@
 <script setup>
+import {useStore} from 'vuex';
+import { ref } from 'vue';
 import Review from '@/components/review/Review.vue';
-import {useStore} from 'vuex'
+import ReviewSorting from '@/components/modal/review/ReviewSorting';
 
 const store = useStore();
 const reviewsByPlaces = store.state.review.reviewsByPlaces;
 
+const sortingOpen = ref(false);
+const sortingOpenFnc = () => {
+    sortingOpen.value = !sortingOpen.value;
+}
+
+const closeModalFnc = () => {
+    sortingOpen.value = !sortingOpen.value;
+}
 </script>
 
 <template>
@@ -19,10 +29,12 @@ const reviewsByPlaces = store.state.review.reviewsByPlaces;
                     </p>
                 </div>
                 <ul class="right-row place-review-sorting">
-                    <li><p class="f-12-400">추천순</p><span class="arrow"></span></li>
+                    <li @click="sortingOpenFnc"><p class="f-12-400">추천순</p><span class="arrow"></span></li>
                 </ul>
             </div>
             <Review v-for="review in reviewsByPlaces" :key="review.id" :review="review" />
         </div>
     </div>
+
+    <ReviewSorting :class="{ active : sortingOpen }" :closeModal="closeModalFnc"/>
 </template> 
