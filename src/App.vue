@@ -24,7 +24,7 @@ export default {
             /* 비밀번호 찾기 */ "FindPW_Step1", "FindPW_Step2", "PW_Reset",
             /* 이메일로 비밀번호 찾기 */ "FindPW_Email_Step1", "FindPW_Email_Step2",
             /* 플레이스 */ "PlaceTrainer", "PlaceMachine", "PlacePay_Complete", "PlaceMachine_Choice", "PlaceTicket_Complete",
-            /* 트레이너 */ "TrainerPay_Complete", "TrainerTicket_Complete",
+            /* 트레이너 */ "TrainerPay_Complete", "TrainerTicket_Complete", "TrainerReview", "TrainerMachine_Choice",
             /* 마이페이지 */ "MyPage", "Profile_Type1", "Profile_Type2",
             /* 닉네임 변경 */ "ChangeNickname",
             /* 비밀번호 변경 */ "ChangePassword", "ChangePassword_Confirm",

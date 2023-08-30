@@ -42,6 +42,8 @@ import PlacePay_Complete from "../routes/place/PlacePay_Complete";
 import PlaceTicket_Complete from "../routes/place/PlaceTicket_Complete";
 import DiscoverList from "../routes/place/DiscoverList";
 import TrainerDetail from "../routes/trainer/TrainerDetail";
+import TrainerReview from "../routes/trainer/TrainerReview";
+import TrainerMachine_Choice from "../routes/trainer/TrainerMachine_Choice";
 import TrainerPay_Complete from "../routes/trainer/TrainerPay_Complete";
 import TrainerTicket_Complete from "../routes/trainer/TrainerTicket_Complete";
 import Review from "../routes/review/Review";
@@ -116,6 +118,8 @@ const routes = [
     { path: "/discover", component: DiscoverList, name: "DiscoverList" }, // 발견
     // 트레이너
     { path: "/trainer/detail", component: TrainerDetail, name: "TrainerDetail" },
+    { path: "/trainer/review", component: TrainerReview, name: "TrainerReview" },
+    { path: "/trainer/machine-choice", component: TrainerMachine_Choice, name: "TrainerMachine_Choice" },
     { path: "/trainer/pay/complete", component: TrainerPay_Complete, name: "TrainerPay_Complete" },
     { path: "/trainer/ticket/complete", component: TrainerTicket_Complete, name: "TrainerTicket_Complete" },
     // 후기

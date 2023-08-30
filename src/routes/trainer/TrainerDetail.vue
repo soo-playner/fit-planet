@@ -19,10 +19,14 @@ const swiperOption2 = {
     spaceBetween: 8,
 };
 
-const inquiryActive = ref(false);
-
-function toggleInquiry() {
-    inquiryActive.value = !inquiryActive.value;
+// 문의하기 모달창 오픈
+const inquiryOpen = ref(false);
+const inquiryOpenFnc = () => {
+    inquiryOpen.value = !inquiryOpen.value;
+}; 
+// 문의하기 모달창 닫기
+const confirmInquiry = () => {
+    inquiryOpen.value = !inquiryOpen.value;
 }
 </script>
 
@@ -94,7 +98,7 @@ function toggleInquiry() {
                     </div>
                     <div class="place-info-scope">
                         <div class="starBox">
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
+                            <div class="star">★</div>
                         </div>
                         <div class="scope-current f-12-400">4.3<span class="gray2">(12)</span></div>
                     </div>
@@ -153,26 +157,6 @@ function toggleInquiry() {
                             <div class="review-write-info">
                                 <p class="review-writer f-14-400">위즈위즈<span class="review-date f-12-400">3개월 전</span></p>
                                 <div class="review-writer-scope">
-                                    <!-- <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">별 1개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">2개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">3개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">4개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">5개</span></span>
-                                    </label> -->
                                     <img src="@/assets/image/star_box.png" alt="" />
                                 </div>
                             </div>
@@ -182,26 +166,6 @@ function toggleInquiry() {
                             <div class="review-write-info">
                                 <p class="review-writer f-14-400">위즈위즈<span class="review-date f-12-400">3개월 전</span></p>
                                 <div class="review-writer-scope">
-                                    <!-- <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">별 1개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">2개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">3개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">4개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">5개</span></span>
-                                    </label> -->
                                     <img src="@/assets/image/star_box.png" alt="" />
                                 </div>
                             </div>
@@ -211,26 +175,6 @@ function toggleInquiry() {
                             <div class="review-write-info">
                                 <p class="review-writer f-14-400">위즈위즈<span class="review-date f-12-400">3개월 전</span></p>
                                 <div class="review-writer-scope">
-                                    <!-- <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">별 1개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">2개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">3개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">4개</span></span>
-                                    </label>
-                                    <label for="">
-                                        <input type="radio" name="star">
-                                        <span class="starBg"><span class="blind">5개</span></span>
-                                    </label> -->
                                     <img src="@/assets/image/star_box.png" alt="" />
                                 </div>
                             </div>
@@ -238,7 +182,7 @@ function toggleInquiry() {
                         </SwiperSlide>
                     </Swiper>
                 </div>
-                <router-link to="/" class="review-all-btn f-14-400">이용 후기 모두 보기</router-link>
+                <router-link to="/trainer/review" class="review-all-btn f-14-400">이용 후기 모두 보기</router-link>
             </div>
             <!-- 플레이스 설명 -->
             <div class="place-explain f-12-400">
@@ -342,10 +286,10 @@ function toggleInquiry() {
         </div>
         <!-- 문의하기/운동 선택하기 -->
         <div class="place-lnb">
-            <router-link to="#" class="work-inquiry f-16-700" @click="toggleInquiry">문의하기</router-link>
-            <router-link to="/PlaceMachine_Choice" class="work-choice f-16-700">운동 결제하기</router-link>
+            <button class="work-inquiry f-16-700" @click="inquiryOpenFnc">문의하기</button>
+            <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 결제하기</router-link>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <placeDetail_Modal/>
+        <placeDetail_Modal :class="{ active : inquiryOpen }" :InquiryClose="confirmInquiry"/>
     </div>
 </template>

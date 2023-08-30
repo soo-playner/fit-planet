@@ -48,12 +48,12 @@ const machineTag = [
 // const machineTag2 = [{ id: "브이스쿼트" }, { id: "힙 어브덕션" }, { id: "핵스쿼트 머신" }, { id: "레그프레스" }, { id: "파워 레그프레스 머신" }, { id: "레그 익스텐션 머신" }, { id: "레그 컬 머신" }];
 // const machineTag3 = [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }];
 
-// 거리순 솔팅 모달창 오픈
+// 문의하기 모달창 오픈
 const inquiryOpen = ref(false);
 const inquiryOpenFnc = () => {
     inquiryOpen.value = !inquiryOpen.value;
 }; 
-// 솔팅 모달창 닫기
+// 문의하기 모달창 닫기
 const confirmInquiry = () => {
     inquiryOpen.value = !inquiryOpen.value;
 }

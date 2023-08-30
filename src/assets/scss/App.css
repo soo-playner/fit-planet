@@ -6397,8 +6397,18 @@ ul 안에 ul
 }
 .detail_container_inner .place-facility-list-detail .place-img {
   width: 100%;
-  height: 20vw;
+  height: 500px;
   background: #D9D9D9;
+}
+@media (max-width: 991px) {
+  .detail_container_inner .place-facility-list-detail .place-img {
+    height: 50vw;
+  }
+}
+@media (max-width: 480px) {
+  .detail_container_inner .place-facility-list-detail .place-img {
+    height: 170px;
+  }
 }
 .detail_container_inner .place-facility-list-detail .place-info {
   background: #F1F1F1;
@@ -6593,9 +6603,10 @@ ul 안에 ul
   background: #000;
   color: #fff;
   border-radius: 19px;
+  width: calc(100% - 20px);
   height: 44px;
   line-height: 44px;
-  margin: 16px 0 0 0;
+  margin: 16px 20px 0 0;
   background: #fff;
   border: 1px solid #979797;
   color: #000;
@@ -7126,18 +7137,23 @@ ul 안에 ul
 }
 
 /******************************************
-플레이스 상세 페이지 - 운동 선택하기
+플레이스, 트레이너 상세 페이지 - 운동 선택하기
 /components/routes/place/PlaceMachine_Choice.vue
+/components/routes/trainer/TrainerMachine_Choice.vue
 ******************************************/
-.PlaceMachine_Choice_container_inner {
+.place-choice-layout-inner .place-choice-form {
+  position: relative;
   padding: 0 20px;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout > div {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout > div {
   line-height: 1;
   font-size: 16px;
   font-weight: 700;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout-tit span {
+  margin: 8px 0 0 0;
+}
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7148,7 +7164,7 @@ ul 안에 ul
   row-gap: 8px;
   margin: 16px 0 0 0;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7162,14 +7178,14 @@ ul 안에 ul
   background: #D9D9D9;
   border-radius: 8px;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] {
   position: absolute;
   opacity: 0;
   -moz-appearance: none;
        appearance: none;
   -webkit-appearance: none;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7184,7 +7200,7 @@ ul 안에 ul
   color: #000;
   cursor: pointer;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label .outSide {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] + label .outSide {
   width: 24px;
   height: 24px;
   display: -webkit-box;
@@ -7200,7 +7216,7 @@ ul 안에 ul
   border: 1px solid #D9D9D9;
   border-radius: 50%;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label .outSide span {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] + label .outSide span {
   width: 12px;
   height: 12px;
   opacity: 0;
@@ -7208,14 +7224,14 @@ ul 안에 ul
   background: #000;
   border-radius: 50%;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio]:checked + label {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio]:checked + label {
   font-weight: 700;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio]:checked + label .outSide span {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio]:checked + label .outSide span {
   opacity: 1;
   visibility: visible;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] + label {
   width: 100%;
   -webkit-box-align: initial;
       -ms-flex-align: initial;
@@ -7225,7 +7241,7 @@ ul 안에 ul
       -ms-flex-flow: column;
           flex-flow: column;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .each-tit {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .each-tit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7236,21 +7252,21 @@ ul 안에 ul
      -moz-column-gap: 12px;
           column-gap: 12px;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .right-column {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .right-column {
   text-align: right;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .discount {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .discount {
   font-size: 12px;
   font-weight: 400;
   color: #979797;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li.flex-flow {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.flex-flow {
   min-height: 130px;
   -webkit-box-align: initial;
       -ms-flex-align: initial;
           align-items: initial;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li.flex-flow .bott-row {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.flex-flow .bott-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7262,25 +7278,37 @@ ul 안에 ul
       -ms-flex-flow: column;
           flex-flow: column;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout.mp {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout.mp {
   margin-bottom: 16px;
   padding-bottom: 16px;
   border-bottom: 1px solid #D9D9D9;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout.mp:last-child {
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout.mp:last-child {
   margin-bottom: 0;
   padding-bottom: 20px;
   border-bottom: none;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form-tit {
+.place-choice-layout-inner .place-choice-form-tit {
   padding: 20px 0 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid #D9D9D9;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form-tit span {
+.place-choice-layout-inner .place-choice-form-tit span {
   margin: 5px 0 0 0;
 }
-.PlaceMachine_Choice_container .bott-pay-btn {
+.place-choice-layout-inner .place-choice-form.border {
+  padding-bottom: 20px;
+}
+.place-choice-layout-inner .place-choice-form.border::after {
+  content: "";
+  width: 100%;
+  height: 8px;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  background: #f1f1f1;
+}
+.place-choice-layout .bott-pay-btn {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -7293,16 +7321,16 @@ ul 안에 ul
   -webkit-box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.1);
           box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.1);
 }
-.PlaceMachine_Choice_container .bott-pay-btn .place-name {
+.place-choice-layout .bott-pay-btn .place-name {
   margin: 0 0 12px 0;
   text-align: center;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list {
+.place-choice-layout .bott-pay-btn .choice-machine-list {
   margin: 0 0 12px 0;
   padding: 0 0 12px 0;
   border-bottom: 1px solid #D9D9D9;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li {
+.place-choice-layout .bott-pay-btn .choice-machine-list li {
   height: 36px;
   line-height: 1;
   display: -webkit-box;
@@ -7316,7 +7344,7 @@ ul 안에 ul
   background: #F1F1F1;
   border-radius: 8px;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li div {
+.place-choice-layout .bott-pay-btn .choice-machine-list li div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7324,15 +7352,25 @@ ul 안에 ul
       -ms-flex-align: center;
           align-items: center;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li div .discount {
+.place-choice-layout .bott-pay-btn .choice-machine-list li div .discount {
   color: #979797;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li div div:last-child {
+.place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-product {
+  width: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-pay {
   -webkit-column-gap: 8px;
      -moz-column-gap: 8px;
           column-gap: 8px;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li .close {
+.place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-pay p {
+  font-size: 14px;
+  font-weight: 400;
+}
+.place-choice-layout .bott-pay-btn .choice-machine-list li .close {
   width: 15px;
   height: 15px;
   display: -webkit-box;
@@ -7348,50 +7386,50 @@ ul 안에 ul
   margin: 0 0 0 9px;
   cursor: pointer;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li .close::before, .PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li .close::after {
+.place-choice-layout .bott-pay-btn .choice-machine-list li .close::before, .place-choice-layout .bott-pay-btn .choice-machine-list li .close::after {
   content: "";
   width: 100%;
   height: 1px;
   position: absolute;
   background: #000;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li .close::before {
+.place-choice-layout .bott-pay-btn .choice-machine-list li .close::before {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li .close::after {
+.place-choice-layout .bott-pay-btn .choice-machine-list li .close::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li > div:first-child {
+.place-choice-layout .bott-pay-btn .choice-machine-list li > div:first-child {
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .choice-machine-list li:last-child {
+.place-choice-layout .bott-pay-btn .choice-machine-list li:last-child {
   margin: 0;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .total-pay div {
+.place-choice-layout .bott-pay-btn .total-pay div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .total-pay div div {
+.place-choice-layout .bott-pay-btn .total-pay div div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .total-pay div .lightgray {
+.place-choice-layout .bott-pay-btn .total-pay div .lightgray {
   color: #979797;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .total-pay > div {
+.place-choice-layout .bott-pay-btn .total-pay > div {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
 }
-.PlaceMachine_Choice_container .bott-pay-btn .total-pay a {
+.place-choice-layout .bott-pay-btn .total-pay button {
   width: 100%;
   height: 38px;
   line-height: 36px;
@@ -7416,6 +7454,17 @@ ul 안에 ul
   background: #D9D9D9;
   color: #979797;
   border: none;
+}
+
+.trainer-machine-choice .place-choice-form .place-choice-list-layout {
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #D9D9D9;
+}
+.trainer-machine-choice .place-choice-form .place-choice-list-layout.notBoder {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 /******************************************

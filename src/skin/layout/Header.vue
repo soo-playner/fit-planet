@@ -177,7 +177,8 @@ const headerTitle = () => {
         case "/trainer/pay/complete": {
             return "결제 완료";
         }
-        case "/Place/Review": {
+        case "/Place/Review":
+        case "/trainer/review": {
             return "이용 후기";
         }
         case "/Place/Trainer": {

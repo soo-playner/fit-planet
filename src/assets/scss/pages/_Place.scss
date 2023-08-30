@@ -182,7 +182,10 @@
             &-tit{margin:0 0 20px 0;}
             &-list{
                 &-detail{overflow:hidden; border-radius:8px;
-                    .place-img{@include conSize(100%, 20vw); background:#D9D9D9} // 임시로 속성 쓴 거니 추후 수정 필요
+                    .place-img{@include conSize(100%, 500px); background:#D9D9D9; // 임시로 속성 쓴 거니 추후 수정 필요
+                        @include responsive-991{height:50vw;}
+                        @include responsive-480{height:170px;}
+                    } 
                     .place-info{background:#F1F1F1;
                         .left-row{
                             .place-info-filter{margin:8px 0 0 0;
@@ -205,7 +208,7 @@
                 span{color:#979797}
             }
             @include placeTrainerList;
-            &-all-btn{@include aTag; @include conSize(null, 44px, 44px); margin:16px 0 0 0; background:$f; border:1px solid #979797; color:$b;}
+            &-all-btn{@include aTag; @include conSize(calc(100% - 20px), 44px, 44px); margin:16px 20px 0 0; background:$f; border:1px solid #979797; color:$b;}
         }
         // 환불정책
         .place-refunt{padding:20px;
@@ -278,14 +281,18 @@
 }
 
 /******************************************
-플레이스 상세 페이지 - 운동 선택하기
+플레이스, 트레이너 상세 페이지 - 운동 선택하기
 /components/routes/place/PlaceMachine_Choice.vue
+/components/routes/trainer/TrainerMachine_Choice.vue
 ******************************************/
-.PlaceMachine_Choice_container{
-    &_inner{padding:0 20px;
-        .PlaceMachine-Choice-form{
-            .PlaceMachine-list-layout{
+.place-choice-layout{
+    &-inner{//padding:0 20px;
+        .place-choice-form{position:relative; padding:0 20px;
+            .place-choice-list-layout{
                 & > div{line-height:1; @include font(16px, 700)}
+                &-tit{
+                    span{margin:8px 0 0 0;}
+                }
                 ul{@include display(flex); flex-flow:column; row-gap:8px; margin:16px 0 0 0;
                     li{@include display(flex, center, space-between); @include radioBox1; padding:12px 14px; background:#D9D9D9; border-radius:8px;
                         input[type='radio']{
@@ -307,6 +314,10 @@
             &-tit{padding:20px 0 16px; margin-bottom:16px; border-bottom:1px solid #D9D9D9;
                 span{margin:5px 0 0 0;}
             }
+
+            &.border{padding-bottom:20px;
+                &::after{content:''; @include conSize(100%, 8px); @include position(absolute, null, null, -8px, 0); background:#f1f1f1;}
+            }
         }
     }
     .bott-pay-btn{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:16px 20px 32px; background:$f; border:1px solid #F1F1F1; border-radius:16px 16px 0 0; box-shadow:0 -1px 22px rgba(0,0,0, .1);
@@ -315,7 +326,11 @@
             li{@include conSize(null, 36px, 1); @include display(flex, center); margin:0 0 4px 0; padding:0 16px; background:#F1F1F1; border-radius:8px;
                 div{@include display(flex, center);
                     .discount{color:#979797}
-                    div:last-child{column-gap:8px;}
+
+                    .choice-product{width:6rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+                    .choice-pay{column-gap:8px;
+                        p{@include font(14px, 400)}
+                    }
                 }
                 .close{@include conSize(15px, 15px); @include display(flex, center, center); position:relative; margin:0 0 0 9px; cursor:pointer;
                     &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
@@ -334,7 +349,15 @@
                 .lightgray{color:#979797;}
             }
             & > div{flex-flow:column;}
-            a{@include aTag; @include conSize(null, 44px, 44px); background:#D9D9D9; color:#979797; border:none;}
+            button{@include aTag; @include conSize(null, 44px, 44px); background:#D9D9D9; color:#979797; border:none;}
+        }
+    }
+}
+
+.trainer-machine-choice{
+    .place-choice-form{
+        .place-choice-list-layout{padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid #D9D9D9;
+            &.notBoder{padding-bottom:0; margin-bottom:0; border-bottom:0;}
         }
     }
 }
