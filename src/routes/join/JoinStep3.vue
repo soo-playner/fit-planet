@@ -1,30 +1,23 @@
 <script setup>
 import JoinCurrent from "../../components/layout/JoinCurrent.vue";
-import { ref } from "vue";
+import { onMounted } from "vue";
 import { useStore } from "vuex";
 import useValidations from "@/composables/useValidations";
 import axios from "axios";
-const { form, isFormValid, errorText, nextCondition } = useValidations(["nickname"]);
-
-const nickname = ref("");
-const canRegister = ref(false);
-const isDuplicate = ref(null);
+import { useRouter } from "vue-router";
+const { form, isFormValid, errorText, nextCondition, dupCheckNickname } = useValidations(["mb_nickname", "mb_nickname_dup"]);
 
 const store = useStore();
-const CHECK_DUPLICATE_NICKNAME = "checkDuplicateNickname";
+const router = useRouter();
 
-const checkBtnClickHandler = async () => {
-    if (!form.mb_nickname.value) return;
-    // 닉네임 중복 확인 api 호출
-    const res = await store.dispatch(CHECK_DUPLICATE_NICKNAME, { nickname: nickname.value });
-    canRegister.value = !res.isDuplicate;
-    isDuplicate.value = res.isDuplicate;
+const submitData = async () => {
+    store.commit("updateJoinData", { nickname: form.mb_nickname.value });
+    router.push("/join/complete");
 };
 
-// 중복확인 성공하고 input 변경하는 경우
-const resetDuplicateFlag = () => {
-    if (!!canRegister.value) canRegister.value = false;
-};
+onMounted(() => {
+    console.log(store.state.join.joinData);
+});
 </script>
 
 <template>
@@ -34,11 +27,12 @@ const resetDuplicateFlag = () => {
             <div class="nickname-guide f-14-400">핏플래닛에서 사용할 닉네임을 입력해주세요</div>
             <div class="form-group">
                 <input type="text" v-model="form.mb_nickname.value" name="mb_nickname" id="mb_nickname" placeholder="닉네임 입력" @change="resetDuplicateFlag" />
-                <button class="f-14-700" @click="checkBtnClickHandler">중복 확인</button>
+                <button class="f-14-700" @click="dupCheckNickname">중복 확인</button>
             </div>
             <p class="vail f-12-400" v-show="form.mb_nickname.value && !isFormValid.mb_nickname.value">{{ errorText.mb_nickname }}</p>
-            <p class="vail f-12-400" v-show="isDuplicate">이미 존재하는 닉네임입니다.</p>
+            <p class="vail f-12-400" v-show="isFormValid.mb_nickname.value && !isFormValid.mb_nickname_dup.value">닉네임 중복체크를 해주세요.</p>
+            <p class="vail f-12-400" v-show="isFormValid.mb_nickname.value && isFormValid.mb_nickname_dup.value">사용 가능한 닉네임 입니다.</p>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/complete')" :disabled="canRegister && !nextCondition()">가입 완료</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">가입 완료</button>
     </div>
 </template>

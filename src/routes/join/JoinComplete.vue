@@ -1,5 +1,11 @@
 <script setup>
+import axios from "axios";
 import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+const joinResult = ref("requesting");
 
 // Variables
 let canvas, confetti;
@@ -65,7 +71,11 @@ function windowOnResize() {
     location.reload();
 }
 
-onMounted(() => {
+onMounted(async () => {
+    // const res = await axios.post("api", { ...store.state.join.joinData });
+    // if (!res.data.result) return (joinResult.value = "fail");
+    joinResult.value = "success";
+
     canvas = document.querySelector(".complete-canvas");
     if (canvas == null || canvas.getContext == null) return;
     confetti = canvas.getContext("2d");
@@ -90,11 +100,22 @@ onBeforeUnmount(() => {
     <div class="member_container complete">
         <canvas class="complete-canvas"></canvas>
         <div class="member_container_inner mob-inner">
-            <div class="txt-box">
+            <div class="txt-box" v-show="joinResult === 'success'">
                 <div class="f-16-400">핏플래닛 가입 완료!</div>
                 <div class="f-24-700">
-                    <p>위즈위즈님</p>
-                    <p>환영합니다!</p>
+                    <!-- <p>위즈위즈님</p>
+                    <p>환영합니다!</p> -->
+                    위즈위즈님<br />
+                    환영합니다!
+                </div>
+            </div>
+            <div class="txt-box" v-show="joinResult === 'fail'">
+                <div class="f-16-400">핏플래닛 가입 실패</div>
+                <div class="f-24-700">
+                    <!-- <p>위즈위즈님</p>
+                    <p>환영합니다!</p> -->
+                    회원가입에 실패하였습니다.<br />
+                    다시 시도해주세요.
                 </div>
             </div>
         </div>
