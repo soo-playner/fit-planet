@@ -24,11 +24,8 @@ import JoinComplete from "../routes/join/JoinComplete";
 import Authority from "../routes/join/Authority";
 import FindID_Step1 from "../routes/find_account/id/FindID_Step1";
 import FindID_Step2 from "../routes/find_account/id/FindID_Step2";
-import FindID_Step3 from "../routes/find_account/id/FindID_Step3";
 import FindPW_Step1 from "../routes/find_account/password/FindPW_Step1";
-import FindPW_Step2 from "../routes/find_account/password/FindPW_Step2";
 import FindPW_Email_Step1 from "../routes/find_account/password/FindPW_Email_Step1";
-import FindPW_Email_Step2 from "../routes/find_account/password/FindPW_Email_Step2";
 import PW_Reset from "../routes/find_account/password/PW_Reset";
 import Place from "../routes/place/Place";
 import PlaceList from "../routes/place/PlaceList";
@@ -97,11 +94,8 @@ const routes = [
     // 아이디, 비밀번호 찾기
     { path: "/find/id/step1", component: FindID_Step1, name: "FindID_Step1" },
     { path: "/find/id/step2", component: FindID_Step2, name: "FindID_Step2" },
-    { path: "/find/id/step3", component: FindID_Step3, name: "FindID_Step3" },
     { path: "/find/pw/step1", component: FindPW_Step1, name: "FindPW_Step1" },
-    { path: "/find/pw/step2", component: FindPW_Step2, name: "FindPW_Step2" },
     { path: "/find/pw/email/step1", component: FindPW_Email_Step1, name: "FindPW_Email_Step1" },
-    { path: "/find/pw/email/step2", component: FindPW_Email_Step2, name: "FindPW_Email_Step2" },
     // 비밀번호 재설정
     { path: "/PW_Reset", component: PW_Reset, name: "PW_Reset" },
     // 플레이스

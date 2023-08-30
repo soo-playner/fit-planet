@@ -1,20 +1,27 @@
 <script setup>
 // 필요한 경우 import 문을 사용하여 다른 모듈을 가져올 수 있습니다.
-
-// 컴포넌트의 이름을 지정합니다.
 </script>
 
 <template>
-    <div class="member_container id-step2">
+    <div class="member_container id-step3">
         <div class="member_container_inner mob-inner">
-            <div class="form-group">
-                <input type="tel" name="mb_phone" id="mb_phone" value="01012345678" />
+            <div class="id-guide">
+                <div class="f-20-700">1개의 아이디를 찾았어요</div>
+                <p class="f-14-400">개인정보 보호를 위해 아이디는 일부만 제공합니다.</p>
             </div>
-            <div class="form-group">
-                <input type="text" name="pass_num" id="pass_num" placeholder="726506" />
-                <span class="pass-time f-12-400">02:55</span>
-            </div>
+            <ul class="id-list">
+                <li>
+                    <div class="user-profile-img"></div>
+                    <div class="user-info">
+                        <p class="user-email f-14-400">wizz***@naver.com</p>
+                        <p class="f-12-500"><span class="login-history">23년 7월 26일</span> 마지막 로그인</p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner">인증 완료</button>
+        <div class="bott-btn-box mob-inner">
+            <router-link to="/FindPW_Step1" class="FindPW line f-14-400">비밀번호 찾기</router-link>
+            <router-link to="/Login" class="next-step-btn f-16-700">로그인 하러가기</router-link>
+        </div>
     </div>
 </template>
