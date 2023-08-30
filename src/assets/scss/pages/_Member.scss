@@ -63,6 +63,14 @@
         }
     // 비밀번호 찾기
         // 비밀번호 찾기 1-1
+        &.FindPW_Email_Step1{
+            .password-guide{margin:20px 0 0 0; color:$b; text-align:center;
+                a{position:relative;
+                    &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 0, 0); background:$b;}
+                }
+            }
+        }
+
         &.FindPW_Email_Step2,
         &.pw-reset{padding-top:80px;}
         &.pw-step1{

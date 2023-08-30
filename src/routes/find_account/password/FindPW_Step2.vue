@@ -14,12 +14,18 @@ const EmailSendFnc = () => {
         <div class="member_container_inner mob-inner">
             <div class="FindPW_form">
                 <div class="form-group">
-                    <input type="email" id="mb_email" name="mb_email" placeholder="이메일 주소" />
+                    <input type="tel" id="mb_phone" name="mb_phone" placeholder="휴대폰 번호(-제외)" />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="" name="" placeholder="726506">
+                    <span class="pass-time f-12-400">02:55</span>
                 </div>
             </div>
-            <router-link to="#" class="next-step-btn f-16-700" @click="EmailSendFnc">인증메일 요청</router-link>
         </div>
-        <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
+        <button class="next-step-btn mob-inner f-16-700" @click="[$router.push('/PW_Reset')]">인증 완료</button>
+
+
+        <!-- <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
             <div class="overlay" @click="EmailSendFnc"></div>
             <div class="member_alert_inner mob-inner">
                 <div class="f-18-700">
@@ -28,6 +34,6 @@ const EmailSendFnc = () => {
                 </div>
                 <router-link to="/Login" @click="EmailSendFnc" class="next-step-btn">로그인 하러가기</router-link>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
