@@ -1,7 +1,22 @@
 <script setup>
 import JoinCurrent from "@/components/layout/JoinCurrent.vue";
 import useValidations from "@/composables/useValidations";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+import { onMounted } from "vue";
+
 const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_id", "mb_password", "mb_password_cfm"]);
+const store = useStore();
+const router = useRouter();
+
+const submitData = () => {
+    store.commit("updateJoinData", { id: form.mb_id.value, pw: form.mb_password.value });
+    router.push("/join/step3");
+};
+
+onMounted(() => {
+    console.log(store.state.join.joinData);
+});
 </script>
 
 <template>
@@ -9,6 +24,7 @@ const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showP
     <div class="member_container step2">
         <div class="member_container_inner mob-inner">
             <div class="form-group">
+                {{ store.state.join.joinData }}
                 <input v-model="form.mb_id.value" type="email" name="mb_id" id="mb_id" maxlength="20" placeholder="아이디(이메일)" required />
                 <div class="etc">
                     <span class="check-confirm" :class="{ active: isFormValid.mb_id.value }">
@@ -46,6 +62,6 @@ const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showP
                 <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/step3')" :disabled="!nextCondition()">다음</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">다음</button>
     </div>
 </template>

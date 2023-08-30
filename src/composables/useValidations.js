@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ref, watch } from "vue";
 
 export default function useValidations(option) {
@@ -20,6 +21,7 @@ export default function useValidations(option) {
     const errorText = {
         mb_id: "유효하지 않은 아이디입니다.",
         mb_nickname: "유효하지 않은 닉네임 입니다.",
+        mb_nickname_dup: "닉네임 중복체크를 해주세요.",
         mb_phone: "유효하지 않은 휴대폰번호 형식입니다.",
         mb_password: "비밀번호는 영문, 숫자, 특수문자 조합 8자리 이상이어야 합니다.",
         mb_password_cfm: "입력된 비밀번호와 동일하지 않습니다.",
@@ -39,6 +41,7 @@ export default function useValidations(option) {
     });
     watch(form.mb_nickname, (newValue) => {
         isFormValid.mb_nickname.value = exp.mb_nickname.test(newValue);
+        isFormValid.mb_nickname_dup.value = false;
     });
     watch(form.mb_phone, (newValue) => {
         isFormValid.mb_phone.value = exp.mb_phone.test(newValue);
@@ -67,6 +70,11 @@ export default function useValidations(option) {
     const showPwdConfirmed = () => {
         isPwdConfirmedVisible.value = !isPwdConfirmedVisible.value;
     };
+    const dupCheckNickname = async () => {
+        // const res = axios.post("api", { mb_nickname: form.mb_nickname.value });
+        // if (res.data.result) isFormValid.mb_id_dup.value = true;
+        if (true) isFormValid.mb_nickname_dup.value = true;
+    };
 
-    return { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, nextCondition, showPwd, showPwdConfirmed };
+    return { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, nextCondition, showPwd, showPwdConfirmed, dupCheckNickname };
 }

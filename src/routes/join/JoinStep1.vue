@@ -1,10 +1,15 @@
 <script setup>
+import { ref, computed, onMounted } from "vue";
 import JoinCurrent from "@/components/layout/JoinCurrent.vue";
-import { ref, computed } from "vue";
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
 
 const isCheckedAll = ref(false);
 const terms = [
-    { id: "wr_1_1", label: "만 14세 이상입니다.", required: false, checked: ref(false) },
+    { id: "wr_1_1", label: "(필수)만 14세 이상입니다.", required: true, checked: ref(false) },
     { id: "wr_1_2", label: "(필수) 서비스 이용약관", required: true, checked: ref(false) },
     { id: "wr_1_3", label: "(필수) 개인정보 처리방침", required: true, checked: ref(false) },
     { id: "wr_1_4", label: "(선택) 마케팅 정보 수신동의", required: false, checked: ref(false) },
@@ -23,14 +28,22 @@ function toggleAllTerms() {
 function checkSingleTerm(checkedTerm) {
     let checkedCnt = 0;
 
-    terms.forEach(term => {
+    terms.forEach((term) => {
         if (term === checkedTerm) term.checked.value = !term.checked.value;
         if (term.checked.value) checkedCnt++;
-    })
+    });
 
     isCheckedAll.value = checkedCnt === terms.length;
 }
 
+const submitData = () => {
+    store.commit("updateJoinData", { receiveAD: terms[3].checked.value });
+    router.push("/join/step2");
+};
+
+onMounted(() => {
+    store.commit("resetJoinData");
+});
 </script>
 
 <template>
@@ -49,6 +62,6 @@ function checkSingleTerm(checkedTerm) {
                 </div>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/join/step2')" :disabled="shouldDisableNextButton">다음</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="shouldDisableNextButton">다음</button>
     </div>
 </template>
