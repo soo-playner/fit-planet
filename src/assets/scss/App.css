@@ -5434,7 +5434,22 @@ ul 안에 ul
 }
 .discover_container_inner .place-discover-list,
 .discover_container_inner .trainer-discover-list {
-  overflow: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.discover_container_inner .place-discover-list .place-data-wrap,
+.discover_container_inner .place-discover-list .trainer-data-wrap,
+.discover_container_inner .trainer-discover-list .place-data-wrap,
+.discover_container_inner .trainer-discover-list .trainer-data-wrap {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow-y: scroll;
 }
 .discover_container_inner .place-discover-list .PlaceData-form,
 .discover_container_inner .place-discover-list .TrainerData-form,
@@ -5448,6 +5463,8 @@ ul 안에 ul
 .discover_container_inner .trainer-discover-list .filter-scroll {
   margin: 20px 0;
   padding: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .discover_container_inner .place-discover-list .filter-scroll li,
 .discover_container_inner .trainer-discover-list .filter-scroll li {

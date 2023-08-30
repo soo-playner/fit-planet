@@ -60,7 +60,9 @@ const trainerInfo = ref(store.state.place.places);
                         <li>운동기구</li>
                         <li>편의시설</li>
                     </ul>
-                    <PlaceData v-for="placeListItem in placeInfo" :key="placeListItem" :data="placeListItem" />
+                    <div class="place-data-wrap">
+                        <PlaceData v-for="placeListItem in placeInfo" :key="placeListItem" :data="placeListItem" />
+                    </div>
                 </div>
                 <div class="trainer-discover-list">
                     <ul class="filter-scroll">
@@ -72,7 +74,9 @@ const trainerInfo = ref(store.state.place.places);
                         <li>플레이스 타입</li>
                         <li>편의시설</li>
                     </ul>
-                    <TrainerData v-for="trainerListItem in trainerInfo" :key="trainerListItem" :data="trainerListItem" />
+                    <div class="trainer-data-wrap">
+                        <TrainerData v-for="trainerListItem in trainerInfo" :key="trainerListItem" :data="trainerListItem" />
+                    </div>
                 </div>
             </div>
         </div>
