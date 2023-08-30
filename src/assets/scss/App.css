@@ -4137,7 +4137,7 @@ ul 안에 ul
   left: 0;
   background: #000;
 }
-.member_container.FindPW_Email_Step2, .member_container.pw-reset {
+.member_container.FindPW_Email_Step1, .member_container.FindPW_Email_Step2, .member_container.pw-reset {
   padding-top: 80px;
 }
 .member_container.pw-step1 .pw-guide {
