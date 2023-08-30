@@ -1,5 +1,15 @@
 <script setup>
+import { ref } from "vue";
+import axios from "axios";
 import { RouterLink } from "vue-router";
+
+const mb_id = ref("");
+const mb_password = ref("");
+
+const login = async () => {
+    const res = await axios.post("api", { mb_id, mb_password });
+    if (res.data.result) return;
+};
 </script>
 
 <template>
@@ -12,15 +22,15 @@ import { RouterLink } from "vue-router";
             <div class="login-form">
                 <div class="login-form-input1">
                     <div class="form-group">
-                        <input type="text" placeholder="아이디(이메일)" name="mb_id" />
+                        <input type="text" placeholder="아이디(이메일)" name="mb_id" v-model="mb_id" />
                     </div>
                     <div class="form-group password">
-                        <input type="password" placeholder="비밀번호" name="mb_password" />
+                        <input type="password" placeholder="비밀번호" name="mb_password" v-model="mb_password" />
                         <div class="etc">
-                            <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부"></span>
+                            <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부" /></span>
                         </div>
                     </div>
-                    <RouterLink to="" class="login-btn f-16-700">이메일 로그인</RouterLink>
+                    <RouterLink to="" class="login-btn f-16-700" @click="login">이메일 로그인</RouterLink>
                 </div>
                 <div class="login-form-input2 social-login">
                     <RouterLink to="/" title="구글 로그인" />
