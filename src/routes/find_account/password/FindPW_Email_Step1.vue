@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import PW_Email_Modal from "@/components/modal/password/PW_Email";
 import useValidations from "@/composables/useValidations";
+import axios from "axios";
 
 const { form, isFormValid, errorText, nextCondition } = useValidations(["mb_id"]);
 
@@ -10,6 +11,12 @@ const EmailPW = ref(false);
 
 const EmailPWFnc = () => {
     EmailPW.value = !EmailPW.value;
+};
+
+const getTempPw = async () => {
+    // const res = await axios.post("api", { mb_id: form.mb_id.value });
+    // if (res.data.result) EmailPW.value = true;
+    EmailPW.value = true;
 };
 </script>
 
@@ -22,7 +29,7 @@ const EmailPWFnc = () => {
             <p class="f-12-400 vail" v-show="form.mb_id.value && !isFormValid.mb_id.value">{{ errorText.mb_id }}</p>
         </div>
         <!-- 메일을 통해 임시 비밀번호 수신 -->
-        <button class="next-step-btn f-16-700 mob-inner" @click="EmailPWFnc" :disabled="!nextCondition()">임시 비밀번호 요청</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="getTempPw" :disabled="!nextCondition()">임시 비밀번호 요청</button>
     </div>
     <!-- 메일 전송 모달창 -->
     <PW_Email_Modal :class="{ active: EmailPW }" :EmailPWFnc="EmailPWFnc" />

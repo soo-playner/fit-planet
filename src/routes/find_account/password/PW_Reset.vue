@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import useValidations from "@/composables/useValidations";
 import PW_Reset_Modal from "@/components/modal/password/PW_Reset";
+import axios from "axios";
 
 const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_password", "mb_password_cfm"]);
 
@@ -10,6 +11,12 @@ const ResetPW = ref(false);
 
 const ResetPWFnc = () => {
     ResetPW.value = !ResetPW.value;
+};
+
+const submitData = async () => {
+    // const res = await axios.post("api", { mb_password: form.mb_password.value });
+    // if (res.data.result) ResetPW.value = true;
+    ResetPW.value = true;
 };
 </script>
 
@@ -45,7 +52,7 @@ const ResetPWFnc = () => {
                 <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="ResetPWFnc" :disabled="!nextCondition()">확인</button>
+        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">확인</button>
 
         <!-- 비밀번호 재설정 모달창 -->
         <PW_Reset_Modal :class="{ active: ResetPW }" :ResetPWFnc="ResetPWFnc" />
