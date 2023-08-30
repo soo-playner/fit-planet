@@ -35,11 +35,12 @@
             .nav-indicator{height:32px; background:none; border:1px solid $b; border-radius:16px;}
         }
         .place-discover-list,
-        .trainer-discover-list{
-            overflow: scroll;
+        .trainer-discover-list{ display: flex;flex-direction: column;
+            .place-data-wrap,
+            .trainer-data-wrap{flex-grow: 1; overflow-y: scroll; }
             .PlaceData-form,
             .TrainerData-form{margin:0 0 16px 0; padding:0 0 16px 0; border-bottom:1px solid #D9D9D9;}
-            .filter-scroll{margin:20px 0; padding:0;
+            .filter-scroll{margin:20px 0; padding:0; flex-shrink: 0;
                 li{color:$b;
                     &:last-child{margin:0;}
                     img{margin:0;}
