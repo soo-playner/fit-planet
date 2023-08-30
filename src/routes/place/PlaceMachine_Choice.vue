@@ -13,57 +13,82 @@
                     <div class="place-ticket-list-tit">수강권</div>
                     <ul>
                         <li class="flex-flow">
-                            <div class="top-row each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 place-ticket-list-name">1회 체험권</p>
-                            </div>
-                            <div class="bott-row">
-                                <p class="f-16-700">15,000원/회</p>
-                                <span class="f-12-400 place-ticket-list-pay pay">결제금액 15,000원</span>
-                            </div>
+                            <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권">
+                            <label for="ticket_1_1">
+                                <div class="top-row each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 place-ticket-list-name">1회 체험권</p>
+                                </div>
+                                <div class="bott-row">
+                                    <p class="f-16-700">15,000원/회</p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 15,000원</span>
+                                </div>
+                            </label>
                         </li>
                         <li class="flex-flow">
-                            <div class="top-row each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 place-ticket-list-name">1개월 수강권</p>
-                            </div>
-                            <div class="bott-row">
-                                <p class="f-16-700">59,000원/월</p>
-                                <span class="f-12-400 place-ticket-list-pay pay">결제금액 59,000원</span>
-                            </div>
+                            <input type="radio" id="ticket_1_2" name="ticket" value="1개월 수강권">
+                            <label for="ticket_1_2">
+                                <div class="top-row each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 place-ticket-list-name">1개월 수강권</p>
+                                </div>
+                                <div class="bott-row">
+                                    <p class="f-16-700">59,000원/월</p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 59,000원</span>
+                                </div>
+                            </label>
                         </li>
                         <li class="flex-flow">
-                            <div class="top-row each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 place-ticket-list-name">3개월 수강권</p>
-                            </div>
-                            <div class="bott-row">
-                                <span class="discount f-12-400">30,000원 할인</span>
-                                <p class="f-16-700">10% 49,000원/월</p>
-                                <span class="f-12-400 place-ticket-list-pay pay">결제금액 147,000원</span>
-                            </div>
+                            <input type="radio" id="ticket_1_3" name="ticket" value="3개월 수강권">
+                            <label for="ticket_1_3">
+                                <div class="top-row each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 place-ticket-list-name">3개월 수강권</p>
+                                </div>
+                                <div class="bott-row">
+                                    <span class="discount f-12-400">30,000원 할인</span>
+                                    <p class="f-16-700">10% 49,000원/월</p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 147,000원</span>
+                                </div>
+                            </label>
                         </li>
                         <li class="flex-flow">
-                            <div class="top-row each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 place-ticket-list-name">6개월 수강권</p>
-                            </div>
-                            <div class="bott-row">
-                                <span class="discount f-12-400">120,000원 할인</span>
-                                <p class="f-16-700">20% 39,000원/월</p>
-                                <span class="f-12-400 place-ticket-list-pay pay">결제금액 234,000원</span>
-                            </div>
+                            <input type="radio" id="ticket_1_4" name="ticket" value="6개월 수강권">
+                            <label for="ticket_1_4">
+                                <div class="top-row each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 place-ticket-list-name">6개월 수강권</p>
+                                </div>
+                                <div class="bott-row">
+                                    <span class="discount f-12-400">120,000원 할인</span>
+                                    <p class="f-16-700">20% 39,000원/월</p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 234,000원</span>
+                                </div>
+                            </label>
                         </li>
                         <li class="flex-flow">
-                            <div class="top-row each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 place-ticket-list-name">12개월 수강권</p>
-                            </div>
-                            <div class="bott-row">
-                                <span class="discount f-12-400">360,000원 할인</span>
-                                <p class="f-16-700">30% 29,000원/월</p>
-                                <span class="f-12-400 place-ticket-list-pay pay">결제금액 348,000원</span>
-                            </div>
+                            <input type="radio" id="ticket_1_5" name="ticket" value="12개월 수강권">
+                            <label for="ticket_1_5">
+                                <div class="top-row each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 place-ticket-list-name">12개월 수강권</p>
+                                </div>
+                                <div class="bott-row">
+                                    <span class="discount f-12-400">360,000원 할인</span>
+                                    <p class="f-16-700">30% 29,000원/월</p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 348,000원</span>
+                                </div>
+                            </label>
                         </li>
                     </ul>
                 </div>
@@ -79,45 +104,70 @@
                     <div class="training-opt-list-tit">운동복</div>
                     <ul>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">선택 안함</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
+                            <input type="radio" id="training_1_1" name="training" value="선택 안함">
+                            <label for="training_1_1">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">선택 안함</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">운동복 1개월</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
+                            <input type="radio" id="training_1_2" name="training" value="운동복 1개월">
+                            <label for="training_1_2">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">운동복 1개월</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">운동복 3개월</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
+                            <input type="radio" id="training_1_3" name="training" value="운동복 3개월">
+                            <label for="training_1_3">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">운동복 3개월</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">운동복 6개월</p>
-                            </div>
-                            <div class="right-column">
-                                <span class="discount f-12-400">10,000원 할인</span>
-                                <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
-                            </div>
+                            <input type="radio" id="training_1_4" name="training" value="운동복 6개월">
+                            <label for="training_1_4">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">운동복 6개월</p>
+                                </div>
+                                <div class="right-column">
+                                    <span class="discount f-12-400">10,000원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
+                                </div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">운동복 12개월</p>
-                            </div>
-                            <div class="right-column">
-                                <span class="discount f-12-400">20,000원 할인</span>
-                                <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
-                            </div>
+                            <input type="radio" id="training_1_5" name="training" value="운동복 12개월">
+                            <label for="training_1_5">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">운동복 12개월</p>
+                                </div>
+                                <div class="right-column">
+                                    <span class="discount f-12-400">20,000원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
+                                </div>
+                            </label>
                         </li>
                     </ul>
                 </div>
@@ -126,45 +176,70 @@
                     <div class="locker-opt-list-tit">개인 락커</div>
                     <ul>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">선택 안함</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
+                            <input type="radio" id="locker_1_1" name="locker" value="선택 안함">
+                            <label for="locker_1_1">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">선택 안함</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">개인 락커 1개월</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
+                            <input type="radio" id="locker_1_2" name="locker" value="개인 락커 1개월">
+                            <label for="locker_1_2">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">개인 락커 1개월</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">개인 락커 3개월</p>
-                            </div>
-                            <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
+                            <input type="radio" id="locker_1_3" name="locker" value="개인 락커 3개월">
+                            <label for="locker_1_3">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">개인 락커 3개월</p>
+                                </div>
+                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">개인 락커 6개월</p>
-                            </div>
-                            <div class="right-column">
-                                <span class="discount">10,000원 할인</span>
-                                <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
-                            </div>
+                            <input type="radio" id="locker_1_4" name="locker" value="개인 락커 6개월">
+                            <label for="locker_1_4">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">개인 락커 6개월</p>
+                                </div>
+                                <div class="right-column">
+                                    <span class="discount">10,000원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
+                                </div>
+                            </label>
                         </li>
                         <li>
-                            <div class="left-column each-tit">
-                                <div class="check-current"><span></span></div>
-                                <p class="f-14-400 training-opt-list-name">개인 락커 12개월</p>
-                            </div>
-                            <div class="right-column">
-                                <span class="discount">20,000원 할인</span>
-                                <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
-                            </div>
+                            <input type="radio" id="locker_1_5" name="locker" value="개인 락커 12개월">
+                            <label for="locker_1_5">
+                                <div class="left-column each-tit">
+                                    <span class="outSide">
+                                        <span></span>
+                                    </span>
+                                    <p class="f-14-400 training-opt-list-name">개인 락커 12개월</p>
+                                </div>
+                                <div class="right-column">
+                                    <span class="discount">20,000원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
+                                </div>
+                            </label>
                         </li>
                     </ul>
                 </div>

@@ -4,6 +4,8 @@ import { useStore } from "vuex";
 import useTabAnimation from "@/composables/useTabAnimation";
 import PlaceData from "@/components/place/PlaceData";
 import TrainerData from "@/components/place/TrainerData";
+import DiscoverSorting from '@/components/modal/place/DiscoverSorting';
+import Filter from '@/components/modal/filter/Filter';
 
 const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const filterList = ["플레이스", "트레이너"];
@@ -11,6 +13,16 @@ const filterList = ["플레이스", "트레이너"];
 onMounted(() => {
     clickLiFnc();
 });
+
+// 거리순 솔팅 모달창 오픈
+const SortingOpen = ref(false);
+const SortingOpenFnc = () => {
+    SortingOpen.value = !SortingOpen.value;
+}; 
+// 솔팅 모달창 닫기
+const confirmDiscoverSorting = () => {
+    SortingOpen.value = !SortingOpen.value;
+}
 
 const store = useStore();
 const placeInfo = ref(store.state.place.places);
@@ -29,6 +41,7 @@ const trainerInfo = ref(store.state.place.places);
             ></iframe>
         </div>
         <div ref="discover" class="discover_container_inner mob-inner slide-wrap-inner">
+            <button class="location-pin"><img src="@/assets/image/pin.png" alt="주소 핀"></button>
             <ul class="discover-filter-ul slide-ul">
                 <li ref="li" class="discover-filter-li slide-li f-14-700 active" v-for="filterItem in filterList" :key="filterItem" @click="clickLiFnc">
                     {{ filterItem }}
@@ -39,7 +52,7 @@ const trainerInfo = ref(store.state.place.places);
             <div ref="tabContentWrap" class="tabContentWrap">
                 <div class="place-discover-list">
                     <ul class="filter-scroll">
-                        <li>거리순<span class="arrow"></span></li>
+                        <li @click="SortingOpenFnc">거리순<span class="arrow"></span></li>
                         <li><img src="@/assets/image/filter.png" alt="필터" /></li>
                         <li>수강기간</li>
                         <li>플레이스 타입</li>
@@ -51,7 +64,7 @@ const trainerInfo = ref(store.state.place.places);
                 </div>
                 <div class="trainer-discover-list">
                     <ul class="filter-scroll">
-                        <li>거리순<span class="arrow"></span></li>
+                        <li @click="SortingOpenFnc">거리순<span class="arrow"></span></li>
                         <li><img src="@/assets/image/filter.png" alt="필터" /></li>
                         <li>수강횟수</li>
                         <li>가격</li>
@@ -64,4 +77,7 @@ const trainerInfo = ref(store.state.place.places);
             </div>
         </div>
     </div>
+
+    <DiscoverSorting :class="{ active: SortingOpen }" :closeModal="confirmDiscoverSorting"/>
+    <!-- <Filter/> -->
 </template>

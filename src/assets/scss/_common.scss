@@ -9,7 +9,7 @@ ul, ol{list-style:none;}
 a{text-decoration:none; color:#000;}
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
 span{display:block;}
-.main-layout{padding:48px 0 82px 0;
+.main-layout{padding:54px 0 82px 0;
     .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
     &-inner{padding:24px 20px 28px;}
 }
@@ -115,10 +115,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:12px 21px; background:$f;
+.at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:18px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
-            .back{@include arrow2; width:13px;
+            .back{@include arrow2; width:13px; cursor:pointer;
                 &::before{right:auto; transform:rotate(-42deg); margin:0 0 8px 0}
                 &::after{transform:rotate(42deg); margin:8px 0 0 0;}
             }

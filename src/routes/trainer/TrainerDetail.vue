@@ -4,6 +4,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/components/pagination";
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
+import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
 
 const swiperOption1 = {
     slidesPerView: 1,
@@ -345,15 +346,6 @@ function toggleInquiry() {
             <router-link to="/PlaceMachine_Choice" class="work-choice f-16-700">운동 결제하기</router-link>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <div class="work-inquiry-modal" v-bind:class="{ active: inquiryActive }">
-            <div class="overlay" @click="toggleInquiry"></div>
-            <div class="work-inquiry-modal-inner">
-                <div class="inquiry-form">
-                    <router-link to="tel:010-1234-5678" class="f-14-700"><img src="@/assets/image/call.png" alt="전화 문의" />전화 문의</router-link>
-                    <router-link to="#" class="f-14-700"><img src="@/assets/image/talk.png" alt="카카오톡 문의" />카카오톡 문의</router-link>
-                </div>
-                <div class="work-inquiry-modal-close f-16-700" @click="toggleInquiry">다음에 하기</div>
-            </div>
-        </div>
+        <placeDetail_Modal/>
     </div>
 </template>

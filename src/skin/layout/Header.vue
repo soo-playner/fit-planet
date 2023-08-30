@@ -73,7 +73,7 @@ const headerType = () => {
                 close: true,
             };
         }
-        case "/Place/Detail": {
+        case "/place/detail": {
             return {
                 back: true,
                 search: true,

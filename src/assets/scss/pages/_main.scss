@@ -7,7 +7,9 @@
         .intro-txt-box{margin-bottom:20px;
             h1{margin:3px 0 7px 0;}
             .trainer-toggle-box{@include display(flex, null, null, null); column-gap:4px;
-                .trainer-choice-ul{@include ulToggle;}
+                .trainer-choice-ul{@include ulToggle;
+                    ul{background:$f;}
+                }
                 .location{@include display(flex, center, null, null); column-gap:5px; padding:0 8px; border:1px solid #D9D9D9; border-radius:50px; background:$f;
                     .img-box{@include display(flex, center, null, null);}
                 }

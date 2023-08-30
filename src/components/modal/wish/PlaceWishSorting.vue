@@ -37,7 +37,7 @@
                     </label>
                 </li>
             </ul>
-            <button class="bott-btn f-16-700" >확인</button>
+            <button class="bott-btn f-16-700">확인</button>
         </div>
     </div>
 </template>

@@ -41,7 +41,7 @@ span {
 }
 
 .main-layout {
-  padding: 48px 0 82px 0;
+  padding: 54px 0 82px 0;
 }
 .main-layout .first-section {
   background: #f1f1f1;
@@ -200,7 +200,7 @@ span {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 12px 21px;
+  padding: 18px 21px;
   background: #fff;
 }
 .at-header-inner {
@@ -234,6 +234,7 @@ span {
           justify-content: center;
   position: relative;
   width: 13px;
+  cursor: pointer;
 }
 .at-header-inner .left .back::before, .at-header-inner .left .back::after {
   content: "";
@@ -1479,6 +1480,9 @@ ul 안에 ul
 }
 .section01-inner .intro-txt-box .trainer-toggle-box .trainer-choice-ul ul li:last-child {
   margin-bottom: 0;
+}
+.section01-inner .intro-txt-box .trainer-toggle-box .trainer-choice-ul ul {
+  background: #fff;
 }
 .section01-inner .intro-txt-box .trainer-toggle-box .location {
   display: -webkit-box;
@@ -2768,6 +2772,37 @@ ul 안에 ul
           justify-content: space-between;
   margin: 0 0 17px 0;
 }
+.comm_modal_layout .comm_modal_layout_tit .close {
+  width: 21px;
+  height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+.comm_modal_layout .comm_modal_layout_tit .close::before, .comm_modal_layout .comm_modal_layout_tit .close::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background: #000;
+}
+.comm_modal_layout .comm_modal_layout_tit .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.comm_modal_layout .comm_modal_layout_tit .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
 .comm_modal_layout .comm_modal_layout_tit_list li {
   position: relative;
   padding: 12px 0;
@@ -2819,6 +2854,9 @@ ul 안에 ul
   background: #000;
   border-radius: 50%;
 }
+.comm_modal_layout .comm_modal_layout_tit_list li input[type=radio]:checked + label {
+  font-weight: 700;
+}
 .comm_modal_layout .comm_modal_layout_tit_list li input[type=radio]:checked + label .outSide span {
   opacity: 1;
   visibility: visible;
@@ -2833,6 +2871,10 @@ ul 안에 ul
 /******************************************
 플레이스
 ******************************************/
+.discover-sorting-modal-inner {
+  padding: 24px 25px;
+}
+
 .work-inquiry-modal {
   width: 100%;
   height: 100%;
@@ -2847,7 +2889,7 @@ ul 안에 ul
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999;
   -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -3606,6 +3648,9 @@ ul 안에 ul
   visibility: hidden;
   background: #000;
   border-radius: 50%;
+}
+.review-report-modal-inner .report-list li input[type=radio]:checked + label {
+  font-weight: 700;
 }
 .review-report-modal-inner .report-list li input[type=radio]:checked + label .outSide span {
   opacity: 1;
@@ -5338,12 +5383,34 @@ ul 안에 ul
 }
 .discover_container_inner {
   max-width: 100%;
+  height: calc(100vh - 168px);
+  position: relative;
   padding: 34px 0 82px 0;
+  margin-top: calc(100vh - 48px - 164px);
   background: #fff;
   border-radius: 16px 16px 0 0;
-  height: calc(100vh - 168px);
-  overflow: hidden;
-  margin-top: calc(100vh - 48px - 164px);
+}
+.discover_container_inner .location-pin {
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: -56px;
+  right: 20px;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.discover_container_inner .location-pin img {
+  margin: 0 0 0 -1px;
 }
 .discover_container_inner .discover-filter-ul {
   height: 32px;
@@ -7078,18 +7145,29 @@ ul 안에 ul
   background: #D9D9D9;
   border-radius: 8px;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .each-tit {
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-column-gap: 12px;
-     -moz-column-gap: 12px;
-          column-gap: 12px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  cursor: pointer;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .check-current {
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label .outSide {
   width: 24px;
   height: 24px;
   display: -webkit-box;
@@ -7102,34 +7180,58 @@ ul 안에 ul
       -ms-flex-pack: center;
           justify-content: center;
   background: #F1F1F1;
+  border: 1px solid #D9D9D9;
   border-radius: 50%;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .check-current span {
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label .outSide span {
   width: 12px;
   height: 12px;
+  opacity: 0;
+  visibility: hidden;
   background: #000;
   border-radius: 50%;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio]:checked + label {
+  font-weight: 700;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio]:checked + label .outSide span {
+  opacity: 1;
+  visibility: visible;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li input[type=radio] + label {
+  width: 100%;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .each-tit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
+}
+.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .right-column {
+  text-align: right;
 }
 .PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .discount {
   font-size: 12px;
   font-weight: 400;
   color: #979797;
 }
-.PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li .pay {
-  text-align: right;
-}
 .PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li.flex-flow {
   min-height: 130px;
   -webkit-box-align: initial;
       -ms-flex-align: initial;
           align-items: initial;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
 }
 .PlaceMachine_Choice_container_inner .PlaceMachine-Choice-form .PlaceMachine-list-layout ul li.flex-flow .bott-row {
   display: -webkit-box;
@@ -9041,6 +9143,9 @@ ul 안에 ul
   visibility: hidden;
   background: #000;
   border-radius: 50%;
+}
+.ReviewSelect_container_inner ul li input[type=radio]:checked + label {
+  font-weight: 700;
 }
 .ReviewSelect_container_inner ul li input[type=radio]:checked + label .outSide span {
   opacity: 1;

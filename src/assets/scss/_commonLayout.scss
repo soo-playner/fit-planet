@@ -390,7 +390,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                 span{@include conSize(12px, 12px); opacity:0; visibility:hidden; background:$b; border-radius:50%;}
             }
         }
-        &:checked + label{
+        &:checked + label{font-weight:700;
             .outSide{
                 span{opacity:1; visibility:visible;}
             }

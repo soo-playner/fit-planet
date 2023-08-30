@@ -15,7 +15,9 @@
 -> 구조 AlertManage.vue
 ******************************************/
 .comm_modal_layout{
-    .comm_modal_layout_tit{@include display(flex, center, space-between); margin:0 0 17px 0;}
+    .comm_modal_layout_tit{@include display(flex, center, space-between); margin:0 0 17px 0;
+        .close{@include close}
+    }
     .comm_modal_layout_tit_list{
         li{@include radioBox1; position:relative; padding:12px 0; border-bottom:1px solid #D9D9D9;
             &:last-child{border-bottom:0;}
@@ -27,8 +29,13 @@
 /******************************************
 플레이스
 ******************************************/
+// 발견 페이지 - 솔팅 모달창
+.discover-sorting-modal{
+    &-inner{padding:24px 25px;}
+}
+
 // 플레이스 상세 - 문의하기 모달창
-.work-inquiry-modal{@include conSize(100%, 100%); @include display(flex, flex-end); opacity:0; visibility:hidden; @include position(fixed, 0, null, null, 0, 99); transition:all .3s $easing;
+.work-inquiry-modal{@include conSize(100%, 100%); @include display(flex, flex-end); opacity:0; visibility:hidden; @include position(fixed, 0, null, null, 0, 999); transition:all .3s $easing;
     .overlay{@include overLay;}
     &-inner{width:100%; position:relative; bottom:-100%; padding:34px 20px; background:$f; border-radius:16px 16px 0 0; transition:all .8s $easing;
         .inquiry-form{@include display(flex); column-gap:16px;

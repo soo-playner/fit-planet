@@ -1,9 +1,10 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/swiper-bundle.min.css";
-import "swiper/components/pagination";
+import { ref } from 'vue';
 import { useRoute } from 'vue-router'
 import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
+import "swiper/swiper-bundle.min.css";
+import "swiper/components/pagination";
 
 const route = useRoute();
 // TODO: 쿼리로 넘어온 id로 상세 데이터 읽어오기
@@ -22,7 +23,7 @@ const swiperOption2 = {
     spaceBetween: 8,
 };
 
-let inquiryActive = false;
+//let inquiryActive = false;
 
 const ticket = [
     { name: "1회 체험권", cost: "59,000원", totalCost: "59,000원" },
@@ -43,14 +44,18 @@ const machineTag = [
     ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
 ];
 
-const machineTag1 = [{ id: "파워랙" }, { id: "스미스머신" }, { id: "치닝디핑" }, { id: "케이블 머신" }];
+// const machineTag1 = [{ id: "파워랙" }, { id: "스미스머신" }, { id: "치닝디핑" }, { id: "케이블 머신" }];
+// const machineTag2 = [{ id: "브이스쿼트" }, { id: "힙 어브덕션" }, { id: "핵스쿼트 머신" }, { id: "레그프레스" }, { id: "파워 레그프레스 머신" }, { id: "레그 익스텐션 머신" }, { id: "레그 컬 머신" }];
+// const machineTag3 = [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }];
 
-const machineTag2 = [{ id: "브이스쿼트" }, { id: "힙 어브덕션" }, { id: "핵스쿼트 머신" }, { id: "레그프레스" }, { id: "파워 레그프레스 머신" }, { id: "레그 익스텐션 머신" }, { id: "레그 컬 머신" }];
-
-const machineTag3 = [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }];
-
-function toggleInquiry() {
-    inquiryActive = !inquiryActive;
+// 거리순 솔팅 모달창 오픈
+const inquiryOpen = ref(false);
+const inquiryOpenFnc = () => {
+    inquiryOpen.value = !inquiryOpen.value;
+}; 
+// 솔팅 모달창 닫기
+const confirmInquiry = () => {
+    inquiryOpen.value = !inquiryOpen.value;
 }
 </script>
 
@@ -191,8 +196,8 @@ function toggleInquiry() {
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
                     <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해</span>
                     <span>맞춤 운동 및 식단 처방을 제공합니다.</span>
+                    <div class="more f-12-400">더 보기<span></span></div>
                 </div>
-                <div class="more f-12-400">더 보기<span></span></div>
             </div>
             <!-- 운영시간 -->
             <div class="place-operate">
@@ -312,10 +317,10 @@ function toggleInquiry() {
         </div>
         <!-- 문의하기/운동 선택하기 -->
         <div class="place-lnb">
-            <button class="work-inquiry f-16-700" @click="toggleInquiry">문의하기</button>
+            <button class="work-inquiry f-16-700" @click="inquiryOpenFnc">문의하기</button>
             <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 선택하기</router-link>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <placeDetail_Modal/>
+        <placeDetail_Modal :class="{ active : inquiryOpen }" :InquiryClose="confirmInquiry"/>
     </div>
 </template>
