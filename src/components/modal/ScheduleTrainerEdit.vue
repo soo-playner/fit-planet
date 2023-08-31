@@ -158,8 +158,8 @@ watch(modalOpen, (curr) => {
                 <div class="day_change_btn">
                     <p class="f-14-400">등록해주신 변경 기준일부터 변경 일정이 적용돼요</p>
                     <div>
-                        <button>변경하지 않기</button>
-                        <button>일정 변경하기</button>
+                        <button @click="modalOpen = false">변경하지 않기</button>
+                        <button @click="modalOpen = false">일정 변경하기</button>
                     </div>
                 </div>
             </div>

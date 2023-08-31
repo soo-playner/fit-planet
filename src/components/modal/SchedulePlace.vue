@@ -125,8 +125,8 @@ watch(emptyCount, (val) => {
                 </div>
                 <div class="day_change_btn">
                     <div>
-                        <button>나중에 하기</button>
-                        <button>수강권 등록하기</button>
+                        <button @click="modalOpen = false">나중에 하기</button>
+                        <button @click="modalOpen = false">수강권 등록하기</button>
                     </div>
                 </div>
             </div>

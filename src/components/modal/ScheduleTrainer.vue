@@ -152,8 +152,8 @@ watch(modalOpen, (curr) => {
                 </div>
                 <div class="day_change_btn">
                     <div>
-                        <button>나중에 하기</button>
-                        <button>일정 등록하기</button>
+                        <button @click="modalOpen = false">나중에 하기</button>
+                        <button @click="modalOpen = false">일정 등록하기</button>
                     </div>
                 </div>
             </div>
