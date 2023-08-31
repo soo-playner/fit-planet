@@ -53,7 +53,7 @@ watch(timeCount, () => {
         <!-- <button class="next-step-btn f-16-700 mob-inner" @click="$router.push('/find/id/step3')">인증 완료</button> -->
         <button
             v-if="!isGetCertNum"
-            class="next-step-btn f-16-700 mob-inner"
+            class="btn1 mob-inner"
             @click="
                 isGetCertNum = true;
                 startCount();
@@ -62,6 +62,6 @@ watch(timeCount, () => {
         >
             인증번호 요청
         </button>
-        <button v-if="isGetCertNum" class="next-step-btn f-16-700 mob-inner" @click="getCertNum = true">인증 완료</button>
+        <button v-if="isGetCertNum" class="btn1 mob-inner" @click="getCertNum = true">인증 완료</button>
     </div>
 </template>

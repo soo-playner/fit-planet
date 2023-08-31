@@ -48,7 +48,7 @@ watch(timeCount, () => {
                 <p class="f-12-400 vail" v-show="form.mb_phone.value && !isFormValid.mb_phone.value">{{ errorText.mb_phone }}</p>
                 <div class="password-guide f-14-400" v-if="!isGetCertNum">
                     휴대폰 번호가 변경되었나요?
-                    <router-link to="/find/pw/email/step1">이메일로 비밀번호 찾기</router-link>
+                    <router-link class="line" to="/find/pw/email/step1">이메일로 비밀번호 찾기</router-link>
                 </div>
                 <div class="form-group" v-if="isGetCertNum">
                     <input type="text" name="pass_num" id="pass_num" placeholder="" v-model="certNum" />
@@ -58,7 +58,7 @@ watch(timeCount, () => {
         </div>
         <button
             v-if="!isGetCertNum"
-            class="next-step-btn f-16-700 mob-inner"
+            class="btn1 mob-inner"
             @click="
                 isGetCertNum = true;
                 startCount();
@@ -67,7 +67,7 @@ watch(timeCount, () => {
         >
             인증번호 요청
         </button>
-        <button v-if="isGetCertNum" class="next-step-btn f-16-700 mob-inner" @click="getCertNum = true">인증 완료</button>
+        <button v-if="isGetCertNum" class="btn1 mob-inner" @click="getCertNum = true">인증 완료</button>
 
         <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
             <div class="overlay" @click="EmailSendFnc"></div>

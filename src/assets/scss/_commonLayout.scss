@@ -1,51 +1,7 @@
-
-
-// 인풋, 버튼 초기 설정
-button, input{background:none; border:none;
-    &:focus, &:active{outline:none; box-shadow:none;}
-}
-.form-group{position:relative;
-    input[type='text'],
-    input[type='password'],
-    input[type='email'],
-    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
-        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
-        &:focus{border-bottom-color:$b;}
-    }
-    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
-        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
-            span{@include conSize(15px, 15px); background:#d9d9d9; border-radius:50%;}
-        }
-        &:checked + label{
-            span{background:$gray;}
-
-        }
-    }
-    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
-       //&::-webkit-slider-runnable-track{}
-        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
-    }
-}
-textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
-
-.form-group2{position:relative;
-    input[type='text'],
-    input[type='file'],
-    input[type='email']{@include conSize(100%, 44px, 42px); padding:0 16px; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;
-        &:focus{border:none}
-        &::placeholder{color:#979797}
-    }
-    input[type='file']{appearance:none; -webkit-appearance:none; position:absolute; opacity:0;
-        + label{@include conSize(null, 44px, 42px); display:block; padding:0 16px; @include font(12px, 400); background:#F1F1F1; border-radius:8px; color:#979797;}
-    }
-    textarea{min-height:150px; @include font(12px, 400, #979797);
-        &::placeholder{color:#979797}
-    }
-}
-
 /******************************************
 공통 적용되는 레이아웃 믹스인
 ******************************************/
+// 메뉴 모양 만들 때
 @mixin menuDot(){position:relative; cursor:pointer;
     span{@include conSize(5px, 5px); @include position(absolute, 50%, 0); transform:translateY(-50%); background:$b; border-radius:50%;
         &::before, &::after{content:''; @include conSize(100%, 100%); @include position(absolute); left:0; background:inherit; border-radius:50%;}
@@ -54,21 +10,10 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     }
 }
 
-@mixin placeMachineList(){
-    .place-machine{
-        &-tit{margin:0 0 10px 0;}
-        &-list{margin:0 0 16px 0;
-            &-tit{@include font(14px, 400)}
-            ul{@include display(flex); flex-flow:wrap; gap:4px;
-                li{@include liTag; font-size:12px;}
-            }
-            &:last-child{margin:0;}
-        }
-    }
-}
-
 @mixin aTag(){@include conSize(100%, 38px, 36px); @include display(flex, center, center); column-gap:10px; margin:9px 0 0px 0; background:$b; color:$f; border-radius:19px;}
-@mixin liTag(){@include conSize(null, 28px, 28px); position:relative; z-index:10; padding:0 12px; word-break:keep-all; border:1px solid #D9D9D9; border-radius:14px; cursor:pointer;}
+@mixin liTag(){@include conSize(null, 28px, 27px); position:relative; z-index:10; padding:0 12px; word-break:keep-all; border:1px solid #D9D9D9; border-radius:14px; cursor:pointer;
+    @include responsive-360{@include conSize(null, 26px, 25px);}
+}
 @mixin overLay(){@include conSize(100%, 100%); @include position(absolute); z-index:-1; background:rgba(0, 0, 0, .3);}
 @mixin allBtn(){max-width:100px; text-align:center;
     .arrow-circle{@include conSize(45px, 45px); @include display(flex, center, center, null); margin:0 auto; background:$f; border:1px solid $gray; border-radius:50%;
@@ -87,22 +32,17 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         &::after{transform:rotate(-45deg); margin:4px 0 0 0;}
     }
 }
+
 @mixin bottLnb(){width:100%; @include display(flex); column-gap:8px; @include position(fixed, null, null, 0, 0, 155); padding:12px 20px 32px; background:$f; border:1px solid #D9D9D9; border-radius:16px 16px 0 0;
     a, button{@include aTag; @include conSize(null, 44px, 44px); margin:0;
         &:first-child{background:$f; color:$b; border:1px solid $b;}
     }
 }
 @mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
-    button{@include conSize(100%, 44px, 42px); border:1px solid; border-radius:22px;
+    button{@include conSize(100%, 44px, 42px); border:1px solid; border-radius:22px; cursor:pointer;
         &:first-child{border-color:$b; background:$f; color:$b;}
         &:last-child{border-color:$b; background:$b; color:$f;}
     }
-}
-
-.starBox{@include display(flex)}
-
-.line{display:inline-block; position:relative;
-    &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }
 
 /******************************************
@@ -257,7 +197,8 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         &:first-child{@include afterLine; padding:0 12px; margin-right:18px;
             &::after{height:16px; top:5px; right:-12px; background:#D9D9D9;}
         }
-        &:last-child{margin:0 20px 0 0;}
+        &:last-child{margin:0 0 0 0;}
+
         @include responsive-320{font-size:12px;}
     }
 }
@@ -289,7 +230,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     &:last-child{/*padding:0;*/ margin:0; border-bottom:none;}
 }
 
-// 1:1 트레이너
+// 1:1 트레이너 나열 -> 구조  @/routes/place/placeTrinaer.vue
 @mixin placeTrainerList(){
     .trainer-info{height:500px; @include display(flex, null, space-between, column); padding:12px; background:#D9D9D9; border-radius:8px;
         .rank{@include conSize(null, 22px, 22px); max-width:50px; display:inline-block; padding:0 8px; @include font(12px, 400); background:$f; border-radius:11px;
@@ -303,10 +244,27 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                 &::after{transform:rotate(-45deg); margin:5px 0px 0 0;}
             }
         }
+
         @include responsive-991{height:50vw;}
         @include responsive-480{height:220px;}
     }
     .trainer-comment{padding:8px 12px; margin:8px 0 0 0; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;}
+}
+// 운동기구 나열 -> 구조 @/routes/place/PlaceMachine.vue
+@mixin placeMachineList(){
+    .place-machine{
+        &-tit{margin:0 0 10px 0;}
+        &-form{margin-bottom:16px;
+            &:last-child{margin-bottom:0;}
+        }
+        &-list{margin:0 0 16px 0;
+            &-tit{@include font(14px, 400)}
+            ul{@include display(flex); flex-flow:wrap; gap:4px;
+                li{@include liTag; font-size:12px;}
+            }
+            &:last-child{margin:0;}
+        }
+    }
 }
 
 // 트레이너 리스트 -> 구조  @/components/place/TrainerData.vue
@@ -334,7 +292,6 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     .bott-column{line-height:1.7; padding:8px 12px; margin:8px 0 0 0; background:#f1f1f1; border-radius:8px; color:#979797}
     &:last-child{border-bottom:0;}
 }
-
 // 플레이스 리스트 -> 구조 @/components/place/PlaceData.vue
 @mixin placeList2(){padding:0 20px 16px; margin:0 0 16px 0; border-bottom:1px solid #D9D9D9;
     .top-column{@include display(flex, null, space-between); column-gap:37px;
@@ -399,8 +356,9 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 }
 
 /******************************************
-작성자 정보(이름, 별점, 좋아요 등) -> 구조 PlaceReview.vue
+리뷰
 ******************************************/
+// 작성자 정보(이름, 별점, 좋아요 등) -> 구조 PlaceReview.vue
 @mixin WriterInfo(){@include display(flex, null, space-between); margin-bottom:20px; padding:0 20px 15px; border-bottom:1px solid #D9D9D9;
     .left-row{@include display(flex); column-gap:8px;
         .user-profile{@include conSize(40px, 40px); border-radius:50%; background:#D9D9D9;}
@@ -461,7 +419,9 @@ ul 안에 ul
     &-inner{position:relative;
         .slide-ul{@include useTab;}
         .tabContentWrap{@include conSize(100%, 100%); @include display(flex); position:relative; z-index:1; box-sizing:content-box; transition-property:transform; transition:all .5s $easing;
-            & > ul, & > div{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;}
+            & > ul, & > div{@include conSize(100%, 100%); flex-shrink:0; position:relative; padding:0 20px;
+                @include responsive-360{padding:0 15px;}
+            }
         }
         &::before, &::after{content:''; @include conSize(100%, 100%); position:absolute; top:0; z-index:99; background:$f;}
         &::before{left:-100%;}

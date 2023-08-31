@@ -33,6 +33,6 @@ onMounted(() => {
             <p class="vail f-12-400" v-show="isFormValid.mb_nickname.value && !isFormValid.mb_nickname_dup.value">닉네임 중복체크를 해주세요.</p>
             <p class="vail f-12-400" v-show="isFormValid.mb_nickname.value && isFormValid.mb_nickname_dup.value">사용 가능한 닉네임 입니다.</p>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">가입 완료</button>
+        <button class="btn1 mob-inner" @click="submitData" :disabled="!nextCondition()">가입 완료</button>
     </div>
 </template>

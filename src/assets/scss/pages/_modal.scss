@@ -1,10 +1,15 @@
 /******************************************
-알럿창(비밀번호 재설정 등)
+알럿창(비밀번호 재설정 등) 레이아웃
 ******************************************/
 .member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 1000); opacity:0; visibility:hidden; transition:all .3s $easing;
     .overlay{@include overLay;}
     &_inner{width:calc(100% - 64px); padding:36px 20px 20px; background:$f; border-radius:8px; box-shadow:0px 0px 30px 5px rgba(0,0,0, .1); text-align:center;
-        div{margin:0 0 36px 0;}
+        // (온보딩) 비밀번호 재설정, 메일 전송 모달창 참고
+        .txt-box{margin:0 0 36px 0;}
+        // (플레이스)수강권 등록, 일정 변경 모달창 참고
+        .txt-box1{margin:0 0 24px 0; 
+            .b-txt{margin:0 0 12px 0;}
+        }
         @include responsive-360{padding:21px 15px 20px}
     }
     &.active{opacity:1; visibility:visible;}
@@ -72,7 +77,7 @@
     }
 }
 
-// 운동 일정 변경 모달창 /components/modal/ScheduleChange.vue
+// 운동 일정 변경 - /components/modal/ScheduleChange.vue
 .ScheduleChange_alert{@include conSize(100%, 100%); @include display(flex, flex-end); position:fixed; top:0; z-index:100; 
     .overlay{@include overLay;}
     &_inner{width:100%; padding:38px 20px; background:$f; border-radius:16px 16px 0 0;
@@ -127,66 +132,100 @@
     }
 }
 
-/******************************************
-주문
-******************************************/
-// 주문내역 삭제 /routes/order/OrderInquiry.vue
-.order-delete-modal{opacity:0; visibility:hidden; transition:all .3s $easing;
-    .txt-box{margin:0 0 20px 0;
-        p{margin:0 0 9px 0;}
+// 운동기록 삭제 - @/components/modal/place/PlaceListDelete.vue
+.placeList-delete-modal{
+    &-inner{padding-top:24px;
+        .txt-box{margin:0 0 19px 0;}
+        .bott-btn{@include bottLnb2;}
     }
-    .bott-btn{@include display(flex); column-gap:8px; margin:0;
-        button{@include aTag; @include conSize(null, 44px, 44px); margin:0; cursor:pointer;
-            &:first-child{background:$f; border:1px solid $b; color:$b;}
-        }
-    }
-    &.active{opacity:1; visibility:visible;}
 }
 
-// 주문내역 취소, 운동 일정 등록
-.order-cancel-modal,
+// 플레이스 수강권 등록일 변경 완료 - @/components/modal/place/TicketComplete.vue
+.ticket-complete-modal{
+    &-inner{padding-top:24px;
+        .txt-box1{margin:0 0 16px 0;}
+    }
+    .bott-btn{@include bottLnb2}
+}
+
+// 프로그램 추가 결제 - @/components/modal/place/AddPayment.vue
+.addPayment-modal{
+    .addPayment-modal-inner{padding-top:46px;}
+    .txt-box{margin:0 0 46px 0;}
+    .bott-btn{@include bottLnb2;}
+}
+
+/******************************************
+트레이너
+******************************************/
+// 트레이너와의 운동 일정 정하기 - @/components/modal/order/ScheduleRegister.vue
 .schedule-register-modal{
     &-inner{padding-top:24px;
-        .txt-box{margin:0 0 16px 0;
-            .f-18-700{margin:0 0 12px 0;}
-        }
+        .txt-box1{margin:0 0 16px 0;}
         .bott-btn{@include bottLnb2}
     }
 }
 
 /******************************************
-쿠폰
+주문
 ******************************************/
-// 쿠폰 발급 /routes/mypage/coupon.vue
-.coupon-issue-modal{opacity:0; visibility:hidden; transition:all .3s $easing;
-    &-inner{
-        .txt-box{margin:0 0 27px 0;
-            p{margin:0 0 7px 0;}
-        }
-        .bott-btn{margin:0;
-            button{@include aTag; @include conSize(null, 44px, 44px); margin:0; cursor:pointer;}
-        }
+// 주문내역 삭제 - @/components/modal/order/OrderDelete.vue
+.order-delete-modal{
+    &-inner{padding-top:24px;
+        .txt-box1{margin:0 0 20px 0;}
+        .bott-btn{@include bottLnb2}
     }
-    &.active{opacity:1; visibility:visible;}
 }
 
-// 탈퇴 모달창 /routes/mypage/AccountDelete.vue
+// 주문내역 취소(결제 그만 두고 나가기) - @/components/modal/order/OrderCancel.vue
+.order-cancel-modal{
+    &-inner{padding-top:24px;
+        .txt-box1{margin:0 0 16px 0;}
+        .bott-btn{@include bottLnb2}
+    }
+}
+
+/******************************************
+마이페이지
+******************************************/
+// 쿠폰 발급
+.coupon-issue-modal{
+    &-inner{
+        .txt-box1{margin:0 0 28px 0;}
+    }
+}
+
+// 탈퇴 완료 - @/components/mypage/AccountDeleteComplete.vue
 .AccountDelete-modal{
-    &-inner{
-        .txt-box{margin:0 0 32px 0;
-            div{margin:0 0 12px 0;}
-        }
-        a{@include aTag; @include conSize(null, 44px, 42px);}
+    &-inner{padding-top:38px;
+        .txt-box1{margin:0 0 32px 0;}
     }
 }
-
-// 탈퇴 이유 선택 모달창
+// 탈퇴 이유 선택 - @/components/mypage/AccountDeleteReason.vue
 .AccountDelete-reason-modal{
-    &-inner{
-        button{@include aTag; @include conSize(null, 44px, 42px); margin:48px 0 0 0; cursor:pointer;}
+    &-inner{padding-top:48px;
+        .txt-box{margin:0 0 48px 0;}
     }
 }
 
+// 비밀번호 변경 - @/components/modal/password/PW_Change.vue
+.pw-change-modal{
+    &-inner{padding-top:56px;
+        .txt-box{margin:0 0 46px 0;}
+    }
+}
+
+// 문의 작성 - @/components/commnuity/InquiryCancel.vue
+.inquiry-cancel-modal{
+    &-inner{padding-top:24px;
+        .txt-box{margin:0 0 20px 0;}
+    }
+    .bott-btn{@include bottLnb2;}
+}
+
+/******************************************
+리뷰
+******************************************/
 // 리뷰 - 신고 이유 모달창
 .review-report-modal{@include display(flex, flex-end);
     &-inner{width:100%; max-width:100%; bottom:-100%; padding:0; transition:all .5s $easing;
@@ -207,51 +246,14 @@
 
 // 리뷰 - 신고 완료 모달창
 .report-confirm-modal{
-    .f-18-700{margin:0 0 12px 0;}
-}
-
-// 수강권, 일정 등록, 일정 변경 완료 모달창
-.ticket-complete-modal,
-.schedule-complete-modal,
-.schedule-change-complete-modal{
-    .txt-box{margin:0 0 24px 0;
-        .f-18-700{margin:0 0 12px 0;}
+    &-inner{padding-top:24px;
+        .txt-box1{margin:0 0 20px 0;}
     }
 }
 
-// 플레이스 상세페이지 결제완료 후 나가기 모달창
-.ticket-complete-modal{
-    .bott-btn{@include bottLnb2}
-}
-
-// 프로그램 추가 결제 모달창
-.addPayment-modal{
-    .addPayment-modal-inner{padding-top:46px;}
-    .txt-box{margin:0 0 46px 0;}
-    .bott-btn{@include bottLnb2;}
-}
-
-//  운동기록 삭제 모달창
-.placeList-delete-modal{
-    &-inner{
-        .txt-box{margin:0 0 20px 0;
-            .f-18-700{margin:0 0 12px 0;}
-        }
-        .bott-btn{@include bottLnb2;}
-    }
-}
-
-// 문의 작성 모달창
-.inquiry-cancel-modal{
-    &-inner{
-        .txt-box{margin:0 0 20px 0;
-            .f-18-700{margin:0 0 12px 0;}
-        }
-    }
-    .bott-btn{@include bottLnb2;}
-}
-
-// 모달창 vue transtion 애니메이션
+/******************************************
+모달창 vue transtion 애니메이션
+******************************************/
 .slide-enter-from {
     transform: translateY(100%);
 }

@@ -4,8 +4,8 @@
     <div class="schedule-register-modal member_alert">
         <div class="overlay"></div>
         <div class="schedule-register-modal-inner mob-inner member_alert_inner">
-            <div class="txt-box">
-                <div class="f-18-700">
+            <div class="txt-box1">
+                <div class="f-18-700 b-txt">
                     <p>트레이너와의</p>
                     <p>운동 일정이 정해졌나요?</p>
                 </div>
@@ -15,8 +15,8 @@
                 </p>
             </div>
             <div class="bott-btn">
-                <button class="f-16-700">나중에 하기</button>
-                <button class="f-16-700">일정 등록하기</button>
+                <button class="btn1">나중에 하기</button>
+                <button class="btn1">일정 등록하기</button>
             </div>
         </div>
     </div>

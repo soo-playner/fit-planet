@@ -15,8 +15,8 @@ const {addPaymentFnc} = defineProps({
                 <p>추가 결제할까요?</p>
             </div>
             <div class="bott-btn">
-                <button class="next-step-btn f-16-700" @click="addPaymentFnc">취소</button>
-                <button class="next-step-btn f-16-700">결제하러 가기</button>
+                <button class="btn1" @click="addPaymentFnc">취소</button>
+                <button class="btn1">결제하러 가기</button>
             </div>
         </div>
     </div>

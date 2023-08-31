@@ -21,7 +21,7 @@
         </div>
         <div class="bott-btn-box mob-inner">
             <router-link to="/FindPW_Step1" class="FindPW line f-14-400">비밀번호 찾기</router-link>
-            <router-link to="/Login" class="next-step-btn f-16-700">로그인 하러가기</router-link>
+            <button @click="$router.push('/login')" class="btn1">로그인 하러가기</button>
         </div>
     </div>
 </template>

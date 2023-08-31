@@ -62,6 +62,6 @@ onMounted(() => {
                 <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">다음</button>
+        <button class="btn1 mob-inner" @click="submitData" :disabled="!nextCondition()">다음</button>
     </div>
 </template>

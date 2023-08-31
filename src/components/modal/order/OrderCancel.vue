@@ -4,8 +4,8 @@
     <div class="order-cancel-modal member_alert">
         <div class="overlay"></div>
         <div class="order-cancel-modal-inner mob-inner member_alert_inner">
-            <div class="txt-box">
-                <div class="f-18-700">
+            <div class="txt-box1">
+                <div class="f-18-700 b-txt">
                     <p>잠시만요!</p>
                     <p>결제를 그만두고 나가시겠어요?</p>
                 </div>
@@ -15,8 +15,8 @@
                 </p>
             </div>
             <div class="bott-btn">
-                <button class="f-16-700">나가기</button>
-                <button class="f-16-700">머무르기</button>
+                <button class="btn1">나가기</button>
+                <button class="btn1">머무르기</button>
             </div>
         </div>
     </div>

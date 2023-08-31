@@ -1,4 +1,7 @@
-// 공통
+/******************************************
+공통
+******************************************/
+// 한 화면에 보여야 하는 페이지의 경우를 위함
 :root{--vh : 100%;}
 html, body{height:100vh; height:var(--vh);}
 
@@ -9,14 +12,15 @@ ul, ol{list-style:none;}
 a{text-decoration:none; color:#000;}
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
 span{display:block;}
-.main-layout{padding:54px 0 82px 0;
+
+// 레이아웃
+.main-layout{padding:60px 0 100px 0;
     .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
     &-inner{padding:24px 20px 28px;}
 }
 .notFooter-layout{padding-bottom:0;}
 .notFooter-layout2{padding-bottom:32px;}
 .mob-inner{max-width:1000px; position:relative; margin:0 auto;}
-.vail{margin:10px 0 0 0;}
 
 $b:#000;
 $f:#fff;
@@ -32,6 +36,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 @mixin responsive-720(){
     @media(max-width:720px){@content;}
+}
+@mixin responsive-500(){
+    @media(max-width:500px){@content;}
 }
 @mixin responsive-480(){
     @media(max-width:480px){@content;}
@@ -78,14 +85,28 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &::before{transform:rotate(45deg)}
     &::after{transform:rotate(-45deg)}
 }
+
 // 다음 버튼
-.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;}
+.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;
+    @include responsive-360{@include conSize(100%, 40px, 39px);}
+}
 // 패스워드 가이드
 .password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left;
     @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
 }
 // 인증 시 시간 텍스트
 .pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
+// 유효성 검사 시 노출되는 텍스트
+.vail{margin:10px 0 0 0;}
+// 별점
+.starBox{@include display(flex)}
+// 밑줄 라인 필요할 경우
+.line{display:inline-block; position:relative;
+    &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
+}
+
+// 버튼1
+.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer;}
 
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
@@ -108,14 +129,58 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .f-24-700{@include font(24px, 700, null);}
 
+// 색상
 .gray1{color:#979797}
 .gray2{color:#ACACAC;}
+
+// 인풋, 버튼 초기 설정
+button, input{background:none; border:none;
+    &:focus, &:active{outline:none; box-shadow:none;}
+}
+.form-group{position:relative;
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
+        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
+        &:focus{border-bottom-color:$b;}
+    }
+    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
+        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
+            span{@include conSize(15px, 15px); background:#d9d9d9; border-radius:50%;}
+        }
+        &:checked + label{
+            span{background:$gray;}
+
+        }
+    }
+    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
+       //&::-webkit-slider-runnable-track{}
+        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
+    }
+}
+textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
+
+.form-group2{position:relative;
+    input[type='text'],
+    input[type='file'],
+    input[type='email']{@include conSize(100%, 44px, 42px); padding:0 16px; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;
+        &:focus{border:none}
+        &::placeholder{color:#979797}
+    }
+    input[type='file']{appearance:none; -webkit-appearance:none; position:absolute; opacity:0;
+        + label{@include conSize(null, 44px, 42px); display:block; padding:0 16px; @include font(12px, 400); background:#F1F1F1; border-radius:8px; color:#979797;}
+    }
+    textarea{min-height:150px; @include font(12px, 400, #979797);
+        &::placeholder{color:#979797}
+    }
+}
 
 /******************************************
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{width:100%; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:18px 21px; background:$f;
+.at-header{@include conSize(100%, null, 1); min-height:60px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:18px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
             .back{@include arrow2; width:13px; cursor:pointer;
@@ -246,78 +311,37 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 }
 
+/******************************************
+캘린더
+******************************************/
+.calendar_wrap{width:100%; max-width:550px; margin:0 auto;
+    header{@include display(flex, center, space-between); margin:20px 0; padding-left:31px;
+        h1{width:72%; @include font(14px, normal);
 
-// 캘린더
-.calendar_wrap{
-    width: 100%;
-    // max-width: 66.66vw;
-    max-width:550px;
-    margin: 0 auto;
-    header{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 20px 0;
-        // padding-left: 3.4vw;
-        padding-left:31px;
-        h1{
-            width: 72%;
-            font-weight: normal;
-            font-size:14px; 
             @include responsive-360{font-size:12px;}
         }
-        .btn_wrap{
-            // width: 28%;
-            width:100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .prev,.next{
-                // width: 6.666vw;
-                // width: 24px;
-                opacity: 0.4;
+        .btn_wrap{width:100px; @include display(flex, center, space-between);
+            .prev, .next{opacity:0.4;
                 @include responsive-360{width:20px}
             }
-            .next{
-                transform: rotate(180deg);
-            }
+            .next{transform: rotate(180deg);}
+
             @include responsive-360{width:50px;}
         }
+
         @include responsive-720{padding-left:21px;}
         @include responsive-360{padding-left:11px; margin:15px 0;}
     }
     .picker_wrap{
-        .day_list,
-        .date_list{
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            // justify-content: space-between;
-            li{
-                width: calc(100% / 7);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size:14px; 
-                &.day{
-                    font-size: 12px;
-                    color: #ccc;
-                }
+        .day_list, .date_list{width:100%; display:flex; flex-wrap:wrap;
+            li{width:calc(100% / 7); @include display(flex, center, center); font-size:14px; 
+                &.day{@include font(12px, null, #ccc);}
                 &.date{
-                    // height: 40px;
-                    &::after{
-                        content:"";
-                        display: block;
-                        padding-bottom: 100%;
-                    }
-                    &.prevDate{
-                        color: #ccc;
-                    }
-                    &.selected{
-                        background-color: #f1f1f1;
-                        border-radius:100%;
-                    }
+                    &::after{content:""; display:block; padding-bottom:100%;}
+                    &.prevDate{color:#ccc;}
+                    &.selected{background-color:#f1f1f1; border-radius:100%;}
                 }
+
                 @include responsive-360{font-size:12px;}
             }
         }
@@ -326,6 +350,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-720{max-width:400px;}
 }
 
+/******************************************
+페이지 전환 효과
+******************************************/
 .slide-fade-enter{transform:translateX(100%);}
 .slide-fade-enter-active,
 .slide-fade-leave-active{transition:all .5s $easing;}

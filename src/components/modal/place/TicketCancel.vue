@@ -3,9 +3,9 @@
 <template>
     <div class="member_alert ticket-complete-modal">
         <div class="overlay"></div>
-        <div class="member_alert_inner mob-inner">
-            <div class="txt-box">
-                <div class="f-18-700">
+        <div class="member_alert_inner mob-inner ticket-complete-modal-inner">
+            <div class="txt-box1">
+                <div class="f-18-700 b-txt">
                     <p>수강권을 등록하지 않으면</p>
                     <p>운동을 진행할 수 없어요</p>
                 </div>
@@ -15,8 +15,8 @@
                 </p>
             </div>
             <div class="bott-btn">
-                <button class="next-step-btn f-16-700">나중에 하기</button>
-                <button class="next-step-btn f-16-700">지금 등록하기</button>
+                <button class="btn1">나중에 하기</button>
+                <button class="btn1">지금 등록하기</button>
             </div>
         </div>
     </div>

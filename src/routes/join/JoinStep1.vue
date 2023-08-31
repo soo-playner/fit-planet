@@ -62,6 +62,6 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <button class="next-step-btn f-16-700 mob-inner" @click="submitData" :disabled="shouldDisableNextButton">다음</button>
+        <button class="btn1 mob-inner" @click="submitData" :disabled="shouldDisableNextButton">다음</button>
     </div>
 </template>

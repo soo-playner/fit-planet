@@ -55,7 +55,7 @@ const authorityList = [
                 <p>권한을 허용하지 않아도 이용이 가능하지만</p>
                 <p>일부 서비스가 제한될 수 있어요</p>
             </div>
-            <router-link to="/login" class="next-step-btn f-16-700 mob-inner">확인</router-link>
+            <button @click="$router.push('/login')" class="btn1 mob-inner">확인</button>
         </div>
     </div>
 </template>
