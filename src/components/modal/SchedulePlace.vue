@@ -1,72 +1,77 @@
 <script setup>
-    import {ref, onMounted , watch} from 'vue'
-    const day = ["일", "월", "화", "수", "목", "금", "토"]
-    
-    const today = new Date();
-    const date = ref({
-        todayY: today.getFullYear(),
-        todayM: today.getMonth(),
-        todayD: today.getDate(),
-    })
+import { ref, onMounted, watch } from "vue";
+import useAjaxRequest from "@/composables/useAjaxRequest";
 
-    const {todayY, todayM, todayD} = date.value;
+const { postData } = useAjaxRequest();
+const modalOpen = ref(false);
+const today = new Date();
+const date = ref({
+    todayY: today.getFullYear(),
+    todayM: today.getMonth(),
+    todayD: today.getDate(),
+});
+const { todayY, todayM } = date.value;
+const emptyCount = ref(new Date(todayY, todayM, 1).getDay());
+const dateLength = ref(new Date(todayY, todayM + 1, 0).getDate());
+const selectedDate = ref(new Date().getDate());
 
-    const emptyCount = ref(new Date(todayY, todayM, 1).getDay())
-    const dateLength = ref(new Date(todayY, todayM+1, 0).getDate())
-    const selectedDate = ref(new Date().getDate())
-
-    const modalOpen = ref(false)
-
-    // 지난 달
-    const prevM = function() {
-        // 현재 날짜보다 이전 달일 때 오늘 날짜로 덮어씌움
-        const {todayY, todayM, todayD} = date.value;
-
-        if (todayY === new Date().getFullYear() && todayM - 1 <= new Date().getMonth()) {
-            const now = new Date()
-            date.value.todayM = now.getMonth() 
-            date.value.todayD = now.getDate() 
-            emptyCount.value = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
-            dateLength.value = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-            selectedDate.value = now.getDate();
-            return;
-        }
-        let currDate = new Date(todayY, todayM, todayD);
-        currDate.setMonth(todayM - 1);
-        setM(currDate);
+// 지난 달
+const prevM = function () {
+    // 현재 날짜보다 이전 달일 때 오늘 날짜로 덮어씌움
+    const { todayY, todayM } = date.value;
+    if (todayY === new Date().getFullYear() && todayM - 1 <= new Date().getMonth()) {
+        const now = new Date();
+        date.value.todayM = now.getMonth();
+        date.value.todayD = now.getDate();
+        emptyCount.value = new Date(now.getFullYear(), now.getMonth(), 1).getDay();
+        dateLength.value = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+        selectedDate.value = now.getDate();
+        return;
     }
+    let currDate = new Date(todayY, todayM, 0);
+    setM(currDate);
+};
 
-    // 다음 달
-    const nextM = function() {
-        const {todayY, todayM, todayD} = date.value;
-        let currDate = new Date(todayY, todayM, todayD);
-        currDate.setMonth(todayM + 1);
-        setM(currDate);
+// 다음 달
+const nextM = function () {
+    const { todayY, todayM } = date.value;
+    let currDate = new Date(todayY, todayM + 1, 1);
+    setM(currDate);
+};
+
+// 현재 날짜 설정
+const setM = function (currDate) {
+    date.value = { todayY: currDate.getFullYear(), todayM: currDate.getMonth(), todayD: 1 };
+    emptyCount.value = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
+    dateLength.value = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
+    selectedDate.value = currDate.getDate();
+};
+
+const submitData = async () => {
+    const res = await postData("api", {
+        start_at: new Date(date.value.todayY, date.value.todayM, selectedDate.value),
+    });
+    if (res.data.result) {
+        alert("변경되었습니다.");
+        modalOpen.value = false;
     }
+};
 
-    // 현재 날짜 설정
-    const setM = function(currDate) {
-        date.value = {todayY: currDate.getFullYear(), todayM: currDate.getMonth(), todayD: 1};
-        emptyCount.value = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
-        dateLength.value = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
-        selectedDate.value = 1;
+onMounted(() => {
+    modalOpen.value = true;
+});
+
+watch(modalOpen, (curr) => {
+    if (!curr) {
+        setTimeout(() => {
+            // scheduleClose();
+        }, 500);
     }
+});
 
-    onMounted (() => {
-        modalOpen.value = true;
-    })
-
-    watch((modalOpen), (curr) => {
-        if (!curr) {
-            setTimeout(() => {
-                // scheduleClose();
-            }, 500);
-        }
-    })
-
-    watch((emptyCount), (val) => {
-        console.log(val);
-    })
+watch(emptyCount, (val) => {
+    console.log(val);
+});
 </script>
 
 <template>
@@ -128,8 +133,8 @@
                 </div>
                 <div class="day_change_btn">
                     <div>
-                        <button>나중에 하기</button>
-                        <button>수강권 등록하기</button>
+                        <button @click="modalOpen = false">나중에 하기</button>
+                        <button @click="submitData">수강권 등록하기</button>
                     </div>
                 </div>
             </div>
