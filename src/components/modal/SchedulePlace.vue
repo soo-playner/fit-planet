@@ -1,21 +1,19 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
-const day = ["일", "월", "화", "수", "목", "금", "토"];
+import useAjaxRequest from "@/composables/useAjaxRequest";
 
+const { postData } = useAjaxRequest();
+const modalOpen = ref(false);
 const today = new Date();
 const date = ref({
     todayY: today.getFullYear(),
     todayM: today.getMonth(),
     todayD: today.getDate(),
 });
-
-const { todayY, todayM, todayD } = date.value;
-
+const { todayY, todayM } = date.value;
 const emptyCount = ref(new Date(todayY, todayM, 1).getDay());
 const dateLength = ref(new Date(todayY, todayM + 1, 0).getDate());
 const selectedDate = ref(new Date().getDate());
-
-const modalOpen = ref(false);
 
 // 지난 달
 const prevM = function () {
@@ -47,6 +45,16 @@ const setM = function (currDate) {
     emptyCount.value = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
     dateLength.value = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
     selectedDate.value = currDate.getDate();
+};
+
+const submitData = async () => {
+    const res = await postData("api", {
+        start_at: new Date(date.value.todayY, date.value.todayM, selectedDate.value),
+    });
+    if (res.data.result) {
+        alert("변경되었습니다.");
+        modalOpen.value = false;
+    }
 };
 
 onMounted(() => {
@@ -126,7 +134,7 @@ watch(emptyCount, (val) => {
                 <div class="day_change_btn">
                     <div>
                         <button @click="modalOpen = false">나중에 하기</button>
-                        <button @click="modalOpen = false">수강권 등록하기</button>
+                        <button @click="submitData">수강권 등록하기</button>
                     </div>
                 </div>
             </div>

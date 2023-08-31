@@ -1,15 +1,27 @@
 <script setup>
+import useAjaxRequest from "@/composables/useAjaxRequest";
 import { defineProps, ref, onMounted, watch } from "vue";
 
 const { scheduleClose } = defineProps({
     scheduleClose: Function,
 });
 
+const { postData } = useAjaxRequest();
 const modalOpen = ref(false);
-
 // 요일 설정
 const day = ["일", "월", "화", "수", "목", "금", "토"];
 const selectedDay = ref([]);
+// 달력 날짜 설정
+const today = new Date();
+const date = ref({
+    todayY: today.getFullYear(),
+    todayM: today.getMonth(),
+    todayD: today.getDate(),
+});
+const { todayY, todayM } = date.value;
+const emptyCount = ref(new Date(todayY, todayM, 1).getDay());
+const dateLength = ref(new Date(todayY, todayM + 1, 0).getDate());
+const selectedDate = ref(new Date().getDate());
 
 const dayClickHandler = function (el) {
     if (selectedDay.value.includes(el)) {
@@ -22,20 +34,6 @@ const dayClickHandler = function (el) {
         return day.indexOf(a) - day.indexOf(b);
     });
 };
-
-// 달력 날짜 설정
-const today = new Date();
-const date = ref({
-    todayY: today.getFullYear(),
-    todayM: today.getMonth(),
-    todayD: today.getDate(),
-});
-
-const { todayY, todayM } = date.value;
-
-const emptyCount = ref(new Date(todayY, todayM, 1).getDay());
-const dateLength = ref(new Date(todayY, todayM + 1, 0).getDate());
-const selectedDate = ref(new Date().getDate());
 
 // 지난 달
 const prevM = function () {
@@ -68,6 +66,17 @@ const setM = function (currDate) {
     emptyCount.value = new Date(currDate.getFullYear(), currDate.getMonth(), 1).getDay();
     dateLength.value = new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0).getDate();
     selectedDate.value = currDate.getDate();
+};
+
+const submitData = async () => {
+    const res = await postData("api", {
+        day: selectedDay.value,
+        start_at: new Date(date.value.todayY, date.value.todayM, selectedDate.value),
+    });
+    if (res.data.result) {
+        alert("변경되었습니다.");
+        modalOpen.value = false;
+    }
 };
 
 onMounted(() => {
@@ -159,7 +168,7 @@ watch(modalOpen, (curr) => {
                     <p class="f-14-400">등록해주신 변경 기준일부터 변경 일정이 적용돼요</p>
                     <div>
                         <button @click="modalOpen = false">변경하지 않기</button>
-                        <button @click="modalOpen = false">일정 변경하기</button>
+                        <button @click="submitData">일정 변경하기</button>
                     </div>
                 </div>
             </div>
