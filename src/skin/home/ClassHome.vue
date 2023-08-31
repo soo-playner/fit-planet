@@ -65,7 +65,7 @@ const addPaymentFnc = () => {
                             <p class="f-12-400">7.3 월 종료</p>
                         </div>
                     </div>
-                    <button class="next-step-btn f-14-700">
+                    <button class="btn2">
                         <img src="@/assets/image/quick-menu-icon-2-on.png" alt="플레이스 위치 보기">
                         플레이스 위치 보기
                     </button>

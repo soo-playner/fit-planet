@@ -9,7 +9,19 @@ const route = useRoute();
 const AlertOpen = ref(false);
 const SearchOpen = ref(false);
 const headerActive = ref(["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"]);
-const headerPageName = ref(["Discover"]);
+const headerBottBorder = ref(
+    [
+        "Terms", 
+        "InquiryComplete", 
+        "Coupon", 
+        "OrderInquiry", "OrderInquiryView", "CancelInquiry",
+        "MyPage", "Profile_Type1", "Profile_Type2", 
+        "Filter",
+        "ReviewSelect", "ReviewWrite",
+        "PlaceMachine_Choice", "PlacePay", "PlacePay_Complete", "PlaceTrainer", "PlaceMachine", "PlaceReview",
+        "TrainerMachine_Choice", "TrainerPay_Complete", "TrainerTicket_Complete", "TrainerReview"
+    ]
+);
 
 const AlertOpenFnc = () => {
     AlertOpen.value = !AlertOpen.value;
@@ -264,7 +276,11 @@ const pageName = () => {
                 1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
             }%)`,
         }"
-        :class="[headerActive.includes($route.name) ? 'active' : '', $route.name === 'DiscoverList' ? 'discover' : '']"
+        :class="[
+            headerActive.includes($route.name) ? 'active' : '', 
+            headerBottBorder.includes($route.name) ? 'border' : '',
+            $route.name === 'DiscoverList' ? 'discover' : '',
+        ]"
     >
         <div class="at-header-inner">
             <div class="left">

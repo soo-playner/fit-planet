@@ -95,7 +95,6 @@
         .form-group{margin:0 0 13px 0;
             input{
                 + label{position:relative; @include font(12px, 400, #979797);
-                    //span{}
                     &::before{content:''; @include conSize(calc(100% - 25px), 1px); @include position(absolute, null, 0, 1px); background:#979797}
                 }
             }

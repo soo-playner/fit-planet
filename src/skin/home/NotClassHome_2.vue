@@ -24,7 +24,7 @@
                 </div>
                 <div class="bott-column">
                     <p class="f-14-400">트레이너와 운동일정이 정해졌나요?</p>
-                    <button class="next-step-btn f-14-700">일정 등록하고 운동 시작하기</button>
+                    <button class="btn2">일정 등록하고 운동 시작하기</button>
                 </div>
             </div>
         </div>

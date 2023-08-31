@@ -53,7 +53,9 @@ const history = [
                             <p class="f-12-400">7.3 월 종료</p>
                         </div>
                     </div>
-                    <button class="next-step-btn f-14-700"><img src="@/assets/image/write.png" alt="후기 작성하기">후기 작성하기</button>
+                    <button class="btn2">
+                        <img src="@/assets/image/write.png" alt="후기 작성하기">후기 작성하기
+                    </button>
                 </div>
             </div>
             <div class="second-section">

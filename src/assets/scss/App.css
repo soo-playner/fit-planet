@@ -44,7 +44,7 @@ span {
 }
 
 .main-layout {
-  padding: 60px 0 100px 0;
+  padding: 60px 0 82px 0;
 }
 .main-layout .first-section {
   background: #f1f1f1;
@@ -142,6 +142,19 @@ span {
   color: #fff;
   background: #000;
   border-radius: 22px;
+  cursor: pointer;
+}
+
+.btn2 {
+  width: 100%;
+  height: 38px;
+  line-height: 36px;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: #000;
+  border-radius: 19px;
   cursor: pointer;
 }
 
@@ -613,6 +626,9 @@ textarea {
 }
 .at-header.discover {
   border-radius: 0 0 16px 16px;
+}
+.at-header.border {
+  border-bottom: 1px solid #F1F1F1;
 }
 @media (max-width: 480px) {
   .at-header {
@@ -2459,9 +2475,7 @@ ul 안에 ul
 .complete_home_container_inner .first-section-inner .place-progress-box .progress-bar .progress-value .step {
   width: 100%;
 }
-.complete_home_container_inner .first-section-inner .next-step-btn {
-  height: 38px;
-  line-height: 36px;
+.complete_home_container_inner .first-section-inner .btn2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2476,7 +2490,7 @@ ul 안에 ul
           column-gap: 8px;
   margin: 12px 0 0 0;
 }
-.complete_home_container_inner .first-section-inner .next-step-btn img {
+.complete_home_container_inner .first-section-inner .btn2 img {
   -webkit-filter: invert(1);
           filter: invert(1);
 }

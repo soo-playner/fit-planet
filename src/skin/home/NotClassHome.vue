@@ -24,7 +24,7 @@
                 </div>
                 <div class="bott-column">
                     <p class="f-14-400">운동을 시작해 볼까요?</p>
-                    <button class="next-step-btn f-14-700">수강권 등록하고 운동 시작하기</button>
+                    <button class="btn2">수강권 등록하고 운동 시작하기</button>
                 </div>
             </div>
         </div>

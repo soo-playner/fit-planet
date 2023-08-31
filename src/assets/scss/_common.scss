@@ -14,7 +14,7 @@ a{text-decoration:none; color:#000;}
 span{display:block;}
 
 // 레이아웃
-.main-layout{padding:60px 0 100px 0;
+.main-layout{padding:60px 0 82px 0;
     .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
     &-inner{padding:24px 20px 28px;}
 }
@@ -105,8 +105,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }
 
-// 버튼1
+// 버튼
 .btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer;}
+.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(14px, 700, $f); background:$b; border-radius:19px; cursor:pointer;}
 
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
@@ -203,6 +204,8 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     }
     &.active{height:96px; padding:30px 21px 0; background:transparent;}
     &.discover{border-radius:0 0 16px 16px;}
+    &.border{border-bottom:1px solid #F1F1F1}
+
     @include responsive-480{padding:12px 15px}
 }
 
