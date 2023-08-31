@@ -5412,7 +5412,7 @@ ul 안에 ul
   max-width: 100%;
   height: calc(100vh - 155px);
   position: relative;
-  padding: 34px 0 82px 0;
+  padding-top: 34px;
   margin-top: calc(100vh - 48px - 172px);
   background: #fff;
   border-radius: 16px 16px 0 0;
