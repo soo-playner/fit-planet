@@ -4,11 +4,14 @@ import { useStore } from "vuex";
 import useTabAnimation from "@/composables/useTabAnimation";
 import PlaceData from "@/components/place/PlaceData";
 import TrainerData from "@/components/place/TrainerData";
-import DiscoverSorting from '@/components/modal/place/DiscoverSorting';
-import Filter from '@/components/modal/filter/Filter';
+import DiscoverSorting from "@/components/modal/place/DiscoverSorting";
+import Filter from "@/components/modal/filter/Filter";
+import FilterTrainer from "@/components/modal/filter/FilterTrainer";
 
 const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
 const filterList = ["플레이스", "트레이너"];
+const selectTab = ref("플레이스");
+const isShowFilter = ref(false);
 
 onMounted(() => {
     clickLiFnc();
@@ -18,11 +21,11 @@ onMounted(() => {
 const SortingOpen = ref(false);
 const SortingOpenFnc = () => {
     SortingOpen.value = !SortingOpen.value;
-}; 
+};
 // 솔팅 모달창 닫기
 const confirmDiscoverSorting = () => {
     SortingOpen.value = !SortingOpen.value;
-}
+};
 
 const store = useStore();
 const placeInfo = ref(store.state.place.places);
@@ -41,9 +44,18 @@ const trainerInfo = ref(store.state.place.places);
             ></iframe>
         </div>
         <div ref="discover" class="discover_container_inner mob-inner slide-wrap-inner">
-            <button class="location-pin"><img src="@/assets/image/pin.png" alt="주소 핀"></button>
+            <button class="location-pin"><img src="@/assets/image/pin.png" alt="주소 핀" /></button>
             <ul class="discover-filter-ul slide-ul">
-                <li ref="li" class="discover-filter-li slide-li f-14-700 active" v-for="filterItem in filterList" :key="filterItem" @click="clickLiFnc">
+                <li
+                    ref="li"
+                    class="discover-filter-li slide-li f-14-700 active"
+                    v-for="filterItem in filterList"
+                    :key="filterItem"
+                    @click="
+                        clickLiFnc;
+                        selectTab = filterItem;
+                    "
+                >
                     {{ filterItem }}
                 </li>
                 <span ref="nav" class="nav-indicator"></span>
@@ -53,7 +65,7 @@ const trainerInfo = ref(store.state.place.places);
                 <div class="place-discover-list">
                     <ul class="filter-scroll">
                         <li @click="SortingOpenFnc">거리순<span class="arrow"></span></li>
-                        <li><img src="@/assets/image/filter.png" alt="필터" /></li>
+                        <li @click="isShowFilter = true"><img src="@/assets/image/filter.png" alt="필터" /></li>
                         <li>수강기간</li>
                         <li>플레이스 타입</li>
                         <li>기타옵션</li>
@@ -67,7 +79,7 @@ const trainerInfo = ref(store.state.place.places);
                 <div class="trainer-discover-list">
                     <ul class="filter-scroll">
                         <li @click="SortingOpenFnc">거리순<span class="arrow"></span></li>
-                        <li><img src="@/assets/image/filter.png" alt="필터" /></li>
+                        <li @click="isShowFilter = true"><img src="@/assets/image/filter.png" alt="필터" /></li>
                         <li>수강횟수</li>
                         <li>가격</li>
                         <li>성별</li>
@@ -82,6 +94,21 @@ const trainerInfo = ref(store.state.place.places);
         </div>
     </div>
 
-    <DiscoverSorting :class="{ active: SortingOpen }" :closeModal="confirmDiscoverSorting"/>
-    <!-- <Filter/> -->
+    <DiscoverSorting :class="{ active: SortingOpen }" :closeModal="confirmDiscoverSorting" />
+    <Filter
+        v-if="isShowFilter && selectTab === '플레이스'"
+        :close="
+            () => {
+                isShowFilter = false;
+            }
+        "
+    />
+    <FilterTrainer
+        v-if="isShowFilter && selectTab === '트레이너'"
+        :close="
+            () => {
+                isShowFilter = false;
+            }
+        "
+    />
 </template>

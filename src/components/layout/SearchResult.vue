@@ -56,7 +56,7 @@ onMounted(() => {
                 </ul>
                 <ul class="filter-scroll">
                     <li>거리순<span class="arrow"></span></li>
-                    <li><img src="@/assets/image/filter.png" alt="필터" @click="isShowFilter = true" /></li>
+                    <li @click="isShowFilter = true"><img src="@/assets/image/filter.png" alt="필터" /></li>
                     <li>수강기간</li>
                     <li>플레이스 타입</li>
                     <li>기타옵션</li>
