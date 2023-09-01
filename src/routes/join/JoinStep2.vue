@@ -1,9 +1,7 @@
 <script setup>
-import JoinCurrent from "@/components/layout/JoinCurrent.vue";
 import useValidations from "@/composables/useValidations";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
-import { onMounted } from "vue";
 
 const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_id", "mb_password", "mb_password_cfm"]);
 const store = useStore();
@@ -13,18 +11,13 @@ const submitData = () => {
     store.commit("updateJoinData", { id: form.mb_id.value, pw: form.mb_password.value });
     router.push("/join/step3");
 };
-
-onMounted(() => {
-    console.log(store.state.join.joinData);
-});
 </script>
 
 <template>
-    <JoinCurrent />
+    <!-- <JoinCurrent /> -->
     <div class="member_container step2">
         <div class="member_container_inner mob-inner">
             <div class="form-group">
-                {{ store.state.join.joinData }}
                 <input v-model="form.mb_id.value" type="email" name="mb_id" id="mb_id" maxlength="20" placeholder="아이디(이메일)" required />
                 <div class="etc">
                     <span class="check-confirm" :class="{ active: isFormValid.mb_id.value }">

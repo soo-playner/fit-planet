@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, onMounted } from "vue";
-import JoinCurrent from "@/components/layout/JoinCurrent.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
@@ -47,7 +46,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <JoinCurrent />
+    <!-- <JoinCurrent /> -->
     <div class="member_container step1">
         <div class="member_container_inner mob-inner">
             <div class="form-group rep">
