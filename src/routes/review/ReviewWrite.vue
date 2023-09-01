@@ -59,7 +59,7 @@ const updateWordCount = () => {
                     </li>
                     <li><span></span>경고 누적 시 후기 작성이 제한될 수 있습니다.</li>
                 </ul>
-                <button class="next-step-btn f-16-700">후기 업로드 하기</button>
+                <button class="btn1">후기 업로드 하기</button>
             </div>
         </div>
     </div>

@@ -97,7 +97,7 @@ const history = [
                                 <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                                 <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                             </div>
-                            <router-link to="/" class="f-14-700"><img src="@/assets/image/wallet.png" alt="결제하기" />같은 운동 결제하기</router-link>
+                            <router-link to="/" class="btn3"><img src="@/assets/image/wallet.png" alt="결제하기" />같은 운동 결제하기</router-link>
                         </div>
                     </div>
                 </div>

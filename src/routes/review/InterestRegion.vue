@@ -20,7 +20,7 @@ const recentRegion = ["서울시 강남구", "서울시 강남구", "서울시 �
                         <li>
                             <div class="close"></div>
                             <div class="region-list">
-                                <img src="@/assets/image/quick-menu-icon-2-on.png" alt="지역" class="location" />
+                                <img src="@/assets/image/earth.png" alt="지역" class="location" />
                                 <p class="f-16-700">서울시 강남구</p>
                             </div>
                         </li>

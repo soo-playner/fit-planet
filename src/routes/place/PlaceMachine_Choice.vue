@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+
+</script>
 
 <template>
     <div class="main-layout place-choice-layout">
@@ -12,8 +14,8 @@
                 <div class="place-choice-list-layout">
                     <div class="place-choice-list-layout-tit">수강권</div>
                     <ul>
-                        <li class="flex-flow">
-                            <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권">
+                        <li class="flex-flow active">
+                            <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권" checked>
                             <label for="ticket_1_1">
                                 <div class="top-row each-tit">
                                     <span class="outSide">
@@ -103,8 +105,8 @@
                 <div class="training-opt-list place-choice-list-layout mp">
                     <div class="place-choice-list-layout-tit">운동복</div>
                     <ul>
-                        <li>
-                            <input type="radio" id="training_1_1" name="training" value="선택 안함">
+                        <li class="active">
+                            <input type="radio" id="training_1_1" name="training" value="선택 안함" checked>
                             <label for="training_1_1">
                                 <div class="left-column each-tit">
                                     <span class="outSide">
@@ -175,8 +177,8 @@
                 <div class="locker-opt-list place-choice-list-layout mp">
                     <div class="locker-opt-list-tit">개인 락커</div>
                     <ul>
-                        <li>
-                            <input type="radio" id="locker_1_1" name="locker" value="선택 안함">
+                        <li class="active">
+                            <input type="radio" id="locker_1_1" name="locker" value="선택 안함" checked>
                             <label for="locker_1_1">
                                 <div class="left-column each-tit">
                                     <span class="outSide">
@@ -245,7 +247,7 @@
                 </div>
             </div>
         </div>
-        <div class="bott-pay-btn" style="opacity:0;">
+        <div class="bott-pay-btn">
             <div class="place-name f-14-700">위즈짐</div>
             <ul class="choice-machine-list">
                 <li>

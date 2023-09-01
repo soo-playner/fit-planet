@@ -187,7 +187,7 @@ const confirmInquiry = () => {
                         </SwiperSlide>
                     </Swiper>
                 </div>
-                <router-link to="/Place/Review" class="review-all-btn f-14-400">이용 후기 모두 보기</router-link>
+                <router-link to="/Place/Review" class="review-all-btn btn1-1">이용 후기 모두 보기</router-link>
             </div>
             <!-- 플레이스 설명 -->
             <div class="place-explain f-12-400">
@@ -264,7 +264,7 @@ const confirmInquiry = () => {
                         <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
                     </ul>
                 </div>
-                <router-link to="/place/machine" class="place-machine-all-btn next-step-btn f-14-400">운동기구 모두 보기</router-link>
+                <router-link to="/place/machine" class="place-machine-all-btn btn1-1">운동기구 모두 보기</router-link>
             </div>
             <!-- 1:1 트레이너 -->
             <div class="place-trainer">
@@ -301,7 +301,7 @@ const confirmInquiry = () => {
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
                 </Swiper>
-                <router-link to="/Place/Trainer" class="place-trainer-all-btn f-14-400">트레이너 모두 보기</router-link>
+                <router-link to="/Place/Trainer" class="place-trainer-all-btn btn1-1">트레이너 모두 보기</router-link>
             </div>
             <!-- 환불정책 -->
             <div class="place-refunt">

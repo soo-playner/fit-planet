@@ -34,8 +34,8 @@
 
 <template>
     <div class="coupon_container main-layout notFooter-layout">
-        <div class="coupon_container_inner mob-inner">
-            <div class="coupon-input">
+        <div class="coupon_container_inner">
+            <div class="coupon-input mob-inner">
                 <div class="form-group">
                     <input v-model="couponNumber" type="text" name="coupon-num" id="coupon-num" placeholder="쿠폰 번호 입력">
                 </div>

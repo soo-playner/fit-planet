@@ -14,7 +14,7 @@ a{text-decoration:none; color:#000;}
 span{display:block;}
 
 // 레이아웃
-.main-layout{padding:60px 0 82px 0;
+.main-layout{padding:56px 0 82px 0;
     .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
     &-inner{padding:24px 20px 28px;}
 }
@@ -25,7 +25,16 @@ span{display:block;}
 $b:#000;
 $f:#fff;
 $gray:#979797;
+$thick-gray:#474747;
+$light-gray:#f1f1f1;
+$light-gray-1:#D9D9D9;
+$purple:#6E2FF4;
+$light-purple:#F5F7FB;
+$blue:#2F72F4; 
+$orange:#FD9F52;
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
+.gray1{color:#979797}
+.gray2{color:#ACACAC;}
 
 // 미디어쿼리
 @mixin responsive-1040(){
@@ -65,8 +74,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 검색 버튼
 @mixin searchBtn(){@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px); cursor:pointer;
     &::before, &::after{content:''; position:absolute; background:$b;}
-    &::before{@include conSize(14px, 14px); background:none; border:2px solid $b; border-radius:50%;}
-    &::after{@include conSize(2px, 8px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
+    &::before{@include conSize(17px, 17px); background:none; border:2px solid $b; border-radius:50%;}
+    &::after{@include conSize(2px, 8px); right:2px; bottom:0; transform:rotate(-45deg); background:$b;}
 }
 // 화살표
 @mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
@@ -91,7 +100,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-360{@include conSize(100%, 40px, 39px);}
 }
 // 패스워드 가이드
-.password-guide{line-height:1.8; margin:28px 0 0 0; color:#979797; text-align:left;
+.password-guide{line-height:1.8; margin:28px 0 0 0; color:$gray; text-align:left;
     @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
 }
 // 인증 시 시간 텍스트
@@ -99,15 +108,17 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 유효성 검사 시 노출되는 텍스트
 .vail{margin:10px 0 0 0;}
 // 별점
-.starBox{@include display(flex)}
+.starBox{@include display(flex); color:$orange;}
 // 밑줄 라인 필요할 경우
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }
 
-// 버튼
-.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer;}
-.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(14px, 700, $f); background:$b; border-radius:19px; cursor:pointer;}
+// 버튼 모양
+.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer; text-align:center}
+.btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $gray; color:$b;}
+.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(14px, 700, $f); background:$b; border-radius:19px; cursor:pointer; text-align:center}
+.btn3{@extend .btn2; background:$f;}
 
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
@@ -130,10 +141,6 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .f-24-700{@include font(24px, 700, null);}
 
-// 색상
-.gray1{color:#979797}
-.gray2{color:#ACACAC;}
-
 // 인풋, 버튼 초기 설정
 button, input{background:none; border:none;
     &:focus, &:active{outline:none; box-shadow:none;}
@@ -144,15 +151,14 @@ button, input{background:none; border:none;
     input[type='email'],
     input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
         &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
-        &:focus{border-bottom-color:$b;}
+        //&:focus{border-bottom-color:$b;}
     }
     input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
         + label{@include display(flex, center); column-gap:10px; cursor:pointer;
-            span{@include conSize(15px, 15px); background:#d9d9d9; border-radius:50%;}
+            span{@include conSize(18px, 18px); background:url('@/assets/image/input-checkbox.png') center no-repeat; border-radius:50%;}
         }
         &:checked + label{
-            span{background:$gray;}
-
+            span{background:url('@/assets/image/input-checkbox-checked.png') center no-repeat;}
         }
     }
     input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
@@ -181,7 +187,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{@include conSize(100%, null, 1); min-height:60px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:18px 21px; background:$f;
+.at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; background:$f;
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
             .back{@include arrow2; width:13px; cursor:pointer;
@@ -192,17 +198,23 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         .center{@include center(absolute);}
         .right{width:50%; @include display(flex, null, flex-end);
             .menu-ul{@include display(flex, center); gap:30px;
-                li{@include display(flex, center); cursor:pointer;
+                li{@include display(flex, center); position:relative; cursor:pointer;
                     a{height:24px; @include display(flex, center);}
-                    &.progress{font-size: 14px;}
-                    .search{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
+                    &.progress{font-size:14px;}
+                    &.alarm{
+                        .notConfirm-alarm{@include conSize(13px, 13px); @include display(flex, center, center); @include position(absolute, -4px, -6px); border-radius:50%; background:$blue;
+                            span{@include font(8px, 700, $f)}
+                        }
+                    }
+                    &.search span{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
+                    &.close div{@include close;}
                 }
                 @include responsive-480{gap:20px}
             }
         }
         .discover-place{margin:9px 0 0 0;}
     }
-    &.active{height:96px; padding:30px 21px 0; background:transparent;}
+    // &.active{height:96px; padding:30px 21px 0; background:transparent;}
     &.discover{border-radius:0 0 16px 16px;}
     &.border{border-bottom:1px solid #F1F1F1}
 
@@ -221,10 +233,11 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
             }
         }
         .alert-list{
-            li{display:-webkit-box; position:relative; padding:20px; border-bottom:1px solid #d9d9d9;
+            li{display:-webkit-box; position:relative; padding:20px; border-bottom:1px solid $light-gray;
                 .txt-box{width:100%;}
-                .top-column{@include display(flex, flex-end, space-between); margin:0 0 4px 0;
-                    .time{@include font(12px, 400, #979797);}
+                .top-column{@include display(flex, flex-end, space-between); margin:0 0 11px 0;
+                    .alert-name{color:$thick-gray;}
+                    .time{@include font(12px, 400, $gray);}
                     @include responsive-360{margin:0 0 7px 0;}
                 }
                 .bott-column{@include display(flex, null, space-between); column-gap:20px;
@@ -234,7 +247,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                         }
                         .place-info{@include display(flex);
                             p{@include afterLine; @include display(flex); column-gap:5px; padding-right:7px; @include font(12px, 400, #979797);
-                                &::after{height:10px; background:#979797}
+                                &::after{height:10px; top:1px; background:#979797}
                             }
                         }
                         @include responsive-360{width:100%; row-gap:3px;}
@@ -245,7 +258,9 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                     @include responsive-360{flex-flow:column;}
                 }
                 .test{@include conSize(72px, 100%); @include display(flex, center, center); position:absolute; left:100%; top:0; background:#979797;}
-                &.notConfirm{background:#F1F1F1;}
+                &.notConfirm{background:$light-purple;
+                    &::after{content:''; @include conSize(4px, 4px); @include position(absolute, 10px, 23px); background:$purple; border-radius:50%;}
+                }
                 &.couponAlert{
                     .txt-box{width:100%;
                         .alert-con{width:calc(100% - 84px);}

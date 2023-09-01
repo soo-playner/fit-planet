@@ -131,7 +131,7 @@
             <!-- 결제하기 -->
             <div class="last-pay-btn">
                 <p class="f-14-700">위 내용을 확인 하였으며 결제에 동의합니다.</p>
-                <button class="f-16-700"><span class="total-amount">334,000원</span> 결제하기</button>
+                <button class="btn1"><span class="total-amount">334,000원</span> 결제하기</button>
             </div>
         </div>
     </div>

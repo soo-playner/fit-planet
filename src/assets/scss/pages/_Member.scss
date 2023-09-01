@@ -73,7 +73,7 @@
             .pw-guide{@include display(flex, null, center); column-gap:5px; margin:20px 0 0 0;}
         }
     // 권한
-    &.authority{height:calc(var(--vh, 1vh) * 100);/*min-height:calc(100vh + 41px);*/ padding:108px 24px 52px;
+    &.authority{height:calc(var(--vh, 1vh) * 100);/*min-height:calc(100vh + 41px);*/ padding:104px 24px 52px;
         .intro-txt-box{margin:0 0 40px 0; text-align:center;
             & > div:first-child{margin:0 0 6px 0;}
         }
@@ -84,7 +84,12 @@
                         span{color:#979797;}
                     }
                 }
-                .authority-con{@include conSize(45px, 45px); border:1px solid #f1f1f1; border-radius:50%;}
+                .authority-con{@include conSize(50px, 50px); border:1px solid $light-gray; border-radius:50%;
+                    @for $i from 1 to 5{
+                        &-#{$i}{background:url('@/assets/image/authority-con-#{$i}.png') center no-repeat;}
+                    }
+                    &-1{background-position:15px;}
+                }
                 &:last-child{padding:0; margin:0; border-bottom:0;}
             }
         }
@@ -92,31 +97,6 @@
         .bott-btn-box{text-align:center;}
     }
     @include responsive-320{padding:123px 15px 52px;}
-}
-
-
-/******************************************
-아이디 찾기
-/routes/find_account
-******************************************/
-.FindID_Step3{
-    .intro-txt-box{
-        .id-guide{text-align:center;
-            div{@include display(flex, null, center)}
-            p{margin:6px 0 0 0;}
-        }
-        .id-list{margin:33px 0 0 0;
-            li{@include display(flex, center); column-gap:10px; padding:10px; border:1px solid #D9D9D9; border-radius:50px; cursor:pointer;
-                .user-profile-img{@include conSize(45px, 45px); border-radius:50%; background:$gray;}
-                .user-info p{@include display(flex); 
-                    &:last-child{column-gap:5px; margin:5px 0 0 0; color:$gray;}
-                }
-            }
-        }
-    }
-    .bttom-btn-box{text-align:center;
-        a:first-child{margin:0 0 28px 0}
-    }
 }
 
 /******************************************
@@ -134,16 +114,16 @@
                 a{@include conSize(null, 44px, 44px); margin:16px 0 0 0; background:$b; color:$f; border-radius:50px;}
             }
             .login-form-input2{@include display(flex, center, center); column-gap:20px; margin:30px 0 25px 0;
-                a{@include conSize(54px, 54px); border-radius:50%; background:$gray;
+                button{@include conSize(54px, 54px); border-radius:50%;
                     @include responsive-320{@include conSize(45px, 45px);}
                 }
                 @include responsive-360{column-gap:12px;}
             }
             .login-form-input3{
-                a{@include font(12px, 400, #979797);}
+                a{@include font(12px, 400, $gray);}
                 ul{@include display(flex, center, center);
                     li{position:relative; margin-right:8px; padding-right:8px;
-                        &::after{content:""; @include conSize(1px, 11px); position:absolute; top:3px; right:0; background:#979797;}
+                        &::after{content:""; @include conSize(1px, 11px); position:absolute; top:3px; right:0; background:$gray;}
                         &:last-child{margin-right:0; padding-right:0;
                             &::after{display:none;}
                         }

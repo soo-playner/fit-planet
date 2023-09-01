@@ -52,7 +52,7 @@ onMounted(() => {
         <div class="member_container_inner mob-inner">
             <div class="form-group rep">
                 <input type="checkbox" name="wr_1" id="wr_1" value="약관 전체동의" :checked="isCheckedAll" @change="toggleAllTerms" />
-                <label for="wr_1" class="f-14-700"><span></span>약관 전체동의</label>
+                <label for="wr_1" class="f-16-700"><span></span>약관 전체동의</label>
             </div>
             <div class="check-list">
                 <div class="form-group" v-for="term in terms" :key="term.id">

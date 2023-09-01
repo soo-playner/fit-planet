@@ -33,10 +33,10 @@ const login = async () => {
                     <RouterLink to="" class="login-btn f-16-700" @click="login">이메일 로그인</RouterLink>
                 </div>
                 <div class="login-form-input2 social-login">
-                    <RouterLink to="/" title="구글 로그인" />
-                    <RouterLink to="/" title="네이버 로그인" />
-                    <RouterLink to="/" title="카카오 로그인" />
-                    <RouterLink to="/" title="애플 로그인" />
+                    <button to="/" title="카카오 로그인"><img src="@/assets/image/social-login-kakao.png" alt="카카오 로그인"></button>
+                    <button to="/" title="네이버 로그인"><img src="@/assets/image/social-login-naver.png" alt="네이버 로그인"></button>
+                    <button to="/" title="구글 로그인"><img src="@/assets/image/social-login-google.png" alt="구글 로그인"></button>
+                    <button to="/" title="애플 로그인"><img src="@/assets/image/social-login-apple.png" alt="애플 로그인"></button>
                 </div>
                 <div class="login-form-input3">
                     <ul>

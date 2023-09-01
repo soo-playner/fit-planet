@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <li>
+    <li class="mob-inner">
         <div class="top-column">
             <div class="coupon-due-date">
                 <span>{{ props.data.dueDate }}</span> 남음

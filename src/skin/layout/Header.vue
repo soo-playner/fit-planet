@@ -229,7 +229,8 @@ const headerTitle = () => {
         case "/interest/region": {
             return "관심지역 추가";
         }
-        case "/Profile_email_login":
+        case "/profile_email_login":
+        case "/profile_sns_login":
         case "/Profile_sns_login": {
             return "회원정보";
         }
@@ -295,14 +296,15 @@ const pageName = () => {
             </div>
             <div class="right">
                 <ul class="menu-ul">
-                    <li v-if="headerType()['alarm']" @click="AlertOpenFnc">
+                    <li class="alarm" v-if="headerType()['alarm']" @click="AlertOpenFnc">
                         <img src="@/assets/image/alarm.png" alt="알림" />
+                        <div class="notConfirm-alarm"><span>1</span></div>
                     </li>
                     <li v-if="headerType()['write']">
                         <img src="@/assets/image/write.png" alt="글쓰기" />
                     </li>
-                    <li v-if="headerType()['search']" @click="SearchOpenFnc">
-                        <span class="search"></span>
+                    <li class="search" v-if="headerType()['search']" @click="SearchOpenFnc">
+                        <span></span>
                     </li>
                     <li
                         v-if="headerType()['mypage']"
@@ -319,14 +321,14 @@ const pageName = () => {
                     <li v-if="headerType()['setting']">
                         <img src="@/assets/image/setting.png" alt="설정" />
                     </li>
-                    <li v-if="headerType()['close']">
-                        <img src="@/assets/image/close.png" alt="닫기" />
+                    <li class="close" v-if="headerType()['close']">
+                        <div></div>
                     </li>
                     <li v-if="headerType()['overallProgress']" class="progress">{{ headerType()["currentProgress"] }}/{{ headerType()["overallProgress"] }}</li>
                 </ul>
             </div>
 
-            <div class="discover-place f-16-400" v-if="$route.name === 'DiscoverList'">서울시 강남구 대치 동</div>
+            <div class="discover-place f-16-400" v-if="$route.name === 'DiscoverList'">서울시 강남구 대치동</div>
         </div>
 
         <Alert :class="{ active: AlertOpen }" />

@@ -1,12 +1,5 @@
-// 리뷰 탭
-.filter-scroll{@include filterScroll; padding:20px 0; margin:0 20px;
-    li{color:#979797;
-        img.location{margin:0 5px 0 0;}
-    }
-
-    @include responsive-360{margin:0 15px;}
-}
-.review-induce{@include conSize(null, 64px, 64px); @include display(flex, center, space-between); padding:20px; margin:0 0 20px 0; background:#F1F1F1;
+// 리뷰 탭(아직 작성하지 않은 후기 박스)
+.review-induce{@include conSize(null, 64px, 64px); @include display(flex, center, space-between); padding:20px; margin:0 0 20px 0; background:$light-purple;
     p{@include display(flex);
         span{margin:0 0 0 4px;}
     }
@@ -50,50 +43,6 @@
 후기
 /routes/review/Review.vue
 ******************************************/
-// .review_container{
-//     &_inner{
-//         .review-list{display:grid; grid-template-columns:repeat(2,1fr); column-gap:12px; row-gap:20px; padding:0 20px 20px 20px;
-//             li{cursor:pointer;
-//                 .center-img{@include conSize(100%, 500px); background:#d9d9d9; border-radius:8px;
-//                     @include responsive-1040{height:48vw;}
-//                     @include responsive-991{height:auto; min-height:154px;}
-//                 }
-//                 .txt-box{margin:12px 0 0 0;
-//                     .writer-info{@include display(flex); column-gap:8px;
-//                         p{@include font(16px, 700)}
-//                     }
-//                     .review-con{display:-webkit-box; margin:6px 0 13px; text-overflow:ellipsis; overflow:hidden; word-break:break-word; -webkit-line-clamp:2; -webkit-box-orient:vertical; @include font(14px, 400)}
-//                     .trainer-info{max-width:125px; line-height:30px; display:inline; padding:7px 12px 7px 29px; @include font(12px, 400); background:url(../image/people.png) 13px no-repeat; border:1px solid #979797; border-radius:15px;
-//                         span{display:inline-block; margin:0 5px;}
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// .review_container{
-//     &_inner{
-//         .review-list{display:grid; grid-template-columns:repeat(2,1fr); column-gap:12px; row-gap:20px; padding:0 20px 20px 20px;
-//             li{cursor:pointer;
-//                 .center-img{@include conSize(100%, 500px); background:#d9d9d9; border-radius:8px;
-//                     @include responsive-1040{height:48vw;}
-//                     @include responsive-991{height:auto; min-height:154px;}
-//                 }
-//                 .txt-box{margin:12px 0 0 0;
-//                     .writer-info{@include display(flex); column-gap:8px;
-//                         p{@include font(16px, 700)}
-//                     }
-//                     .review-con{display:-webkit-box; margin:6px 0 13px; text-overflow:ellipsis; overflow:hidden; word-break:break-word; -webkit-line-clamp:2; -webkit-box-orient:vertical; @include font(14px, 400)}
-//                     .trainer-info{max-width:125px; line-height:30px; display:inline; padding:7px 12px 7px 29px; @include font(12px, 400); background:url(../image/people.png) 13px no-repeat; border:1px solid #979797; border-radius:15px;
-//                         span{display:inline-block; margin:0 5px;}
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
 .review_container{
     &_inner{
         .review-list{display:grid; grid-template-columns:repeat(2,1fr); column-gap:12px; row-gap:20px; padding:0 20px 20px 20px;
@@ -174,7 +123,7 @@
 .ReviewWrite_container{
     &_inner{
         & > div{padding:28px 0; margin:0 20px; border-bottom:1px solid #D9D9D9; text-align:center;
-            &:last-child{border-bottom:0;}
+            &:last-child{padding-bottom:0; border-bottom:0;}
         }
         // 결제 상품
         .product{@include display(flex, center, space-between); padding:20px; margin:0; border-bottom:8px solid #f1f1f1;
@@ -188,7 +137,9 @@
         // 운동은 만족스러웠나요?
         .scope-select{
             .scope-current{margin:3px 0 5px 0; color:#979797;}
-            .starBox{justify-content:center;}
+            .starBox{justify-content:center; column-gap:4px;
+                .star{font-size:27px;}
+            }
         }
         // 사진을 게시해 주세요
         .album{
@@ -225,7 +176,7 @@
                     &:last-child{margin:0;}
                 }
             }
-            .next-step-btn{margin:20px 0 0 0}
+            .btn1{margin:20px 0 0 0}
         }
     }
 }
@@ -249,16 +200,16 @@
             }
             .add-box{display:grid; grid-template-columns:repeat(2, 1fr); grid-template-rows:320px; column-gap:6px;
                 .add-region-ul{
-                    li{height:100%; @include display(flex, center, center); position:relative; background:#D9D9D9; border-radius:8px;
+                    li{height:100%; @include display(flex, center, center); position:relative; background:$light-gray-1; border-radius:8px;
                         .close{@include close; @include position(absolute, 12px, 12px);
                             &::before, &::after{background:$f;}
                         }
                         .region-list{text-align:center;}
                     }
                 }
-                .add-box-btn{background:#F1F1F1; border-radius:8px; cursor:pointer;
-                    span{@include conSize(48px, 48px); @include display(flex, center, center); position:relative; margin:0 auto; border:1px solid #D9D9D9; border-radius:50%;
-                        &::before, &::after{content:''; position:absolute; opacity:.4; background:#d9d9d9;}
+                .add-box-btn{border:1px dashed $light-gray-1; border-radius:8px; cursor:pointer;
+                    span{@include conSize(48px, 48px); @include display(flex, center, center); position:relative; margin:0 auto; border:1px solid $light-gray-1; border-radius:50%;
+                        &::before, &::after{content:''; position:absolute; background:$gray;}
                         &::before{@include conSize(16px, 3px);}
                         &::after{@include conSize(3px, 16px);}
                     }
@@ -268,7 +219,7 @@
         }
         .recent-search-region{
             li{
-                p{@include font(12px, 400)}
+                p{@include font(14px, 400)}
             }
         }
     }

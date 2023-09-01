@@ -47,8 +47,8 @@
 
 /******************************************
 문의
-/routes/commnuity/Inquiry.vue 
 ******************************************/
+// 문의하기 - /routes/commnuity/Inquiry.vue 
 .Inquiry_container{
     &_inner{
         .form-group2{margin:0 0 8px 0;
@@ -104,10 +104,7 @@
     @include responsive-360{padding-bottom:117px;}
 }
 
-/******************************************
-문의 완료
-/routes/commnuity/InquiryComplete.vue 
-******************************************/
+// 문의완료 - /routes/commnuity/InquiryComplete.vue 
 .InquiryComplete_container{height:calc(var(--vh, 1vh) * 100);
     &_inner{height:100%; @include display(flex, center, space-between, column); padding:190px 20px 32px;
         .top-row{text-align:center;
@@ -128,11 +125,8 @@
             .search-btn{@include searchBtn;}
         }
         .tab-and-filter{
-            .search-tab{display:flex; margin:28px 0 20px 0;
+            .search-tab{display:flex; margin:28px 0 0 0;
                 li{flex:1;}
-            }
-            .filter-scroll{@include filterScroll; padding:0 20px;
-                img{margin:0;}
             }
         }
         .PlaceData-form{@include placeList2;}
@@ -196,7 +190,7 @@
 찜
 /routes/wish
 ******************************************/
-.Wish_container{
+.Wish_container{padding-bottom:100px;
     &_inner{
         .tab-list{@include useTab; display:flex; overflow-x:initial;
             li{flex:1;}

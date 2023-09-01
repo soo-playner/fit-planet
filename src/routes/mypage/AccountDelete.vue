@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="bott-btn">
-                <router-link to="/" class="f-16-700">뒤로가기</router-link>
+                <router-link to="/" class="btn1">뒤로가기</router-link>
                 <button 
                     class="f-14-400" 
                     @click="accountDeleteFnc"

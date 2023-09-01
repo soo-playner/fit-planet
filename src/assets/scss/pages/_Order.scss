@@ -45,7 +45,8 @@
 ******************************************/
 .OrderInquiryView_container{
     &_inner{
-        & > div{padding:20px; border-bottom:9px solid #f1f1f1;
+        & > div{position:relative; padding:20px; border-bottom:9px solid #f1f1f1;
+            //&::before{content:''; @include conSize(100%, 9px); @include position(absolute, null, null, -9px, 0); background:#f1f1f1;}
             &:last-child{border-bottom:0;}
             @include responsive-320{padding:15px;}
         }
