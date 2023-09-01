@@ -23,7 +23,7 @@
     .map{@include conSize(100%, 100%); position:fixed;
         iframe{@include conSize(100vw, 100vh);}
     }
-    &_inner{max-width:100%; height:calc(100vh - 168px); position:relative; padding:34px 0 82px 0; margin-top:calc(100vh - 48px - 164px); background:$f; border-radius:16px 16px 0 0;
+    &_inner{max-width:100%; height:calc(100vh - 155px); position:relative; padding-top:34px; margin-top:calc(100vh - 48px - 172px); background:$f; border-radius:16px 16px 0 0;
         .location-pin{@include conSize(40px, 40px); @include display(flex, center, center); @include position(absolute, -56px, 20px); background:$f; border-radius:50%; cursor:pointer;
             img{margin:0 0 0 -1px}
         }

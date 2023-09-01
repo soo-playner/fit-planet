@@ -1,5 +1,4 @@
 <script setup>
-import JoinCurrent from "../../components/layout/JoinCurrent.vue";
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 import useValidations from "@/composables/useValidations";
@@ -21,7 +20,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <JoinCurrent />
     <div class="member_container step3">
         <div class="member_container_inner mob-inner">
             <div class="nickname-guide f-14-400">핏플래닛에서 사용할 닉네임을 입력해주세요</div>

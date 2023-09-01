@@ -1,11 +1,29 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import useAjaxRequest from "@/composables/useAjaxRequest";
+import useUploadFile from "../../composables/useUploadFile";
 
 const reviewText = ref("");
 const wordCount = ref(0);
 
+const allowType = ["jpg", "jpeg", "png", "gif"];
+const { fileData, uploadFile, deleteFile } = useUploadFile(allowType, 8, 3);
+const { postData, resData } = useAjaxRequest();
+
 const updateWordCount = () => {
     wordCount.value = reviewText.value.length;
+};
+
+const submitData = async () => {
+    if (wordCount.value < 50) return alert("50자 이상 작성해 주세요.");
+    const formData = new FormData();
+    formData.append("review_text", reviewText.value);
+    fileData.forEach((el) => {
+        formData.append("review_image", el.file);
+    });
+    const res = await postData("api", formData);
+    alert(res.msg);
+    if (res.code !== 200) return;
 };
 </script>
 
@@ -37,9 +55,17 @@ const updateWordCount = () => {
                     <span>쿠폰이 지급되지 않습니다.</span>
                 </span>
                 <div class="album-select">
-                    <button class="album-plus"><span class="plus-shape"></span><input type="file" id="mb-review" name="mb-review" /></button>
-                    <div class="album-select-1"></div>
-                    <div class="album-select-2"></div>
+                    <button class="album-plus" :class="{ none: !fileData[0] }">
+                        <span class="plus-shape"></span>
+                        <input type="file" id="mb-review" name="mb-review" multiple @change="uploadFile" />
+                        <img v-show="fileData[0]" :src="fileData[0] && fileData[0].url" />
+                    </button>
+                    <div class="album-select-img" :class="{ none: !fileData[1] }">
+                        <img v-show="fileData[1]" :src="fileData[1] && fileData[1].url" />
+                    </div>
+                    <div class="album-select-img" :class="{ none: !fileData[2] }">
+                        <img v-show="fileData[2]" :src="fileData[2] && fileData[2].url" />
+                    </div>
                 </div>
             </div>
             <!-- 후기를 작성해 주세요 -->
@@ -59,7 +85,7 @@ const updateWordCount = () => {
                     </li>
                     <li><span></span>경고 누적 시 후기 작성이 제한될 수 있습니다.</li>
                 </ul>
-                <button class="btn1">후기 업로드 하기</button>
+                <button class="next-step-btn f-16-700" @click="submitData">후기 업로드 하기</button>
             </div>
         </div>
     </div>
