@@ -5,7 +5,7 @@ import useUploadFile from "../../composables/useUploadFile";
 
 const reviewText = ref("");
 const wordCount = ref(0);
-const scope = ref(1);
+const scope = ref(5);
 
 const allowType = ["jpg", "jpeg", "png", "gif"];
 const { fileData, uploadFile, deleteFile } = useUploadFile(allowType, 8, 3);
