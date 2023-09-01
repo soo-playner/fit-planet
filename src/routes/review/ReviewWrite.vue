@@ -5,6 +5,7 @@ import useUploadFile from "../../composables/useUploadFile";
 
 const reviewText = ref("");
 const wordCount = ref(0);
+const scope = ref(1);
 
 const allowType = ["jpg", "jpeg", "png", "gif"];
 const { fileData, uploadFile, deleteFile } = useUploadFile(allowType, 8, 3);
@@ -14,10 +15,15 @@ const updateWordCount = () => {
     wordCount.value = reviewText.value.length;
 };
 
+const scopeHandler = (e) => {
+    scope.value = Number(e.target.dataset.idx);
+};
+
 const submitData = async () => {
     if (wordCount.value < 50) return alert("50자 이상 작성해 주세요.");
     const formData = new FormData();
     formData.append("review_text", reviewText.value);
+    formData.append("review_scope", scope.value);
     fileData.forEach((el) => {
         formData.append("review_image", el.file);
     });
@@ -43,8 +49,8 @@ const submitData = async () => {
                 <div class="scope-select-tit f-14-700">운동은 만족스러웠나요?</div>
                 <span class="scope-current f-12-400">만족해요</span>
                 <div class="starBox">
-                    <div class="star" v-for="starItem in 4" :key="starItem">★</div>
-                    <div class="star">☆</div>
+                    <div class="star" v-for="(star, idx) in scope" :key="star" :data-idx="idx + 1" @click="scopeHandler">★</div>
+                    <div class="star" v-for="(star_empty, idx) in 5 - scope" :key="star_empty" :data-idx="scope + (idx + 1)" @click="scopeHandler">☆</div>
                 </div>
             </div>
             <!-- 사진을 게시해 주세요 -->
