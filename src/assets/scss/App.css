@@ -9536,7 +9536,6 @@ ul 안에 ul
 .ReviewWrite_container_inner .album .album-select > * {
   width: 101px;
   height: 101px;
-  background: #F1F1F1;
   border-radius: 8px;
 }
 .ReviewWrite_container_inner .album .album-select button {
@@ -9550,6 +9549,10 @@ ul 안에 ul
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  background: transparent;
+  overflow: hidden;
+}
+.ReviewWrite_container_inner .album .album-select button.none {
   background: #000;
 }
 .ReviewWrite_container_inner .album .album-select button .plus-shape {
@@ -9584,6 +9587,32 @@ ul 안에 ul
 .ReviewWrite_container_inner .album .album-select button input[type=file] {
   position: absolute;
   opacity: 0;
+}
+.ReviewWrite_container_inner .album .album-select button img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img {
+  position: relative;
+  overflow: hidden;
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img.none {
+  background: #F1F1F1;
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .ReviewWrite_container_inner .review-input-tit {
   margin: 0 0 16px 0;
