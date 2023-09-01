@@ -9595,6 +9595,9 @@ ul 안에 ul
   bottom: 16px;
   color: #979797;
 }
+.ReviewWrite_container_inner .review-warning .warning-list {
+  margin-bottom: 20px;
+}
 .ReviewWrite_container_inner .review-warning .warning-list li {
   line-height: 1.7;
   display: -webkit-box;

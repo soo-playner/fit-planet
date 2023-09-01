@@ -173,6 +173,7 @@
         // 경고 문구
         .review-warning{
             .warning-list{
+                margin-bottom: 20px;
                 li{line-height:1.7; @include display(flex); margin:0 0 6px 0; @include font(12px, 400, #979797);
                     span{@include conSize(4px, 4px); margin:7px 7px 0 0; background:#979797; border-radius:50%;}
                     p{width:calc(100% - 11px); text-align:left;}
