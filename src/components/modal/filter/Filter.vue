@@ -51,6 +51,11 @@ const selectFilterHandler = (type, value) => {
 };
 
 watch(selectFilter, () => {});
+
+const toggle = ref(false);
+const toggleFnc = (e) => {
+    e.target.classList.toggle("active");
+};
 </script>
 
 <template>
@@ -133,7 +138,7 @@ watch(selectFilter, () => {});
             <div class="facilities">
                 <div class="facilities-tit f-14-700">편의시설</div>
                 <ul>
-                    <li v-for="fac in facilities" :key="fac.id">
+                    <li v-for="fac in facilities" :key="fac.id" @click="toggleFnc" :class="{ active: toggle }">
                         <span :class="'facilities-icon facilities-icon-' + fac.id"></span>
                         <p>{{ fac.tit }}</p>
                     </li>

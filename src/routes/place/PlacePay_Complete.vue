@@ -20,7 +20,7 @@ const scheduleOpen = ref(false);
             <!-- 결제 완료 안내 -->
             <div class="pay-complete-guide">
                 <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료" /></div>
-                <div class="f-20-700">
+                <div class="f-20-500">
                     <p>결제 완료!</p>
                     <p>수강권을 등록해볼까요?</p>
                 </div>

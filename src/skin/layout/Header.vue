@@ -189,7 +189,7 @@ const headerTitle = () => {
         case "/trainer/pay/complete": {
             return "결제 완료";
         }
-        case "/Place/Review":
+        case "/place/review":
         case "/trainer/review": {
             return "이용 후기";
         }
@@ -272,17 +272,21 @@ const pageName = () => {
 <template>
     <header
         class="at-header"
-        :style="{
-            backgroundImage: `linear-gradient(90deg,#f1f1f1 ${(headerType()['currentProgress'] / headerType()['overallProgress']) * 100}%, #fff ${
-                1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
-            }%)`,
-        }"
         :class="[
             headerActive.includes($route.name) ? 'active' : '', 
             headerBottBorder.includes($route.name) ? 'border' : '',
             $route.name === 'DiscoverList' ? 'discover' : '',
         ]"
     >
+        <span 
+            class="header-current"
+            :style="{
+            backgroundImage: 
+                `linear-gradient(90deg, #9161E1, #44A5E1, #00FD65 ${(headerType()['currentProgress'] / headerType()['overallProgress']) * 100}%, 
+                #fff ${1 - (headerType()['currentProgress'] / headerType()['overallProgress']) * 100
+                }%)`,
+            }">
+        </span>
         <div class="at-header-inner">
             <div class="left">
                 <div v-if="headerType()['back']" @click="$router.go('-1')" class="back"></div>

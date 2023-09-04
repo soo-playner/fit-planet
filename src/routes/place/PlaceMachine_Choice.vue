@@ -12,7 +12,7 @@
                     <span class="f-14-400">운동 프로그램을 선택하세요</span>
                 </div>
                 <div class="place-choice-list-layout">
-                    <div class="place-choice-list-layout-tit">수강권</div>
+                    <div class="place-choice-list-layout-tit"><img src="@/assets/image/ticket.png" alt="">수강권</div>
                     <ul>
                         <li class="flex-flow active">
                             <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권" checked>
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">30,000원 할인</span>
-                                    <p class="f-16-700">10% 49,000원/월</p>
+                                    <p class="f-16-700"><span class="percent">10%</span> 49,000원/월</p>
                                     <span class="f-12-400 place-ticket-list-pay pay">결제금액 147,000원</span>
                                 </div>
                             </label>
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">120,000원 할인</span>
-                                    <p class="f-16-700">20% 39,000원/월</p>
+                                    <p class="f-16-700"><span class="percent">20%</span> 39,000원/월</p>
                                     <span class="f-12-400 place-ticket-list-pay pay">결제금액 234,000원</span>
                                 </div>
                             </label>
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">360,000원 할인</span>
-                                    <p class="f-16-700">30% 29,000원/월</p>
+                                    <p class="f-16-700"><span class="percent">30%</span> 29,000원/월</p>
                                     <span class="f-12-400 place-ticket-list-pay pay">결제금액 348,000원</span>
                                 </div>
                             </label>

@@ -20,16 +20,18 @@ const closeModalFnc = () => {
 <template>
     <div class="PlaceReview_container main-layout">
         <div class="PlaceReview_container_inner mob-inner">
-            <div class="total-scope">
+            <div class="top-column">
                 <div class="left-row">
-                    <img src="@/assets/image/scope.png" alt="별점">
-                    <p>
-                        <span class="f-16-700">4.3 / 5</span>
-                        <span class="f-14-400">(12개의 후기)</span>
-                    </p>
+                    <div class="starBox">
+                        <div class="star">★</div>
+                        <p class="total-scope">
+                            <span class="f-16-700">4.3 / 5</span>
+                            <span class="f-14-400">(12개의 후기)</span>
+                        </p>
+                    </div>
                 </div>
                 <ul class="right-row place-review-sorting">
-                    <li @click="sortingOpenFnc"><p class="f-12-400">추천순</p><span class="arrow"></span></li>
+                    <li @click="sortingOpenFnc"><p class="f-14-400">추천순</p><span class="arrow"></span></li>
                 </ul>
             </div>
             <Review v-for="review in reviewsByPlaces" :key="review.id" :review="review" />
