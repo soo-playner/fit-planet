@@ -24,8 +24,8 @@ const submitData = async () => {
     const formData = new FormData();
     formData.append("review_text", reviewText.value);
     formData.append("review_scope", scope.value);
-    fileData.forEach((el) => {
-        formData.append("review_image", el.file);
+    fileData.value.forEach((el) => {
+        formData.append("review_image", el?.file);
     });
     const res = await postData("api", formData);
     alert(res.msg);
