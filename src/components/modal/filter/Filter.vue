@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, watch } from "vue";
 
 import RangeBar from "@/components/layout/RangeBar";
 
@@ -31,10 +31,26 @@ const machineTag = ref([
     ["러닝머신", "스텝밀", "스텝퍼"],
 ]);
 
-const dateRangeMin = ref(0);
-const dateRangeMax = ref(12);
-const priceRangeMin = ref(40000);
-const priceRangeMax = ref(120000);
+const selectFilter = ref({
+    ticket: false,
+    date_range_min: 0,
+    date_range_max: 12,
+    price_range_min: 40000,
+    price_range_max: 120000,
+    place_type: [],
+    etc_option: [],
+    facilities: [],
+    machine: [],
+});
+
+const selectFilterHandler = (type, value) => {
+    if (selectFilter.value[type].includes(value)) {
+        const delIdx = selectFilter.value[type].indexOf(value);
+        selectFilter.value[type].splice(delIdx, 1);
+    } else selectFilter.value[type].push(value);
+};
+
+watch(selectFilter, () => {});
 </script>
 
 <template>
@@ -57,7 +73,7 @@ const priceRangeMax = ref(120000);
                 </div>
                 <div class="ticket-date-adjust">
                     <p>
-                        <span>{{ dateRangeMin }}개월</span>~<span>{{ dateRangeMax }}개월</span>
+                        <span>{{ selectFilter.date_range_min }}개월</span>~<span>{{ selectFilter.date_range_max }}개월</span>
                     </p>
                     <RangeBar
                         :defaultMinValue="0"
@@ -65,9 +81,8 @@ const priceRangeMax = ref(120000);
                         :defaultRangeL="0"
                         :defaultRangeR="12"
                         @changeRange="
-                            dateRangeMax = $event.max;
-                            dateRangeMin = $event.min;
-                            console.log($event);
+                            selectFilter.date_range_min = $event.min;
+                            selectFilter.date_range_max = $event.max;
                         "
                     />
                 </div>
@@ -77,7 +92,7 @@ const priceRangeMax = ref(120000);
                 <div class="ticket-expense-tit f-14-700"><p>가격(1개월 기준)</p></div>
                 <div class="ticket-expense-adjust">
                     <p>
-                        <span>{{ priceRangeMin }}원</span>~<span>{{ priceRangeMax }}원</span>
+                        <span>{{ selectFilter.price_range_min }}원</span>~<span>{{ selectFilter.price_range_max }}원</span>
                     </p>
                     <RangeBar
                         :defaultMinValue="0"
@@ -85,9 +100,8 @@ const priceRangeMax = ref(120000);
                         :defaultRangeL="4"
                         :defaultRangeR="12"
                         @changeRange="
-                            priceRangeMin = $event.min * 10000;
-                            priceRangeMax = $event.max * 10000;
-                            console.log($event);
+                            selectFilter.price_range_min = $event.min * 10000;
+                            selectFilter.price_range_max = $event.max * 10000;
                         "
                     />
                 </div>
@@ -131,7 +145,7 @@ const priceRangeMax = ref(120000);
                 <div class="machine-list" v-for="(machineItem, idx) in machine" :key="idx">
                     <span class="machine-tit f-14-400">{{ machineItem.title }}</span>
                     <ul>
-                        <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
+                        <li :class="{ select: selectFilter.machine.includes(data) }" v-for="(data, _idx) in machineTag[idx]" :key="_idx" @click="selectFilterHandler('machine', data)">{{ data }}</li>
                     </ul>
                 </div>
             </div>
