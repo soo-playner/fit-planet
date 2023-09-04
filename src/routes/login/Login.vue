@@ -30,7 +30,7 @@ const login = async () => {
                             <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부" /></span>
                         </div>
                     </div>
-                    <RouterLink to="" class="login-btn f-16-700" @click="login">이메일 로그인</RouterLink>
+                    <RouterLink to="" class="login-btn f-16-500" @click="login">이메일 로그인</RouterLink>
                 </div>
                 <div class="login-form-input2 social-login">
                     <button to="/" title="카카오 로그인"><img src="@/assets/image/social-login-kakao.png" alt="카카오 로그인"></button>

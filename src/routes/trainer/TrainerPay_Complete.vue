@@ -6,13 +6,13 @@
             <!-- 결제 완료 안내 -->
             <div class="pay-complete-guide">
                 <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료" /></div>
-                <div class="f-20-700">
+                <div class="f-20-500">
                     <p>결제 완료!</p>
                     <p>트레이너와 일정을 정해볼까요?</p>
                 </div>
                 <ul class="inquiry-list">
-                    <li><img src="@/assets/image/call.png" alt="전화하기"><p class="f-14-700">트레이너에게 전화</p></li>
-                    <li><img src="@/assets/image/message.png" alt="카톡하기"><p class="f-14-700">트레이너에게 카톡</p></li>
+                    <li><img src="@/assets/image/call.png" alt="전화하기"><p class="f-14-500">트레이너에게 전화</p></li>
+                    <li><img src="@/assets/image/message.png" alt="카톡하기"><p class="f-14-500">트레이너에게 카톡</p></li>
                 </ul>
                 <button class="f-16-700" @click="scheduleOpen = true">정했어요! 일정 등록하기</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>

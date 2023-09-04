@@ -354,8 +354,8 @@
             }
         }
         &:checked + label{font-weight:700;
-            .outSide{
-                span{opacity:1; visibility:visible;}
+            .outSide{background:url('@/assets/image/input-checkbox-checked.png') center no-repeat;
+                //span{opacity:1; visibility:visible;}
             }
         }
     }

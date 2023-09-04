@@ -105,7 +105,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
 }
 // 인증 시 시간 텍스트
-.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%)}
+.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%); color:$blue;}
 // 유효성 검사 시 노출되는 텍스트
 .vail{margin:10px 0 0 0;}
 // 별점
@@ -147,6 +147,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-320(){font-size:14px;}
 }
 .f-18-700{@include font(18px, 700, null);}
+.f-20-500{@include font(20px, 500, null);
+    @include responsive-320(){font-size:18px;}
+}
 .f-20-700{@include font(20px, 700, null);
     @include responsive-320(){font-size:18px;}
 }
@@ -199,6 +202,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 /components/Header.vue
 ******************************************/
 .at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; background:$f;
+    .header-current{@include conSize(100%, 2px); @include position(absolute, null, null, 0, 0); background:#fff;}
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
             .back{@include arrow2; width:13px; cursor:pointer;
@@ -319,20 +323,24 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 풋터
 /components/Footer.vue
 ******************************************/
-.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$f; border-top:1px solid #F1F1F1;
+.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$b; border-top:1px solid #F1F1F1;
     &-inner{
         ul{@include display(flex, center, null, null);
             li{flex:1;
                 a{@include display(flex, center, center, column);
-                    .quick-menu-icon{@include conSize(28px, 28px);
+                    .quick-menu-icon{@include conSize(36px, 36px);
                         @for $i from 1 to 5{
-                            &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-off.png) no-repeat center;}
+                            &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-off.png) no-repeat center; background-size:36px;}
                         }
                     }
                     p{margin:5px 0 0 0; color:$gray;}
                     &.router-link-exact-active{
-                        .quick-menu-icon{filter:invert(1)}
-                        p{color:$b;}
+                        .quick-menu-icon{
+                            @for $i from 1 to 5{
+                                &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-on.png) no-repeat center; background-size:36px;}
+                            }
+                        }
+                        p{color:$f;}
                     }
                 }
             }

@@ -11,10 +11,10 @@
             </div>
             <ul class="id-list">
                 <li>
-                    <div class="user-profile-img"></div>
+                    <div class="user-profile-img"><img src="@/assets/image/profile.png" alt="프로필"></div>
                     <div class="user-info">
                         <p class="user-email f-14-400">wizz***@naver.com</p>
-                        <p class="f-12-500"><span class="login-history">23년 7월 26일</span> 마지막 로그인</p>
+                        <p class="f-12-400"><span class="login-history">23년 7월 26일</span> 마지막 로그인</p>
                     </div>
                 </li>
             </ul>
