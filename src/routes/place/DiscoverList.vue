@@ -48,7 +48,7 @@ const trainerInfo = ref(store.state.place.places);
             <ul class="discover-filter-ul slide-ul">
                 <li
                     ref="li"
-                    class="discover-filter-li slide-li f-14-700 active"
+                    class="discover-filter-li slide-li f-14-500 active"
                     v-for="filterItem in filterList"
                     :key="filterItem"
                     @click="
@@ -65,7 +65,7 @@ const trainerInfo = ref(store.state.place.places);
                 <div class="place-discover-list">
                     <ul class="filter-scroll">
                         <li @click="SortingOpenFnc">거리순<span class="arrow"></span></li>
-                        <li @click="isShowFilter = true"><img src="@/assets/image/filter.png" alt="필터" /></li>
+                        <li class="filter" @click="isShowFilter = true"><img src="@/assets/image/filter.png" alt="필터" /></li>
                         <li>수강기간</li>
                         <li>플레이스 타입</li>
                         <li>기타옵션</li>

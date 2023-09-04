@@ -124,13 +124,15 @@ const confirmInquiry = () => {
                     </div>
                     <div class="place-info-scope">
                         <div class="starBox">
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                            <div class="star"><img src="@/assets/image/empty_scope.png" alt="별점" /></div>
+                            <div class="star">★</div>
+                            <div class="star">★</div>
+                            <div class="star">★</div>
+                            <div class="star">★</div>
+                            <p class="total-scope f-12-400">
+                                <span>4.3</span>
+                                <span>(12)</span>
+                            </p>
                         </div>
-                        <div class="scope-current f-12-400">4.3<span>(12)</span></div>
                     </div>
                     <ul class="place-info-filter">
                         <li>24시</li>
@@ -165,9 +167,9 @@ const confirmInquiry = () => {
             <div class="place-review">
                 <div class="place-review-tit place-each-tit">
                     <p class="f-14-400">이용 후기</p>
-                    <div>
-                        <img src="@/assets/image/scope.png" alt="별점" />
-                        <p class="f-12-400">
+                    <div class="starBox">
+                        <div class="star">★</div>
+                        <p class="total-scope f-12-400">
                             <span>4.3</span>
                             <span>(12)</span>
                         </p>
@@ -179,8 +181,8 @@ const confirmInquiry = () => {
                             <div class="review-write-info">
                                 <p class="review-writer f-14-400">위즈위즈<span class="review-date f-12-400">3개월 전</span></p>
                                 <div class="starBox review-writer-scope">
-                                    <div class="star" v-for="starItem in 4" :key="starItem"><img src="@/assets/image/scope.png" alt="별점" /></div>
-                                    <div class="star"><img src="@/assets/image/empty_scope.png" alt="별점" /></div>
+                                    <div class="star" v-for="starItem in 4" :key="starItem">★</div>
+                                    <div class="star_empty">☆</div>
                                 </div>
                             </div>
                             <div class="review-content f-12-400">운동기구도 다양하고 운동복, 수건도 쓸 수 있어서 너무 만족스러웠습니다. 집 근처라 꾸준히 이용하게 될 것 같아요.</div>
@@ -232,7 +234,7 @@ const confirmInquiry = () => {
                 <div class="place-convenience-tit f-14-400 place-each-tit">편의시설</div>
                 <div class="free">
                     <div class="free-tit f-12-400">무료</div>
-                    <ul class="free-list">
+                    <ul class="convenience-list free-list">
                         <li v-for="(freeItem, idx) in freeList" :key="freeItem">
                             <div :class="['free-icon', `free-icon-${idx + 1}`]"></div>
                             <p>{{ freeItem.title }}</p>
@@ -241,15 +243,15 @@ const confirmInquiry = () => {
                 </div>
                 <div class="pay">
                     <div class="pay-tit f-12-400">유료</div>
-                    <ul class="pay-list">
+                    <ul class="convenience-list pay-list">
                         <li>
                             <div class="pay-icon pay-icon-1"></div>
-                            <p class="pay-target">개인 락커</p>
+                            <p class="pay-target">운동복</p>
                             <p class="pay-expense">월 10,000원</p>
                         </li>
                         <li>
                             <div class="pay-icon pay-icon-2"></div>
-                            <p class="pay-target">운동복</p>
+                            <p class="pay-target">락커</p>
                             <p class="pay-expense">월 10,000원</p>
                         </li>
                     </ul>
@@ -258,11 +260,13 @@ const confirmInquiry = () => {
             <!-- 운동 기구 -->
             <div class="place-machine">
                 <div class="place-machine-tit f-14-400 place-each-tit">운동 기구</div>
-                <div class="place-machine-list" v-for="(machineItem, idx) in machine" :key="idx">
-                    <span class="place-machine-tit f-14-400">{{ machineItem.title }}</span>
-                    <ul>
-                        <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
-                    </ul>
+                <div class="place-machine-list-wrap">
+                    <div class="place-machine-list" v-for="(machineItem, idx) in machine" :key="idx">
+                        <span class="place-machine-tit f-14-400">{{ machineItem.title }}</span>
+                        <ul>
+                            <li v-for="(data, _idx) in machineTag[idx]" :key="_idx">{{ data }}</li>
+                        </ul>
+                    </div>
                 </div>
                 <router-link to="/place/machine" class="place-machine-all-btn btn1-1">운동기구 모두 보기</router-link>
             </div>

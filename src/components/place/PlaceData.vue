@@ -6,7 +6,7 @@ const props = defineProps({
     data: Object,
 });
 
-const {id, name, scope, totalScope, location, comment} = props.data
+const {id, name, scope, totalScope, location, comment, refImg} = props.data
 
 const router = useRouter()
 
@@ -41,7 +41,7 @@ const seeDetail = () => {
                     <li>골프</li>
                 </ul>
             </div>
-            <div class="right-row place-img-box"></div>
+            <div class="right-row place-img-box"><img :src=refImg alt=""></div>
         </div>
         <div class="bott-column place-comment f-12-400">{{ comment }}</div>
     </div>

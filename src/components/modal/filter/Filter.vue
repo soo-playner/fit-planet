@@ -35,6 +35,11 @@ const dateRangeMin = ref(0);
 const dateRangeMax = ref(12);
 const priceRangeMin = ref(40000);
 const priceRangeMax = ref(120000);
+
+const toggle = ref(false);
+const toggleFnc = (e) => {
+    e.target.classList.toggle('active')
+}
 </script>
 
 <template>
@@ -119,9 +124,13 @@ const priceRangeMax = ref(120000);
             <div class="facilities">
                 <div class="facilities-tit f-14-700">편의시설</div>
                 <ul>
-                    <li v-for="fac in facilities" :key="fac.id">
-                        <span :class="'facilities-icon facilities-icon-' + fac.id"></span>
-                        <p>{{ fac.tit }}</p>
+                    <li 
+                        v-for="fac in facilities" 
+                        :key="fac.id" 
+                        @click="toggleFnc"
+                        :class="{active : toggle}">
+                            <span :class="'facilities-icon facilities-icon-' + fac.id"></span>
+                            <p>{{ fac.tit }}</p>
                     </li>
                 </ul>
             </div>

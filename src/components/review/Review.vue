@@ -27,7 +27,7 @@ const openOptionMenu = () => {
                 </div>
             </div>
             <div class="right-row">
-                <div class="like-box"><img src="@/assets/image/like.png" alt="좋아요"><span class="like-count f-14-700">{{likeCnt}}</span></div>
+                <div class="like-box"><img src="@/assets/image/like.png" alt="좋아요"><span class="like-count f-14-400">{{likeCnt}}</span></div>
                 <div class="menu-dot">
                     <span @click="openOptionMenu"></span>
                     <ul class="review-sorting-list" v-show="isOptionMenuOpen">

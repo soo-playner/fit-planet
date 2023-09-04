@@ -27,7 +27,8 @@ $f:#fff;
 $gray:#979797;
 $thick-gray:#474747;
 $light-gray:#f1f1f1;
-$light-gray-1:#D9D9D9;
+$light-gray-1:#d9d9d9;
+$light-gray-2:#f9f9f9;
 $purple:#6E2FF4;
 $light-purple:#F5F7FB;
 $blue:#2F72F4; 
@@ -74,12 +75,12 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 검색 버튼
 @mixin searchBtn(){@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px); cursor:pointer;
     &::before, &::after{content:''; position:absolute; background:$b;}
-    &::before{@include conSize(17px, 17px); background:none; border:2px solid $b; border-radius:50%;}
-    &::after{@include conSize(2px, 8px); right:2px; bottom:0; transform:rotate(-45deg); background:$b;}
+    &::before{@include conSize(15px, 15px); background:none; border:2px solid $b; border-radius:50%;}
+    &::after{@include conSize(2px, 6px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
 }
 // 화살표
 @mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
-    &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
+    &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$blue;}
     &::before{right:4px; transform:rotate(45deg)}
     &::after{transform:rotate(-45deg)}
 }
@@ -108,7 +109,14 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 유효성 검사 시 노출되는 텍스트
 .vail{margin:10px 0 0 0;}
 // 별점
-.starBox{@include display(flex); color:$orange;}
+.starBox{@include display(flex, center); color:$orange;
+    .total-scope{@include display(flex, center); column-gap:3px; margin:0 0 0 5px;
+        span{margin:2px 0 0 0;
+            &:first-child{color:$b;}
+            &:last-child{color:$gray;}
+        }
+    }
+}
 // 밑줄 라인 필요할 경우
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
@@ -116,7 +124,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
 // 버튼 모양
 .btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer; text-align:center}
-.btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $gray; color:$b;}
+.btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
 .btn2{@include conSize(100%, 38px, 36px); display:block; @include font(14px, 700, $f); background:$b; border-radius:19px; cursor:pointer; text-align:center}
 .btn3{@extend .btn2; background:$f;}
 
@@ -124,6 +132,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
 .f-14-400{@include font(14px, 400, null);
+    @include responsive-320(){font-size:12px;}
+}
+.f-14-500{@include font(14px, 500, null);
     @include responsive-320(){font-size:12px;}
 }
 .f-14-700{@include font(14px, 700, null);
@@ -150,7 +161,7 @@ button, input{background:none; border:none;
     input[type='password'],
     input[type='email'],
     input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
-        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, #D9D9D9);}
+        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, $light-gray-1);}
         //&:focus{border-bottom-color:$b;}
     }
     input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
@@ -161,7 +172,7 @@ button, input{background:none; border:none;
             span{background:url('@/assets/image/input-checkbox-checked.png') center no-repeat;}
         }
     }
-    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:#D9D9D9; border-radius:50px;
+    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:$light-gray-1; border-radius:50px;
        //&::-webkit-slider-runnable-track{}
         &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
     }
@@ -252,7 +263,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                         }
                         @include responsive-360{width:100%; row-gap:3px;}
                     }
-                    .alert-img{@include conSize(64px, 64px); background:#D9D9D9; border-radius:8px;
+                    .alert-img{@include conSize(64px, 64px); background:$light-gray-1; border-radius:8px;
                         @include responsive-360{margin:10px 0 0 0;}
                     }
                     @include responsive-360{flex-flow:column;}
@@ -294,7 +305,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
             }
             .recent-work-ul{display:-webkit-box; overflow-x:auto;
                 li{margin:0 8px 0 0;
-                    .center-img{@include conSize(101px, 101px); background:#D9D9D9; border-radius:8px;}
+                    .center-img{@include conSize(101px, 101px); background:$light-gray-1; border-radius:8px;}
                     p{margin:8px 0 0 0; @include font(14px, 400);}
                     &:last-child{margin:0 20px 0 0;}
                 }
