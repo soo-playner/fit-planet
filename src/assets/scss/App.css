@@ -43,17 +43,6 @@ span {
   display: block;
 }
 
-.main-layout {
-  padding: 56px 0 82px 0;
-}
-.main-layout .first-section {
-  background: #f1f1f1;
-  border-radius: 0 0 20px 20px;
-}
-.main-layout-inner {
-  padding: 24px 20px 28px;
-}
-
 .notFooter-layout {
   padding-bottom: 0;
 }
@@ -217,6 +206,11 @@ span {
   font-weight: 500;
 }
 
+.f-12-700 {
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .f-14-400 {
   font-size: 14px;
   font-weight: 400;
@@ -253,6 +247,16 @@ span {
 }
 @media (max-width: 320px) {
   .f-16-400 {
+    font-size: 14px;
+  }
+}
+
+.f-16-500 {
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 320px) {
+  .f-16-500 {
     font-size: 14px;
   }
 }
@@ -530,7 +534,6 @@ textarea {
   position: absolute;
   bottom: 0;
   left: 0;
-  background: #fff;
 }
 .at-header-inner {
   display: -webkit-box;
@@ -736,6 +739,9 @@ textarea {
 }
 .at-header-inner .discover-place {
   margin: 9px 0 0 0;
+}
+.at-header.active { /*height:96px; padding:30px 21px 0;*/
+  background: transparent;
 }
 .at-header.discover {
   border-radius: 0 0 16px 16px;
@@ -1384,7 +1390,7 @@ textarea {
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .filter-scroll li span::before {
   right: 4px;
@@ -1477,7 +1483,7 @@ ul 안에 ul
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 0 3px 0;
+  margin: 0 0 11px 0;
 }
 .search-layout-tit button {
   color: #979797;
@@ -1698,6 +1704,240 @@ ul 안에 ul
   src: url("../font/NotoSansKR-Black.eot");
   src: url("../font/NotoSansKR-Black.eot?#iefix") format("embedded-opentype"), url("../font/NotoSansKR-Black.woff2") format("woff2"), url("../font/NotoSansKR-Black.woff") format("woff"), url("../font/NotoSansKR-Black.ttf") format("truetype");
 }
+.main-layout {
+  padding: 56px 0 82px 0;
+}
+.main-layout .first-section {
+  position: relative;
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  -webkit-box-shadow: 0 7px 13px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 7px 13px rgba(0, 0, 0, 0.05);
+}
+.main-layout-inner {
+  padding: 24px 20px 40px;
+}
+
+/******************************************
+메인 페이지
+******************************************/
+.home_container .trainer-toggle-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 4px;
+     -moz-column-gap: 4px;
+          column-gap: 4px;
+  margin: 12px 0 30px;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul {
+  height: 28px;
+  line-height: 28px;
+  position: relative;
+  z-index: 10;
+  padding: 0 12px;
+  border: 1px solid #D9D9D9;
+  border-radius: 50px;
+  background: #fff;
+  cursor: pointer;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul > li .arrow {
+  width: 6px;
+  height: 9px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: -2px 0 0 8px;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul > li .arrow::before, .home_container .trainer-toggle-box .trainer-choice-ul > li .arrow::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background: #000;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul > li .arrow::before {
+  right: 4px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.home_container .trainer-toggle-box .trainer-choice-ul > li .arrow::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.home_container .trainer-toggle-box .trainer-choice-ul ul {
+  width: 100%;
+  line-height: 1.3;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  padding: 10px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #f1f1f1;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul ul li {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul ul li:last-child {
+  margin-bottom: 0;
+}
+.home_container .trainer-toggle-box .trainer-choice-ul ul {
+  background: #fff;
+}
+.home_container .trainer-toggle-box .location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+  padding: 0 8px;
+  border: 1px solid #D9D9D9;
+  border-radius: 50px;
+  background: #fff;
+}
+.home_container .trainer-toggle-box .location .img-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.home_container .trainer-list .swiper-wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.home_container .trainer-list .swiper-wrapper .img-box {
+  width: 268px;
+  height: 268px;
+  background: rgb(217, 217, 217);
+  border-radius: 8px;
+}
+.home_container .trainer-list .swiper-wrapper .img-box img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (max-width: 991px) {
+  .home_container .trainer-list .swiper-wrapper .img-box {
+    width: 100%;
+    height: 100%;
+  }
+}
+.home_container .trainer-list .swiper-wrapper .txt-box {
+  margin: 8px 0 0 0;
+}
+.home_container .trainer-list .swiper-wrapper .txt-box img {
+  margin: -2px 0 0 0;
+}
+.home_container .trainer-list .swiper-wrapper .txt-box .scope {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+.home_container .trainer-list .swiper-wrapper .txt-box .scope span {
+  display: inline-block;
+}
+.home_container .trainer-list-all {
+  max-width: 100px;
+  text-align: center;
+}
+.home_container .trainer-list-all .arrow-circle {
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #979797;
+  border-radius: 50%;
+}
+.home_container .trainer-list-all .arrow-circle span {
+  width: 15px;
+  height: 2px;
+  position: relative;
+  background: #979797;
+  border-radius: 10px;
+}
+.home_container .trainer-list-all .arrow-circle span::before, .home_container .trainer-list-all .arrow-circle span::after {
+  content: "";
+  width: calc(100% - 7px);
+  height: 2px;
+  position: absolute;
+  right: 0;
+  background: inherit;
+  border-radius: 5px;
+}
+.home_container .trainer-list-all .arrow-circle span::before {
+  bottom: 3px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.home_container .trainer-list-all .arrow-circle span::after {
+  top: 3px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.home_container .trainer-list-all p {
+  margin: 9px 0 0 0;
+  color: #979797;
+}
+.home_container .notWork {
+  padding: 72px 0;
+  background: #f9f9f9;
+  text-align: center;
+}
+.home_container .notWork .mob-inner div {
+  margin: 8px 0 16px;
+}
+.home_container .notWork .mob-inner a {
+  height: 34px;
+  line-height: 32px;
+  display: inline-block;
+  padding: 0 20px;
+  background: #6E2FF4;
+  border-radius: 16px;
+  color: #fff;
+}
+
 /******************************************
 메인 페이지(첫방문)
 /components/layout/MainPage.vue
@@ -1757,7 +1997,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .section01-inner .intro-txt-box .trainer-toggle-box .trainer-choice-ul > li .arrow::before {
   right: 4px;
@@ -3176,6 +3416,16 @@ ul 안에 ul
 }
 
 /******************************************
+비밀번호 찾기
+******************************************/
+.notFind-member-inner {
+  padding-top: 50px;
+}
+.notFind-member-inner .txt-box {
+  margin: 0 0 46px 0;
+}
+
+/******************************************
 플레이스
 ******************************************/
 .discover-sorting-modal-inner {
@@ -3244,7 +3494,7 @@ ul 안에 ul
       -ms-flex-flow: column;
           flex-flow: column;
   row-gap: 12px;
-  background: #F1F1F1;
+  border: 1px solid #d9d9d9;
   border-radius: 16px;
 }
 .work-inquiry-modal-inner .work-inquiry-modal-close {
@@ -3270,8 +3520,7 @@ ul 안에 ul
   height: 44px;
   line-height: 44px;
   margin: 20px 0 0 0;
-  background: #fff;
-  border: 1px solid #000;
+  background: #f1f1f1;
   color: #000;
   cursor: pointer;
 }
@@ -5326,7 +5575,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .placeList_container_inner .filter-scroll li span::before {
   right: 4px;
@@ -5472,7 +5721,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .placeList_container_inner .PlaceData-form .top-column .left-row .place-filter-list li span::before {
   right: 4px;
@@ -5829,7 +6078,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .discover_container_inner .place-discover-list .top-column .left-row .place-filter-list li span::before {
   right: 4px;
@@ -6060,6 +6309,10 @@ ul 안에 ul
 }
 .discover_container_inner .trainer-discover-list:last-child {
   border-bottom: 0;
+}
+.discover_container .map-btn {
+  position: fixed;
+  bottom: 0;
 }
 
 /******************************************
@@ -7094,7 +7347,10 @@ ul 안에 ul
 .detail_container .place-lnb a:first-child, .detail_container .place-lnb button:first-child {
   background: #fff;
   color: #000;
-  border: 1px solid #000;
+  border: 1px solid #d9d9d9;
+}
+.detail_container .place-lnb a:last-child, .detail_container .place-lnb button:last-child {
+  background: #6E2FF4;
 }
 .detail_container .place-lnb button {
   cursor: pointer;
@@ -7181,7 +7437,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .PlaceReview_container_inner .top-column .right-row li span::before {
   right: 4px;
@@ -8209,8 +8465,9 @@ ul 안에 ul
 }
 
 /******************************************
-플레이스 상세 페이지 - 결제 완료
+플레이스, 트레이너 상세 페이지 - 결제 완료
 /components/routes/place/PlacePay_Complete.vue
+/components/routes/place/TrainerPay_Complete.vue
 ******************************************/
 .payComplete {
   padding-top: 80px;
@@ -8228,10 +8485,10 @@ ul 안에 ul
 .payComplete-inner .pay-complete-guide .complete-img-box {
   margin: 0 0 15px 0;
 }
-.payComplete-inner .pay-complete-guide .f-20-700 {
+.payComplete-inner .pay-complete-guide .f-20-500 {
   line-height: 1.3;
 }
-.payComplete-inner .pay-complete-guide > p {
+.payComplete-inner .pay-complete-guide .f-14-400 {
   line-height: 1.4;
   margin: 8px 0 20px;
 }
@@ -8258,6 +8515,9 @@ ul 안에 ul
   height: 44px;
   line-height: 44px;
   margin: 0 0 14px 0;
+  background: #fff;
+  border: 1px solid #6E2FF4;
+  color: #6E2FF4;
   cursor: pointer;
 }
 .payComplete-inner .pay-complete-guide .order-num {
@@ -8294,7 +8554,7 @@ ul 안에 ul
       -ms-flex-flow: column;
           flex-flow: column;
   row-gap: 16px;
-  border: 1px solid #000;
+  border: 1px solid #d9d9d9;
   border-radius: 8px;
 }
 @media (max-width: 480px) {
@@ -8308,7 +8568,7 @@ ul 안에 ul
 }
 .payComplete-inner .ex-inquiry-form-content {
   padding: 20px;
-  background: #F1F1F1;
+  background: #f9f9f9;
   border-radius: 8px;
   text-align: center;
 }
@@ -8549,6 +8809,9 @@ ul 안에 ul
   border-top: 0;
   border-right: 0;
 }
+.payComplete.trainerPayComplete_container .pay-complete-guide {
+  border-bottom: 0;
+}
 
 /******************************************
 플레이스 상세 페이지 - 등록 완료
@@ -8570,10 +8833,10 @@ ul 안에 ul
 .ticket_complete_container_inner .ticket-complete-guide .complete-img-box {
   margin: 0 0 15px 0;
 }
-.ticket_complete_container_inner .ticket-complete-guide .f-20-700 {
+.ticket_complete_container_inner .ticket-complete-guide .f-20-500 {
   line-height: 1.3;
 }
-.ticket_complete_container_inner .ticket-complete-guide > p {
+.ticket_complete_container_inner .ticket-complete-guide .f-14-400 {
   line-height: 1.4;
   margin: 8px 0 20px;
 }
@@ -8600,6 +8863,9 @@ ul 안에 ul
   height: 44px;
   line-height: 44px;
   margin: 0 0 14px 0;
+  background: #fff;
+  border: 1px solid #6E2FF4;
+  color: #6E2FF4;
   cursor: pointer;
 }
 .ticket_complete_container_inner .ticket-complete-guide .order-num {
@@ -9067,7 +9333,10 @@ ul 안에 ul
 .filter_container .filter-bott-btn a:first-child, .filter_container .filter-bott-btn button:first-child {
   background: #fff;
   color: #000;
-  border: 1px solid #000;
+  border: 1px solid #d9d9d9;
+}
+.filter_container .filter-bott-btn a:last-child, .filter_container .filter-bott-btn button:last-child {
+  background: #6E2FF4;
 }
 
 .review-induce {
@@ -9919,7 +10188,7 @@ ul 안에 ul
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
-  background: #d9d9d9;
+  background: linear-gradient(22deg, rgba(152, 68, 248, 0.5607843137), rgba(101, 147, 252, 0.6509803922), rgba(61, 208, 255, 0.831372549));
   border-radius: 8px;
 }
 .region_container_inner .favorites .add-box .add-region-ul li .close {
@@ -9961,6 +10230,7 @@ ul 안에 ul
 }
 .region_container_inner .favorites .add-box .add-region-ul li .region-list {
   text-align: center;
+  color: #fff;
 }
 .region_container_inner .favorites .add-box .add-box-btn {
   border: 1px dashed #d9d9d9;
@@ -10400,7 +10670,10 @@ ul 안에 ul
 .Inquiry_container .bott-btn a:first-child, .Inquiry_container .bott-btn button:first-child {
   background: #fff;
   color: #000;
-  border: 1px solid #000;
+  border: 1px solid #d9d9d9;
+}
+.Inquiry_container .bott-btn a:last-child, .Inquiry_container .bott-btn button:last-child {
+  background: #6E2FF4;
 }
 .Inquiry_container .bott-btn .form-group {
   margin: 0 0 13px 0;
@@ -10627,7 +10900,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .SearchResult_container_inner .PlaceData-form .top-column .left-row .place-filter-list li span::before {
   right: 4px;
@@ -11139,7 +11412,7 @@ ul 안에 ul
   width: 100%;
   height: 1px;
   position: absolute;
-  background: #2F72F4;
+  background: #000;
 }
 .Wish_container_inner .toggle-box .wish-filter > li .arrow::before {
   right: 4px;

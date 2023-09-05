@@ -207,11 +207,11 @@
             }
             .add-box{display:grid; grid-template-columns:repeat(2, 1fr); grid-template-rows:320px; column-gap:6px;
                 .add-region-ul{
-                    li{height:100%; @include display(flex, center, center); position:relative; background:$light-gray-1; border-radius:8px;
+                    li{height:100%; @include display(flex, center, center); position:relative; background:linear-gradient(22deg, #9844f88f, #6593fca6, #3dd0ffd4); border-radius:8px;
                         .close{@include close; @include position(absolute, 12px, 12px);
                             &::before, &::after{background:$f;}
                         }
-                        .region-list{text-align:center;}
+                        .region-list{text-align:center; color:$f;}
                     }
                 }
                 .add-box-btn{border:1px dashed $light-gray-1; border-radius:8px; cursor:pointer;

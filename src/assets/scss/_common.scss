@@ -13,11 +13,6 @@ a{text-decoration:none; color:#000;}
 *, *::before, *::after{margin:0; padding:0; box-sizing:border-box; word-wrap:break-word; font-family:'NotoSansKR';}
 span{display:block;}
 
-// 레이아웃
-.main-layout{padding:56px 0 82px 0;
-    .first-section{background:#f1f1f1; border-radius:0 0 20px 20px;}
-    &-inner{padding:24px 20px 28px;}
-}
 .notFooter-layout{padding-bottom:0;}
 .notFooter-layout2{padding-bottom:32px;}
 .mob-inner{max-width:1000px; position:relative; margin:0 auto;}
@@ -80,7 +75,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 // 화살표
 @mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
-    &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$blue;}
+    &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
     &::before{right:4px; transform:rotate(45deg)}
     &::after{transform:rotate(-45deg)}
 }
@@ -131,6 +126,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
+.f-12-700{@include font(12px, 700, null);}
 .f-14-400{@include font(14px, 400, null);
     @include responsive-320(){font-size:12px;}
 }
@@ -141,6 +137,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-320(){font-size:12px;}
 }
 .f-16-400{@include font(16px, 400, null);
+    @include responsive-320(){font-size:14px;}
+}
+.f-16-500{@include font(16px, 500, null);
     @include responsive-320(){font-size:14px;}
 }
 .f-16-700{@include font(16px, 700, null);
@@ -202,7 +201,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 /components/Header.vue
 ******************************************/
 .at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; background:$f;
-    .header-current{@include conSize(100%, 2px); @include position(absolute, null, null, 0, 0); background:#fff;}
+    .header-current{@include conSize(100%, 2px); @include position(absolute, null, null, 0, 0);}
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
             .back{@include arrow2; width:13px; cursor:pointer;
@@ -229,7 +228,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         }
         .discover-place{margin:9px 0 0 0;}
     }
-    // &.active{height:96px; padding:30px 21px 0; background:transparent;}
+    &.active{/*height:96px; padding:30px 21px 0;*/ background:transparent;}
     &.discover{border-radius:0 0 16px 16px;}
     &.border{border-bottom:1px solid #F1F1F1}
 
