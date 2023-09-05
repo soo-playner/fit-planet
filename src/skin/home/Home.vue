@@ -14,12 +14,15 @@ const trainerShow = () => {
     <main class="home_container main_container main-layout">
         <section class="first-section">
             <div class="mob-inner main-layout-inner">
-                <div class="intro-txt-box">
-                    <p class="f-14-400">천 리 운동 습관도 한 걸음부터!</p>
-                    <h1 class="f-20-700">
-                        <p>위즈위즈님 주변의</p>
-                        <p>1회 체험권만 모아봤어요</p>
-                    </h1>
+                <div class="intro-box">
+                    <div class="txt-box">
+                        <p class="f-12-300">천 리 운동 습관도 한 걸음부터!</p>
+                        <h1 class="f-20-400">
+                            <p>위즈위즈님 주변의</p>
+                            <p><span class="f-20-700">1회 체험권</span>만 모아봤어요</p>
+                        </h1>
+                    </div>
+                    <div class="img-box"><img src="@/assets/image/rep_character.png" alt="핏플래닛 캐릭터"></div>
                 </div>
                 <div class="trainer-toggle-box">
                     <ul class="trainer-choice-ul">
@@ -43,12 +46,11 @@ const trainerShow = () => {
         </section>
         <section class="second-section notWork">
             <div class="mob-inner">
-                <p class="f-16-500">진행 중인 운동이 없어요!</p>
-                <div class="f-14-400">
-                    <span>운동을 결제하면</span>
-                    <span>나의 운동 프로그램을 여기서 관리할 수 있어요</span>
+                <p class="f-16-700">진행 중인 운동이 없어요!</p>
+                <div class="f-11-400">
+                    <span>운동을 결제하면 나의 운동 프로그램을 여기서 관리할 수 있어요</span>
                 </div>
-                <router-link to="" class="f-12-700">운동 둘러보기</router-link>
+                <router-link to="" class="btn1">운동 둘러보기</router-link>
             </div>
         </section>
     </main>

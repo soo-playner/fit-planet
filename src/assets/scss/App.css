@@ -198,6 +198,16 @@ span {
   background: #fff;
 }
 
+.f-11-400 {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.f-12-300 {
+  font-size: 12px;
+  font-weight: 300;
+}
+
 .f-12-400 {
   font-size: 12px;
   font-weight: 400;
@@ -276,6 +286,16 @@ span {
 .f-18-700 {
   font-size: 18px;
   font-weight: 700;
+}
+
+.f-20-400 {
+  font-size: 20px;
+  font-weight: 400;
+}
+@media (max-width: 320px) {
+  .f-20-400 {
+    font-size: 18px;
+  }
 }
 
 .f-20-500 {
@@ -527,8 +547,7 @@ textarea {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 16px 21px;
-  background: #fff;
+  padding: 16px 21px; /*background:$f;*/
 }
 .at-header .header-current {
   width: 100%;
@@ -620,7 +639,7 @@ textarea {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 30px;
+  gap: 23px;
 }
 .at-header-inner .right .menu-ul li {
   display: -webkit-box;
@@ -688,17 +707,18 @@ textarea {
   background: #000;
 }
 .at-header-inner .right .menu-ul li.search span::before {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
+  top: -1px;
   background: none;
   border: 2px solid #000;
   border-radius: 50%;
 }
 .at-header-inner .right .menu-ul li.search span::after {
   width: 2px;
-  height: 6px;
-  right: 4px;
-  bottom: 2px;
+  height: 8px;
+  right: 2px;
+  bottom: -1px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   background: #000;
@@ -750,6 +770,16 @@ textarea {
 }
 .at-header.border {
   border-bottom: 1px solid #F1F1F1;
+}
+.at-header.through img:not(.logo-img) {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+.at-header.through .at-header-inner .right .menu-ul li.search span::before {
+  border-color: #fff;
+}
+.at-header.through .at-header-inner .right .menu-ul li.search span::after {
+  background: #fff;
 }
 @media (max-width: 480px) {
   .at-header {
@@ -1043,17 +1073,18 @@ textarea {
   background: #000;
 }
 .Search_container_inner .search-input .search-btn::before {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
+  top: -1px;
   background: none;
   border: 2px solid #000;
   border-radius: 50%;
 }
 .Search_container_inner .search-input .search-btn::after {
   width: 2px;
-  height: 6px;
-  right: 4px;
-  bottom: 2px;
+  height: 8px;
+  right: 2px;
+  bottom: -1px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   background: #000;
@@ -1114,8 +1145,8 @@ textarea {
   left: 0;
   z-index: 99;
   padding: 15px 0;
-  background: #000;
-  border-top: 1px solid #F1F1F1;
+  background: #fff;
+  border-top: 1px solid #F6F7FA;
 }
 .at-footer-inner ul {
   display: -webkit-box;
@@ -1167,7 +1198,7 @@ textarea {
 }
 .at-footer-inner ul li a p {
   margin: 5px 0 0 0;
-  color: #979797;
+  color: #A6ABB5;
 }
 .at-footer-inner ul li a.router-link-exact-active .quick-menu-icon-1 {
   background: url(../image/quick-menu-icon-1-on.png) no-repeat center;
@@ -1186,7 +1217,7 @@ textarea {
   background-size: 36px;
 }
 .at-footer-inner ul li a.router-link-exact-active p {
-  color: #fff;
+  color: #000;
 }
 
 /******************************************
@@ -1711,7 +1742,7 @@ ul 안에 ul
 }
 .main-layout .first-section {
   position: relative;
-  background: #fff;
+  background: #000;
   border-radius: 0 0 20px 20px;
   -webkit-box-shadow: 0 7px 13px rgba(0, 0, 0, 0.05);
           box-shadow: 0 7px 13px rgba(0, 0, 0, 0.05);
@@ -1723,18 +1754,41 @@ ul 안에 ul
 /******************************************
 메인 페이지
 ******************************************/
+.home_container {
+  padding-top: 0;
+}
+.home_container .intro-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.home_container .intro-box .txt-box {
+  color: #fff;
+}
+.home_container .intro-box .txt-box > p {
+  margin: 0 0 4px 0;
+}
+.home_container .intro-box .txt-box h1 {
+  white-space: nowrap;
+}
+.home_container .intro-box .txt-box h1 span {
+  display: inline;
+}
 .home_container .trainer-toggle-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 4px;
-     -moz-column-gap: 4px;
-          column-gap: 4px;
-  margin: 12px 0 30px;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  margin: 5px 0 30px;
 }
 .home_container .trainer-toggle-box .trainer-choice-ul {
-  height: 28px;
-  line-height: 28px;
+  height: 32px;
+  line-height: 30px;
   position: relative;
   z-index: 10;
   padding: 0 12px;
@@ -1813,9 +1867,9 @@ ul 안에 ul
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-column-gap: 5px;
-     -moz-column-gap: 5px;
-          column-gap: 5px;
+  -webkit-column-gap: 3px;
+     -moz-column-gap: 3px;
+          column-gap: 3px;
   padding: 0 8px;
   border: 1px solid #D9D9D9;
   border-radius: 50px;
@@ -1835,13 +1889,13 @@ ul 안에 ul
           align-items: center;
 }
 .home_container .trainer-list .swiper-wrapper .img-box {
-  width: 268px;
-  height: 268px;
-  background: rgb(217, 217, 217);
+  height: 331px;
+  overflow: hidden;
   border-radius: 8px;
 }
 .home_container .trainer-list .swiper-wrapper .img-box img {
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1852,24 +1906,14 @@ ul 안에 ul
   }
 }
 .home_container .trainer-list .swiper-wrapper .txt-box {
-  margin: 8px 0 0 0;
+  margin: 11px 0 0 0;
+  color: #fff;
 }
 .home_container .trainer-list .swiper-wrapper .txt-box img {
   margin: -2px 0 0 0;
 }
-.home_container .trainer-list .swiper-wrapper .txt-box .scope {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 5px;
-     -moz-column-gap: 5px;
-          column-gap: 5px;
-}
-.home_container .trainer-list .swiper-wrapper .txt-box .scope span {
-  display: inline-block;
+.home_container .trainer-list .swiper-wrapper .txt-box .starBox .total-scope span:first-child {
+  color: #fff;
 }
 .home_container .trainer-list-all {
   max-width: 100px;
@@ -1923,21 +1967,19 @@ ul 안에 ul
   color: #979797;
 }
 .home_container .notWork {
-  padding: 72px 0;
-  background: #f9f9f9;
-  text-align: center;
+  padding: 23px 20px 34px 20px;
+  background: #fff;
+  text-align: left;
 }
 .home_container .notWork .mob-inner div {
-  margin: 8px 0 16px;
+  margin: 4px 0 13px;
 }
 .home_container .notWork .mob-inner a {
-  height: 34px;
-  line-height: 32px;
   display: inline-block;
-  padding: 0 20px;
-  background: #6E2FF4;
-  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 700;
   color: #fff;
+  border-radius: 5px;
 }
 .home_container .first-section .mob-inner {
   padding: 24px 20px;
@@ -2176,6 +2218,9 @@ ul 안에 ul
   padding-bottom: 0;
   border-bottom: none;
 }
+.home_container .second-section.notWork .mob-inner {
+  padding: 0;
+}
 .home_container .top-column .menu-dot {
   position: relative;
   cursor: pointer;
@@ -2383,6 +2428,10 @@ ul 안에 ul
 .home_container .bott-column button img {
   -webkit-filter: invert(1);
           filter: invert(1);
+}
+
+.main_container .first-section {
+  padding-top: 62px;
 }
 
 /******************************************
@@ -9359,17 +9408,18 @@ ul 안에 ul
   background: #000;
 }
 .region_container_inner .form-group2 .search::before {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
+  top: -1px;
   background: none;
   border: 2px solid #000;
   border-radius: 50%;
 }
 .region_container_inner .form-group2 .search::after {
   width: 2px;
-  height: 6px;
-  right: 4px;
-  bottom: 2px;
+  height: 8px;
+  right: 2px;
+  bottom: -1px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   background: #000;
@@ -9996,17 +10046,18 @@ ul 안에 ul
   background: #000;
 }
 .SearchResult_container_inner .search-input .search-btn::before {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
+  top: -1px;
   background: none;
   border: 2px solid #000;
   border-radius: 50%;
 }
 .SearchResult_container_inner .search-input .search-btn::after {
   width: 2px;
-  height: 6px;
-  right: 4px;
-  bottom: 2px;
+  height: 8px;
+  right: 2px;
+  bottom: -1px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
   background: #000;
@@ -10587,8 +10638,8 @@ ul 안에 ul
   padding: 22px 20px;
 }
 .Wish_container_inner .toggle-box .wish-filter {
-  height: 28px;
-  line-height: 28px;
+  height: 32px;
+  line-height: 30px;
   position: relative;
   z-index: 10;
   padding: 0 12px;

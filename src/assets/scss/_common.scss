@@ -70,8 +70,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 // 검색 버튼
 @mixin searchBtn(){@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px); cursor:pointer;
     &::before, &::after{content:''; position:absolute; background:$b;}
-    &::before{@include conSize(15px, 15px); background:none; border:2px solid $b; border-radius:50%;}
-    &::after{@include conSize(2px, 6px); right:4px; bottom:2px; transform:rotate(-45deg); background:$b;}
+    &::before{@include conSize(18px, 18px); top:-1px; background:none; border:2px solid $b; border-radius:50%;}
+    &::after{@include conSize(2px, 8px); right:2px; bottom:-1px; transform:rotate(-45deg); background:$b;}
 }
 // 화살표
 @mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
@@ -124,6 +124,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .btn3{@extend .btn2; @include font(12px, 500); background:$f; }
 
 // 폰트 사이즈
+.f-11-400{@include font(11px, 400, null);}
+.f-12-300{@include font(12px, 300, null);}
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
 .f-12-700{@include font(12px, 700, null);}
@@ -146,6 +148,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-320(){font-size:14px;}
 }
 .f-18-700{@include font(18px, 700, null);}
+.f-20-400{@include font(20px, 400, null);
+    @include responsive-320(){font-size:18px;}
+}
 .f-20-500{@include font(20px, 500, null);
     @include responsive-320(){font-size:18px;}
 }
@@ -200,8 +205,9 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; background:$f;
+.at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; /*background:$f;*/
     .header-current{@include conSize(100%, 2px); @include position(absolute, null, null, 0, 0);}
+
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
             .back{@include arrow2; width:13px; cursor:pointer;
@@ -211,7 +217,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         }
         .center{@include center(absolute);}
         .right{width:50%; @include display(flex, null, flex-end);
-            .menu-ul{@include display(flex, center); gap:30px;
+            .menu-ul{@include display(flex, center); gap:23px;
                 li{@include display(flex, center); position:relative; cursor:pointer;
                     a{height:24px; @include display(flex, center);}
                     &.progress{font-size:14px;}
@@ -231,6 +237,23 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     &.active{/*height:96px; padding:30px 21px 0;*/ background:transparent;}
     &.discover{border-radius:0 0 16px 16px;}
     &.border{border-bottom:1px solid #F1F1F1}
+    &.through{
+        img{
+            &:not(.logo-img){filter:invert(1);}
+        }
+        .at-header-inner{
+            .right{
+                .menu-ul{
+                    li.search{
+                        span{
+                            &::before{border-color:$f;}
+                            &::after{background:$f;}
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     @include responsive-480{padding:12px 15px}
 }
@@ -322,7 +345,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 풋터
 /components/Footer.vue
 ******************************************/
-.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$b; border-top:1px solid #F1F1F1;
+.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$f; border-top:1px solid #F6F7FA;
     &-inner{
         ul{@include display(flex, center, null, null);
             li{flex:1;
@@ -332,14 +355,14 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                             &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-off.png) no-repeat center; background-size:36px;}
                         }
                     }
-                    p{margin:5px 0 0 0; color:$gray;}
+                    p{margin:5px 0 0 0; color:#A6ABB5;}
                     &.router-link-exact-active{
                         .quick-menu-icon{
                             @for $i from 1 to 5{
                                 &-#{$i}{background:url(../image/quick-menu-icon-#{$i}-on.png) no-repeat center; background-size:36px;}
                             }
                         }
-                        p{color:$f;}
+                        p{color:$b;}
                     }
                 }
             }

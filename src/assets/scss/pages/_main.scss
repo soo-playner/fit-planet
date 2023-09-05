@@ -1,39 +1,50 @@
 .main-layout{padding:56px 0 82px 0;
-    .first-section{position:relative; background:$f; border-radius:0 0 20px 20px; box-shadow:0 7px 13px rgba(0,0,0, .05);}
+    .first-section{position:relative; background:$b; border-radius:0 0 20px 20px; box-shadow:0 7px 13px rgba(0,0,0, .05);}
     &-inner{padding:24px 20px 40px;}
 }
 /******************************************
 메인 페이지
 ******************************************/
-.home_container{
+.home_container{padding-top:0;
     // 첫방문 - Home.vue
-    .trainer-toggle-box{@include display(flex, null, null, null); column-gap:4px; margin:12px 0 30px;
+    .intro-box{@include display(flex, null, space-between);
+        .txt-box{color:$f;
+            & > p{margin:0 0 4px 0;}
+            h1{white-space:nowrap;
+                span{display:inline;}
+            }
+        }
+    }
+    .trainer-toggle-box{@include display(flex); column-gap:10px; margin:5px 0 30px;
         .trainer-choice-ul{@include ulToggle;
             ul{background:$f;}
         }
-        .location{@include display(flex, center, null, null); column-gap:5px; padding:0 8px; border:1px solid #D9D9D9; border-radius:50px; background:$f;
+        .location{@include display(flex, center, null, null); column-gap:3px; padding:0 8px; border:1px solid #D9D9D9; border-radius:50px; background:$f;
             .img-box{@include display(flex, center, null, null);}
         }
     }
     .trainer-list{
         .swiper-wrapper{align-items:center;
-            .img-box{@include conSize(268px, 268px); background:rgba(217, 217, 217, 1); border-radius:8px;
-                img{width:100%; object-fit:cover;}
+            .img-box{@include conSize(null, 331px); overflow:hidden; border-radius:8px;
+                img{@include conSize(100%, 100%); object-fit:cover;}
+
                 @include responsive-991{@include conSize(100%, 100%);}
             }
-            .txt-box{margin:8px 0 0 0;
+            .txt-box{margin:11px 0 0 0; color:$f;
                 img{margin:-2px 0 0 0;}
-                .scope{@include display(flex, center, null, null); column-gap:5px;
-                    span{display:inline-block;}
+                .starBox{
+                    .total-scope{
+                        span:first-child{color:$f;}
+                    }
                 }
             }
         }
         &-all{@include allBtn;}
     }
-    .notWork{padding:72px 0; background:$light-gray-2; text-align:center;
+    .notWork{padding:23px 20px 34px 20px; background:$f; text-align:left;
         .mob-inner{
-            div{margin:8px 0 16px}
-            a{@include conSize(null, 34px, 32px); display:inline-block; padding:0 20px; background:$purple; border-radius:16px; color:$f;}
+            div{margin:4px 0 13px}
+            a{display:inline-block; @include font(12px, 700, $f); border-radius:5px;}
         }
     }
 
@@ -44,6 +55,10 @@
     .second-section{
         .mob-inner{padding:20px;
             .place-history{@include placeHistory;}
+        }
+        // 첫방문
+        &.notWork{
+            .mob-inner{padding:0;}
         }
     }
 
@@ -69,6 +84,11 @@
             img{filter:invert(1)}
         }
     }
+}
+
+
+.main_container{
+    .first-section{padding-top:62px;}
 }
 
 /******************************************

@@ -388,7 +388,7 @@
 /******************************************
 ul 안에 ul
 ******************************************/
-@mixin ulToggle(){@include conSize(null, 28px, 28px); position:relative; z-index:10; padding:0 12px; border:1px solid #D9D9D9; border-radius:50px; background:$f; cursor:pointer;
+@mixin ulToggle(){@include conSize(null, 32px, 30px); position:relative; z-index:10; padding:0 12px; border:1px solid #D9D9D9; border-radius:50px; background:$f; cursor:pointer;
     & > li{@include display(flex, center, null, null); @include font(12px, 400);
         .arrow{@include arrow();}
     }

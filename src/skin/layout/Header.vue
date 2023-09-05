@@ -22,6 +22,11 @@ const headerBottBorder = ref(
         "TrainerMachine_Choice", "TrainerPay_Complete", "TrainerTicket_Complete", "TrainerReview"
     ]
 );
+const headerThrough = ref(
+    [
+        "Home"
+    ]
+)
 
 const AlertOpenFnc = () => {
     AlertOpen.value = !AlertOpen.value;
@@ -276,6 +281,7 @@ const pageName = () => {
             headerActive.includes($route.name) ? 'active' : '', 
             headerBottBorder.includes($route.name) ? 'border' : '',
             $route.name === 'DiscoverList' ? 'discover' : '',
+            headerThrough.includes($route.name) ? 'through' : '',
         ]"
     >
         <span 
@@ -291,7 +297,8 @@ const pageName = () => {
             <div class="left">
                 <div v-if="headerType()['back']" @click="$router.go('-1')" class="back"></div>
                 <div v-if="headerType()['logo']" class="logo">
-                    <img src="@/assets/image/logo.png" alt="핏플래닛 로고" />
+                    <img class="logo-img" v-if="headerThrough.includes($route.name)" src="@/assets/image/logo.png" alt="핏플래닛 로고" />
+                    <img class="logo-img" v-else src="@/assets/image/logo_b.png" alt="핏플래닛 로고">
                 </div>
                 <h1 v-if="pageName()" class="f-20-700">{{ pageName() }}</h1>
             </div>
@@ -301,7 +308,9 @@ const pageName = () => {
             <div class="right">
                 <ul class="menu-ul">
                     <li class="alarm" v-if="headerType()['alarm']" @click="AlertOpenFnc">
+                        <!-- 현재 알림 이미지는 확정된 홈 시안과 달라서 검은색으로 돼있는 이미지 다시 저장하셔야 합니다. -->
                         <img src="@/assets/image/alarm.png" alt="알림" />
+
                         <div class="notConfirm-alarm"><span>1</span></div>
                     </li>
                     <li v-if="headerType()['write']">
@@ -310,7 +319,7 @@ const pageName = () => {
                     <li class="search" v-if="headerType()['search']" @click="SearchOpenFnc">
                         <span></span>
                     </li>
-                    <li
+                    <li 
                         v-if="headerType()['mypage']"
                         @click="
                             AlertOpen = false;
