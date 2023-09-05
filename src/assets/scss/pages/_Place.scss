@@ -51,6 +51,7 @@
         .place-discover-list{@include placeList2; border-bottom:0;}
         .trainer-discover-list{@include placeTrainerList2; border-bottom:0;}
     }
+    .map-btn{position:fixed; bottom:0;}
 }
 
 /******************************************
@@ -515,8 +516,9 @@
 }
 
 /******************************************
-플레이스 상세 페이지 - 결제 완료
+플레이스, 트레이너 상세 페이지 - 결제 완료
 /components/routes/place/PlacePay_Complete.vue
+/components/routes/place/TrainerPay_Complete.vue
 ******************************************/
 .payComplete{padding-top:80px;
     &-inner{
@@ -526,14 +528,14 @@
         // 결제 완료 안내
         .pay-complete-guide{@include completeGuide;}
         .inquiry-list{@include display(flex, center); column-gap:8px; margin:20px 0;
-            li{flex:1; min-height:210px; @include display(flex, center, center, column); row-gap:16px; border:1px solid $b; border-radius:8px;
+            li{flex:1; min-height:210px; @include display(flex, center, center, column); row-gap:16px; border:1px solid $light-gray-1; border-radius:8px;
                 @include responsive-480{min-height:150px;}
             }
         }
         // 양식
         .ex-inquiry-form{
             &-tit{margin:0 0 16px 0; text-align:center;}
-            &-content{padding:20px; background:#F1F1F1; border-radius:8px; text-align:center;
+            &-content{padding:20px; background:#f9f9f9; border-radius:8px; text-align:center;
                 p{@include display(flex, null, center); @include font(14px, 400);
                     span{font-weight:700;}
                 }
@@ -555,8 +557,10 @@
         // 결제 정보
         .order-info{@include orderInfo;}
     }
-    // 수강권 등록 모달창
     
+    &.trainerPayComplete_container{
+        .pay-complete-guide{border-bottom:0;}
+    }
 }
 
 /******************************************

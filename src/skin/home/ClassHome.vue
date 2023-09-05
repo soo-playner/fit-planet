@@ -94,7 +94,7 @@ const addPaymentFnc = () => {
                     </div>
                     <div class="mid-column">
                         <div class="txt-box">
-                            <div class="f-16-700">김위즈 트레이너(위즈짐) | 바디프로필 프로젝트 30회</div>
+                            <div class="f-14-500">김위즈 트레이너(위즈짐)<br>바디프로필 프로젝트 30회</div>
                             <div class="f-12-400">
                                 <p>시작일 : <span> 4.3 월 /</span></p>
                                 <p>종료일 : <span> 7.3 월</span></p>

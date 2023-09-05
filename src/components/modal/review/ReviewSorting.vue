@@ -18,7 +18,7 @@ const { closeModal } = defineProps({
                 <li>
                     <input type="radio" id="d_sorting_1_1" name="d_sorting" value="거리순">
                     <label for="d_sorting_1_1">
-                        추천순
+                        최신순
                         <span class="outSide">
                             <span></span>
                         </span>
@@ -27,7 +27,7 @@ const { closeModal } = defineProps({
                 <li>
                     <input type="radio" id="d_sorting_1_2" name="d_sorting" value="별점 높은 순">
                     <label for="d_sorting_1_2">
-                        좋아요순
+                        좋아요 순
                         <span class="outSide">
                             <span></span>
                         </span>
@@ -36,7 +36,7 @@ const { closeModal } = defineProps({
                 <li>
                     <input type="radio" id="d_sorting_1_3" name="d_sorting" value="최신순">
                     <label for="d_sorting_1_3">
-                        최신순
+                        별점 높은 순
                         <span class="outSide">
                             <span></span>
                         </span>

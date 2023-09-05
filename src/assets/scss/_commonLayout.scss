@@ -35,7 +35,8 @@
 
 @mixin bottLnb(){width:100%; @include display(flex); column-gap:8px; @include position(fixed, null, null, 0, 0, 155); padding:12px 20px 32px; background:$f; border:1px solid #D9D9D9; border-radius:16px 16px 0 0;
     a, button{@include aTag; @include conSize(null, 44px, 44px); margin:0;
-        &:first-child{background:$f; color:$b; border:1px solid $b;}
+        &:first-child{background:$f; color:$b; border:1px solid $light-gray-1;}
+        &:last-child{background:$purple;}
     }
 }
 @mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
@@ -182,9 +183,9 @@
 // 결제 완료
 @mixin completeGuide(){text-align:center;
     .complete-img-box{margin:0 0 15px 0;}
-    .f-20-700{line-height:1.3;}
-    & > p{line-height:1.4; margin:8px 0 20px;}
-    button{@include aTag; @include conSize(null, 44px, 44px); margin:0 0 14px 0; cursor:pointer;}
+    .f-20-500{line-height:1.3;}
+    .f-14-400{line-height:1.4; margin:8px 0 20px;}
+    button{@include aTag; @include conSize(null, 44px, 44px); margin:0 0 14px 0; background:$f; border:1px solid $purple; color:$purple; cursor:pointer;}
     .order-num{color:#979797;}
 }
 
@@ -399,7 +400,7 @@ ul 안에 ul
 최근 검색한 지역, 검색어 
 ******************************************/
 .search-layout{
-    &-tit{@include display(flex, flex-end, space-between); margin:0 0 3px 0;
+    &-tit{@include display(flex, flex-end, space-between); margin:0 0 11px 0;
         button{color:#979797; cursor:pointer;}
     }
     &-ul{

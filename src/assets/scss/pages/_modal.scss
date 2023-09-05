@@ -32,6 +32,15 @@
 }
 
 /******************************************
+비밀번호 찾기
+******************************************/
+.notFind-member{
+    &-inner{padding-top:50px;
+        .txt-box{margin:0 0 46px 0;}
+    }
+}
+
+/******************************************
 플레이스
 ******************************************/
 // 발견 페이지 - 솔팅 모달창
@@ -44,9 +53,9 @@
     .overlay{@include overLay;}
     &-inner{width:100%; position:relative; bottom:-100%; padding:34px 20px; background:$f; border-radius:16px 16px 0 0; transition:all .8s $easing;
         .inquiry-form{@include display(flex); column-gap:16px;
-            a{flex:1; min-height:150px; @include display(flex, center, center, column); row-gap:12px; background:#F1F1F1; border-radius:16px}
+            a{flex:1; min-height:150px; @include display(flex, center, center, column); row-gap:12px; border:1px solid $light-gray-1; border-radius:16px}
         }
-        .work-inquiry-modal-close{@include aTag; @include conSize(null, 44px, 44px); margin:20px 0 0 0; background:$f; border:1px solid $b; color:$b; cursor:pointer;}
+        .work-inquiry-modal-close{@include aTag; @include conSize(null, 44px, 44px); margin:20px 0 0 0; background:$light-gray; color:$b; cursor:pointer;}
     }
     &.active{opacity:1; visibility:visible;
         .work-inquiry-modal-inner{bottom:0;}

@@ -23,7 +23,13 @@ const openOptionMenu = () => {
                 <div class="user-profile"></div>
                 <div class="writer-info">
                     <p class="f-14-700">{{writer}}<span class="f-12-400">{{date}}</span></p>
-                    <img src="@/assets/image/star_box.png" alt="">
+                    <div class="starBox">
+                        <div class="star">★</div>
+                        <div class="star">★</div>
+                        <div class="star">★</div>
+                        <div class="star">★</div>
+                        <div class="star_empty">☆</div>
+                    </div>
                 </div>
             </div>
             <div class="right-row">

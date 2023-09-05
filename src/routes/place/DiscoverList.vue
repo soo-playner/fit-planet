@@ -92,6 +92,8 @@ const trainerInfo = ref(store.state.place.places);
                 </div>
             </div>
         </div>
+
+        <div class="map-btn"><img src="@/assets/image/map.png" alt="지도로 보기">지도로 보기</div>
     </div>
 
     <DiscoverSorting :class="{ active: SortingOpen }" :closeModal="confirmDiscoverSorting" />
