@@ -590,6 +590,7 @@
                 ul{@include display(flex); column-gap:6px;
                     li{@include conSize(null, 28px, 28px); padding:0 8px; @include font(12px, 400, #D9D9D9); border:1px solid #D9D9D9; border-radius:14px; cursor:pointer;
                         &.active{border-color:$b; color:$b;}
+                        &.select{border-color: #DCC7FF; background-color: #F6F1FF; color: #8337FF}
                     }
                 }
             }
@@ -604,6 +605,7 @@
             ul{@include display(flex); flex-flow:wrap; gap:4px;
                 li{@include liTag; @include font(12px, 400, #D9D9D9);
                 &.gender{flex-grow: 1; display:flex; justify-content: center; align-items: center;  height: 32px; }
+                &.select{border-color: #DCC7FF; background-color: #F6F1FF; color: #8337FF}
                 }
             }
         }
@@ -629,7 +631,9 @@
             &-tit{margin:0 0 12px 0;}
             &-list{margin-bottom:16px;
                 ul{@include display(flex); flex-flow:wrap; gap:4px;
-                    li{@include liTag; @include font(12px, 400, #D9D9D9);}
+                    li{@include liTag; @include font(12px, 400, #D9D9D9);
+                    &.select{border-color: #DCC7FF; background-color: #F6F1FF; color: #8337FF}
+                    }
                 }
                 &:last-child{margin-bottom:0;}
             }

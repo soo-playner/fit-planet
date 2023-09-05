@@ -8866,6 +8866,12 @@ ul 안에 ul
   border-color: #000;
   color: #000;
 }
+.filter_container_inner .ticket-date-tit ul li.select,
+.filter_container_inner .ticket-expense-tit ul li.select {
+  border-color: #DCC7FF;
+  background-color: #F6F1FF;
+  color: #8337FF;
+}
 .filter_container_inner .ticket-date-adjust p,
 .filter_container_inner .ticket-expense-adjust p {
   display: -webkit-box;
@@ -8927,6 +8933,12 @@ ul 안에 ul
       -ms-flex-align: center;
           align-items: center;
   height: 32px;
+}
+.filter_container_inner .place-type ul li.select,
+.filter_container_inner .etc-opt ul li.select {
+  border-color: #DCC7FF;
+  background-color: #F6F1FF;
+  color: #8337FF;
 }
 .filter_container_inner .facilities-tit {
   margin: 0 0 18px 0;
@@ -9019,6 +9031,11 @@ ul 안에 ul
     height: 26px;
     line-height: 25px;
   }
+}
+.filter_container_inner .machine-list ul li.select {
+  border-color: #DCC7FF;
+  background-color: #F6F1FF;
+  color: #8337FF;
 }
 .filter_container_inner .machine-list:last-child {
   margin-bottom: 0;

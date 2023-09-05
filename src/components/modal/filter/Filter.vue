@@ -1,8 +1,9 @@
 <script setup>
-import { ref, defineProps, watch } from "vue";
+import { ref, defineProps, defineEmits, watch } from "vue";
 
 import RangeBar from "@/components/layout/RangeBar";
 
+const emit = defineEmits();
 const props = defineProps({
     close: Function,
 });
@@ -19,6 +20,10 @@ const facilities = ref([
     { id: "9", tit: "체형분석" },
     { id: "10", tit: "체성분검사" },
 ]);
+
+const placeType = ["24시", "여성 전용", "남성 전용", "무인"];
+
+const etcOption = ["P.T", "그룹 P.T", "골프", "필라테스", "요가", "스피닝", "G.X"];
 
 const machine = ref([{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }, { title: "등" }, { title: "어깨" }, { title: "유산소" }]);
 
@@ -50,7 +55,9 @@ const selectFilterHandler = (type, value) => {
     } else selectFilter.value[type].push(value);
 };
 
-watch(selectFilter, () => {});
+watch(selectFilter, () => {
+    emit("filterUpdate", selectFilter);
+});
 
 const toggle = ref(false);
 const toggleFnc = (e) => {
@@ -115,23 +122,14 @@ const toggleFnc = (e) => {
             <div class="place-type">
                 <div class="place-type-tit f-14-700">플레이스 타입</div>
                 <ul>
-                    <li>24시</li>
-                    <li>여성 전용</li>
-                    <li>남성 전용</li>
-                    <li>무인</li>
+                    <li :class="{ select: selectFilter.place_type.includes(el) }" v-for="el in placeType" :key="el" @click="selectFilterHandler('place_type', el)">{{ el }}</li>
                 </ul>
             </div>
             <!-- 기타옵션 -->
             <div class="etc-opt">
                 <div class="etc-opt-tit f-14-700">기타옵션</div>
                 <ul>
-                    <li>P.T</li>
-                    <li>그룹 P.T</li>
-                    <li>골프</li>
-                    <li>필라테스</li>
-                    <li>요가</li>
-                    <li>스피닝</li>
-                    <li>G.X</li>
+                    <li :class="{ select: selectFilter.etc_option.includes(el) }" v-for="el in etcOption" :key="el" @click="selectFilterHandler('etc_option', el)">{{ el }}</li>
                 </ul>
             </div>
             <!-- 편의시설 -->
@@ -150,7 +148,9 @@ const toggleFnc = (e) => {
                 <div class="machine-list" v-for="(machineItem, idx) in machine" :key="idx">
                     <span class="machine-tit f-14-400">{{ machineItem.title }}</span>
                     <ul>
-                        <li :class="{ select: selectFilter.machine.includes(data) }" v-for="(data, _idx) in machineTag[idx]" :key="_idx" @click="selectFilterHandler('machine', data)">{{ data }}</li>
+                        <li :class="{ select: selectFilter.machine.includes(el) }" v-for="(el, idx) in machineTag[idx]" :key="idx" @click="selectFilterHandler('machine', el)">
+                            {{ el }}
+                        </li>
                     </ul>
                 </div>
             </div>
