@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div class="notClass_home_container main-layout">
+    <div class="notClass_home_container main-layout home_container">
         <div class="notClass_home_container_inner first-section">
             <div class="mob-inner">
                 <div class="top-column">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="bott-column">
                     <p class="f-14-400">운동을 시작해 볼까요?</p>
-                    <button class="btn2">수강권 등록하고 운동 시작하기</button>
+                    <button class="btn1">수강권 등록하고 운동 시작하기</button>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="mid-column">
                         <div class="txt-box">
-                            <div class="f-16-700">김위즈 트레이너(위즈짐) | 바디프로필 프로젝트 30회</div>
+                            <div class="f-14-500">김위즈 트레이너(위즈짐)<br>바디프로필 프로젝트 30회</div>
                             <div class="f-12-400">
                                 <p>시작일 : <span> 4.3 월 /</span></p>
                                 <p>종료일 : <span> 7.3 월</span></p>
@@ -63,7 +63,7 @@
                             <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                             <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                         </div>
-                        <button class="f-14-700">같은 운동 결제하기</button>
+                        <button class="btn1-1">같은 운동 결제하기</button>
                     </div>
                 </div>
             </div>

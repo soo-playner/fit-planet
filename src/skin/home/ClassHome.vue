@@ -33,7 +33,7 @@ const addPaymentFnc = () => {
 </script>
 
 <template>
-    <div class="class_home_container main-layout">
+    <div class="class_home_container main-layout home_container">
         <div class="class_home_container_inner first-section">
             <div class="mob-inner">
                 <div class="top-column">
@@ -65,8 +65,8 @@ const addPaymentFnc = () => {
                             <p class="f-12-400">7.3 월 종료</p>
                         </div>
                     </div>
-                    <button class="btn2">
-                        <img src="@/assets/image/quick-menu-icon-2-on.png" alt="플레이스 위치 보기">
+                    <button class="btn1">
+                        <img src="@/assets/image/map.png" alt="플레이스 위치 보기">
                         플레이스 위치 보기
                     </button>
                 </div>
@@ -107,8 +107,7 @@ const addPaymentFnc = () => {
                             <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                             <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                         </div>
-                        <button class="btn3" @click="addPaymentFnc">
-                            <img src="@/assets/image/wallet.png" alt="같은 운동 결제하기">
+                        <button class="btn1-1" @click="addPaymentFnc">
                             같은 운동 결제하기
                         </button>
                     </div>

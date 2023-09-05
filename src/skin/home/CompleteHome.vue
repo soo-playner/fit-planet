@@ -22,7 +22,7 @@ const history = [
 </script>
 
 <template>
-    <div class="complete_home_container main-layout">
+    <div class="complete_home_container main-layout home_container">
         <div class="complete_home_container_inner">
             <div class="first-section">
                 <div class="first-section-inner main-layout-inner mob-inner">
@@ -33,29 +33,31 @@ const history = [
                         </div>
                         <div class="close"></div>
                     </div>
-                    <div class="place-info">
-                        <div class="img-box"></div>
-                        <div class="txt-box">
-                            <span class="f-12-400">4.1 토 결제</span>
+                    <div class="mid-column">
+                        <div class="place-img-box"></div>
+                        <div class="place-txt-box">
+                            <div class="f-12-400 gray1"><span class="date">4.1 토</span> 결제</div>
                             <p class="f-14-400">
                                 <span>위즈짐</span>
                                 <span>6개월 수강권</span>
                             </p>
-                        </div> 
-                    </div>
-                    <div class="place-progress-box">
-                        <div class="progress-bar">
-                            <div class="progress-bubble">100%</div>
-                            <div class="progress-value"><span class="step"></span></div>
-                        </div>
-                        <div class="progress-date">
-                            <p class="f-12-400">4.3 월 시작</p>
-                            <p class="f-12-400">7.3 월 종료</p>
                         </div>
                     </div>
-                    <button class="btn2">
-                        <img src="@/assets/image/write.png" alt="후기 작성하기">후기 작성하기
-                    </button>
+                    <div class="bott-column">
+                        <div class="place-progress-box">
+                            <div class="progress-bar">
+                                <div class="progress-bubble">100%</div>
+                                <div class="progress-value"><span class="step"></span></div>
+                            </div>
+                            <div class="progress-date">
+                                <p class="f-12-400">4.3 월 시작</p>
+                                <p class="f-12-400">7.3 월 종료</p>
+                            </div>
+                        </div>
+                        <button class="btn1">
+                            후기 작성하기
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="second-section">
@@ -80,7 +82,7 @@ const history = [
                         </div>
                         <div class="mid-column">
                             <div class="txt-box">
-                                <div class="f-16-700">{{ historyItem.trainerName }} 트레이너({{ historyItem.center }}) | {{ historyItem.exerciseName }}</div>
+                                <div class="f-14-500">{{ historyItem.trainerName }} 트레이너({{ historyItem.center }})<br>{{ historyItem.exerciseName }}</div>
                                 <div class="f-12-400">
                                     <p>
                                         시작일 : <span> {{ historyItem.startDate }} /</span>
@@ -97,7 +99,9 @@ const history = [
                                 <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                                 <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                             </div>
-                            <router-link to="/" class="btn3"><img src="@/assets/image/wallet.png" alt="결제하기" />같은 운동 결제하기</router-link>
+                            <button class="btn1-1">
+                                같은 운동 결제하기
+                            </button>
                         </div>
                     </div>
                 </div>

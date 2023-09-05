@@ -196,8 +196,16 @@ const confirmInquiry = () => {
                 <div class="place-explain-content">
                     <span>최고, 최신의 운동기구를 갖춘</span>
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
+                    <br>
                     <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해</span>
                     <span>맞춤 운동 및 식단 처방을 제공합니다.</span>
+                    <br>
+                    <span>1111111111</span>
+                    <span>1111111111</span>
+                    <span>1111111111</span>
+                    <span>1111111111</span>
+                    <span>1111111111</span>
+                    <span>1111111111</span>
                     <div class="more f-12-400">더 보기<span></span></div>
                 </div>
             </div>

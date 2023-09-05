@@ -1,4 +1,3 @@
-// 레이아웃
 .main-layout{padding:56px 0 82px 0;
     .first-section{position:relative; background:$f; border-radius:0 0 20px 20px; box-shadow:0 7px 13px rgba(0,0,0, .05);}
     &-inner{padding:24px 20px 40px;}
@@ -37,109 +36,53 @@
             a{@include conSize(null, 34px, 32px); display:inline-block; padding:0 20px; background:$purple; border-radius:16px; color:$f;}
         }
     }
-}
 
-/******************************************
-메인 페이지(첫방문)
-/components/layout/MainPage.vue
-******************************************/
-.section01{
-    &-inner{
-        .intro-txt-box{margin-bottom:20px;
-            h1{margin:3px 0 7px 0;}
-            .trainer-toggle-box{@include display(flex, null, null, null); column-gap:4px;
-                .trainer-choice-ul{@include ulToggle;
-                    ul{background:$f;}
-                }
-                .location{@include display(flex, center, null, null); column-gap:5px; padding:0 8px; border:1px solid #D9D9D9; border-radius:50px; background:$f;
-                    .img-box{@include display(flex, center, null, null);}
-                }
-            }
-        }
-        .trainer-list{
-            .swiper-wrapper{align-items:center;
-                .img-box{@include conSize(268px, 268px); background:rgba(217, 217, 217, 1); border-radius:8px;
-                    img{width:100%; object-fit:cover;}
-                    @include responsive-991{@include conSize(100%, 100%);}
-                }
-                .txt-box{margin:8px 0 0 0;
-                    img{margin:-2px 0 0 0;}
-                    .scope{@include display(flex, center, null, null); column-gap:5px;
-                        span{display:inline-block;}
-                    }
-                }
-            }
-            &-all{@include allBtn;}
-        }
-    }
-}
-.section02{padding:72px 0; text-align:center;
-    &-inner{
-        div{margin:8px 0 16px}
-        a{@include conSize(null, 30px, 30px); display:inline-block; padding:0 20px; border:1px solid $b; border-radius:50px;}
-    }
-}
-
-/******************************************
-메인 페이지(플레이스 수강권 미등록)
-/components/layout/NotClass_MainPage.vue
-******************************************/
-.notClass_home_container,
-.class_home_container,
-.progress_home_container,
-.progressImpend_home_container{
+    // 그 외 공통으로 적용
     .first-section{
-        .mob-inner{padding:24px 20px;
-            .top-column{
-                .menu-dot{@include menuDot; text-align:center;}
-                .place-list{@include placeList; top:60px; right:20px;}
-            }
-            .mid-column{margin:16px 0 12px 0; padding:0 0 12px 0; border-bottom:1px solid #D9D9D9;
-                .place-img-box{@include placeImgBox;}
-                .place-txt-box{margin:8px 0 0 0;
-                    & > div, p{@include display(flex, null, center);}
-                    & > div{column-gap:3px;}
-                    p span{@include afterLine;}
-                }
-            }
-            .bott-column{text-align:center;
-                button{margin:12px 0 0 0;}
-            }
-        }
+        .mob-inner{padding:24px 20px;}
     }
     .second-section{
         .mob-inner{padding:20px;
             .place-history{@include placeHistory;}
         }
     }
+
+    .top-column{
+        .menu-dot{@include menuDot; text-align:center;}
+        .place-list{@include placeList; top:60px; right:20px;}
+
+        // 운동 종료
+        .txt-box{text-align:center;}
+        .close{@include close; @include position(absolute, 2px, 0);}
+    }
+    .mid-column{margin:16px 0 12px 0; padding:0 0 12px 0; border-bottom:1px solid #D9D9D9;
+        .place-img-box{@include placeImgBox;}
+        .place-txt-box{margin:8px 0 0 0;
+            & > div, p{@include display(flex, null, center);}
+            & > div{column-gap:3px;}
+            p span{@include afterLine;}
+        }        
+    }
+    .bott-column{text-align:center;
+        .place-progress-box{@include placeProgress;}
+        button{@include display(flex, center, center); column-gap:8px; margin:12px 0 0 0;
+            img{filter:invert(1)}
+        }
+    }
 }
 
 /******************************************
-메인 페이지(플레이스 수강권 등록)
-/components/layout/Class_MainPage.vue
+
 ******************************************/
-.class_home_container,
-.progress_home_container,
-.progressImpend_home_container{
-    .first-section{
-        .mob-inner{
-            .mid-column{margin:4px 0 24px 0; border:none;}
-            .bott-column{
-                .place-progress-box{@include placeProgress;
-                    .progress-bar{
-                        .progress-bubble{left:0;}
-                    }
+.class_home_container{
+    .mid-column{border:0;}
+    .bott-column{
+        .place-progress-box{
+            .progress-bar{
+                .progress-bubble{left:0;}
+                .progress-value{
+                    .step{width:8px;}
                 }
-                button{@include display(flex, center, center); column-gap:8px;
-                    img{filter:invert(1)}
-                }
-            }
-        }
-    }
-    .second-section{
-        .place-history{
-            .bott-column{
-                button{@include display(flex, center, center); column-gap:8px;}
             }
         }
     }
@@ -150,16 +93,13 @@
 /components/layout/ProgressHome.vue
 ******************************************/
 .progress_home_container{
-    .first-section{
-        .mob-inner{
-            .bott-column{
-                .place-progress-box{
-                    .progress-bar{
-                        .progress-bubble{left:50%; transform:translateX(-50%)}
-                        .progress-value{
-                            .step{width:50%;}
-                        }
-                    }
+    .mid-column{border:0;}
+    .bott-column{
+        .place-progress-box{
+            .progress-bar{
+                .progress-bubble{left:50%; transform:translateX(-50%)}
+                .progress-value{
+                    .step{width:50%;}
                 }
             }
         }
@@ -171,16 +111,12 @@
 /components/layout/ProgressImpendHome.vue
 ******************************************/
 .progressImpend_home_container{
-    .first-section{
-        .mob-inner{
-            .bott-column{
-                .place-progress-box{
-                    .progress-bar{
-                        .progress-bubble{left:auto; transform:translateX(0); right:5%;}
-                        .progress-value{
-                            .step{width:95%;}
-                        }
-                    }
+    .bott-column{
+        .place-progress-box{
+            .progress-bar{
+                .progress-bubble{transform:translateX(0); right:5%;}
+                .progress-value{
+                    .step{width:95%;}
                 }
             }
         }
@@ -192,39 +128,14 @@
 /components/layout/Complete_Home.vue
 ******************************************/
 .complete_home_container{
-    &_inner{
-        .first-section{
-            &-inner{
-                .top-column{position:relative;
-                    .txt-box{text-align:center;}
-                    .close{@include close; @include position(absolute, 2px, 0);}
+    .mid-column{border:0;}
+    .bott-column{
+        .place-progress-box{
+            .progress-bar{
+                .progress-bubble{right:0;}
+                .progress-value{
+                    .step{width:100%;}
                 }
-                .place-info{
-                    .img-box{@include placeImgBox; margin:16px auto 8px;}
-                    .txt-box{text-align:center;
-                        & > span{color:#979797;}
-                        p{@include display(flex, null, center);
-                            &:first-child{color:#979797}
-                            &:last-child span{@include afterLine();}
-                        }
-                    }
-                }
-                .place-progress-box{@include placeProgress;
-                    .progress-bar{
-                        .progress-bubble{right:0;}
-                        .progress-value{
-                            .step{width:100%;}
-                        }
-                    }
-                }
-                .btn2{@include display(flex, center, center); column-gap:8px; margin:12px 0 0 0;
-                    img{filter:invert(1);}
-                }
-            }
-        }
-        .second-section{
-            &-inner{padding:20px;
-                .place-history{@include placeHistory;}
             }
         }
     }

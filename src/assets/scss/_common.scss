@@ -118,10 +118,10 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 // 버튼 모양
-.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(16px, 700, $f); background:$b; border-radius:22px; cursor:pointer; text-align:center}
+.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:22px; cursor:pointer; text-align:center}
 .btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
-.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(14px, 700, $f); background:$b; border-radius:19px; cursor:pointer; text-align:center}
-.btn3{@extend .btn2; background:$f;}
+.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:19px; cursor:pointer; text-align:center}
+.btn3{@extend .btn2; @include font(12px, 500); background:$f; }
 
 // 폰트 사이즈
 .f-12-400{@include font(12px, 400, null);}
