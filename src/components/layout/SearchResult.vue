@@ -3,14 +3,6 @@ import PlaceData from "@/components/place/PlaceData";
 import TrainerData from "@/components/place/TrainerData";
 import Filter from "@/components/modal/filter/Filter";
 import FilterTrainer from "@/components/modal/filter/FilterTrainer";
-// import SearchTab from "./Search_Tab";
-// import { ref } from "vue";
-
-// const tabs = ["플레이스", "트레이너"];
-// const targetTab = ref("플레이스");
-// const changeTab = (tabItem) => {
-//     targetTab.value = tabItem;
-// };
 
 import { onMounted, ref } from "vue";
 import useTabAnimation from "@/composables/useTabAnimation";
