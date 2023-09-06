@@ -299,7 +299,9 @@ const pageName = () => {
         </span>
         <div class="at-header-inner">
             <div class="left">
-                <div v-if="headerType()['back']" @click="$router.go('-1')" class="back"></div>
+                <div v-if="headerType()['back']" @click="$router.go('-1')" class="back">
+                    <img src="@/assets/image/back.png" alt="뒤로가기">
+                </div>
                 <div v-if="headerType()['logo']" class="logo">
                     <img class="logo-img" v-if="headerThrough.includes($route.name)" src="@/assets/image/logo.png" alt="핏플래닛 로고" />
                     <img class="logo-img" v-else src="@/assets/image/logo_b.png" alt="핏플래닛 로고">

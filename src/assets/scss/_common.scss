@@ -17,6 +17,7 @@ span{display:block;}
 .notFooter-layout2{padding-bottom:32px;}
 .mob-inner{max-width:1000px; position:relative; margin:0 auto;}
 
+// 컬러 지정
 $b:#000;
 $f:#fff;
 $gray:#979797;
@@ -34,7 +35,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .gray1{color:#979797}
 .gray2{color:#ACACAC;}
 
-// 미디어쿼리
+/******************************************
+미디어쿼리
+******************************************/
 @mixin responsive-1040(){
     @media(max-width:1040px){@content;}
 }
@@ -46,7 +49,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 @mixin responsive-500(){
     @media(max-width:500px){@content;}
-}
+} 
 @mixin responsive-480(){
     @media(max-width:480px){@content;}
 }
@@ -57,7 +60,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @media(max-width:320px){@content;}
 }
 
-// 믹스인
+/******************************************
+믹스인
+******************************************/
 @mixin conSize($width:null, $height:null, $lh:null){width:$width; height:$height; line-height:$lh;}
 @mixin display($display, $ai:null, $jc:null, $ff:null){display:$display; align-items:$ai; justify-content:$jc; flex-flow:$ff;}
 @mixin position($position1, $top:null, $right:null, $bottom:null, $left:null, $zd:null){position:$position1; top:$top; right:$right; bottom:$bottom; left:$left; z-index:$zd;}
@@ -69,12 +74,91 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
         &::after{display:none;}
     }
 }
+
+/******************************************
+인풋, 버튼 초기 설정
+******************************************/
+button, input{background:none; border:none;
+    &:focus, &:active{outline:none; box-shadow:none;}
+}
+.form-group{position:relative;
+    input[type='text'],
+    input[type='password'],
+    input[type='email'],
+    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
+        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, $light-gray-1);}
+        //&:focus{border-bottom-color:$b;}
+    }
+    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
+        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
+            span{@include conSize(18px, 18px); background:url('@/assets/image/input-checkbox.png') center no-repeat; border-radius:50%;}
+        }
+        &:checked + label{
+            span{background:url('@/assets/image/input-checkbox-checked.png') center no-repeat;}
+        }
+    }
+    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:$light-gray-1; border-radius:50px;
+       //&::-webkit-slider-runnable-track{}
+        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
+    }
+}
+textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
+
+.form-group2{position:relative;
+    input[type='text'],
+    input[type='file'],
+    input[type='email']{@include conSize(100%, 44px, 42px); padding:0 16px; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;
+        &:focus{border:none}
+        &::placeholder{color:#979797}
+    }
+    input[type='file']{appearance:none; -webkit-appearance:none; position:absolute; opacity:0;
+        + label{@include conSize(null, 44px, 42px); display:block; padding:0 16px; @include font(12px, 400); background:#F1F1F1; border-radius:8px; color:#979797;}
+    }
+    textarea{min-height:150px; @include font(12px, 400, #979797);
+        &::placeholder{color:#979797}
+    }
+}
+
+/******************************************
+버튼 모양 클래스 지정
+******************************************/
+.btn-44-purple{@include conSize(100%, 44px, 42px); display:block; background:$purple; border-radius:5px; cursor:pointer; color:$f; text-align:center}
+
+.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:22px; cursor:pointer; text-align:center}
+.btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
+.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:19px; cursor:pointer; text-align:center}
+.btn3{@extend .btn2; @include font(12px, 500); background:$f; }
+
+/******************************************
+모양(데코) 생성
+******************************************/
+// 메뉴 모양
+@mixin menuDot(){position:relative; cursor:pointer;
+    span{@include conSize(3px, 3px); @include position(absolute, 50%, 0); transform:translateY(-50%); background:$f; border-radius:50%;
+        &::before, &::after{content:''; @include conSize(100%, 100%); @include position(absolute); left:0; background:inherit; border-radius:50%;}
+        &::before{top:-7px;}
+        &::after{bottom:-7px;}
+    }
+}
+
+// 플러스 버튼
+@mixin plus(){@include conSize(12px, 12px); @include display(flex, center, center); position:relative;
+    &::before, &::after{content:''; @include position(absolute); background:$f; border-radius:10px;}
+    &::before{@include conSize(100%, 2px);}
+    &::after{@include conSize(2px, 100%);}
+}
+
+// 점 모양
+@mixin blueDot(){@include conSize(4px, 4px); background:$blue2; border-radius:50%}
+@mixin purpleDot(){@include conSize(4px, 4px); background:$purple; border-radius:50%}
+
 // 검색 버튼
 @mixin searchBtn(){@include conSize(20px, 20px); @include display(flex); @include position(absolute, 12px, 16px); cursor:pointer;
     &::before, &::after{content:''; position:absolute; background:$b;}
     &::before{@include conSize(18px, 18px); top:-1px; background:none; border:2px solid $b; border-radius:50%;}
     &::after{@include conSize(2px, 8px); right:2px; bottom:-1px; transform:rotate(-45deg); background:$b;}
 }
+
 // 화살표
 @mixin arrow(){@include conSize(6px, 9px); @include display(flex, center, center, null); position:relative; margin:-2px 0 0 8px;
     &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
@@ -86,6 +170,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &::before{right:6px; transform:rotate(45deg)}
     &::after{transform:rotate(-45deg)}
 }
+
 // 닫기 버튼
 @mixin close(){@include conSize(21px, 21px); @include display(flex, center, center); position:relative; margin:0; cursor:pointer;
     &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
@@ -93,41 +178,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     &::after{transform:rotate(-45deg)}
 }
 
-// 다음 버튼
-.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;
-    @include responsive-360{@include conSize(100%, 40px, 39px);}
-}
-// 패스워드 가이드
-.password-guide{line-height:1.8; margin:28px 0 0 0; color:$gray; text-align:left;
-    @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
-}
-// 인증 시 시간 텍스트
-.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%); color:$blue;}
-// 유효성 검사 시 노출되는 텍스트
-.vail{margin:10px 0 0 0;}
-// 별점
-.starBox{@include display(flex, center); color:$orange;
-    .total-scope{@include display(flex, center); column-gap:3px; margin:0 0 0 5px;
-        span{margin:2px 0 0 0;
-            &:first-child{color:$b;}
-            &:last-child{color:$gray;}
-        }
-    }
-}
-// 밑줄 라인 필요할 경우
-.line{display:inline-block; position:relative;
-    &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
-}
-
-// 버튼 모양
-.btn-44-purple{@include conSize(100%, 44px, 42px); display:block; background:$purple; border-radius:5px; cursor:pointer; color:$f; text-align:center}
-
-.btn1{@include conSize(100%, 44px, 42px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:22px; cursor:pointer; text-align:center}
-.btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
-.btn2{@include conSize(100%, 38px, 36px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:19px; cursor:pointer; text-align:center}
-.btn3{@extend .btn2; @include font(12px, 500); background:$f; }
-
-// 폰트 사이즈
+/******************************************
+폰트 사이즈 지정 클래스
+******************************************/
 .f-11-400{@include font(11px, 400, null);}
 .f-12-300{@include font(12px, 300, null);}
 .f-12-400{@include font(12px, 400, null);}
@@ -174,46 +227,33 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-22-500{@include font(22px, 500, null);}
 .f-24-700{@include font(24px, 700, null);}
 
-// 인풋, 버튼 초기 설정
-button, input{background:none; border:none;
-    &:focus, &:active{outline:none; box-shadow:none;}
+/******************************************
+그 외 클래스 지정
+******************************************/
+// 다음 버튼
+.next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;
+    @include responsive-360{@include conSize(100%, 40px, 39px);}
 }
-.form-group{position:relative;
-    input[type='text'],
-    input[type='password'],
-    input[type='email'],
-    input[type='tel']{@include conSize(100%, 70px, 70px); border:none; @include font(14px, 400, $b); border-bottom:1px solid #f1f1f1; transition:all .3s $easing;
-        &::placeholder{@include conSize(null, 70px, 70px); @include font(inherit, inherit, $light-gray-1);}
-        //&:focus{border-bottom-color:$b;}
-    }
-    input[type='checkbox']{position:absolute; top:0; appearance:none; -webkit-appearance:none; opacity:0; 
-        + label{@include display(flex, center); column-gap:10px; cursor:pointer;
-            span{@include conSize(18px, 18px); background:url('@/assets/image/input-checkbox.png') center no-repeat; border-radius:50%;}
+// 패스워드 가이드
+.password-guide{line-height:1.8; margin:28px 0 0 0; color:$gray; text-align:left;
+    @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
+}
+// 인증 시 시간 텍스트
+.pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%); color:$blue;}
+// 유효성 검사 시 노출되는 텍스트
+.vail{margin:10px 0 0 0;}
+// 별점
+.starBox{@include display(flex, center); color:$orange;
+    .total-scope{@include display(flex, center); column-gap:3px; margin:0 0 0 5px;
+        span{margin:2px 0 0 0; @include font(12px, 400);
+            &:first-child{color:$b;}
+            &:last-child{color:$gray;}
         }
-        &:checked + label{
-            span{background:url('@/assets/image/input-checkbox-checked.png') center no-repeat;}
-        }
-    }
-    input[type='range']{height:8px; appearance:none; -webkit-appearance:none; overflow:hidden; background:$light-gray-1; border-radius:50px;
-       //&::-webkit-slider-runnable-track{}
-        &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
     }
 }
-textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
-
-.form-group2{position:relative;
-    input[type='text'],
-    input[type='file'],
-    input[type='email']{@include conSize(100%, 44px, 42px); padding:0 16px; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;
-        &:focus{border:none}
-        &::placeholder{color:#979797}
-    }
-    input[type='file']{appearance:none; -webkit-appearance:none; position:absolute; opacity:0;
-        + label{@include conSize(null, 44px, 42px); display:block; padding:0 16px; @include font(12px, 400); background:#F1F1F1; border-radius:8px; color:#979797;}
-    }
-    textarea{min-height:150px; @include font(12px, 400, #979797);
-        &::placeholder{color:#979797}
-    }
+// 밑줄 라인 필요할 경우
+.line{display:inline-block; position:relative;
+    &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
 }
 
 /******************************************
@@ -225,10 +265,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 
     &-inner{@include display(flex, center, space-between, wrap); position: relative;
         .left{width:50%;
-            .back{@include arrow2; width:13px; cursor:pointer;
-                &::before{right:auto; transform:rotate(-42deg); margin:0 0 8px 0}
-                &::after{transform:rotate(42deg); margin:8px 0 0 0;}
-            }
+            .back{width:13px; cursor:pointer;}
         }
         .center{@include center(absolute);}
         .right{width:50%; @include display(flex, null, flex-end);
@@ -360,7 +397,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 풋터
 /components/Footer.vue
 ******************************************/
-.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:15px 0; background:$f; border-top:1px solid #F6F7FA;
+.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:12px 0 16px; background:$f; border-top:1px solid #F6F7FA;
     &-inner{
         ul{@include display(flex, center, null, null);
             li{flex:1;

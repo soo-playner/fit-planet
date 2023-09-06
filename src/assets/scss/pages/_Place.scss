@@ -38,7 +38,7 @@
             .place-data-wrap,
             .trainer-data-wrap{flex-grow: 1; overflow-y: scroll; }
             .PlaceData-form,
-            .TrainerData-form{margin:0 0 16px 0; padding:0 0 16px 0; border-bottom:1px solid #D9D9D9;}
+            .TrainerData-form{}
 
             .filter-scroll{margin:20px 0; padding:0; flex-shrink:0;
                 li{color:$b;
@@ -48,10 +48,14 @@
             }
         }
         
-        .place-discover-list{@include placeList2; border-bottom:0;}
-        .trainer-discover-list{@include placeTrainerList2; border-bottom:0;}
+        .place-discover-list{
+            .PlaceData-form{@include placeList3;}
+        }
+        .trainer-discover-list{
+            .TrainerData-form{@include placeTrainerList2;}
+        }
     }
-    .map-btn{position:fixed; bottom:0;}
+    .map-btn{@include conSize(null, 34px, 32px); @include display(flex, center); column-gap:6px; @include center(fixed); top:auto; bottom:114px; z-index:99; padding:0 17px; @include font(12px, 500, $f); background:$b; border-radius:17px; cursor:pointer;}
 }
 
 /******************************************

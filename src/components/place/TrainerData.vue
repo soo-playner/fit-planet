@@ -32,7 +32,7 @@ const seeDetail = () => {
                     </div>
                 </div>
                 <div class="location-info f-12-400">
-                    <p><img src="@/assets/image/place-map.png" alt="플레이스 위치" />{{ centerName }}</p>
+                    <p>{{ centerName }}</p>
                     <p>{{ location }}</p>
                 </div>
             </div>

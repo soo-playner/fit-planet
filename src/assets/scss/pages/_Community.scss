@@ -2,12 +2,6 @@
 뉴스, 이벤트
 /routes/commnuity/EventNews, EventNews_Tab 
 ******************************************/
-.EventNewsTab_container{
-    &_inner{
-        .tab-list{@include TabList;}
-    }
-}
-
 .EventNews_container{
     &_inner{
         .tab-list{display:flex; overflow-x:initial;
