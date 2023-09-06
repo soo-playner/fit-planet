@@ -6,11 +6,21 @@ import FilterTrainer from "@/components/modal/filter/FilterTrainer";
 
 import { onMounted, ref } from "vue";
 import useTabAnimation from "@/composables/useTabAnimation";
+import useAjaxRequest from "@/composables/useAjaxRequest";
 
 const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
+const { postData } = useAjaxRequest();
 const searchArray = ["플레이스", "트레이너"];
 const selectTab = ref("플레이스");
 const isShowFilter = ref(false);
+const resultCount = ref(0);
+
+const submitData = async (type, data) => {
+    console.log(data);
+    const apiUrl = type === "place" ? "api1" : "api2";
+    // const res = await postData(apiUrl, data);
+    resultCount.value += 100;
+};
 
 onMounted(() => {
     clickLiFnc();
@@ -70,6 +80,8 @@ onMounted(() => {
                 isShowFilter = false;
             }
         "
+        :resultCount="resultCount"
+        @filterUpdate="submitData('place', $event)"
     />
     <FilterTrainer
         v-if="isShowFilter && selectTab === '트레이너'"
@@ -78,5 +90,7 @@ onMounted(() => {
                 isShowFilter = false;
             }
         "
+        :resultCount="resultCount"
+        @filterUpdate="submitData('trainer', $event)"
     />
 </template>
