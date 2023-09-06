@@ -30,6 +30,8 @@ $purple:#6E2FF4;
 $light-purple:#F5F7FB;
 $blue:#2F72F4; 
 $blue2:#00A3FF;
+$light-blue:#F6F7FA;
+$light-blue2:#DBE2EF;
 $orange:#FD9F52;
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .gray1{color:#979797}
@@ -131,7 +133,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 .btn3{@extend .btn2; @include font(12px, 500); background:$f; }
 
 /******************************************
-모양(데코) 생성
+모양(데코) 생성 등등
 ******************************************/
 // 메뉴 모양
 @mixin menuDot(){position:relative; cursor:pointer;
@@ -181,6 +183,14 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 
 // 말줄임
 @mixin ellipsis($num:null){display:-webkit-box; -webkit-line-clamp:$num; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
+
+// border 그라데이션 -> 적용할 시 해당 태그에 padding 값이 있으면 border 두께 커짐
+@mixin borderGradient(){
+    border:1px solid transparent;
+    background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #8337FF, #3BD2FF);
+    background-origin:border-box;
+    background-clip:content-box, border-box;
+}
 
 /******************************************
 폰트 사이즈 지정 클래스
@@ -257,6 +267,18 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
             &:first-child{color:$b;}
             &:last-child{color:$gray2;}
         }
+    }
+}
+// 별점 - /place/review 참고
+.starBox2{
+    .total-scope{
+        & > span{@include display(flex, center); column-gap:3px;
+            span{
+                &:first-child{@include font(16px, 700, $b)}
+                &:last-child{@include font(14px, 700, $gray2)}
+            }
+        }
+        p{@include font(14px, 400, $gray2)}
     }
 }
 
@@ -411,7 +433,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 풋터
 /components/Footer.vue
 ******************************************/
-.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:12px 0 16px; background:$f; border-top:1px solid #F6F7FA;
+.at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:12px 0 16px; background:$f; border-top:1px solid $light-blue;
     &-inner{
         ul{@include display(flex, center, null, null);
             li{flex:1;

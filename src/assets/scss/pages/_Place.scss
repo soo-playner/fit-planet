@@ -120,17 +120,13 @@
         .place-ticket{padding:20px;
             .swiper-slide{min-height:128px; @include display(flex, null, space-between, column); padding:16px; background:$f; border:1px solid #EAEFF9; border-radius:8px; box-shadow:0 5px 9px rgba(0, 0, 0, 0.02);
                 div:last-child{@include display(flex, flex-end, null, column);}
-                &:last-child{@include allBtn; align-items:center; justify-content:center; background:none; box-shadow:none;
+                &:last-child{@include allBtn; align-items:center; justify-content:center; background:none; box-shadow:none; border:none;
                     .arrow-circle{padding:0;}
                 }
 
                 .discount{color:#979797}
 
-                &-active{padding:0; 
-                    border:1px solid transparent;
-                    background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #8337FF, #3BD2FF);
-                    background-origin:border-box;
-                    background-clip:content-box, border-box;
+                &-active{padding:0; @include borderGradient;
 
                     div{
                         &:first-child{padding:15px 0 0 15px;}
@@ -311,29 +307,36 @@
 ******************************************/
 .PlaceReview_container{
     &_inner{
-        .top-column{@include display(flex, null, space-between); padding:22px 20px; background:$f; border-bottom:8px solid #F1F1F1;
+        .top-column{@include display(flex, center, space-between); padding:22px 20px; background:$f; border-bottom:8px solid $light-blue;
             .left-row{@include display(flex, center); column-gap:5px;
-                p{@include display(flex, flex-end); column-gap:5px;
-                    span:last-child{color:$gray;}
-                }
+                // p{@include display(flex, flex-end); column-gap:5px;
+                //     span:last-child{color:$gray;}
+                // }
+                img{margin:0 10px 0 0}
             }
-            .right-row{@include conSize(null, 32px, 30px); position:relative; z-index:10; padding:0 12px; border:1px solid $blue; border-radius:16px; cursor:pointer;
+            .right-row{@include liTag2; @include conSize(null, 32px, 30px); position:relative; z-index:10; padding:0 12px; cursor:pointer;
                 li{@include display(flex, center, null, null);
-                    p{color:$blue}
-                    span{@include arrow;}
+                    p{color:#323232}
+                    span{@include arrow; margin:2px 0 0 8px;}
                 }
             }
         }
-        .total-review-form{margin-bottom:4px; padding:20px 0 24px; border-bottom:8px solid #F1F1F1;
+        .total-review-form{margin-bottom:4px; padding:20px 0 24px; border-bottom:1px solid $light-blue2;
             & > div{padding:0 20px;}
-            .review-writer{@include WriterInfo;}
+            .review-writer{@include WriterInfo;
+                .right-row{
+                    .menu-dot{
+                        span{background:$b}
+                    }
+                }
+            }
             .review-content{
                 .member-review{
                     &-img{@include conSize(156px, 156px); margin:20px 0 0 0; border-radius:8px; background:#D9D9D9;}
                 }
-                .place-answer{padding:12px; margin:24px 0 0 0; background:$light-gray-2; border-radius:8px;
+                .place-answer{padding:12px; margin:24px 0 0 0; background:$light-blue; border-radius:8px;
                     p{@include display(flex, flex-end); column-gap:8px; margin:0 0 10px 0;
-                        span{color:$gray;}
+                        span{color:$gray2;}
                     }
                 }
             }
@@ -373,20 +376,26 @@
                 &-tit{@include display(flex, center); column-gap:6px;
                     span{margin:8px 0 0 0;}
                 }
-                ul{@include display(flex); flex-flow:column; row-gap:8px; margin:16px 0 0 0;
-                    li{@include display(flex, center, space-between); @include radioBox1; padding:12px 14px; border:1px solid #E1E1E1; border-radius:8px;
+                ul{@include display(flex); flex-flow:column; row-gap:14px; margin:16px 0 0 0;
+                    li{@include display(flex, center, space-between); @include radioBox1; padding:12px 14px; border:1px solid #E1E1E1; border-radius:8px; box-shadow:0 5px 10px rgba(0,0,0, .05);
                         input[type='radio']{
                             + label{width:100%; @include display(null, initial, null, column);}
                         }
-                        .each-tit{@include display(flex, center); column-gap:12px;}
+
+                        .each-tit{@include display(flex, center); column-gap:12px;
+                            p{@include font(12px, 500, $b)}
+                        }
                         .right-column{text-align:right}
-                        .discount{@include font(12px, 400, #979797);}
-                        .percent{display:inline; color:$purple;}
+                        .discount{@include font(12px, 400, $gray2);}
+                        .percent{display:inline; color:$blue2;}
 
                         &.flex-flow{min-height:130px; align-items:initial;
                             .bott-row{ @include display(flex, flex-end, null, column)}
                         }
-                        &.active{border:1px solid $purple;}
+                        &.active{padding:0; @include borderGradient;
+                            .top-row, .left-column{padding:12px 0 0 14px;}
+                            .bott-row, .right-column{padding:0 14px 12px 0;}
+                        }
                     }
                 }
                 &.mp{margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid #D9D9D9;
@@ -394,7 +403,7 @@
                 }
             }
             &-tit{padding:20px 0 16px; margin-bottom:16px; border-bottom:1px solid #D9D9D9;
-                p{color:$purple;}
+                p{color:$blue2;}
                 span{margin:5px 0 0 0;}
             }
 
@@ -403,12 +412,12 @@
             }
         }
     }
-    .bott-pay-btn{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:16px 20px 32px; background:$f; border:1px solid #F1F1F1; border-radius:16px 16px 0 0; box-shadow:0 -1px 22px rgba(0,0,0, .1);
+    .bott-pay-btn{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:16px 20px 32px; background:$f; border:1px solid #F1F1F1; border-radius:16px 16px 0 0; box-shadow:0 -1px 12px rgba(0, 0, 0, 0.05);
         .place-name{margin:0 0 12px 0; text-align:center}
         .choice-machine-list{margin:0 0 12px 0; padding:0 0 12px 0; border-bottom:1px solid #D9D9D9;
-            li{@include conSize(null, 36px, 1); @include display(flex, center); margin:0 0 4px 0; padding:0 16px; background:#F1F1F1; border-radius:8px;
+            li{@include conSize(null, 36px, 1); @include display(flex, center); margin:0 0 4px 0; padding:0 16px; border:1px solid $light-blue2; border-radius:8px;
                 div{@include display(flex, center);
-                    .discount{color:#979797}
+                    .discount{color:$gray2}
 
                     .choice-product{/*width:6rem;*/ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
                     .choice-pay{column-gap:8px;
@@ -428,11 +437,13 @@
         }
         .total-pay{
             div{@include display(flex);
-                div{justify-content:space-between;}
-                .lightgray{color:#979797;}
+                div{justify-content:space-between;
+                    &:first-child{color:$gray2}
+                    &:last-child{color:$blue2}
+                }
             }
             & > div{flex-flow:column;}
-            button{@include aTag; @include conSize(null, 44px, 44px); @include font(16px, 700, $f); background:#D9D9D9; border:none;}
+            button{margin:12px 0 0 0}
         }
     }
 }

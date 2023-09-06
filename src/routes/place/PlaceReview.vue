@@ -22,12 +22,15 @@ const closeModalFnc = () => {
         <div class="PlaceReview_container_inner mob-inner">
             <div class="top-column">
                 <div class="left-row">
-                    <div class="starBox">
-                        <div class="star">★</div>
-                        <p class="total-scope">
-                            <span class="f-16-700">4.3 / 5</span>
-                            <span class="f-14-400">(12개의 후기)</span>
-                        </p>
+                    <img src="@/assets/image/review-con.png" alt="후기">
+                    <div class="starBox2">
+                        <div class="total-scope">
+                            <span>
+                                <span>4.3</span>
+                                <span>/ 5</span>
+                            </span>
+                            <p class="f-14-400">(12개의 후기)</p>
+                        </div>
                     </div>
                 </div>
                 <ul class="right-row place-review-sorting">

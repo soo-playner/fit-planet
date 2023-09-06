@@ -33,7 +33,15 @@ const openOptionMenu = () => {
                 </div>
             </div>
             <div class="right-row">
-                <div class="like-box"><img src="@/assets/image/like.png" alt="좋아요"><span class="like-count f-14-400">{{likeCnt}}</span></div>
+                <div class="like-box">
+                    <!-- 
+                        좋아요 클릭 시 이미지 변경되는 부분은
+                        like-img 태그에 like 클래스 추가 시 변경되는 걸로 설정해놨습니다.
+                        ㄴ commonLayout.scss 398번 라인 보시면 됩니다.
+                    -->
+                    <div class="like-img"></div>
+                    <span class="like-count f-14-400">{{ likeCnt }}</span>
+                </div>
                 <div class="menu-dot">
                     <span @click="openOptionMenu"></span>
                     <ul class="review-sorting-list" v-show="isOptionMenuOpen">

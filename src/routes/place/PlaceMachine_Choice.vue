@@ -12,7 +12,7 @@
                     <span class="f-14-400">운동 프로그램을 선택하세요</span>
                 </div>
                 <div class="place-choice-list-layout">
-                    <div class="place-choice-list-layout-tit"><img src="@/assets/image/ticket.png" alt="">수강권</div>
+                    <div class="place-choice-list-layout-tit">수강권</div>
                     <ul>
                         <li class="flex-flow active">
                             <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권" checked>
@@ -21,15 +21,18 @@
                                     <!-- 
                                         체크 된 이미지는 설정 해놨습니다.
                                         미체크 이미지만 다운받아서 commonLayout.scss 수정해주시면 됩니다(375번 라인).
-                                        ㄴ 현재 background:#F1F1F1 로 돼있음
+                                        ㄴ 현재 background:#F1F1F1 로 돼있습니다
+
+                                        + 체크 시 border 색상 변경되는데, active 클래스 설정된 li 태그만 적용되도록
+                                        @include borderGradient 로 설정해놨습니다(393번 라인 보시면 됩니다). 
                                     -->
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 place-ticket-list-name">1회 체험권</p>
+                                    <p class="place-ticket-list-name">1회 체험권</p>
                                 </div>
                                 <div class="bott-row">
-                                    <p class="f-16-700">15,000원/회</p>
+                                    <p class="f-16-500">15,000원/회</p>
                                     <span class="f-12-400 place-ticket-list-pay pay">결제금액 15,000원</span>
                                 </div>
                             </label>
@@ -41,7 +44,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 place-ticket-list-name">1개월 수강권</p>
+                                    <p class="place-ticket-list-name">1개월 수강권</p>
                                 </div>
                                 <div class="bott-row">
                                     <p class="f-16-700">59,000원/월</p>
@@ -56,7 +59,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 place-ticket-list-name">3개월 수강권</p>
+                                    <p class="place-ticket-list-name">3개월 수강권</p>
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">30,000원 할인</span>
@@ -72,7 +75,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 place-ticket-list-name">6개월 수강권</p>
+                                    <p class="place-ticket-list-name">6개월 수강권</p>
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">120,000원 할인</span>
@@ -88,7 +91,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 place-ticket-list-name">12개월 수강권</p>
+                                    <p class="place-ticket-list-name">12개월 수강권</p>
                                 </div>
                                 <div class="bott-row">
                                     <span class="discount f-12-400">360,000원 할인</span>
@@ -117,7 +120,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">선택 안함</p>
+                                    <p class="training-opt-list-name">선택 안함</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
                             </label>
@@ -129,7 +132,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">운동복 1개월</p>
+                                    <p class="training-opt-list-name">운동복 1개월</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
                             </label>
@@ -141,7 +144,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">운동복 3개월</p>
+                                    <p class="training-opt-list-name">운동복 3개월</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
                             </label>
@@ -153,7 +156,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">운동복 6개월</p>
+                                    <p class="training-opt-list-name">운동복 6개월</p>
                                 </div>
                                 <div class="right-column">
                                     <span class="discount f-12-400">10,000원 할인</span>
@@ -168,7 +171,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">운동복 12개월</p>
+                                    <p class="training-opt-list-name">운동복 12개월</p>
                                 </div>
                                 <div class="right-column">
                                     <span class="discount f-12-400">20,000원 할인</span>
@@ -189,7 +192,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">선택 안함</p>
+                                    <p class="training-opt-list-name">선택 안함</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
                             </label>
@@ -201,7 +204,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">개인 락커 1개월</p>
+                                    <p class="training-opt-list-name">개인 락커 1개월</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
                             </label>
@@ -213,7 +216,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">개인 락커 3개월</p>
+                                    <p class="training-opt-list-name">개인 락커 3개월</p>
                                 </div>
                                 <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
                             </label>
@@ -225,7 +228,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">개인 락커 6개월</p>
+                                    <p class="training-opt-list-name">개인 락커 6개월</p>
                                 </div>
                                 <div class="right-column">
                                     <span class="discount">10,000원 할인</span>
@@ -240,7 +243,7 @@
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="f-14-400 training-opt-list-name">개인 락커 12개월</p>
+                                    <p class="training-opt-list-name">개인 락커 12개월</p>
                                 </div>
                                 <div class="right-column">
                                     <span class="discount">20,000원 할인</span>
@@ -291,7 +294,7 @@
                     <div class="f-12-400"><span class="lightgray">총 할인 금액</span><span class="lightgray">140,000원 할인</span></div>
                     <div><span class="f-14-400">결제 금액</span><span class="f-16-700">334,000원</span></div>
                 </div>
-                <button>결제하기</button>
+                <button class="btn-44-purple f-14-700">결제하기</button>
             </div>
         </div>
     </div>

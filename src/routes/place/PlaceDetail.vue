@@ -317,7 +317,7 @@ const toggle = (e) => {
                     <SwiperSlide>
                         <div class="trainer-info">
                             <div class="txt-box">
-                                <span class="rank">센터장</span>
+                                <span class="rank fake">센터장</span>
                                 <div>
                                     <p><span>김위즈</span>트레이너</p>
                                     <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
@@ -330,7 +330,7 @@ const toggle = (e) => {
                     <SwiperSlide>
                         <div class="trainer-info">
                             <div class="txt-box">
-                                <span class="rank">센터장</span>
+                                <span class="rank fake">센터장</span>
                                 <div>
                                     <p><span>김위즈</span>트레이너</p>
                                     <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>

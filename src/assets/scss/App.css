@@ -341,7 +341,7 @@ textarea {
 }
 
 /******************************************
-모양(데코) 생성
+모양(데코) 생성 등등
 ******************************************/
 /******************************************
 폰트 사이즈 지정 클래스
@@ -589,6 +589,33 @@ textarea {
   color: #000;
 }
 .starBox .total-scope span:last-child {
+  color: #A6ABB5;
+}
+
+.starBox2 .total-scope > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 3px;
+     -moz-column-gap: 3px;
+          column-gap: 3px;
+}
+.starBox2 .total-scope > span span:first-child {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+.starBox2 .total-scope > span span:last-child {
+  font-size: 14px;
+  font-weight: 700;
+  color: #A6ABB5;
+}
+.starBox2 .total-scope p {
+  font-size: 14px;
+  font-weight: 400;
   color: #A6ABB5;
 }
 
@@ -5817,6 +5844,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   background: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+  border: none;
 }
 .detail_container_inner .place-ticket .swiper-slide:last-child .arrow-circle {
   width: 45px;
@@ -6632,12 +6660,15 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 22px 20px;
   background: #fff;
-  border-bottom: 8px solid #F1F1F1;
+  border-bottom: 8px solid #F6F7FA;
 }
 .PlaceReview_container_inner .top-column .left-row {
   display: -webkit-box;
@@ -6650,28 +6681,23 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
      -moz-column-gap: 5px;
           column-gap: 5px;
 }
-.PlaceReview_container_inner .top-column .left-row p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-column-gap: 5px;
-     -moz-column-gap: 5px;
-          column-gap: 5px;
-}
-.PlaceReview_container_inner .top-column .left-row p span:last-child {
-  color: #979797;
+.PlaceReview_container_inner .top-column .left-row img {
+  margin: 0 10px 0 0;
 }
 .PlaceReview_container_inner .top-column .right-row {
+  height: 22px;
+  line-height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  border: 1px solid #EAEFF9;
+  border-radius: 5px;
   height: 32px;
   line-height: 30px;
   position: relative;
   z-index: 10;
   padding: 0 12px;
-  border: 1px solid #2F72F4;
-  border-radius: 16px;
   cursor: pointer;
 }
 .PlaceReview_container_inner .top-column .right-row li {
@@ -6683,7 +6709,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           align-items: center;
 }
 .PlaceReview_container_inner .top-column .right-row li p {
-  color: #2F72F4;
+  color: #323232;
 }
 .PlaceReview_container_inner .top-column .right-row li span {
   width: 6px;
@@ -6699,6 +6725,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: -2px 0 0 8px;
+  margin: 2px 0 0 8px;
 }
 .PlaceReview_container_inner .top-column .right-row li span::before, .PlaceReview_container_inner .top-column .right-row li span::after {
   content: "";
@@ -6719,7 +6746,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .PlaceReview_container_inner .total-review-form {
   margin-bottom: 4px;
   padding: 20px 0 24px;
-  border-bottom: 8px solid #F1F1F1;
+  border-bottom: 1px solid #DBE2EF;
 }
 .PlaceReview_container_inner .total-review-form > div {
   padding: 0 20px;
@@ -6733,7 +6760,6 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: space-between;
   margin-bottom: 20px;
   padding: 0 20px 15px;
-  border-bottom: 1px solid #D9D9D9;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .left-row {
   display: -webkit-box;
@@ -6761,7 +6787,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           column-gap: 8px;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .left-row .writer-info p span {
-  color: #979797;
+  color: #A6ABB5;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .right-row {
   display: -webkit-box;
@@ -6775,8 +6801,16 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           column-gap: 21px;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .right-row .like-box {
+  height: 22px;
+  line-height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  border: 1px solid #EAEFF9;
+  border-radius: 5px;
   height: 30px;
-  line-height: 30px;
+  line-height: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6790,9 +6824,18 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
      -moz-column-gap: 8px;
           column-gap: 8px;
   padding: 0 12px;
-  border: 1px solid #d9d9d9;
-  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #323232;
   cursor: pointer;
+}
+.PlaceReview_container_inner .total-review-form .review-writer .right-row .like-box .like-img {
+  width: 13px;
+  height: 14px;
+  background: url("@/assets/image/like.png") no-repeat center/cover;
+}
+.PlaceReview_container_inner .total-review-form .review-writer .right-row .like-box .like-img.like {
+  background: url("@/assets/image/like-on.png") no-repeat center/cover;
 }
 .PlaceReview_container_inner .total-review-form .review-writer .right-row .menu-dot {
   position: relative;
@@ -6854,6 +6897,9 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   margin-bottom: 0;
   border-bottom: none;
 }
+.PlaceReview_container_inner .total-review-form .review-writer .right-row .menu-dot span {
+  background: #000;
+}
 .PlaceReview_container_inner .total-review-form .review-content .member-review-img {
   width: 156px;
   height: 156px;
@@ -6864,7 +6910,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .PlaceReview_container_inner .total-review-form .review-content .place-answer {
   padding: 12px;
   margin: 24px 0 0 0;
-  background: #f9f9f9;
+  background: #F6F7FA;
   border-radius: 8px;
 }
 .PlaceReview_container_inner .total-review-form .review-content .place-answer p {
@@ -6880,7 +6926,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   margin: 0 0 10px 0;
 }
 .PlaceReview_container_inner .total-review-form .review-content .place-answer p span {
-  color: #979797;
+  color: #A6ABB5;
 }
 .PlaceReview_container_inner .total-review-form:last-child {
   margin-bottom: 0;
@@ -7088,7 +7134,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  row-gap: 8px;
+  row-gap: 14px;
   margin: 16px 0 0 0;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li {
@@ -7104,6 +7150,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   padding: 12px 14px;
   border: 1px solid #E1E1E1;
   border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] {
   position: absolute;
@@ -7178,17 +7226,22 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
      -moz-column-gap: 12px;
           column-gap: 12px;
 }
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .each-tit p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .right-column {
   text-align: right;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .discount {
   font-size: 12px;
   font-weight: 400;
-  color: #979797;
+  color: #A6ABB5;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li .percent {
   display: inline;
-  color: #6E2FF4;
+  color: #00A3FF;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.flex-flow {
   min-height: 130px;
@@ -7209,7 +7262,18 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           flex-flow: column;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.active {
-  border: 1px solid #6E2FF4;
+  padding: 0;
+  border: 1px solid transparent;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fff)), -webkit-gradient(linear, left top, right top, from(#8337FF), to(#3BD2FF));
+  background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #8337FF, #3BD2FF);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.active .top-row, .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.active .left-column {
+  padding: 12px 0 0 14px;
+}
+.place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.active .bott-row, .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li.active .right-column {
+  padding: 0 14px 12px 0;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout.mp {
   margin-bottom: 16px;
@@ -7227,7 +7291,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   border-bottom: 1px solid #D9D9D9;
 }
 .place-choice-layout-inner .place-choice-form-tit p {
-  color: #6E2FF4;
+  color: #00A3FF;
 }
 .place-choice-layout-inner .place-choice-form-tit span {
   margin: 5px 0 0 0;
@@ -7254,8 +7318,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   background: #fff;
   border: 1px solid #F1F1F1;
   border-radius: 16px 16px 0 0;
-  -webkit-box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 -1px 22px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.05);
 }
 .place-choice-layout .bott-pay-btn .place-name {
   margin: 0 0 12px 0;
@@ -7277,7 +7341,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           align-items: center;
   margin: 0 0 4px 0;
   padding: 0 16px;
-  background: #F1F1F1;
+  border: 1px solid #DBE2EF;
   border-radius: 8px;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li div {
@@ -7289,7 +7353,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           align-items: center;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .discount {
-  color: #979797;
+  color: #A6ABB5;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-product { /*width:6rem;*/
   overflow: hidden;
@@ -7355,8 +7419,11 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.place-choice-layout .bott-pay-btn .total-pay div .lightgray {
-  color: #979797;
+.place-choice-layout .bott-pay-btn .total-pay div div:first-child {
+  color: #A6ABB5;
+}
+.place-choice-layout .bott-pay-btn .total-pay div div:last-child {
+  color: #00A3FF;
 }
 .place-choice-layout .bott-pay-btn .total-pay > div {
   -webkit-box-orient: vertical;
@@ -7365,32 +7432,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           flex-flow: column;
 }
 .place-choice-layout .bott-pay-btn .total-pay button {
-  width: 100%;
-  height: 38px;
-  line-height: 36px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
-  margin: 9px 0 0px 0;
-  background: #000;
-  color: #fff;
-  border-radius: 19px;
-  height: 44px;
-  line-height: 44px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  background: #D9D9D9;
-  border: none;
+  margin: 12px 0 0 0;
 }
 
 .trainer-machine-choice .place-choice-form .place-choice-list-layout {
@@ -8649,7 +8691,6 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: space-between;
   margin-bottom: 20px;
   padding: 0 20px 15px;
-  border-bottom: 1px solid #D9D9D9;
   padding: 20px 15px;
 }
 .review_layout_inner .review-detail-ul li .review-writer .left-row {
@@ -8678,7 +8719,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           column-gap: 8px;
 }
 .review_layout_inner .review-detail-ul li .review-writer .left-row .writer-info p span {
-  color: #979797;
+  color: #A6ABB5;
 }
 .review_layout_inner .review-detail-ul li .review-writer .right-row {
   display: -webkit-box;
@@ -8692,8 +8733,16 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           column-gap: 21px;
 }
 .review_layout_inner .review-detail-ul li .review-writer .right-row .like-box {
+  height: 22px;
+  line-height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  border: 1px solid #EAEFF9;
+  border-radius: 5px;
   height: 30px;
-  line-height: 30px;
+  line-height: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8707,9 +8756,18 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
      -moz-column-gap: 8px;
           column-gap: 8px;
   padding: 0 12px;
-  border: 1px solid #d9d9d9;
-  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #323232;
   cursor: pointer;
+}
+.review_layout_inner .review-detail-ul li .review-writer .right-row .like-box .like-img {
+  width: 13px;
+  height: 14px;
+  background: url("@/assets/image/like.png") no-repeat center/cover;
+}
+.review_layout_inner .review-detail-ul li .review-writer .right-row .like-box .like-img.like {
+  background: url("@/assets/image/like-on.png") no-repeat center/cover;
 }
 .review_layout_inner .review-detail-ul li .review-writer .right-row .menu-dot {
   position: relative;
