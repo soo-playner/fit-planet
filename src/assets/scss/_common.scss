@@ -20,6 +20,7 @@ span{display:block;}
 $b:#000;
 $f:#fff;
 $gray:#979797;
+$gray2:#A6ABB5;
 $thick-gray:#474747;
 $light-gray:#f1f1f1;
 $light-gray-1:#d9d9d9;
@@ -27,6 +28,7 @@ $light-gray-2:#f9f9f9;
 $purple:#6E2FF4;
 $light-purple:#F5F7FB;
 $blue:#2F72F4; 
+$blue2:#00A3FF;
 $orange:#FD9F52;
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .gray1{color:#979797}
@@ -118,6 +120,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 // 버튼 모양
+.btn-44-purple{@include conSize(100%, 44px, 42px); display:block; background:$purple; border-radius:5px; cursor:pointer; color:$f; text-align:center}
+
 .btn1{@include conSize(100%, 44px, 42px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:22px; cursor:pointer; text-align:center}
 .btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
 .btn2{@include conSize(100%, 38px, 36px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:19px; cursor:pointer; text-align:center}
@@ -129,6 +133,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-12-400{@include font(12px, 400, null);}
 .f-12-500{@include font(12px, 500, null);}
 .f-12-700{@include font(12px, 700, null);}
+.f-14-300{@include font(14px, 300, null);
+    @include responsive-320(){font-size:12px;}
+}
 .f-14-400{@include font(14px, 400, null);
     @include responsive-320(){font-size:12px;}
 }
@@ -137,6 +144,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .f-14-700{@include font(14px, 700, null);
     @include responsive-320(){font-size:12px;}
+}
+.f-16-300{@include font(16px, 300, null);
+    @include responsive-320(){font-size:14px;}
 }
 .f-16-400{@include font(16px, 400, null);
     @include responsive-320(){font-size:14px;}
@@ -148,6 +158,9 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @include responsive-320(){font-size:14px;}
 }
 .f-18-700{@include font(18px, 700, null);}
+.f-20-300{@include font(20px, 300, null);
+    @include responsive-320(){font-size:18px;}
+}
 .f-20-400{@include font(20px, 400, null);
     @include responsive-320(){font-size:18px;}
 }
@@ -235,7 +248,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         .discover-place{margin:9px 0 0 0;}
     }
     &.active{/*height:96px; padding:30px 21px 0;*/ background:transparent;}
-    &.discover{border-radius:0 0 16px 16px;}
+    &.discover{background:$f; border-radius:0 0 16px 16px;}
     &.border{border-bottom:1px solid #F1F1F1}
     &.through{
         img{

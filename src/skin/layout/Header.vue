@@ -9,6 +9,7 @@ const route = useRoute();
 const AlertOpen = ref(false);
 const SearchOpen = ref(false);
 const headerActive = ref(["JoinStep1", "JoinStep2", "JoinStep3", "JoinComplete", "Authority"]);
+
 const headerBottBorder = ref(
     [
         "Terms", 
@@ -22,9 +23,11 @@ const headerBottBorder = ref(
         "TrainerMachine_Choice", "TrainerPay_Complete", "TrainerTicket_Complete", "TrainerReview"
     ]
 );
+
+// 헤더 페이지마다 색상 다르게 설정
 const headerThrough = ref(
     [
-        "Home"
+        "Home", "NotClassHome"
     ]
 )
 

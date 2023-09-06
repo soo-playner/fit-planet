@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+const toggle = (e) => {
+    e.target.classList.toggle('wish');
+}
+</script>
 
 <template>
     <div class="notClass_home_container main-layout home_container">
         <div class="notClass_home_container_inner first-section">
             <div class="mob-inner">
                 <div class="top-column">
-                    <p class="f-18-700 menu-dot">등록 대기 중인 운동이 있어요<span></span></p>
+                    <div class="f-20-300 menu-dot"><p class="f-20-500">등록 대기</p>중인 운동이 있어요<span></span></div>
                     <ul class="place-list">
                         <li><button>플레이스 보기</button></li>
                         <li><button>결제 내역 보기</button></li>
@@ -13,18 +17,17 @@
                     </ul>
                 </div>
                 <div class="mid-column">
-                    <div class="place-img-box"></div>
-                    <div class="place-txt-box">
-                        <div class="f-12-400 gray1"><span class="date">4.1 토</span> 결제</div>
-                        <p class="f-14-400">
-                            <span>위즈짐</span>
-                            <span>6개월 수강권</span>
-                        </p>
-                    </div>
+                    <div class="place-img-box"><img src="@/assets/image/home-trainer5.png" alt=""></div>
                 </div>
                 <div class="bott-column">
-                    <p class="f-14-400">운동을 시작해 볼까요?</p>
-                    <button class="btn1">수강권 등록하고 운동 시작하기</button>
+                    <div class="txt-box">
+                        <div class="place-pay-info">
+                            <div class="f-16-300">4.1토 결제</div>
+                            <div class="f-16-500">바디프로필 프로젝트 30회</div>
+                        </div>
+                        <p class="f-14-400">운동을 시작해 볼까요?</p>
+                    </div>
+                    <button class="btn-44-purple f-12-700"><span class="plus"></span>수강권 등록하고 운동 시작하기</button>
                 </div>
             </div>
         </div>
@@ -37,7 +40,7 @@
                             <p>운동 완료</p>
                         </div>
                         <div class="lnb">
-                            <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
+                            <div class="heart" @click="toggle"></div>
                             <div class="menu-dot">
                                 <span></span>
                                 <ul class="place-list">
@@ -50,20 +53,23 @@
                     </div>
                     <div class="mid-column">
                         <div class="txt-box">
-                            <div class="f-14-500">김위즈 트레이너(위즈짐)<br>바디프로필 프로젝트 30회</div>
-                            <div class="f-12-400">
-                                <p>시작일 : <span> 4.3 월 /</span></p>
-                                <p>종료일 : <span> 7.3 월</span></p>
+                            <div class="f-14-500">
+                                <p class="f-14-300">김위즈 트레이너(위즈짐)</p>
+                                바디프로필 프로젝트 30회
+                            </div>
+                            <div class="f-12-400 date">
+                                <p><span class="blue-dot"></span>시작일 : 4.3 월</p>
+                                <p><span class="purple-dot"></span>종료일 : 7.3 월</p>
                             </div>
                         </div>
-                        <div class="img-box"></div>
+                        <div class="img-box"><img src="@/assets/image/home-trainer6.png" alt=""></div>
                     </div>
                     <div class="bott-column">
                         <div class="f-12-400">
                             <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                             <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                         </div>
-                        <button class="btn1-1">같은 운동 결제하기</button>
+                        <button>같은 운동 결제하기</button>
                     </div>
                 </div>
             </div>
