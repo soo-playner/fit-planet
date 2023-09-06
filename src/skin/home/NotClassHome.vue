@@ -1,4 +1,5 @@
 <script setup>
+// 하트 이미지 변경
 const toggle = (e) => {
     e.target.classList.toggle('wish');
 }

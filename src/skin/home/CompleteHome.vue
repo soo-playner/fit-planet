@@ -19,6 +19,11 @@ const history = [
         endDate: "7.3 월",
     },
 ]
+
+// 하트 이미지 변경
+const toggle = (e) => {
+    e.target.classList.toggle('wish');
+}
 </script>
 
 <template>
@@ -79,7 +84,7 @@ const history = [
                             <p>운동 완료</p>
                         </div>
                         <div class="lnb">
-                            <div class="heart"></div>
+                            <div class="heart" @click="toggle"></div>
                             <div class="menu-dot">
                                 <span></span>
                                 <ul class="place-list">

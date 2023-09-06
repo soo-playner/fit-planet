@@ -73,7 +73,7 @@
             &.place-map{padding:0; border:none;}
             &:last-child{margin-bottom:0; border-bottom:0;}
         }
-        .place-each-tit{margin:0 0 20px 0;}
+        .place-each-tit{margin:0 0 20px 0; @include font(14px, 500, $b);}
         // 지도 보기
         .place-map{
             .swiper-slide{position:relative;
@@ -97,7 +97,7 @@
                             }
                         }
                     }
-                    .location{@include display(flex, center); color:#979797;}
+                    .location{@include display(flex, center); column-gap:4px; margin:6px 0 0 0; color:$b;}
                 }
                 .place-info-scope{@include display(flex, center); column-gap:6px; margin:8px 0;
                     //.starBox{@include display(flex)}
@@ -106,7 +106,7 @@
                     }
                 }
                 .place-info-filter{@include display(flex); column-gap:5px;
-                    li{@include liTag; @include font(12px, 400);}
+                    li{@include liTag2;}
                 }
                 @include responsive-360{order:2;}
             }
@@ -118,10 +118,25 @@
         }
         // 플레이스 상품
         .place-ticket{padding:20px;
-            .swiper-slide{min-height:128px; @include display(flex, null, space-between, column); padding:16px; background:$f; border-radius:8px; box-shadow:0 5px 10px rgba(0,0,0, .05);
+            .swiper-slide{min-height:128px; @include display(flex, null, space-between, column); padding:16px; background:$f; border:1px solid #EAEFF9; border-radius:8px; box-shadow:0 5px 9px rgba(0, 0, 0, 0.02);
                 div:last-child{@include display(flex, flex-end, null, column);}
-                &:last-child{@include allBtn; align-items:center; justify-content:center; background:none; box-shadow:none;}
+                &:last-child{@include allBtn; align-items:center; justify-content:center; background:none; box-shadow:none;
+                    .arrow-circle{padding:0;}
+                }
+
                 .discount{color:#979797}
+
+                &-active{padding:0; 
+                    border:1px solid transparent;
+                    background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #8337FF, #3BD2FF);
+                    background-origin:border-box;
+                    background-clip:content-box, border-box;
+
+                    div{
+                        &:first-child{padding:15px 0 0 15px;}
+                        &:last-child{padding:0 15px 18px 0;}
+                    }
+                }
             }
             @include responsive-360{padding:15px;}
         }
@@ -136,10 +151,10 @@
             &-list{
                 .review-write-info{margin:0 0 12px 0;
                     .review-writer{@include display(flex, center); column-gap:8px;
-                        span{color:#979797}
+                        span{color:$gray2}
                     }
                 }
-                .review-content{min-height:130px; padding:16px; background:$light-gray-2; border-radius:8px;}
+                .review-content{min-height:130px; padding:16px; background:#F6F7FA; border-radius:8px;}
             }
             .review-all-btn{width:calc(100% - 20px); margin:16px 20px 0 0;
                 @include responsive-360{@include conSize(calc(100% - 20px), 40px, 39px);}
@@ -148,7 +163,7 @@
         }
         // 플레이스 설명
         .place-explain{padding:20px; 
-            &-content{min-height:166px; line-height:1.6; position:relative; padding:12px; background:$light-gray-2; border-radius:8px;
+            &-content{min-height:166px; line-height:1.6; position:relative; padding:12px; background:#F6F7FA; border-radius:8px;
                 .more{@include more;}
             }
             @include responsive-360{padding:15px;}
@@ -194,7 +209,7 @@
             .convenience-list{display:flex;
                 li{width:calc(100% / 4); text-align:center;
                     div{min-height:40px;}
-                    p{@include font(12px, 400);}
+                    p{@include font(10px, 400);}
                 }
             }
 
@@ -220,7 +235,7 @@
                                 &-#{$i}{background:url('@/assets/image/pay-icon-#{$i}.png') center no-repeat;}
                             }
                         }
-                        p{@include font(12px, 400);
+                        p{@include font(10px, 400);
                             &.pay-target{margin:7px 0 0 0;}
                         }
                     }
@@ -255,12 +270,12 @@
                 &::before{content:''; @include conSize(100%, 100px); position:absolute; bottom:0; z-index:55; box-shadow:inset 0px -40px 32px rgba(255, 255, 255, 0.9)}
             }
             
-
             @include responsive-360{padding:15px;}
         }
         // 1:1 트레이너
         .place-trainer{padding:20px 0 20px 20px;
-            @include placeTrainerList; 
+            @include placeTrainerList;
+            
             &-tit{@include display(flex, flex-end); column-gap:8px;
                 span{color:#979797}
             }
@@ -272,7 +287,7 @@
         }
         // 환불정책
         .place-refunt{padding:20px;
-            &-content{min-height:166px; line-height:1.8; position:relative; margin:0; padding:12px; @include font(12px, 400); background:#F1F1F1; border-radius:8px;
+            &-content{min-height:166px; line-height:1.8; position:relative; margin:0; padding:12px; @include font(12px, 400); background:#F6F7FA; border-radius:8px;
                 .more{@include more;}
             }
             @include responsive-360{padding:15px;}
@@ -280,9 +295,14 @@
     }
     // 문의하기/운동 선택하기 버튼
     .place-lnb{@include bottLnb; margin-bottom:0; border-bottom:0;
-        button{cursor:pointer;}
+        button{flex:1;
+
+            @include responsive-991{flex:initial;
+                &:first-child{width:100px}
+                &:last-child{width:calc(100% - 108px)}
+            }
+        }
     }
-    
 }
 
 /******************************************

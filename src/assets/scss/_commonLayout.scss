@@ -19,33 +19,33 @@
 }
 
 @mixin aTag(){@include conSize(100%, 38px, 36px); @include display(flex, center, center); column-gap:10px; margin:9px 0 0px 0; background:$b; color:$f; border-radius:19px;}
+
 @mixin liTag(){@include conSize(null, 28px, 26px); position:relative; z-index:10; padding:0 12px; word-break:keep-all; border:1px solid #D9D9D9; border-radius:14px; cursor:pointer;
     @include responsive-360{@include conSize(null, 26px, 25px);}
 }
+// 플레이스 상세 - 24시/P.T/그룹 P.T/골프 참고
+@mixin liTag2(){@include conSize(null, 22px, 20px); padding:0 8px; @include font(12px, 400, $b); border:1px solid #EAEFF9; border-radius:5px;}
 
-
-
-@mixin bottLnb(){width:100%; @include display(flex); column-gap:8px; @include position(fixed, null, null, 0, 0, 155); padding:12px 20px 32px; background:$f; border:1px solid #D9D9D9; border-radius:16px 16px 0 0;
-    a, button{@include aTag; @include conSize(null, 44px, 44px); margin:0;
-        &:first-child{background:$f; color:$b; border:1px solid $light-gray-1;}
-        &:last-child{background:$purple;}
+// 플레이스 상세 - 하단 문의하기/운동 선택하기 버튼
+@mixin bottLnb(){width:100%; @include display(flex); column-gap:8px; @include position(fixed, null, null, 0, 0, 155); padding:12px 20px 32px; background:$f; border:1px solid #F6F7FA; border-radius:16px 16px 0 0;
+    a, button{@include conSize(null, 44px, 42px); margin:0; border-radius:5px; cursor:pointer;
+        &:first-child{@include font(14px, 500, $b); background:$f; border:1px solid #EAEFF9; color:$b;}
+        &:last-child{@include font(14px, 700, $f); background:$purple;}
     }
 }
-
-// 모달창 하단 버튼 2개일 경우
-@mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
-    button{@include conSize(100%, 44px, 42px); @include font(14px, 500); border-radius:5px; cursor:pointer;
-        &:first-child{background:#F6F7FA; color:#6B6F77;}
-        &:last-child{background:$purple; color:$f;}
-    }
-}
-
 /******************************************
 모달창
 ******************************************/
 // 불투명 검정 뒷 배경
 @mixin overLay(){@include conSize(100%, 100%); @include position(absolute); z-index:-1; background:rgba(0, 0, 0, .3);}
 
+// 하단 버튼 2개일 경우(나가기/머무르기 같은)
+@mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
+    button{@include conSize(100%, 44px, 42px); @include font(14px, 500); border-radius:5px; cursor:pointer;
+        &:first-child{background:#F6F7FA; color:#6B6F77;}
+        &:last-child{background:$purple; color:$f;}
+    }
+}
 /******************************************
 메인 페이지
 ******************************************/
@@ -96,9 +96,6 @@
             }
         }
         .lnb{@include display(flex); column-gap:25px;
-            .heart{@include conSize(20px, 18px); @include display(flex, center); cursor:pointer; background:url('@/assets/image/heart-off.png') no-repeat center / cover;
-                &.wish{background:url('@/assets/image/heart-on.png') no-repeat center / cover;}
-            }
             .menu-dot{@include menuDot();
                 span{background:$b;}
                 .place-list{@include placeList();}
@@ -255,35 +252,37 @@
 ******************************************/
 // 1:1 트레이너 나열 -> 구조  @/routes/place/placeTrinaer.vue
 @mixin placeTrainerList(){
-    .trainer-info{height:500px; @include display(flex, null, space-between, column); padding:12px; background:#D9D9D9; border-radius:8px;
-        .rank{@include conSize(null, 22px, 22px); max-width:50px; display:inline-block; padding:0 8px; @include font(12px, 400); background:$f; border-radius:11px;
-            &.fake{opacity:0; visibility:hidden}
-        }
-        div{@include display(flex, flex-end, space-between);
-            p{@include font(14px, 400)}
-            .arrow{@include conSize(8px, 13px); @include display(flex, center, center); position:relative;
-                &::before, &::after{content:''; @include conSize(100%, 2px); position:absolute; background:$b;}
-                &::before{transform:rotate(45deg); margin:0 0 5px 0;}
-                &::after{transform:rotate(-45deg); margin:5px 0px 0 0;}
+    .trainer-info{height:500px; @include display(flex, null, space-between, column); position:relative; overflow:hidden; border-radius:5px;
+        .txt-box{@include conSize(100%, 100%); @include position(absolute, 0, null, null, 0); @include display(flex, null, space-between, column); padding:12px 20px 12px 12px;
+            .rank{@include conSize(null, 22px, 21px); max-width:50px; display:inline-block; padding:0 8px; @include font(12px, 400, $f); background:$b; border-radius:5px;
+                &.fake{opacity:0; visibility:hidden}
+            }
+            div{@include display(flex, flex-end, space-between);
+                p{@include font(14px, 400, $f);
+                    span{font-weight:500}
+                }
             }
         }
-
+        .img-box{@include conSize(100%, 100%);
+            img{@include conSize(100%, 100%); object-fit:cover}
+        }
+        
         @include responsive-991{height:50vw;}
         @include responsive-480{height:220px;}
     }
-    .trainer-comment{padding:8px 12px; margin:8px 0 0 0; @include font(12px, 400, #979797); background:#F1F1F1; border-radius:8px;}
+    .trainer-comment{line-height:1.8; @include ellipsis(3); padding:9px 12px 5px; margin:8px 0 0 0; @include font(12px, 400, $gray2); background:#F6F7FA; border-radius:8px;}
 }
 // 운동기구 나열 -> 구조 @/routes/place/PlaceMachine.vue
 @mixin placeMachineList(){
     .place-machine{
-        &-tit{margin:0 0 10px 0;}
+        .place-machine-tit{margin:0 0 10px 0;}
         &-form{margin-bottom:16px;
             &:last-child{margin-bottom:0;}
         }
         &-list{margin:0 0 16px 0;
             &-tit{@include font(14px, 400)}
-            ul{@include display(flex); flex-flow:wrap; gap:4px;
-                li{@include liTag; font-size:12px;}
+            ul{@include display(flex); flex-flow:wrap; gap:10px 6px;
+                li{@include liTag2;}
             }
             &:last-child{margin:0;}
         }
@@ -312,7 +311,7 @@
     .bott-column{line-height:1.8; padding:8px 12px; margin:8px 0 0 0; background:#F6F7FA; border-radius:8px; color:$gray2}
     &:last-child{border-bottom:0;}
 }
-// 플레이스 리스트(와이어프레임 기준) -> 구조 @/components/place/PlaceData.vue, 아래 주석친 곳 보면 됨
+// 플레이스 리스트(와이어프레임 기준) -> 구조 @/components/place/PlaceData.vue, 주석친 곳 보면 됨
 @mixin placeList2(){padding:0 20px 16px; margin:0 0 16px 0; border-bottom:1px solid #D9D9D9;
     .top-column{@include display(flex, null, space-between); column-gap:37px;
         .left-row{width:calc(100% - 139px); @include display(flex, null, space-between, column);
@@ -337,7 +336,6 @@
     .bott-column{line-height:1.7; padding:8px 12px; margin:8px 0 0 0; background:#f9f9f9; border-radius:8px; color:#979797}
     &:last-child{border-bottom:0;}
 }
-
 // 플레이스 리스트2(디자인 시안 기준) -> 구조 @/components/place/PlaceData.vue
 @mixin placeList3(){margin:0 0 16px; padding:0 0 16px; border-bottom:1px solid #EAEFF9;
     .top-column{
@@ -362,11 +360,6 @@
     .bott-column{line-height:1.8; padding:8px 12px; @include font(12px, 400, $gray2); background:#F6F7FA; border-radius:8px;}
     &:last-child{border-bottom:0;}
 }
-
-/******************************************
-탭
-******************************************/
-
 
 /******************************************
 라디오 박스1
@@ -407,7 +400,7 @@
 }
 
 /******************************************
-ul 안에 ul
+ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 ******************************************/
 @mixin ulToggle(){@include conSize(null, 32px, 30px); position:relative; z-index:10; padding:0 12px; border:1px solid #D9D9D9; border-radius:50px; background:$f; cursor:pointer;
     & > li{@include display(flex, center, null, null); @include font(12px, 400);

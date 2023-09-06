@@ -123,6 +123,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 버튼 모양 클래스 지정
 ******************************************/
 .btn-44-purple{@include conSize(100%, 44px, 42px); display:block; background:$purple; border-radius:5px; cursor:pointer; color:$f; text-align:center}
+.btn-44-purple-b{@extend .btn-44-purple; background:$f; border:1px solid $purple; color:$purple;}
 
 .btn1{@include conSize(100%, 44px, 42px); display:block; @include font(12px, 700, $f); background:$purple; border-radius:22px; cursor:pointer; text-align:center}
 .btn1-1{@extend .btn1; @include font(14px, 400, $f); background:$f; border:1px solid $purple; color:$purple;}
@@ -177,6 +178,9 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     &::before{transform:rotate(45deg)}
     &::after{transform:rotate(-45deg)}
 }
+
+// 말줄임
+@mixin ellipsis($num:null){display:-webkit-box; -webkit-line-clamp:$num; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
 
 /******************************************
 폰트 사이즈 지정 클래스
@@ -234,26 +238,36 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 .next-step-btn{@include conSize(100%, 44px, 44px); display:block; background:$b; color:$f; border-radius:50px; text-align:center; cursor:pointer;
     @include responsive-360{@include conSize(100%, 40px, 39px);}
 }
+
 // 패스워드 가이드
 .password-guide{line-height:1.8; margin:28px 0 0 0; color:$gray; text-align:left;
     @include responsive-320{line-height:1.5; margin:15px 0 0 0;}
 }
+
 // 인증 시 시간 텍스트
 .pass-time{@include position(absolute, 50%, 0); transform:translateY(-50%); color:$blue;}
+
 // 유효성 검사 시 노출되는 텍스트
 .vail{margin:10px 0 0 0;}
+
 // 별점
 .starBox{@include display(flex, center); color:$orange;
     .total-scope{@include display(flex, center); column-gap:3px; margin:0 0 0 5px;
         span{margin:2px 0 0 0; @include font(12px, 400);
             &:first-child{color:$b;}
-            &:last-child{color:$gray;}
+            &:last-child{color:$gray2;}
         }
     }
 }
+
 // 밑줄 라인 필요할 경우
 .line{display:inline-block; position:relative;
     &::after{content:''; @include conSize(100%, 1px); @include position(absolute, null, 0, 1px, null); background:$b;}
+}
+
+// 찜(하트) 
+.heart{@include conSize(20px, 18px); @include display(flex, center); cursor:pointer; background:url('@/assets/image/heart-off.png') no-repeat center / cover;
+    &.wish{background:url('@/assets/image/heart-on.png') no-repeat center / cover;}
 }
 
 /******************************************

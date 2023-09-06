@@ -21,7 +21,24 @@ const swiperOption1 = {
 const swiperOption2 = {
     slidesPerView: 1.5,
     spaceBetween: 8,
+
+    breakpoints : {
+        360 : {
+            slidesPerView : 1.3
+        }
+    }
 };
+
+const swiperOption3 = {
+    slidesPerView: 1.5,
+    spaceBetween: 8,
+
+    breakpoints : {
+        360 : {
+            slidesPerView : 2.1
+        }
+    }
+}
 
 //let inquiryActive = false;
 
@@ -56,6 +73,11 @@ const inquiryOpenFnc = () => {
 // 문의하기 모달창 닫기
 const confirmInquiry = () => {
     inquiryOpen.value = !inquiryOpen.value;
+}
+
+// 하트 이미지 변경
+const toggle = (e) => {
+    e.target.classList.toggle('wish');
 }
 </script>
 
@@ -120,13 +142,10 @@ const confirmInquiry = () => {
                 <div class="left-row">
                     <div class="place-info-txt">
                         <p class="f-18-700">위즈짐</p>
-                        <span class="f-12-400 location"><img src="@/assets/image/place-map.png" alt="위치" />서울 강남구 삼성로86길 11 거봉INC 3층</span>
+                        <span class="f-12-400 location"><img src="@/assets/image/map3.png" alt="위치" />서울 강남구 삼성로86길 11 거봉INC 3층</span>
                     </div>
                     <div class="place-info-scope">
                         <div class="starBox">
-                            <div class="star">★</div>
-                            <div class="star">★</div>
-                            <div class="star">★</div>
                             <div class="star">★</div>
                             <p class="total-scope f-12-400">
                                 <span>4.3</span>
@@ -142,14 +161,14 @@ const confirmInquiry = () => {
                     </ul>
                 </div>
                 <div class="right-row">
-                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
+                    <div class="heart" @click="toggle"></div>
                     <div class="share"><img src="@/assets/image/share.png" alt="공유하기" /></div>
                 </div>
             </div>
             <!-- 플레이스 상품 -->
             <Swiper class="place-ticket" v-bind="swiperOption2">
                 <SwiperSlide v-for="ticketItem in ticket" :key="ticketItem">
-                    <div class="f-14-400">{{ ticketItem.name }}</div>
+                    <div class="f-14-500">{{ ticketItem.name }}</div>
                     <div>
                         <span class="discount f-12-400">{{ ticketItem.discount }}</span>
                         <p class="f-16-700 month">{{ ticketItem.cost }}/월</p>
@@ -166,7 +185,7 @@ const confirmInquiry = () => {
             <!-- 이용 후기 -->
             <div class="place-review">
                 <div class="place-review-tit place-each-tit">
-                    <p class="f-14-400">이용 후기</p>
+                    <p class="f-14-500">이용 후기</p>
                     <div class="starBox">
                         <div class="star">★</div>
                         <p class="total-scope f-12-400">
@@ -189,7 +208,7 @@ const confirmInquiry = () => {
                         </SwiperSlide>
                     </Swiper>
                 </div>
-                <router-link to="/Place/Review" class="review-all-btn btn1-1">이용 후기 모두 보기</router-link>
+                <router-link to="/Place/Review" class="review-all-btn btn-44-purple-b f-14-400">이용 후기 모두 보기</router-link>
             </div>
             <!-- 플레이스 설명 -->
             <div class="place-explain f-12-400">
@@ -211,7 +230,7 @@ const confirmInquiry = () => {
             </div>
             <!-- 운영시간 -->
             <div class="place-operate">
-                <div class="place-operate-tit place-each-tit f-14-400">운영시간</div>
+                <div class="place-operate-tit place-each-tit">운영시간</div>
                 <div class="place-operate-detail">
                     <div>
                         <div>
@@ -239,7 +258,7 @@ const confirmInquiry = () => {
             </div>
             <!-- 편의시설 -->
             <div class="place-convenience">
-                <div class="place-convenience-tit f-14-400 place-each-tit">편의시설</div>
+                <div class="place-convenience-tit place-each-tit">편의시설</div>
                 <div class="free">
                     <div class="free-tit f-12-400">무료</div>
                     <ul class="convenience-list free-list">
@@ -267,7 +286,7 @@ const confirmInquiry = () => {
             </div>
             <!-- 운동 기구 -->
             <div class="place-machine">
-                <div class="place-machine-tit f-14-400 place-each-tit">운동 기구</div>
+                <div class="place-each-tit">운동 기구</div>
                 <div class="place-machine-list-wrap">
                     <div class="place-machine-list" v-for="(machineItem, idx) in machine" :key="idx">
                         <span class="place-machine-tit f-14-400">{{ machineItem.title }}</span>
@@ -276,48 +295,57 @@ const confirmInquiry = () => {
                         </ul>
                     </div>
                 </div>
-                <router-link to="/place/machine" class="place-machine-all-btn btn1-1">운동기구 모두 보기</router-link>
+                <router-link to="/place/machine" class="place-machine-all-btn btn-44-purple-b f-14-400">운동기구 모두 보기</router-link>
             </div>
             <!-- 1:1 트레이너 -->
             <div class="place-trainer">
-                <div class="place-trainer-tit f-14-400 place-each-tit">1:1 트레이너<span class="place-trainer-count f-12-400">6</span></div>
-                <Swiper class="place-trainer-list" v-bind="swiperOption2">
+                <div class="place-trainer-tit place-each-tit">1:1 트레이너<span class="place-trainer-count f-12-400">6</span></div>
+                <Swiper class="place-trainer-list" v-bind="swiperOption3">
                     <SwiperSlide>
                         <div class="trainer-info">
-                            <span class="rank">센터장</span>
-                            <div>
-                                <p><span>김위즈</span>트레이너</p>
-                                <span class="arrow"></span>
+                            <div class="txt-box">
+                                <span class="rank">센터장</span>
+                                <div>
+                                    <p><span>김위즈</span>트레이너</p>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                </div>
                             </div>
+                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지"></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div class="trainer-info">
-                            <span class="rank fake"></span>
-                            <div>
-                                <p><span>김위즈</span>트레이너</p>
-                                <span class="arrow"></span>
+                            <div class="txt-box">
+                                <span class="rank">센터장</span>
+                                <div>
+                                    <p><span>김위즈</span>트레이너</p>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                </div>
                             </div>
+                            <div class="img-box"><img src="@/assets/image/trainer2.png" alt="트레이너 이미지"></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div class="trainer-info">
-                            <span class="rank fake"></span>
-                            <div>
-                                <p><span>김위즈</span>트레이너</p>
-                                <span class="arrow"></span>
+                            <div class="txt-box">
+                                <span class="rank">센터장</span>
+                                <div>
+                                    <p><span>김위즈</span>트레이너</p>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                </div>
                             </div>
+                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지"></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
                 </Swiper>
-                <router-link to="/Place/Trainer" class="place-trainer-all-btn btn1-1">트레이너 모두 보기</router-link>
+                <router-link to="/Place/Trainer" class="place-trainer-all-btn btn-44-purple-b f-14-400">트레이너 모두 보기</router-link>
             </div>
             <!-- 환불정책 -->
             <div class="place-refunt">
-                <div class="place-refunt-tit f-14-400 place-each-tit">환불정책</div>
+                <div class="place-refunt-tit place-each-tit">환불정책</div>
                 <div class="place-refunt-content place-explain">
                     <span>최고, 최신의 운동기구를 갖춘</span>
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
@@ -330,7 +358,7 @@ const confirmInquiry = () => {
         <!-- 문의하기/운동 선택하기 -->
         <div class="place-lnb">
             <button class="work-inquiry f-16-700" @click="inquiryOpenFnc">문의하기</button>
-            <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 선택하기</router-link>
+            <button @click="$router.push('/place/machine-choice')">운동 선택하기</button>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
         <placeDetail_Modal :class="{ active : inquiryOpen }" :InquiryClose="confirmInquiry"/>

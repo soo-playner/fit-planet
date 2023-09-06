@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+// 하트 이미지 변경
+const toggle = (e) => {
+    e.target.classList.toggle('wish');
+}
+</script>
 
 <template>
     <div class="progressImpend_home_container main-layout home_container">
@@ -48,7 +53,7 @@
                             <p>운동 완료</p>
                         </div>
                         <div class="lnb">
-                            <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
+                            <div class="heart" @click="toggle"></div>
                             <div class="menu-dot">
                                 <span></span>
                                 <ul class="place-list">
