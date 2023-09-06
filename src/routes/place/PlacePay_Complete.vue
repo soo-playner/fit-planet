@@ -19,7 +19,7 @@ const scheduleOpen = ref(false);
         <div class="PlacePayComplete_container_inner mob-inner payComplete-inner">
             <!-- 결제 완료 안내 -->
             <div class="pay-complete-guide">
-                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="결제 완료" /></div>
+                <div class="complete-img-box"><img src="@/assets/image/pay-complete.png" alt="결제 완료" /></div>
                 <div class="f-20-500">
                     <p>결제 완료!</p>
                     <p>수강권을 등록해볼까요?</p>
@@ -28,7 +28,7 @@ const scheduleOpen = ref(false);
                     <span>수강권을 등록하면</span>
                     <span>설정한 날짜부터 운동을 시작할 수 있어요</span>
                 </p>
-                <button class="f-16-700" @click="scheduleOpen = true">수강권 등록하기</button>
+                <button class="btn-44-purple f-14-400" @click="scheduleOpen = true">수강권 등록하기</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>
             </div>
             <!-- 수강회원 정보 -->

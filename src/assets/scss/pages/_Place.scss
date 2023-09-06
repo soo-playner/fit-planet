@@ -37,8 +37,6 @@
         .trainer-discover-list{display: flex;flex-direction: column;
             .place-data-wrap,
             .trainer-data-wrap{flex-grow: 1; overflow-y: scroll; }
-            .PlaceData-form,
-            .TrainerData-form{}
 
             .filter-scroll{margin:20px 0; padding:0; flex-shrink:0;
                 li{color:$b;
@@ -55,7 +53,13 @@
             .TrainerData-form{@include placeTrainerList2;}
         }
     }
-    .map-btn{@include conSize(null, 34px, 32px); @include display(flex, center); column-gap:6px; @include center(fixed); top:auto; bottom:114px; z-index:99; padding:0 17px; @include font(12px, 500, $f); background:$b; border-radius:17px; cursor:pointer;}
+    .map-btn{@include conSize(null, 34px, 32px); @include display(flex, center); column-gap:6px; 
+        @include center(fixed); top:auto; bottom:114px; z-index:99; 
+        padding:0 17px; 
+        @include font(12px, 500, $f); 
+        background:rgba(0,0,0, .7); border-radius:17px; box-shadow:0 6px 13px rgba(0,0,0, .2); 
+        cursor:pointer;
+    }
 }
 
 /******************************************

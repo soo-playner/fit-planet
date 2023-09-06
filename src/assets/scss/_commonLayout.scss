@@ -31,10 +31,12 @@
         &:last-child{background:$purple;}
     }
 }
+
+// 모달창 하단 버튼 2개일 경우
 @mixin bottLnb2(){@include display(flex); column-gap:8px; margin:0;
-    button{@include conSize(100%, 44px, 42px); border:1px solid; border-radius:22px; cursor:pointer;
-        &:first-child{border-color:$b; background:$f; color:$b;}
-        &:last-child{border-color:$b; background:$b; color:$f;}
+    button{@include conSize(100%, 44px, 42px); @include font(14px, 500); border-radius:5px; cursor:pointer;
+        &:first-child{background:#F6F7FA; color:#6B6F77;}
+        &:last-child{background:$purple; color:$f;}
     }
 }
 
@@ -214,12 +216,12 @@
     }
 }
 
-// 결제 완료
+// 결제 완료 안내 -> 구조 /routes/place/PlacePay_Complete.vue 참고
 @mixin completeGuide(){text-align:center;
     .complete-img-box{margin:0 0 15px 0;}
     .f-20-500{line-height:1.3;}
     .f-14-400{line-height:1.4; margin:8px 0 20px;}
-    button{@include aTag; @include conSize(null, 44px, 44px); margin:0 0 14px 0; background:$f; border:1px solid $purple; color:$purple; cursor:pointer;}
+    //button{@include aTag; @include conSize(null, 44px, 44px); margin:0 0 14px 0; background:$f; border:1px solid $purple; color:$purple; cursor:pointer;}
     .order-num{color:#979797;}
 }
 

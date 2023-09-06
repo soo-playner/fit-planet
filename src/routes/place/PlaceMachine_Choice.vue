@@ -18,6 +18,11 @@
                             <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권" checked>
                             <label for="ticket_1_1">
                                 <div class="top-row each-tit">
+                                    <!-- 
+                                        체크 된 이미지는 설정 해놨습니다.
+                                        미체크 이미지만 다운받아서 commonLayout.scss 수정해주시면 됩니다(375번 라인).
+                                        ㄴ 현재 background:#F1F1F1 로 돼있음
+                                    -->
                                     <span class="outSide">
                                         <span></span>
                                     </span>

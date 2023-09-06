@@ -1,7 +1,7 @@
 /******************************************
 알럿창(비밀번호 재설정 등) 레이아웃
 ******************************************/
-.member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 1000); opacity:0; visibility:hidden; transition:all .3s $easing;
+.member_alert{@include conSize(100%, 100%); @include display(flex, center, center); @include position(fixed, 0, null, null, 0, 9999); opacity:0; visibility:hidden; transition:all .3s $easing;
     .overlay{@include overLay;}
     &_inner{width:calc(100% - 64px); padding:36px 20px 20px; background:$f; border-radius:8px; box-shadow:0px 0px 30px 5px rgba(0,0,0, .1); text-align:center;
         // (온보딩) 비밀번호 재설정, 메일 전송 모달창 참고
@@ -12,6 +12,8 @@
         }
         @include responsive-360{padding:21px 15px 20px}
     }
+
+    button{@extend .btn-44-purple; @include font(14px, 500);}
     &.active{opacity:1; visibility:visible;}
 }
 

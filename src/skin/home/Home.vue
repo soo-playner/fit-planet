@@ -54,4 +54,6 @@ const trainerShow = () => {
             </div>
         </section>
     </main>
+
+    
 </template>
