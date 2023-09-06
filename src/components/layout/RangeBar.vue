@@ -41,13 +41,13 @@ export default {
     },
     watch: {
         rangeRight() {
-            console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
-            console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
+            // console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
+            // console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
             this.$emit("changeRange", { min: this.$refs.inputLeft.value, max: this.$refs.inputRight.value });
         },
         rangeLeft() {
-            console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
-            console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
+            // console.log("오른쪽:", this.$refs.inputRight.value, Math.round(this.defaultMaxValue * ((100 - Number(this.thumbRightX.split("%")[0])) / 100)));
+            // console.log("왼쪽:", this.$refs.inputLeft.value, Math.round(this.defaultMaxValue * (Number(this.thumbLeftX.split("%")[0]) / 100)));
             this.$emit("changeRange", { min: this.$refs.inputLeft.value, max: this.$refs.inputRight.value });
         },
     },

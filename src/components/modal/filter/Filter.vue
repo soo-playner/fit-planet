@@ -3,9 +3,10 @@ import { ref, defineProps, defineEmits, watch } from "vue";
 
 import RangeBar from "@/components/layout/RangeBar";
 
-const emit = defineEmits();
+const emit = defineEmits(["filterUpdate"]);
 const props = defineProps({
     close: Function,
+    resultCount: Number,
 });
 
 const facilities = ref([
@@ -55,8 +56,8 @@ const selectFilterHandler = (type, value) => {
     } else selectFilter.value[type].push(value);
 };
 
-watch(selectFilter, () => {
-    emit("filterUpdate", selectFilter);
+watch(selectFilter.value, () => {
+    emit("filterUpdate", selectFilter.value);
 });
 
 const toggle = ref(false);
@@ -157,7 +158,7 @@ const toggleFnc = (e) => {
         </div>
         <div class="filter-bott-btn">
             <button class="f-16-700">초기화</button>
-            <button class="f-16-700">플레이스 200개 보기</button>
+            <button class="f-16-700">플레이스 {{ resultCount }}개 보기</button>
         </div>
     </div>
 </template>
