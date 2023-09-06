@@ -2,10 +2,17 @@
 
 <template>
     <div class="progress_home_container main-layout home_container">
-        <div class="progress_home_container_inner first-section">
+        <div class="progress_home_container_inner first-section home-bg">
             <div class="mob-inner">
                 <div class="top-column">
-                    <p class="f-12-400 menu-dot gray1">4.1토 결제<span></span></p>
+                    <div class="txt-box menu-dot">
+                        <div class="f-14-400 ticket-info">
+                            <p>위즈짐</p>
+                            <p>6개월 수강권</p>
+                        </div>
+                        <div class="f-14-400 date">4.1토 결제</div>
+                        <span></span>
+                    </div>
                     <ul class="place-list">
                         <li><button>트레이너 보기</button></li>
                         <li><button @click="scheduleOpen = true">수강권 등록일 변경</button></li>
@@ -15,26 +22,26 @@
                 </div>
                 <div class="mid-column">
                     <div class="place-txt-box">
-                        <div class="f-18-700">대단해요! 벌써 절반이나 왔어요</div>
-                        <p class="f-14-400">
-                            <span>위즈짐</span>
-                            <span>6개월 수강권</span>
-                        </p>
+                        <div class="f-22-300"><span class="f-22-500">3일 뒤</span>에 운동이 시작돼요</div>
                     </div>
                 </div>
                 <div class="bott-column">
                     <div class="place-progress-box">
                         <div class="progress-bar">
-                            <div class="progress-bubble">50%</div>
-                            <div class="progress-value"><span class="step"></span></div>
+                            <div class="progress-character ing2">
+                                <img src="@/assets/image/progress-character2.png" alt="">
+                            </div>
+                            <div class="progress-bubble ing2">60/180</div>
+                            <div class="progress-value"><span class="step ing2"></span></div>
                         </div>
                         <div class="progress-date">
-                            <p class="f-12-400">4.3 월 시작</p>
-                            <p class="f-12-400">7.3 월 종료</p>
+                            <p>4.3 월 시작</p>
+                            <p>7.3 월 종료</p>
                         </div>
                     </div>
-                    <button class="btn1">
-                        운동 추가 결제하기
+                    <button class="btn-44-purple f-12-700">
+                        <img src="@/assets/image/map.png" alt="플레이스 위치 보기">
+                        플레이스 위치 보기
                     </button>
                 </div>
             </div>
@@ -48,7 +55,7 @@
                             <p>운동 완료</p>
                         </div>
                         <div class="lnb">
-                            <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
+                            <div class="heart"></div>
                             <div class="menu-dot">
                                 <span></span>
                                 <ul class="place-list">
@@ -61,10 +68,13 @@
                     </div>
                     <div class="mid-column">
                         <div class="txt-box">
-                            <div class="f-14-500">김위즈 트레이너(위즈짐)<br>바디프로필 프로젝트 30회</div>
-                            <div class="f-12-400">
-                                <p>시작일 : <span> 4.3 월 /</span></p>
-                                <p>종료일 : <span> 7.3 월</span></p>
+                            <div class="f-14-500">
+                                <p class="f-14-300">김위즈 트레이너(위즈짐)</p>
+                                바디프로필 프로젝트 30회
+                            </div>
+                            <div class="f-12-400 date">
+                                <p><span class="blue-dot"></span>시작일 : 4.3 월</p>
+                                <p><span class="purple-dot"></span>종료일 : 7.3 월</p>
                             </div>
                         </div>
                         <div class="img-box"></div>
@@ -74,9 +84,7 @@
                             <p>운동은 어떠셨나요? 후기를 적어주세요</p>
                             <router-link to="/" class="f-12-400">후기 쓰기</router-link>
                         </div>
-                        <button class="btn1-1">
-                            같은 운동 결제하기
-                        </button>
+                        <button @click="addPaymentFnc">같은 운동 결제하기</button>
                     </div>
                 </div>
             </div>

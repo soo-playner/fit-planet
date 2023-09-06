@@ -80,15 +80,27 @@
 }
 
 // 프로그레스 박스
-@mixin placeProgress(){
+@mixin placeProgress(){margin:0 0 18px 0;
     .progress-bar{position:relative; padding:24px 0 0 0;
-        .progress-bubble{min-width:40px; display:inline-block; @include position(absolute, 0); padding:0 10px; background:$b; color:$f; text-align:center;}
         //input{width:100%;}
-        .progress-value{@include conSize(100%, 8px); overflow:hidden; margin:6px 0 0 0; background:#D9D9D9; border-radius:4px;
-            .step{@include conSize(8px, 8px); background:$b; border-radius:4px;}
+        .progress-character{max-width:70px; margin:0 auto; text-align:initial;
+            &.ing1{margin-left:0;}
+            &.ing3{margin-right:0;}
+        }
+        .progress-bubble{max-width:65px; margin:0 auto; padding:5px 10px; @include font(12px, 400, $f); text-align:center;
+            &.ing1{margin-left:0; background:url('@/assets/image/progress-bubble-1.png') no-repeat center / cover}
+            &.ing2{background:url('@/assets/image/progress-bubble-2.png') no-repeat center / cover}
+            &.ing3{margin-right:0; background:url('@/assets/image/progress-bubble-3.png') no-repeat center / cover}
+        }
+        .progress-value{@include conSize(100%, 8px); overflow:hidden; margin:6px 0 0 0; background:#F6F7FA; border-radius:4px;
+            .step{height:100%; border-radius:4px;
+                &.ing1{width:8px; background:$purple;}
+                &.ing2{width:50%; background:linear-gradient(to right, #915EFF, #44A5FF)}
+                &.ing3{width:100%; background:linear-gradient(to right, #915EFF, #44A5FF, #00FD65)}
+            }
         }
     }
-    .progress-date{@include display(flex, null, space-between); margin:6px 0 0 0;}
+    .progress-date{@include display(flex, null, space-between); margin:6px 0 0 0; @include font(12px, 400, $f);}
 }
 
 /******************************************

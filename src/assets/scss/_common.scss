@@ -170,6 +170,8 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 .f-20-700{@include font(20px, 700, null);
     @include responsive-320(){font-size:18px;}
 }
+.f-22-300{@include font(22px, 300, null);}
+.f-22-500{@include font(22px, 500, null);}
 .f-24-700{@include font(24px, 700, null);}
 
 // 인풋, 버튼 초기 설정
@@ -250,7 +252,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
     &.active{/*height:96px; padding:30px 21px 0;*/ background:transparent;}
     &.discover{background:$f; border-radius:0 0 16px 16px;}
     &.border{border-bottom:1px solid #F1F1F1}
-    &.through{
+    &.through{background:$b;
         img{
             &:not(.logo-img){filter:invert(1);}
         }

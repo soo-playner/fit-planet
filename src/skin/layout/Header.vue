@@ -27,7 +27,7 @@ const headerBottBorder = ref(
 // 헤더 페이지마다 색상 다르게 설정
 const headerThrough = ref(
     [
-        "Home", "NotClassHome"
+        "Home", "NotClassHome", "ClassHome", "ProgressHome", "CompleteHome"
     ]
 )
 
@@ -45,7 +45,8 @@ const headerType = () => {
     switch (route.fullPath) {
         case "/":
         case "/Class":
-        case "/not/class":
+        case "/class/":
+        case "/progress/class":
         case "/not/class/trainer":
         case "/complete/class": {
             return {

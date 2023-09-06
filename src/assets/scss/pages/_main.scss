@@ -51,6 +51,11 @@
     // 그 외 공통으로 적용
     .first-section{
         .mob-inner{position:relative; padding:0 20px 55px 20px;}
+
+        &.home-bg{background:url('@/assets/image/home-bg.png') no-repeat center / cover , $b; background-position:0 -110px;
+            @include responsive-991{background-position:0 40px;}
+            @include responsive-480{background-position:-80px 140px;}
+        }
     }
     .second-section{
         .mob-inner{padding:20px;
@@ -69,12 +74,28 @@
         }
         .place-list{@include placeList; top:60px; right:20px;}
 
+        // 플레이스 수강권 등록
+        .txt-box{@include display(flex); margin:0px 0 7px 0;
+            .ticket-info{margin:0 9px 0 0;
+                p{@include afterLine;
+                    &::after{background:$f;}
+                }
+            }
+            .date{color:$gray2;}
+        }
+
         // 운동 종료
         .txt-box{text-align:center;}
         .close{@include close; @include position(absolute, 2px, 0);}
     }
     .mid-column{color:$f;
-        .place-img-box{@include homePlaceImgBox;}     
+        .place-img-box{@include homePlaceImgBox;} 
+        
+        // 플레이스 수강권 등록
+        .place-txt-box{
+            span{display:inline;}
+            p{color:#00A3FF;}
+        }
     }
     .bott-column{text-align:center;
         .place-progress-box{@include placeProgress;}
@@ -99,6 +120,10 @@
 
 ******************************************/
 .class_home_container{
+    .first-section{padding-top:86px; 
+        .mob-inner{padding-bottom:22px;}
+    }
+
     .mid-column{border:0;}
     .bott-column{
         .place-progress-box{
@@ -121,7 +146,7 @@
 
         .top-column{padding:15px 20px;}
         .mid-column{margin:0;}
-        .bott-column{width:100%; padding:20px; position:absolute; bottom:0;}
+        .bott-column{width:100%; padding:20px 20px 22px; position:absolute; bottom:0;}
     }
 }
 
@@ -134,7 +159,6 @@
     .bott-column{
         .place-progress-box{
             .progress-bar{
-                .progress-bubble{left:50%; transform:translateX(-50%)}
                 .progress-value{
                     .step{width:50%;}
                 }
