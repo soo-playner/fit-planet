@@ -46,7 +46,7 @@ const submitData = async () => {
             </div>
             <!-- 운동은 만족스러웠나요? -->
             <div class="scope-select">
-                <div class="scope-select-tit f-14-700">운동은 만족스러웠나요?</div>
+                <div class="scope-select-tit f-16-700">운동은 만족스러웠나요?</div>
                 <span class="scope-current f-12-400">만족해요</span>
                 <div class="starBox">
                     <div class="star" v-for="(star, idx) in scope" :key="star" :data-idx="idx + 1" @click="scopeHandler">★</div>
@@ -55,28 +55,33 @@ const submitData = async () => {
             </div>
             <!-- 사진을 게시해 주세요 -->
             <div class="album">
-                <div class="album-tit f-14-700">사진을 게시해 주세요</div>
+                <div class="album-tit f-16-700">사진을 게시해 주세요</div>
                 <span class="f-12-400">
                     <span>이미지가 구매한 운동상품과 관련이 없을 경우</span>
                     <span>쿠폰이 지급되지 않습니다.</span>
                 </span>
                 <div class="album-select">
                     <button class="album-plus" :class="{ none: !fileData[0] }">
-                        <span class="plus-shape"></span>
+                        <div class="album-plus-inner">
+                            <img src="@/assets/image/camera.png" alt="카메라 앨범">
+                            <p class="f-12-400"><span>2</span>/3</p>
+                        </div>
                         <input type="file" id="mb-review" name="mb-review" multiple @change="uploadFile" />
                         <img v-show="fileData[0]" :src="fileData[0] && fileData[0].url" />
                     </button>
                     <div class="album-select-img" :class="{ none: !fileData[1] }">
                         <img v-show="fileData[1]" :src="fileData[1] && fileData[1].url" />
+                        <div class="close"></div>
                     </div>
                     <div class="album-select-img" :class="{ none: !fileData[2] }">
                         <img v-show="fileData[2]" :src="fileData[2] && fileData[2].url" />
+                        <div class="close"></div>
                     </div>
                 </div>
             </div>
             <!-- 후기를 작성해 주세요 -->
             <div class="review-input">
-                <div class="review-input-tit f-14-700">후기를 작성해 주세요</div>
+                <div class="review-input-tit f-16-700">후기를 작성해 주세요</div>
                 <div class="review-textarea">
                     <textarea v-model="reviewText" cols="30" rows="10" placeholder="50자 이상 작성해주세요." @input="updateWordCount"></textarea>
                     <span class="word-count f-12-400">{{ wordCount }}</span>
@@ -91,7 +96,7 @@ const submitData = async () => {
                     </li>
                     <li><span></span>경고 누적 시 후기 작성이 제한될 수 있습니다.</li>
                 </ul>
-                <button class="next-step-btn f-16-700" @click="submitData">후기 업로드 하기</button>
+                <button class="btn-44-purple f-14-700" @click="submitData">다음</button>
             </div>
         </div>
     </div>

@@ -104,7 +104,9 @@ button, input{background:none; border:none;
         &::-webkit-slider-thumb{appearance:none; -webkit-appearance:none; @include conSize(8px, 8px); background:$b; border-radius:50%;}
     }
 }
-textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; background:#F1F1F1; border:none; border-radius:8px;}
+textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; @include font(12px, 400, $b); background:$light-blue; border:none; border-radius:8px;
+    &::placeholder{color:$gray2;}
+}
 
 .form-group2{position:relative;
     input[type='text'],
@@ -341,7 +343,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
                         }
                     }
                     &.search span{@include searchBtn; position:relative; top:auto; right:auto; margin:2px 0 0 0}
-                    &.close div{@include close;}
+                    &.close div{@include close2;}
                 }
                 @include responsive-480{gap:20px}
             }

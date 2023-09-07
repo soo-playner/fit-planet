@@ -21,8 +21,8 @@
 모달창 공통 레이아웃(후기 솔팅, 리뷰 신고하기)
 -> 구조 AlertManage.vue
 ******************************************/
-.comm_modal_layout{align-items:flex-end;
-    &-inner{width:100%; max-width:100%;}
+.comm_modal_layout{align-items:flex-end; 
+    &-inner{width:100%; max-width:100%; border-radius:20px 20px 0 0;}
     
     .comm_modal_layout_tit{@include display(flex, center); margin:0 0 17px 0;
         p{flex:1;}
@@ -243,11 +243,9 @@
 // 리뷰 - 신고 이유 모달창
 .review-report-modal{@include display(flex, flex-end);
     &-inner{width:100%; max-width:100%; bottom:-100%; padding:0; transition:all .5s $easing;
-        .top-column{@include display(flex, center, space-between); margin:0; padding:24px 20px; border-bottom:1px solid #d9d9d9;
-            .close{@include close;}
-        }
+        .top-column{padding:24px 20px; margin:0;}
         .report-list{
-            li{@include radioBox1; padding:20px 15px; border-bottom:1px solid #d9d9d9;
+            li{padding:21px 24px;
                 .txt-box{margin:0;}
             }
         }

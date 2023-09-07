@@ -97,10 +97,10 @@
 후기 선택
 /routes/rview/ReviewSelect.vue
 ******************************************/
-.ReviewSelect_container{background:#F1F1F1;
+.ReviewSelect_container{background:$light-blue;
     &_inner{height:100vh; @include display(flex, null, space-between, column); 
         ul{padding:0 20px; background:$f;
-            li{@include display(flex, center, space-between); @include radioBox1; padding:20px 0; border-bottom:1px solid #D9D9D9;
+            li{@include display(flex, center, space-between); @include radioBox3; padding:20px 0; border-bottom:1px solid #D9D9D9;
                 .left-column{@include display(flex, center); column-gap:12px;
                     label{align-items:center; column-gap:12px;
                         p{@include display(flex);
@@ -122,21 +122,21 @@
 ******************************************/
 .ReviewWrite_container{
     &_inner{
-        & > div{padding:28px 0; margin:0 20px; border-bottom:1px solid #D9D9D9; text-align:center;
+        & > div{padding:28px 0; margin:0 20px; border-bottom:1px solid #EAEFF9; text-align:center;
             &:last-child{padding-bottom:0; border-bottom:0;}
         }
         // 결제 상품
-        .product{@include display(flex, center, space-between); padding:20px; margin:0; border-bottom:8px solid #f1f1f1;
+        .product{@include display(flex, center, space-between); padding:20px; margin:0; border-bottom:8px solid $light-blue;
             .left-column{
                 p{@include display(flex); margin:0 0 3px 0;
                     .trainer-name{margin:0 5px 0 0;}
                 }
             }
-            .center-img{@include conSize(70px, 70px); background:#D9D9D9; border-radius:8px;}
+            .center-img{@include conSize(70px, 70px); border-radius:8px;}
         }
         // 운동은 만족스러웠나요?
         .scope-select{
-            .scope-current{margin:3px 0 5px 0; color:#979797;}
+            .scope-current{margin:3px 0 5px 0; color:$gray2;}
             .starBox{justify-content:center; column-gap:4px;
                 .star{font-size:27px;}
             }
@@ -144,15 +144,22 @@
         // 사진을 게시해 주세요
         .album{
             &-tit{margin:0 0 4px 0}
-            span{color:#979797;}
+            span{color:$gray2;}
             .album-select{@include display(flex); column-gap:8px; margin:16px 0 0 0;
-                & > *{@include conSize(101px, 101px); border-radius:8px;}
+                & > *{@include conSize(101px, 101px); border-radius:5px;}
                 button{@include display(flex, center, center); position:relative; background:transparent; overflow: hidden;
-                    &.none{background: $b}
-                    .plus-shape{@include conSize(31px, 31px); @include display(flex, center, center); position:relative; border:1px solid $f; border-radius:50%;
-                        &::before, &::after{content:''; position:absolute; background:$f;}
-                        &::before{@include conSize(10px, 2px);}
-                        &::after{@include conSize(2px, 10px);}
+                    &.none{border:1px dashed $purple}
+                    // .plus-shape{@include conSize(31px, 31px); @include display(flex, center, center); position:relative; border:1px solid $f; border-radius:50%;
+                    //     &::before, &::after{content:''; position:absolute; background:$f;}
+                    //     &::before{@include conSize(10px, 2px);}
+                    //     &::after{@include conSize(2px, 10px);}
+                    // }
+
+                    .album-plus-inner{
+                        img{width:auto; height:auto; position:static;}
+                        p{@include display(flex, center, center); color:#A6ABB5;
+                            span{color:$purple;}
+                        }
                     }
                     input[type='file']{position:absolute; opacity:0;}
                     img{@include position(absolute, 0px, 0px); width: 100%;height: 100%;object-fit: cover; z-index: -1;}
@@ -160,6 +167,10 @@
                 .album-select-img{ position: relative; overflow: hidden;
                     &.none{background:#F1F1F1;}
                     img{@include position(absolute, 0px, 0px); width: 100%;height: 100%;object-fit: cover;}
+
+                    .close{@include close2; @include conSize(20px, 20px); @include position(absolute, 0, 0); background:rgba(0,0,0, .5); border-radius:5px;
+                        &::before, &::after{width:calc(100% - 5px); background:$f;}
+                    }
                 }
             }
         }
@@ -167,18 +178,18 @@
         .review-input{
             &-tit{margin:0 0 16px 0;}
             .review-textarea{position:relative;
-                .word-count{@include position(absolute, null, 16px, 16px); color:#979797;}
+                .word-count{@include position(absolute, null, 16px, 16px); color:$gray2;}
             }
         }
         // 경고 문구
         .review-warning{
             .warning-list{
                 margin-bottom: 20px;
-                li{line-height:1.7; @include display(flex); margin:0 0 6px 0; @include font(12px, 400, #979797);
-                    span{@include conSize(4px, 4px); margin:7px 7px 0 0; background:#979797; border-radius:50%;}
+                li{line-height:1.7; @include display(flex); margin:0 0 6px 0; @include font(12px, 400, $gray2);
+                    span{@include conSize(4px, 4px); margin:7px 7px 0 0; background:$gray2; border-radius:50%;}
                     p{width:calc(100% - 11px); text-align:left;}
                     a{display:inline-block; position:relative; color:inherit;
-                        &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:#979797;}
+                        &::before{content:''; @include conSize(100%, 1px); @include position(absolute, null, null, 1px, 0); background:$gray2;}
                     }
                     &:last-child{margin:0;}
                 }

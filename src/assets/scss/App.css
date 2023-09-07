@@ -193,9 +193,27 @@ textarea {
   padding: 16px;
   outline: none;
   resize: none;
-  background: #F1F1F1;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000;
+  background: #F6F7FA;
   border: none;
   border-radius: 8px;
+}
+textarea::-webkit-input-placeholder {
+  color: #A6ABB5;
+}
+textarea::-moz-placeholder {
+  color: #A6ABB5;
+}
+textarea:-ms-input-placeholder {
+  color: #A6ABB5;
+}
+textarea::-ms-input-placeholder {
+  color: #A6ABB5;
+}
+textarea::placeholder {
+  color: #A6ABB5;
 }
 
 .form-group2 {
@@ -910,9 +928,10 @@ textarea {
 .at-header-inner .right .menu-ul li.close div::before, .at-header-inner .right .menu-ul li.close div::after {
   content: "";
   width: 100%;
-  height: 2px;
+  height: 1px;
   position: absolute;
   background: #000;
+  border-radius: 50px;
 }
 .at-header-inner .right .menu-ul li.close div::before {
   -webkit-transform: rotate(45deg);
@@ -2860,6 +2879,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .comm_modal_layout-inner {
   width: 100%;
   max-width: 100%;
+  border-radius: 20px 20px 0 0;
 }
 .comm_modal_layout .comm_modal_layout_tit {
   display: -webkit-box;
@@ -3719,106 +3739,11 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .review-report-modal-inner .top-column {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 0;
   padding: 24px 20px;
-  border-bottom: 1px solid #d9d9d9;
-}
-.review-report-modal-inner .top-column .close {
-  width: 21px;
-  height: 21px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: relative;
   margin: 0;
-  background: none;
-  cursor: pointer;
-}
-.review-report-modal-inner .top-column .close::before, .review-report-modal-inner .top-column .close::after {
-  content: "";
-  width: 100%;
-  height: 2px;
-  position: absolute;
-  background: #000;
-}
-.review-report-modal-inner .top-column .close::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.review-report-modal-inner .top-column .close::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
 }
 .review-report-modal-inner .report-list li {
-  padding: 20px 15px;
-  border-bottom: 1px solid #d9d9d9;
-}
-.review-report-modal-inner .report-list li input[type=radio] {
-  position: absolute;
-  opacity: 0;
-  -moz-appearance: none;
-       appearance: none;
-  -webkit-appearance: none;
-}
-.review-report-modal-inner .report-list li input[type=radio] + label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 14px;
-  font-weight: 400;
-  color: #000;
-  cursor: pointer;
-}
-.review-report-modal-inner .report-list li input[type=radio] + label .outSide {
-  width: 24px;
-  height: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #F1F1F1;
-  border: 1px solid #D9D9D9;
-  border-radius: 50%;
-}
-.review-report-modal-inner .report-list li input[type=radio] + label .outSide span {
-  width: 12px;
-  height: 12px;
-  opacity: 0;
-  visibility: hidden;
-  background: #000;
-  border-radius: 50%;
-}
-.review-report-modal-inner .report-list li input[type=radio]:checked + label {
-  font-weight: 700;
-}
-.review-report-modal-inner .report-list li input[type=radio]:checked + label .outSide {
-  background: url("@/assets/image/input-checkbox-checked.png") center no-repeat;
+  padding: 21px 24px;
 }
 .review-report-modal-inner .report-list li .txt-box {
   margin: 0;
@@ -9100,7 +9025,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 /routes/rview/ReviewSelect.vue
 ******************************************/
 .ReviewSelect_container {
-  background: #F1F1F1;
+  background: #F6F7FA;
 }
 .ReviewSelect_container_inner {
   height: 100vh;
@@ -9155,8 +9080,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   cursor: pointer;
 }
 .ReviewSelect_container_inner ul li input[type=radio] + label .outSide {
-  width: 24px;
-  height: 24px;
+  width: 19px;
+  height: 19px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9166,23 +9091,24 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #F1F1F1;
-  border: 1px solid #D9D9D9;
+  background: #F6F7FA;
+  border: 1px solid #DBE2EF;
   border-radius: 50%;
 }
 .ReviewSelect_container_inner ul li input[type=radio] + label .outSide span {
-  width: 12px;
-  height: 12px;
+  width: 9px;
+  height: 9px;
   opacity: 0;
   visibility: hidden;
-  background: #000;
+  background: #fff;
   border-radius: 50%;
 }
-.ReviewSelect_container_inner ul li input[type=radio]:checked + label {
-  font-weight: 700;
-}
 .ReviewSelect_container_inner ul li input[type=radio]:checked + label .outSide {
-  background: url("@/assets/image/input-checkbox-checked.png") center no-repeat;
+  background: #6E2FF4;
+}
+.ReviewSelect_container_inner ul li input[type=radio]:checked + label .outSide span {
+  opacity: 1;
+  visibility: visible;
 }
 .ReviewSelect_container_inner ul li .left-column {
   display: -webkit-box;
@@ -9228,7 +9154,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .ReviewWrite_container_inner > div {
   padding: 28px 0;
   margin: 0 20px;
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid #EAEFF9;
   text-align: center;
 }
 .ReviewWrite_container_inner > div:last-child {
@@ -9247,7 +9173,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: space-between;
   padding: 20px;
   margin: 0;
-  border-bottom: 8px solid #f1f1f1;
+  border-bottom: 8px solid #F6F7FA;
 }
 .ReviewWrite_container_inner .product .left-column p {
   display: -webkit-box;
@@ -9261,12 +9187,11 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .ReviewWrite_container_inner .product .center-img {
   width: 70px;
   height: 70px;
-  background: #D9D9D9;
   border-radius: 8px;
 }
 .ReviewWrite_container_inner .scope-select .scope-current {
   margin: 3px 0 5px 0;
-  color: #979797;
+  color: #A6ABB5;
 }
 .ReviewWrite_container_inner .scope-select .starBox {
   -webkit-box-pack: center;
@@ -9283,7 +9208,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   margin: 0 0 4px 0;
 }
 .ReviewWrite_container_inner .album span {
-  color: #979797;
+  color: #A6ABB5;
 }
 .ReviewWrite_container_inner .album .album-select {
   display: -webkit-box;
@@ -9297,7 +9222,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .ReviewWrite_container_inner .album .album-select > * {
   width: 101px;
   height: 101px;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 .ReviewWrite_container_inner .album .album-select button {
   display: -webkit-box;
@@ -9314,11 +9239,14 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   overflow: hidden;
 }
 .ReviewWrite_container_inner .album .album-select button.none {
-  background: #000;
+  border: 1px dashed #6E2FF4;
 }
-.ReviewWrite_container_inner .album .album-select button .plus-shape {
-  width: 31px;
-  height: 31px;
+.ReviewWrite_container_inner .album .album-select button .album-plus-inner img {
+  width: auto;
+  height: auto;
+  position: static;
+}
+.ReviewWrite_container_inner .album .album-select button .album-plus-inner p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9328,22 +9256,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: relative;
-  border: 1px solid #fff;
-  border-radius: 50%;
+  color: #A6ABB5;
 }
-.ReviewWrite_container_inner .album .album-select button .plus-shape::before, .ReviewWrite_container_inner .album .album-select button .plus-shape::after {
-  content: "";
-  position: absolute;
-  background: #fff;
-}
-.ReviewWrite_container_inner .album .album-select button .plus-shape::before {
-  width: 10px;
-  height: 2px;
-}
-.ReviewWrite_container_inner .album .album-select button .plus-shape::after {
-  width: 2px;
-  height: 10px;
+.ReviewWrite_container_inner .album .album-select button .album-plus-inner p span {
+  color: #6E2FF4;
 }
 .ReviewWrite_container_inner .album .album-select button input[type=file] {
   position: absolute;
@@ -9375,6 +9291,50 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -o-object-fit: cover;
      object-fit: cover;
 }
+.ReviewWrite_container_inner .album .album-select .album-select-img .close {
+  width: 21px;
+  height: 21px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  margin: 0;
+  background: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img .close::before, .ReviewWrite_container_inner .album .album-select .album-select-img .close::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background: #000;
+  border-radius: 50px;
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img .close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img .close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.ReviewWrite_container_inner .album .album-select .album-select-img .close::before, .ReviewWrite_container_inner .album .album-select .album-select-img .close::after {
+  width: calc(100% - 5px);
+  background: #fff;
+}
 .ReviewWrite_container_inner .review-input-tit {
   margin: 0 0 16px 0;
 }
@@ -9385,7 +9345,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   position: absolute;
   right: 16px;
   bottom: 16px;
-  color: #979797;
+  color: #A6ABB5;
 }
 .ReviewWrite_container_inner .review-warning .warning-list {
   margin-bottom: 20px;
@@ -9398,13 +9358,13 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   margin: 0 0 6px 0;
   font-size: 12px;
   font-weight: 400;
-  color: #979797;
+  color: #A6ABB5;
 }
 .ReviewWrite_container_inner .review-warning .warning-list li span {
   width: 4px;
   height: 4px;
   margin: 7px 7px 0 0;
-  background: #979797;
+  background: #A6ABB5;
   border-radius: 50%;
 }
 .ReviewWrite_container_inner .review-warning .warning-list li p {
@@ -9423,7 +9383,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   position: absolute;
   bottom: 1px;
   left: 0;
-  background: #979797;
+  background: #A6ABB5;
 }
 .ReviewWrite_container_inner .review-warning .warning-list li:last-child {
   margin: 0;

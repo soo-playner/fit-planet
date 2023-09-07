@@ -364,6 +364,7 @@
 /******************************************
 라디오 박스1
 ******************************************/
+// 원 안에 체크 이미지(운동 선택 참고)
 @mixin radioBox1(){
     input[type='radio']{position:absolute; opacity:0; appearance:none; -webkit-appearance:none;
         + label{@include display(flex, center, space-between); @include font(14px, 400, $b); cursor:pointer;
@@ -378,6 +379,7 @@
         }
     }
 }
+// 체크 시에만 체크 이미지 노출(솔팅 모달창 참고)
 @mixin radioBox2(){
     input[type='radio']{position:absolute; opacity:0; appearance:none; -webkit-appearance:none;
         + label{@include display(flex, center, space-between); @include font(14px, 400, $b); cursor:pointer;
@@ -388,6 +390,21 @@
         &:checked + label{@include font(null, 700, $purple);
             .outSide{background:url('@/assets/image/input-checkbox-checked2.png') center no-repeat;
                 //span{opacity:1; visibility:visible;}
+            }
+        }
+    }
+}
+// 원 안에 원(후기 작성 참고)
+@mixin radioBox3(){
+    input[type='radio']{position:absolute; opacity:0; appearance:none; -webkit-appearance:none;
+        + label{@include display(flex, center, space-between); @include font(14px, 400, $b); cursor:pointer;
+            .outSide{@include conSize(19px, 19px); @include display(flex, center, center); background:$light-blue; border:1px solid $light-blue2; border-radius:50%;
+                span{@include conSize(9px, 9px); opacity:0; visibility:hidden; background:$f; border-radius:50%;}
+            }
+        }
+        &:checked + label{
+            .outSide{background:$purple;
+                span{opacity:1; visibility:visible;}
             }
         }
     }

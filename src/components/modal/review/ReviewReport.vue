@@ -19,23 +19,23 @@
 </script>
 
 <template>
-    <div class="review-report-modal member_alert">
+    <div class="review-report-modal member_alert comm_modal_layout">
         <div class="overlay" @click="reportReason"></div>
-        <div class="review-report-modal-inner mob-inner member_alert_inner">
-            <div class="top-column">
-                <p class="f-16-700">이 게시글을 신고하는 이유</p>
+        <div class="review-report-modal-inner mob-inner member_alert_inner comm_modal_layout-inner">
+            <div class="top-column comm_modal_layout_tit">
+                <p class="f-14-700">이 게시글을 신고하는 이유</p>
                 <div class="close"></div>
             </div>
-            <ul class="report-list">
+            <ul class="report-list comm_modal_layout_tit_list">
                 <li v-for="(reportItem, idx) in reportList" :key="reportItem">
                     <input type="radio" :name="`reportItem`" :id="reportItem + idx" >
                     <label :for="reportItem + idx">
-                        <div class="txt-box f-14-400">{{ reportItem.title }}</div>
+                        {{ reportItem.title }}
                         <span class="outSide"><span></span></span>
                     </label>
                 </li>
             </ul>
-            <button class="next-step-btn f-16-700">신고하기</button>
+            <button class="btn-44-purple f-14-500">신고하기</button>
         </div>
     </div>
 </template>
