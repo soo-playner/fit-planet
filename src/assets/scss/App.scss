@@ -2,11 +2,19 @@
 @import './commonLayout';
 @import './font';
 
-@import './pages/main';
+// 메인
+@import './pages/main'; 
+// 모달창
 @import './pages/modal'; 
+// 인트로
 @import './pages/intro';
+// 회원가입, 로그인, 비밀번호, 마이(회원정보/닉네임, 비밀번호 변경/쿠폰/계정 삭제)
 @import './pages/member'; 
+// 플레이스, 트레이너 관련
 @import './pages/place';
+// 리뷰
 @import './pages/review';
+// 뉴스/이벤트/약관 및 정책/문의(문의하기, 문의완료)/검색 결과/알림 세팅/자주 묻는 질문/찜
 @import './pages/community';
+// 주문
 @import './pages/order';

@@ -4,6 +4,11 @@
     const props = defineProps({
         data : Object,
     });
+
+    // 하트 이미지 변경
+    const toggle = (e) => {
+        e.target.classList.toggle('wish');
+    }
 </script>
 
 <template>
@@ -23,7 +28,7 @@
                     </div>
                     <span class="f-12-400 location">{{ props.data.location }}</span>
                 </div>
-                <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="찜"></div>
+                <div class="heart" @click="toggle"></div>
             </div>
             <button class="pay-btn f-14-700">결제하기</button>
         </div>

@@ -11,10 +11,10 @@
                     <p>트레이너와 일정을 정해볼까요?</p>
                 </div>
                 <ul class="inquiry-list">
-                    <li><img src="@/assets/image/call.png" alt="전화하기"><p class="f-14-500">트레이너에게 전화</p></li>
-                    <li><img src="@/assets/image/message.png" alt="카톡하기"><p class="f-14-500">트레이너에게 카톡</p></li>
+                    <li><img src="@/assets/image/call.png" alt="전화하기"><p class="f-12-500">트레이너에게 전화</p></li>
+                    <li><img src="@/assets/image/message.png" alt="카톡하기"><p class="f-12-500">트레이너에게 카톡</p></li>
                 </ul>
-                <button class="f-16-700" @click="scheduleOpen = true">정했어요! 일정 등록하기</button>
+                <button class="btn-44-purple f-16-700" @click="scheduleOpen = true">정했어요! 일정 등록하기</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>
             </div>
             <!-- 양식  -->
@@ -25,7 +25,7 @@
                     <p><span>[프로그램명]</span>을 등록한 <span>[이름]</span>입니다.</p>
                     <p><span>[희망 요일], [희망 시간대]</span> 가능합니다.</p>
                     <p><span>[희망 운동 시작일]</span>부터 시작하고 싶어요."</p>
-                    <button>양식 복사하기</button>
+                    <button class="btn-44-purple-b f-14-500">양식 복사하기</button>
                 </div>
             </div>
             <!-- 수강회원 정보 --> 

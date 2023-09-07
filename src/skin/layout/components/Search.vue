@@ -4,6 +4,7 @@ const recentWord = ["위즈짐", "삼성역", "김위즈 트레이너", "클라�
 </script>
 
 <template>
+    <!-- 검색 결과의 경우 /components/layout/SearchResult.vue 에 위치 -->
     <div class="Search_container">
         <div class="Search_container_inner mob-inner">
             <!-- 검색창 -->
@@ -15,20 +16,20 @@ const recentWord = ["위즈짐", "삼성역", "김위즈 트레이너", "클라�
             </div>
             <!-- 최근 본 운동 -->
             <div class="recent-work">
-                <div class="recent-work-tit f-16-700">
+                <div class="recent-work-tit f-14-700">
                     <p>최근 본 운동</p>
                     <button class="f-12-400">모두 지우기</button>
                 </div>
                 <ul class="recent-work-ul">
-                    <li v-for="recentWorkItem in recentWork" :key="recentWorkItem">
-                        <div class="center-img"></div>
+                    <li v-for="(recentWorkItem, idx) in recentWork" :key="recentWorkItem">
+                        <div class="center-img"><img :src="require(`@/assets/image/search-img${idx + 1}.png`)" alt=""></div>
                         <p>{{ recentWorkItem }}</p>
                     </li>
                 </ul>
             </div>
             <!-- 최근 검색어 -->
             <div class="recent-search-word search-layout">
-                <div class="recent-search-word-tit f-16-700 search-layout-tit">
+                <div class="recent-search-word-tit f-14-700 search-layout-tit">
                     <p>최근 검색어</p>
                     <button class="f-12-400">모두 지우기</button>
                 </div>

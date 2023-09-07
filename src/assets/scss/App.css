@@ -1268,7 +1268,7 @@ textarea::placeholder {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 0 11px 0;
+  margin: 0 0 20px 0;
   padding-right: 20px;
 }
 .Search_container_inner .recent-work-tit button {
@@ -1278,6 +1278,7 @@ textarea::placeholder {
 .Search_container_inner .recent-work .recent-work-ul {
   display: -webkit-box;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 .Search_container_inner .recent-work .recent-work-ul li {
   margin: 0 8px 0 0;
@@ -1285,11 +1286,15 @@ textarea::placeholder {
 .Search_container_inner .recent-work .recent-work-ul li .center-img {
   width: 120px;
   height: 120px;
-  background: #d9d9d9;
+  overflow: hidden;
   border-radius: 8px;
 }
+.Search_container_inner .recent-work .recent-work-ul li .center-img img {
+  -webkit-filter: initial;
+          filter: initial;
+}
 .Search_container_inner .recent-work .recent-work-ul li p {
-  margin: 8px 0 0 0;
+  margin: 13px 0 0 0;
   font-size: 14px;
   font-weight: 400;
 }
@@ -1629,7 +1634,7 @@ textarea::placeholder {
 플레이스
 ******************************************/
 /******************************************
-라디오 박스1
+라디오 박스
 ******************************************/
 /******************************************
 리뷰
@@ -7137,7 +7142,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 12px 14px;
-  border: 1px solid #E1E1E1;
+  border: 1px solid #DBE2EF;
   border-radius: 8px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
@@ -7176,8 +7181,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #F1F1F1;
-  border: 1px solid #D9D9D9;
+  background: url("@/assets/image/input-checkbox2.png") center no-repeat;
   border-radius: 50%;
 }
 .place-choice-layout-inner .place-choice-form .place-choice-list-layout ul li input[type=radio] + label .outSide span {
@@ -7441,7 +7445,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 ******************************************/
 .PlacePay_container_inner > div {
   padding: 0 20px;
-  border-bottom: 6px solid #F1F1F1;
+  border-bottom: 6px solid #F6F7FA;
 }
 .PlacePay_container_inner .choice-product {
   display: -webkit-box;
@@ -7534,9 +7538,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: space-between;
   position: relative;
   padding: 0 16px;
-  border: 1px solid #979797;
+  border: 1px solid #DBE2EF;
   border-radius: 8px;
-  background: #F1F1F1;
+  background: #fff;
+  color: #A6ABB5;
 }
 .PlacePay_container_inner .coupon-list > li .arrow {
   width: 9px;
@@ -7774,7 +7779,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 }
 .payComplete-inner > div {
   padding: 20px;
-  border-bottom: 9px solid #f1f1f1;
+  border-bottom: 8px solid #F6F7FA;
 }
 .payComplete-inner > div:last-child {
   border-bottom: 0;
@@ -7826,13 +7831,16 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex-flow: column;
           flex-flow: column;
   row-gap: 16px;
-  border: 1px solid #d9d9d9;
-  border-radius: 8px;
+  border: 1px solid #DBE2EF;
+  border-radius: 16px;
 }
 @media (max-width: 480px) {
   .payComplete-inner .inquiry-list li {
     min-height: 150px;
   }
+}
+.payComplete-inner button {
+  margin: 0 0 20px 0;
 }
 .payComplete-inner .ex-inquiry-form-tit {
   margin: 0 0 16px 0;
@@ -7840,7 +7848,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 }
 .payComplete-inner .ex-inquiry-form-content {
   padding: 20px;
-  background: #f9f9f9;
+  background: #F6F7FA;
   border-radius: 8px;
   text-align: center;
 }
@@ -7858,13 +7866,9 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   font-weight: 700;
 }
 .payComplete-inner .ex-inquiry-form-content button {
-  min-width: 200px;
-  height: 38px;
-  line-height: 36px;
   margin: 12px 0 0 0;
   background: #fff;
-  border: 1px solid #979797;
-  border-radius: 19px;
+  border-color: #EAEFF9;
   color: #000;
 }
 .payComplete-inner .member-info-tit {

@@ -212,7 +212,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 // 말줄임
 @mixin ellipsis($num:null){display:-webkit-box; -webkit-line-clamp:$num; -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
 
-// border 그라데이션 -> 적용할 시 해당 태그에 padding 값이 있으면 border 두께 커짐
+// border 그라데이션 -> 적용할 시 해당 태그에 padding 값이 있으면 border 두께 커지는 점 참고
 @mixin borderGradient(){
     border:1px solid transparent;
     background-image:linear-gradient(#fff, #fff), linear-gradient(to right, #8337FF, #3BD2FF);
@@ -438,13 +438,15 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
         }
         // 최근 본 운동
         .recent-work{padding-right:0;
-            &-tit{@include display(flex, flex-end, space-between); margin:0 0 11px 0; padding-right:20px;
+            &-tit{@include display(flex, flex-end, space-between); margin:0 0 20px 0; padding-right:20px;
                 button{color:$gray2; cursor:pointer;}
             }
-            .recent-work-ul{display:-webkit-box; overflow-x:auto;
+            .recent-work-ul{display:-webkit-box; overflow-x:auto; overflow-y:hidden;
                 li{margin:0 8px 0 0;
-                    .center-img{@include conSize(120px, 120px); background:$light-gray-1; border-radius:8px;}
-                    p{margin:8px 0 0 0; @include font(14px, 400);}
+                    .center-img{@include conSize(120px, 120px); overflow:hidden; border-radius:8px;
+                        img{filter:initial;}
+                    }
+                    p{margin:13px 0 0 0; @include font(14px, 400);}
                     &:last-child{margin:0 20px 0 0;}
                 }
             }
@@ -457,6 +459,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 풋터
 /components/Footer.vue
 ******************************************/
+// 찜의 경우 on 됐을 때 이미지 따로 저장 필요합니다.
 .at-footer{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:12px 0 16px; background:$f; border-top:1px solid $light-blue;
     &-inner{
         ul{@include display(flex, center, null, null);

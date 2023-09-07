@@ -19,12 +19,8 @@
                             <label for="ticket_1_1">
                                 <div class="top-row each-tit">
                                     <!-- 
-                                        체크 된 이미지는 설정 해놨습니다.
-                                        미체크 이미지만 다운받아서 commonLayout.scss 수정해주시면 됩니다(375번 라인).
-                                        ㄴ 현재 background:#F1F1F1 로 돼있습니다
-
-                                        + 체크 시 border 색상 변경되는데, active 클래스 설정된 li 태그만 적용되도록
-                                        @include borderGradient 로 설정해놨습니다(393번 라인 보시면 됩니다). 
+                                        체크 시 border 색상 변경되는데, active 클래스 설정된 li 태그만 적용되도록
+                                        @include borderGradient 로 설정해놨습니다(place.scss 395번 라인 보시면 됩니다). 
                                     -->
                                     <span class="outSide">
                                         <span></span>
