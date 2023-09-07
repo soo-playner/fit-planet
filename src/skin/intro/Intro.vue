@@ -45,6 +45,7 @@ onMounted(() => {
             let y = (Math.random() * canvasSize.width) / 2;
 
             setTimeout(() => {
+                // 떨어지는 이미지들 test1~14.png 로 설정해놨는데, 확정된 인트로 시안대로 이미지랑 파일명만 교체해주시면 됩니다.
                 loadImage(require(`@/assets/image/test${i + 1}.png`), (url) => {
                     var square = Bodies.rectangle(x, y, width, height, {
                         render: {
@@ -100,7 +101,7 @@ onMounted(() => {
                 <p class="f-20-700">운동으로 연결되는 공간</p>
                 <div class="img-box"><img src="@/assets/image/logo_w.png" alt="핏플래닛 로고" /></div>
             </div>
-            <router-link to="/Login" class="f-16-700">시작하기</router-link>
+            <router-link to="/Login" class="f-16-700">다음</router-link>
         </div>
     </div>
 </template>

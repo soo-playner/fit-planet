@@ -21,12 +21,15 @@
 모달창 공통 레이아웃(후기 솔팅, 리뷰 신고하기)
 -> 구조 AlertManage.vue
 ******************************************/
-.comm_modal_layout{
-    .comm_modal_layout_tit{@include display(flex, center, space-between); margin:0 0 17px 0;
-        .close{@include close}
+.comm_modal_layout{align-items:flex-end;
+    &-inner{width:100%; max-width:100%;}
+    
+    .comm_modal_layout_tit{@include display(flex, center); margin:0 0 17px 0;
+        p{flex:1;}
+        .close{@include close2}
     }
     .comm_modal_layout_tit_list{
-        li{@include radioBox1; position:relative; padding:12px 0; border-bottom:1px solid #D9D9D9;
+        li{@include radioBox2; position:relative; padding:25px 0;
             &:last-child{border-bottom:0;}
         }
     }

@@ -8,9 +8,9 @@ const recentWord = ["위즈짐", "삼성역", "김위즈 트레이너", "클라�
         <div class="Search_container_inner mob-inner">
             <!-- 검색창 -->
             <div class="search-input">
-                <div class="form-group">
-                    <input type="text" id="search" name="search" placeholder="지역, 지하철역, 플레이스, 트레이너" />
+                <div class="form-group3">
                     <button class="search-btn"></button>
+                    <input type="text" id="search" name="search" placeholder="지역, 지하철역, 플레이스, 트레이너" />
                 </div>
             </div>
             <!-- 최근 본 운동 -->

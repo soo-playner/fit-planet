@@ -58,7 +58,7 @@ watch(timeCount, () => {
         </div>
         <button
             v-if="!isGetCertNum"
-            class="btn1 mob-inner"
+            class="btn-44-black f-16-700 mob-inner"
             @click="
                 isGetCertNum = true;
                 startCount();
@@ -67,7 +67,7 @@ watch(timeCount, () => {
         >
             인증번호 요청
         </button>
-        <button v-if="isGetCertNum" class="btn1 mob-inner" @click="getCertNum = true">인증 완료</button>
+        <button v-if="isGetCertNum" class="btn-44-black f-16-700 mob-inner" @click="getCertNum = true">인증 완료</button>
 
         <div class="member_alert EmailSend_Alert" :class="{ active: EmailSend }">
             <div class="overlay" @click="EmailSendFnc"></div>

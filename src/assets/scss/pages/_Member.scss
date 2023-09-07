@@ -31,11 +31,11 @@
             }
         }
         // 완료
-        &.complete{justify-content:flex-end; position:relative; z-index:99; background:#F1F1F1;
+        &.complete{justify-content:flex-end; position:relative; z-index:99; 
             canvas{@include conSize(100%, 100%); @include position(absolute, 0, null, null, 0, -1);}
             .member_container_inner{min-height:calc(100vh - 363px); @include display(flex, null, space-between, column);
                 .txt-box{text-align:center;
-                    & > div:first-child{margin:0 0 8px 0;}
+                    & > div:nth-child(2){line-height:1.2; margin:0 0 8px 0;}
                 }
             }
         }

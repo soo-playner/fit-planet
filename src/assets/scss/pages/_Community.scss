@@ -114,9 +114,8 @@
 ******************************************/
 .SearchResult_container{
     &_inner{
-        .search-input{padding:0 20px;
-            input{border-radius:22px}
-            .search-btn{@include searchBtn;}
+        .search-input{
+            .search-btn{@include searchBtn2;}
         }
         .tab-and-filter{
             .search-tab{display:flex; margin:28px 0 0 0;

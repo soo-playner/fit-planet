@@ -52,7 +52,7 @@ const submitData = async () => {
                 <p>특수문자는 ~’!@#$%^&*()-만 사용 가능합니다.</p>
             </div>
         </div>
-        <button class="btn1 mob-inner" @click="submitData" :disabled="!nextCondition()">확인</button>
+        <button class="btn-44-black f-16-700 mob-inner" @click="submitData" :disabled="!nextCondition()">확인</button>
 
         <!-- 비밀번호 재설정 모달창 -->
         <PW_Reset_Modal :class="{ active: ResetPW }" :ResetPWFnc="ResetPWFnc" />

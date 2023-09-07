@@ -587,7 +587,7 @@
             &-input{
                 & > div{@include display(flex); padding:3px 0; @include font(14px, 400);
                     span{width:80px;}
-                    div{width:calc(100% - 80px); color:#979797;}
+                    div{width:calc(100% - 80px); color:$gray2;}
                 }
             }
         }
@@ -608,11 +608,11 @@
 ******************************************/
 .ticket_complete_container{padding-top:80px;
     &_inner{
-        & > div{padding:20px; border-bottom:9px solid #f1f1f1;
+        & > div{padding:20px; border-bottom:9px solid $light-blue;
             &:last-child{border-bottom:0;}
         }
         .ticket-complete-guide{@include completeGuide;
-            button{background:$f; border:1px solid $purple; color:$purple; cursor:default; pointer-events:none}
+            button{margin:0 0 16px 0;}
         }
         .order-product{@include orderProduct;}
         .order-info{@include orderInfo;}

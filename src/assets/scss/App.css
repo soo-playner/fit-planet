@@ -276,10 +276,88 @@ textarea {
   color: #979797;
 }
 
+.form-group3 {
+  position: relative;
+}
+.form-group3 input[type=text],
+.form-group3 input[type=file],
+.form-group3 input[type=email] {
+  width: 100%;
+  height: 44px;
+  line-height: 42px;
+  padding: 0 38px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  background: #F6F7FA;
+  border-radius: 5px;
+}
+.form-group3 input[type=text]:focus,
+.form-group3 input[type=file]:focus,
+.form-group3 input[type=email]:focus {
+  border: none;
+}
+.form-group3 input[type=text]::-webkit-input-placeholder, .form-group3 input[type=file]::-webkit-input-placeholder, .form-group3 input[type=email]::-webkit-input-placeholder {
+  color: #A6ABB5;
+}
+.form-group3 input[type=text]::-moz-placeholder, .form-group3 input[type=file]::-moz-placeholder, .form-group3 input[type=email]::-moz-placeholder {
+  color: #A6ABB5;
+}
+.form-group3 input[type=text]:-ms-input-placeholder, .form-group3 input[type=file]:-ms-input-placeholder, .form-group3 input[type=email]:-ms-input-placeholder {
+  color: #A6ABB5;
+}
+.form-group3 input[type=text]::-ms-input-placeholder, .form-group3 input[type=file]::-ms-input-placeholder, .form-group3 input[type=email]::-ms-input-placeholder {
+  color: #A6ABB5;
+}
+.form-group3 input[type=text]::placeholder,
+.form-group3 input[type=file]::placeholder,
+.form-group3 input[type=email]::placeholder {
+  color: #A6ABB5;
+}
+.form-group3 input[type=file] {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+}
+.form-group3 input[type=file] + label {
+  height: 44px;
+  line-height: 42px;
+  display: block;
+  padding: 0 16px;
+  font-size: 12px;
+  font-weight: 400;
+  background: #F1F1F1;
+  border-radius: 5px;
+  color: #A6ABB5;
+}
+.form-group3 textarea {
+  min-height: 150px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #979797;
+}
+.form-group3 textarea::-webkit-input-placeholder {
+  color: #979797;
+}
+.form-group3 textarea::-moz-placeholder {
+  color: #979797;
+}
+.form-group3 textarea:-ms-input-placeholder {
+  color: #979797;
+}
+.form-group3 textarea::-ms-input-placeholder {
+  color: #979797;
+}
+.form-group3 textarea::placeholder {
+  color: #979797;
+}
+
 /******************************************
 버튼 모양 클래스 지정
 ******************************************/
-.btn-44-purple, .member_alert button, .btn-44-purple-b {
+.btn-44-purple, .member_alert button, .btn-44-black, .btn-44-purple-b {
   width: 100%;
   height: 44px;
   line-height: 42px;
@@ -295,6 +373,11 @@ textarea {
   background: #fff;
   border: 1px solid #6E2FF4;
   color: #6E2FF4;
+}
+
+.btn-44-black {
+  background: #000;
+  border-radius: 22px;
 }
 
 .btn1, .btn1-1 {
@@ -789,7 +872,6 @@ textarea {
 .at-header-inner .right .menu-ul li.search span::before, .at-header-inner .right .menu-ul li.search span::after {
   content: "";
   position: absolute;
-  background: #000;
 }
 .at-header-inner .right .menu-ul li.search span::before {
   width: 18px;
@@ -822,6 +904,7 @@ textarea {
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
 }
 .at-header-inner .right .menu-ul li.close div::before, .at-header-inner .right .menu-ul li.close div::after {
@@ -1122,61 +1205,36 @@ textarea {
 .Search_container_inner > div {
   padding: 20px;
 }
-.Search_container_inner .search-input .form-group input {
-  height: 44px;
-  line-height: 44px;
-  padding: 0 16px;
-  background: #F1F1F1;
-  border: none;
-  border-radius: 22px;
-}
-.Search_container_inner .search-input .form-group input::-webkit-input-placeholder {
-  color: #979797;
-}
-.Search_container_inner .search-input .form-group input::-moz-placeholder {
-  color: #979797;
-}
-.Search_container_inner .search-input .form-group input:-ms-input-placeholder {
-  color: #979797;
-}
-.Search_container_inner .search-input .form-group input::-ms-input-placeholder {
-  color: #979797;
-}
-.Search_container_inner .search-input .form-group input::placeholder {
-  color: #979797;
-}
 .Search_container_inner .search-input .search-btn {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 15px;
+  left: 13px;
   cursor: pointer;
 }
 .Search_container_inner .search-input .search-btn::before, .Search_container_inner .search-input .search-btn::after {
   content: "";
   position: absolute;
-  background: #000;
 }
 .Search_container_inner .search-input .search-btn::before {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   top: -1px;
-  background: none;
-  border: 2px solid #000;
+  border: 2px solid #A6ABB5;
   border-radius: 50%;
 }
 .Search_container_inner .search-input .search-btn::after {
   width: 2px;
-  height: 8px;
-  right: 2px;
-  bottom: -1px;
+  height: 6px;
+  right: -2px;
+  bottom: -2px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  background: #000;
+  background: #A6ABB5;
 }
 .Search_container_inner .recent-work {
   padding-right: 0;
@@ -1195,7 +1253,7 @@ textarea {
   padding-right: 20px;
 }
 .Search_container_inner .recent-work-tit button {
-  color: #979797;
+  color: #A6ABB5;
   cursor: pointer;
 }
 .Search_container_inner .recent-work .recent-work-ul {
@@ -1206,8 +1264,8 @@ textarea {
   margin: 0 8px 0 0;
 }
 .Search_container_inner .recent-work .recent-work-ul li .center-img {
-  width: 101px;
-  height: 101px;
+  width: 120px;
+  height: 120px;
   background: #d9d9d9;
   border-radius: 8px;
 }
@@ -1576,7 +1634,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   margin: 0 0 11px 0;
 }
 .search-layout-tit button {
-  color: #979797;
+  color: #A6ABB5;
   cursor: pointer;
 }
 .search-layout-ul li {
@@ -1589,10 +1647,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 9px 0;
+  padding: 14px 0;
   font-size: 14px;
   font-weight: 400;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #DBE2EF;
 }
 .search-layout-ul li button {
   width: 21px;
@@ -1608,6 +1666,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
   width: 18px;
   height: 18px;
@@ -1630,7 +1689,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .search-layout-ul li button::before, .search-layout-ul li button::after {
   width: 100%;
   height: 1px;
-  background: #979797;
+  background: #DBE2EF;
 }
 
 /******************************************
@@ -1648,7 +1707,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #EAEFF9;
   display: -webkit-box;
   position: relative;
   overflow-x: auto;
@@ -1687,21 +1746,22 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex: initial;
           flex: initial;
   padding: 0 22px 15px;
-  color: #D9D9D9;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B6F77;
   cursor: pointer;
 }
 .slide-wrap-inner .slide-ul li.active {
-  font-weight: 700;
-  color: #000;
+  color: #6E2FF4;
 }
 .slide-wrap-inner .slide-ul li::before {
   display: none;
 }
 .slide-wrap-inner .slide-ul .nav-indicator {
-  height: 4px;
+  height: 1px;
   position: absolute;
   padding: 0;
-  background: #000;
+  background: #6E2FF4;
   -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -2445,6 +2505,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
   position: absolute;
   top: 2px;
@@ -2791,6 +2852,15 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 모달창 공통 레이아웃(후기 솔팅, 리뷰 신고하기)
 -> 구조 AlertManage.vue
 ******************************************/
+.comm_modal_layout {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.comm_modal_layout-inner {
+  width: 100%;
+  max-width: 100%;
+}
 .comm_modal_layout .comm_modal_layout_tit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2798,10 +2868,12 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   margin: 0 0 17px 0;
+}
+.comm_modal_layout .comm_modal_layout_tit p {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .comm_modal_layout .comm_modal_layout_tit .close {
   width: 21px;
@@ -2817,14 +2889,16 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
 }
 .comm_modal_layout .comm_modal_layout_tit .close::before, .comm_modal_layout .comm_modal_layout_tit .close::after {
   content: "";
   width: 100%;
-  height: 2px;
+  height: 1px;
   position: absolute;
   background: #000;
+  border-radius: 50px;
 }
 .comm_modal_layout .comm_modal_layout_tit .close::before {
   -webkit-transform: rotate(45deg);
@@ -2836,8 +2910,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 }
 .comm_modal_layout .comm_modal_layout_tit_list li {
   position: relative;
-  padding: 12px 0;
-  border-bottom: 1px solid #D9D9D9;
+  padding: 25px 0;
 }
 .comm_modal_layout .comm_modal_layout_tit_list li input[type=radio] {
   position: absolute;
@@ -2862,8 +2935,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   cursor: pointer;
 }
 .comm_modal_layout .comm_modal_layout_tit_list li input[type=radio] + label .outSide {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2873,23 +2946,13 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #F1F1F1;
-  border: 1px solid #D9D9D9;
-  border-radius: 50%;
-}
-.comm_modal_layout .comm_modal_layout_tit_list li input[type=radio] + label .outSide span {
-  width: 12px;
-  height: 12px;
-  opacity: 0;
-  visibility: hidden;
-  background: #000;
-  border-radius: 50%;
 }
 .comm_modal_layout .comm_modal_layout_tit_list li input[type=radio]:checked + label {
   font-weight: 700;
+  color: #6E2FF4;
 }
 .comm_modal_layout .comm_modal_layout_tit_list li input[type=radio]:checked + label .outSide {
-  background: url("@/assets/image/input-checkbox-checked.png") center no-repeat;
+  background: url("@/assets/image/input-checkbox-checked2.png") center no-repeat;
 }
 .comm_modal_layout .comm_modal_layout_tit_list li:last-child {
   border-bottom: 0;
@@ -3683,6 +3746,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
 }
 .review-report-modal-inner .top-column .close::before, .review-report-modal-inner .top-column .close::after {
@@ -4008,7 +4072,6 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: flex-end;
   position: relative;
   z-index: 99;
-  background: #F1F1F1;
 }
 .member_container.complete canvas {
   width: 100%;
@@ -4034,7 +4097,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .member_container.complete .member_container_inner .txt-box {
   text-align: center;
 }
-.member_container.complete .member_container_inner .txt-box > div:first-child {
+.member_container.complete .member_container_inner .txt-box > div:nth-child(2) {
+  line-height: 1.2;
   margin: 0 0 8px 0;
 }
 .member_container.id-step1, .member_container.id-step2, .member_container.id-step3 {
@@ -7894,7 +7958,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 }
 .payComplete-inner .member-info-input > div div {
   width: calc(100% - 80px);
-  color: #979797;
+  color: #A6ABB5;
 }
 .payComplete-inner .order-product-tit {
   display: -webkit-box;
@@ -8105,7 +8169,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 }
 .ticket_complete_container_inner > div {
   padding: 20px;
-  border-bottom: 9px solid #f1f1f1;
+  border-bottom: 9px solid #F6F7FA;
 }
 .ticket_complete_container_inner > div:last-child {
   border-bottom: 0;
@@ -8127,11 +8191,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   color: #979797;
 }
 .ticket_complete_container_inner .ticket-complete-guide button {
-  background: #fff;
-  border: 1px solid #6E2FF4;
-  color: #6E2FF4;
-  cursor: default;
-  pointer-events: none;
+  margin: 0 0 16px 0;
 }
 .ticket_complete_container_inner .order-product-tit {
   display: -webkit-box;
@@ -9419,7 +9479,6 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .region_container_inner .form-group2 .search::before, .region_container_inner .form-group2 .search::after {
   content: "";
   position: absolute;
-  background: #000;
 }
 .region_container_inner .form-group2 .search::before {
   width: 18px;
@@ -9484,6 +9543,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0;
+  background: none;
   cursor: pointer;
   position: absolute;
   top: 12px;
@@ -9987,44 +10047,36 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 검색 결과
 /components/layout/SearchResult.vue
 ******************************************/
-.SearchResult_container_inner .search-input {
-  padding: 0 20px;
-}
-.SearchResult_container_inner .search-input input {
-  border-radius: 22px;
-}
 .SearchResult_container_inner .search-input .search-btn {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 15px;
+  left: 13px;
   cursor: pointer;
 }
 .SearchResult_container_inner .search-input .search-btn::before, .SearchResult_container_inner .search-input .search-btn::after {
   content: "";
   position: absolute;
-  background: #000;
 }
 .SearchResult_container_inner .search-input .search-btn::before {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   top: -1px;
-  background: none;
-  border: 2px solid #000;
+  border: 2px solid #A6ABB5;
   border-radius: 50%;
 }
 .SearchResult_container_inner .search-input .search-btn::after {
   width: 2px;
-  height: 8px;
-  right: 2px;
-  bottom: -1px;
+  height: 6px;
+  right: -2px;
+  bottom: -2px;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  background: #000;
+  background: #A6ABB5;
 }
 .SearchResult_container_inner .tab-and-filter .search-tab {
   display: -webkit-box;
@@ -10461,7 +10513,7 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid #EAEFF9;
   display: -webkit-box;
   position: relative;
   overflow-x: auto;
@@ -10502,21 +10554,22 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex: initial;
           flex: initial;
   padding: 0 22px 15px;
-  color: #D9D9D9;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B6F77;
   cursor: pointer;
 }
 .Wish_container_inner .tab-list li.active {
-  font-weight: 700;
-  color: #000;
+  color: #6E2FF4;
 }
 .Wish_container_inner .tab-list li::before {
   display: none;
 }
 .Wish_container_inner .tab-list .nav-indicator {
-  height: 4px;
+  height: 1px;
   position: absolute;
   padding: 0;
-  background: #000;
+  background: #6E2FF4;
   -webkit-transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
 }

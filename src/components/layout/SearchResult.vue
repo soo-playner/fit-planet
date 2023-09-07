@@ -32,7 +32,7 @@ onMounted(() => {
         <div class="SearchResult_container_inner mob-inner slide-wrap-inner">
             <!-- 검색창 -->
             <div class="search-input">
-                <div class="form-group2">
+                <div class="form-group3">
                     <input type="text" id="search" name="search" placeholder="지역, 지하철역, 플레이스, 트레이너" />
                     <button class="search-btn"></button>
                 </div>

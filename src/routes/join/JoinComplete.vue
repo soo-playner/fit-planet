@@ -101,24 +101,21 @@ onBeforeUnmount(() => {
         <canvas class="complete-canvas"></canvas>
         <div class="member_container_inner mob-inner">
             <div class="txt-box" v-show="joinResult === 'success'">
-                <div class="f-16-400">핏플래닛 가입 완료!</div>
+                <img src="@/assets/image/confetti.png" alt="가입 완료">
                 <div class="f-24-700">
-                    <!-- <p>위즈위즈님</p>
-                    <p>환영합니다!</p> -->
                     위즈위즈님<br />
                     환영합니다!
                 </div>
+                <div class="f-16-400">핏플래닛 가입 완료!</div>
             </div>
             <div class="txt-box" v-show="joinResult === 'fail'">
-                <div class="f-16-400">핏플래닛 가입 실패</div>
                 <div class="f-24-700">
-                    <!-- <p>위즈위즈님</p>
-                    <p>환영합니다!</p> -->
                     회원가입에 실패하였습니다.<br />
                     다시 시도해주세요.
                 </div>
+                <div class="f-16-400">핏플래닛 가입 실패</div>
             </div>
         </div>
-        <button class="btn1 mob-inner" @click="$router.push('/authority')">핏플래닛 시작하기</button>
+        <button class="btn-44-black f-16-700 mob-inner" @click="$router.push('/authority')">핏플래닛 시작하기</button>
     </div>
 </template>

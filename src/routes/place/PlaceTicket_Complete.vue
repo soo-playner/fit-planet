@@ -6,13 +6,13 @@
         <div class="ticket_complete_container_inner mob-inner">
             <!-- 수강권 등록 완료 안내 -->
             <div class="ticket-complete-guide">
-                <div class="complete-img-box"><img src="@/assets/image/complete.png" alt="수강권 등록 완료"></div>
+                <div class="complete-img-box"><img src="@/assets/image/ticket-complete.png" alt="수강권 등록 완료"></div>
                 <div class="f-20-700">수강권 등록 완료!</div>
                 <p class="f-14-400">
                     <span>운동 시작일이 설정되었어요</span>
                     <span>수강 기간동안 앞으로 화이팅 해봐요!</span>
                 </p>
-                <button class="f-16-700">수강권 등록 완료</button>
+                <button class="btn-44-purple f-14-700">수강권 등록 완료</button>
                 <span class="order-num f-12-400">주문번호 123456789101112</span>
             </div>
             <!-- 주문 상품 -->
