@@ -61,22 +61,20 @@ const submitData = async () => {
                     <span>쿠폰이 지급되지 않습니다.</span>
                 </span>
                 <div class="album-select">
-                    <button class="album-plus" :class="{ none: !fileData[0] }">
+                    <div class="album-select-img" v-for="(file, idx) in fileData" :key="idx" :class="{ none: !fileData[idx] }">
+                        <img v-show="fileData[idx]" :src="fileData[idx] && fileData[idx].url" />
+                        <div class="close" @click="fileData.splice(idx, 1)"></div>
+                    </div>
+                    <button class="album-plus none" v-show="fileData.length < 3">
                         <div class="album-plus-inner">
-                            <img src="@/assets/image/camera.png" alt="카메라 앨범">
-                            <p class="f-12-400"><span>2</span>/3</p>
+                            <img src="@/assets/image/camera.png" alt="카메라 앨범" />
+                            <p class="f-12-400">
+                                <span>{{ fileData.length }}</span
+                                >/3
+                            </p>
                         </div>
                         <input type="file" id="mb-review" name="mb-review" multiple @change="uploadFile" />
-                        <img v-show="fileData[0]" :src="fileData[0] && fileData[0].url" />
                     </button>
-                    <div class="album-select-img" :class="{ none: !fileData[1] }">
-                        <img v-show="fileData[1]" :src="fileData[1] && fileData[1].url" />
-                        <div class="close"></div>
-                    </div>
-                    <div class="album-select-img" :class="{ none: !fileData[2] }">
-                        <img v-show="fileData[2]" :src="fileData[2] && fileData[2].url" />
-                        <div class="close"></div>
-                    </div>
                 </div>
             </div>
             <!-- 후기를 작성해 주세요 -->
