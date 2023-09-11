@@ -13,7 +13,7 @@ const selected = {
     locker: ref(""),
 };
 const course = [
-    { title: "1회 체험권", price: 15000, unit: "회", period: 1, discount: 0 },
+    { title: "1회 체험권", price: 15000, unit: "회", period: 1, discount: 0, discountPercentage: 0 },
     { title: "1개월 수강권", price: 59000, unit: "월", period: 1, discount: 0, discountPercentage: 0 },
     { title: "3개월 수강권", price: 49000, unit: "월", period: 3, discount: 30000, discountPercentage: 10 },
     { title: "6개월 수강권", price: 39000, unit: "월", period: 6, discount: 120000, discountPercentage: 20 },
@@ -45,6 +45,10 @@ const totalDiscount = () => {
         if (!curr.value) return accu;
         return accu + curr.value.discount;
     }, 0);
+};
+const deleteItem = (category) => {
+    if (category === "course") return alert("수강권은 삭제할 수 없습니다.");
+    selected[category].value = "";
 };
 </script>
 
@@ -168,7 +172,7 @@ const totalDiscount = () => {
                             <p>{{ item[1].value.price }}원</p>
                         </div>
                     </div>
-                    <div class="close" @click="if (item[0] !== 'course') selected[item[0]].value = '';"></div>
+                    <div class="close" @click="deleteItem(item[0])"></div>
                 </li>
             </ul>
             <div class="total-pay">
