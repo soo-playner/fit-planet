@@ -324,7 +324,7 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 헤더 
 /components/Header.vue
 ******************************************/
-.at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; /*background:$f;*/
+.at-header{@include conSize(100%, null, 1); min-height:56px; @include display(flex, null, center, column); @include position(fixed, 0, null, null, 0, 1000); padding:16px 21px; background:$f;
     .header-current{@include conSize(100%, 2px); @include position(absolute, null, null, 0, 0);}
 
     &-inner{@include display(flex, center, space-between, wrap); position: relative;

@@ -772,7 +772,8 @@ textarea::placeholder {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 16px 21px; /*background:$f;*/
+  padding: 16px 21px;
+  background: #fff;
 }
 .at-header .header-current {
   width: 100%;

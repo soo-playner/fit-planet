@@ -1,5 +1,51 @@
 <script setup>
+import { ref } from "vue";
 
+const selected = {
+    course: ref({
+        title: "1회 체험권",
+        price: 15000,
+        unit: "회",
+        period: 1,
+        discount: 0,
+    }),
+    sportswearRental: ref(""),
+    locker: ref(""),
+};
+const course = [
+    { title: "1회 체험권", price: 15000, unit: "회", period: 1, discount: 0 },
+    { title: "1개월 수강권", price: 59000, unit: "월", period: 1, discount: 0, discountPercentage: 0 },
+    { title: "3개월 수강권", price: 49000, unit: "월", period: 3, discount: 30000, discountPercentage: 10 },
+    { title: "6개월 수강권", price: 39000, unit: "월", period: 6, discount: 120000, discountPercentage: 20 },
+    { title: "12개월 수강권", price: 29000, unit: "월", period: 12, discount: 360000, discountPercentage: 30 },
+];
+const sportswearRental = [
+    { title: "선택 안함", price: 0, discount: 0 },
+    { title: "운동복 1개월", price: 10000, discount: 0 },
+    { title: "운동복 3개월", price: 30000, discount: 0 },
+    { title: "운동복 6개월", price: 50000, discount: 10000 },
+    { title: "운동복 12개월", price: 100000, discount: 20000 },
+];
+const locker = [
+    { title: "선택 안함", price: 0, discount: 0 },
+    { title: "개인 락커 1개월", price: 10000, discount: 0 },
+    { title: "개인 락커 3개월", price: 30000, discount: 0 },
+    { title: "개인 락커 6개월", price: 50000, discount: 10000 },
+    { title: "개인 락커 12개월", price: 100000, discount: 20000 },
+];
+
+const totalPrice = () => {
+    return Object.values(selected).reduce((accu, curr) => {
+        if (!curr.value) return accu;
+        return accu + curr.value.price;
+    }, 0);
+};
+const totalDiscount = () => {
+    return Object.values(selected).reduce((accu, curr) => {
+        if (!curr.value) return accu;
+        return accu + curr.value.discount;
+    }, 0);
+};
 </script>
 
 <template>
@@ -14,85 +60,37 @@
                 <div class="place-choice-list-layout">
                     <div class="place-choice-list-layout-tit">수강권</div>
                     <ul>
-                        <li class="flex-flow active">
-                            <input type="radio" id="ticket_1_1" name="ticket" value="1회 체험권" checked>
-                            <label for="ticket_1_1">
-                                <div class="top-row each-tit">
-                                    <!-- 
-                                        체크 시 border 색상 변경되는데, active 클래스 설정된 li 태그만 적용되도록
-                                        @include borderGradient 로 설정해놨습니다(place.scss 395번 라인 보시면 됩니다). 
-                                    -->
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="place-ticket-list-name">1회 체험권</p>
-                                </div>
-                                <div class="bott-row">
-                                    <p class="f-16-500">15,000원/회</p>
-                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 15,000원</span>
-                                </div>
-                            </label>
-                        </li>
-                        <li class="flex-flow">
-                            <input type="radio" id="ticket_1_2" name="ticket" value="1개월 수강권">
-                            <label for="ticket_1_2">
+                        <!-- 
+                            체크 시 border 색상 변경되는데, active 클래스 설정된 li 태그만 적용되도록
+                            @include borderGradient 로 설정해놨습니다(place.scss 395번 라인 보시면 됩니다). 
+                        -->
+                        <li
+                            class="flex-flow"
+                            :class="{ active: selected.course.value.title === type.title || (idx === 0 && !selected.course.value) }"
+                            v-for="(type, idx) in course"
+                            :key="idx"
+                            @click="selected.course.value = type"
+                        >
+                            <input
+                                type="radio"
+                                :id="'ticket_1_' + idx"
+                                name="ticket"
+                                :value="type.title"
+                                :checked="selected.course.value.title === type.title || (idx === 0 && !selected.course.value)"
+                            />
+                            <label :for="'ticket_1_' + idx">
                                 <div class="top-row each-tit">
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="place-ticket-list-name">1개월 수강권</p>
+                                    <p class="place-ticket-list-name">{{ type.title }}</p>
                                 </div>
                                 <div class="bott-row">
-                                    <p class="f-16-700">59,000원/월</p>
-                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 59,000원</span>
-                                </div>
-                            </label>
-                        </li>
-                        <li class="flex-flow">
-                            <input type="radio" id="ticket_1_3" name="ticket" value="3개월 수강권">
-                            <label for="ticket_1_3">
-                                <div class="top-row each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="place-ticket-list-name">3개월 수강권</p>
-                                </div>
-                                <div class="bott-row">
-                                    <span class="discount f-12-400">30,000원 할인</span>
-                                    <p class="f-16-700"><span class="percent">10%</span> 49,000원/월</p>
-                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 147,000원</span>
-                                </div>
-                            </label>
-                        </li>
-                        <li class="flex-flow">
-                            <input type="radio" id="ticket_1_4" name="ticket" value="6개월 수강권">
-                            <label for="ticket_1_4">
-                                <div class="top-row each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="place-ticket-list-name">6개월 수강권</p>
-                                </div>
-                                <div class="bott-row">
-                                    <span class="discount f-12-400">120,000원 할인</span>
-                                    <p class="f-16-700"><span class="percent">20%</span> 39,000원/월</p>
-                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 234,000원</span>
-                                </div>
-                            </label>
-                        </li>
-                        <li class="flex-flow">
-                            <input type="radio" id="ticket_1_5" name="ticket" value="12개월 수강권">
-                            <label for="ticket_1_5">
-                                <div class="top-row each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="place-ticket-list-name">12개월 수강권</p>
-                                </div>
-                                <div class="bott-row">
-                                    <span class="discount f-12-400">360,000원 할인</span>
-                                    <p class="f-16-700"><span class="percent">30%</span> 29,000원/월</p>
-                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 348,000원</span>
+                                    <span class="discount f-12-400" v-show="type.discount">{{ type.discount }}원 할인</span>
+                                    <p class="f-16-700">
+                                        <span class="percent" v-show="type.discount">{{ type.discountPercentage }}%</span> {{ type.price }}원/{{ type.unit }}
+                                    </p>
+                                    <span class="f-12-400 place-ticket-list-pay pay">결제금액 {{ type.price * type.period }}원</span>
                                 </div>
                             </label>
                         </li>
@@ -109,69 +107,23 @@
                 <div class="training-opt-list place-choice-list-layout mp">
                     <div class="place-choice-list-layout-tit">운동복</div>
                     <ul>
-                        <li class="active">
-                            <input type="radio" id="training_1_1" name="training" value="선택 안함" checked>
-                            <label for="training_1_1">
+                        <li
+                            v-for="(type, idx) in sportswearRental"
+                            :key="idx"
+                            :class="{ active: selected.sportswearRental.value.title === type.title || (idx === 0 && !selected.sportswearRental.value) }"
+                            @click="selected.sportswearRental.value = type"
+                        >
+                            <input type="radio" :id="'training_1_' + idx" name="training" :value="type.title" :checked="idx === 0 && !selected.sportswearRental.value" />
+                            <label :for="'training_1_' + idx">
                                 <div class="left-column each-tit">
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="training-opt-list-name">선택 안함</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="training_1_2" name="training" value="운동복 1개월">
-                            <label for="training_1_2">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">운동복 1개월</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="training_1_3" name="training" value="운동복 3개월">
-                            <label for="training_1_3">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">운동복 3개월</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="training_1_4" name="training" value="운동복 6개월">
-                            <label for="training_1_4">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">운동복 6개월</p>
+                                    <p class="training-opt-list-name">{{ type.title }}</p>
                                 </div>
                                 <div class="right-column">
-                                    <span class="discount f-12-400">10,000원 할인</span>
-                                    <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
-                                </div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="training_1_5" name="training" value="운동복 12개월">
-                            <label for="training_1_5">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">운동복 12개월</p>
-                                </div>
-                                <div class="right-column">
-                                    <span class="discount f-12-400">20,000원 할인</span>
-                                    <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
+                                    <span class="discount f-12-400" v-show="type.discount">{{ type.discount }}원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">{{ type.price }}원</p>
                                 </div>
                             </label>
                         </li>
@@ -181,69 +133,23 @@
                 <div class="locker-opt-list place-choice-list-layout mp">
                     <div class="locker-opt-list-tit">개인 락커</div>
                     <ul>
-                        <li class="active">
-                            <input type="radio" id="locker_1_1" name="locker" value="선택 안함" checked>
-                            <label for="locker_1_1">
+                        <li
+                            v-for="(type, idx) in locker"
+                            :key="idx"
+                            :class="{ active: selected.locker.value.title === type.title || (idx === 0 && !selected.locker.value) }"
+                            @click="selected.locker.value = type"
+                        >
+                            <input type="radio" :id="'locker_1_' + idx" name="locker" :value="type.title" :checked="idx === 0 && !selected.locker.value" />
+                            <label :for="'locker_1_' + idx">
                                 <div class="left-column each-tit">
                                     <span class="outSide">
                                         <span></span>
                                     </span>
-                                    <p class="training-opt-list-name">선택 안함</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">0원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="locker_1_2" name="locker" value="개인 락커 1개월">
-                            <label for="locker_1_2">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">개인 락커 1개월</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">10,000원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="locker_1_3" name="locker" value="개인 락커 3개월">
-                            <label for="locker_1_3">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">개인 락커 3개월</p>
-                                </div>
-                                <div class="right-column"><p class="training-opt-list-pay f-16-700 pay">30,000원</p></div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="locker_1_4" name="locker" value="개인 락커 6개월">
-                            <label for="locker_1_4">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">개인 락커 6개월</p>
+                                    <p class="training-opt-list-name">{{ type.title }}</p>
                                 </div>
                                 <div class="right-column">
-                                    <span class="discount">10,000원 할인</span>
-                                    <p class="training-opt-list-pay f-16-700 pay">50,000원</p>
-                                </div>
-                            </label>
-                        </li>
-                        <li>
-                            <input type="radio" id="locker_1_5" name="locker" value="개인 락커 12개월">
-                            <label for="locker_1_5">
-                                <div class="left-column each-tit">
-                                    <span class="outSide">
-                                        <span></span>
-                                    </span>
-                                    <p class="training-opt-list-name">개인 락커 12개월</p>
-                                </div>
-                                <div class="right-column">
-                                    <span class="discount">20,000원 할인</span>
-                                    <p class="training-opt-list-pay f-16-700 pay">100,000원</p>
+                                    <span class="discount" v-show="type.discount">{{ type.discount }}원 할인</span>
+                                    <p class="training-opt-list-pay f-16-700 pay">{{ type.price }}원</p>
                                 </div>
                             </label>
                         </li>
@@ -254,41 +160,25 @@
         <div class="bott-pay-btn">
             <div class="place-name f-14-700">위즈짐</div>
             <ul class="choice-machine-list">
-                <li>
+                <li v-for="(item, idx) in Object.entries(selected)" :key="idx" v-show="item[1].value && item[1].value.title !== '선택 안함'">
                     <div>
-                        <div class="f-14-400 choice-product">6개월 수강권</div>
+                        <div class="f-14-400 choice-product">{{ item[1].value.title }}</div>
                         <div class="choice-pay">
-                            <span class="f-12-400 discount">-120,000원</span>
-                            <p>234,000원</p>
+                            <span class="f-12-400 discount" v-show="item[1].value.discount">-{{ item[1].value.discount }}원</span>
+                            <p>{{ item[1].value.price }}원</p>
                         </div>
                     </div>
-                    <div class="close"></div>
-                </li>
-                <li>
-                    <div>
-                        <div class="f-14-400 choice-product">운동복 6개월</div>
-                        <div class="choice-pay">
-                            <span class="f-12-400 discount">-10,000원</span>
-                            <p>50,000원</p>
-                        </div>
-                    </div>
-                    <div class="close"></div>
-                </li>
-                <li>
-                    <div>
-                        <div class="f-14-400 choice-product">개인락커 6개월</div>
-                        <div class="choice-pay">
-                            <span class="f-12-400 discount">-10,000원</span>
-                            <p>50,000원</p>
-                        </div>
-                    </div>
-                    <div class="close"></div>
+                    <div class="close" @click="if (item[0] !== 'course') selected[item[0]].value = '';"></div>
                 </li>
             </ul>
             <div class="total-pay">
                 <div>
-                    <div class="f-12-400"><span class="lightgray">총 할인 금액</span><span class="lightgray">140,000원 할인</span></div>
-                    <div><span class="f-14-400">결제 금액</span><span class="f-16-700">334,000원</span></div>
+                    <div class="f-12-400">
+                        <span class="lightgray">총 할인 금액</span><span class="lightgray">{{ totalDiscount() }}원 할인</span>
+                    </div>
+                    <div>
+                        <span class="f-14-400">결제 금액</span><span class="f-16-700">{{ totalPrice() }}원</span>
+                    </div>
                 </div>
                 <button class="btn-44-purple f-14-700">결제하기</button>
             </div>
