@@ -179,7 +179,9 @@
         .f-16-700{@include display(flex, flex-end); column-gap:7px;
             span{margin:0 0 1px 0; color:#979797;}
         }
-        .arrow{@include arrow2();}
+        .arrow{@include arrow2();
+            &.active{transform: rotate(180deg) translate(5px,0);}
+        }
     }
     &-list{overflow:hidden; border-radius:8px;
         li{@include display(flex, center, space-between); position:relative; padding:13px 12px; @include font(14px, 400); background:#F1F1F1;
@@ -197,7 +199,9 @@
         p{@include display(flex, flex-end); column-gap:7px;
             span{color:#979797}
         }
-        .arrow{@include arrow2();}
+        .arrow{@include arrow2();
+            &.active{transform: rotate(180deg) translate(5px,0);}
+        }
     }
     &-list{
         &-1{@include display(flex); flex-flow:column; margin:0 0 8px 0; padding:0 0 8px 0; border-bottom:1px solid #F1F1F1;

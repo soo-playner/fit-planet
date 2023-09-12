@@ -1,10 +1,18 @@
 <script setup>
 //import faqTab from './components/FAQ_Tab';
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import useTabAnimation from "@/composables/useTabAnimation";
 
 const faqList = ["회원정보", "결제", "환불", "후기", "오류", "기타"];
 const { li, nav, tabContentWrap, clickLiFnc, touchStart, touchEnd } = useTabAnimation(faqList);
+const slideTab = {
+    회원정보: ref(true),
+    결제: ref(true),
+    환불: ref(true),
+    후기: ref(true),
+    오류: ref(true),
+    기타: ref(true),
+};
 
 onMounted(() => {
     clickLiFnc();
@@ -25,9 +33,9 @@ onMounted(() => {
                 <ul ref="tabContent" v-for="faqItem in faqList" :key="faqItem" :id="faqItem" class="con active" :data-menu="faqItem">
                     <li class="q-box">
                         <div class="f-14-400">{{ faqItem }}</div>
-                        <span class="arrow"></span>
+                        <span class="arrow" @click="slideTab[faqItem].value = !slideTab[faqItem].value" :class="{ active: slideTab[faqItem].value }"></span>
                     </li>
-                    <li class="a-box f-12-400">
+                    <li class="a-box f-12-400" v-show="slideTab[faqItem].value">
                         <p>sdfsdfsdfsfsff</p>
                         <p>sdfsdfsdfsfsff</p>
                         <p>sdfsdfsdfsfsff</p>

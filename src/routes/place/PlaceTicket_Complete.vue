@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from "vue";
+const slideOrderProduct = ref(false);
+const slideOrderInfo = ref(false);
 </script>
 
 <template>
@@ -6,7 +9,7 @@
         <div class="ticket_complete_container_inner mob-inner">
             <!-- 수강권 등록 완료 안내 -->
             <div class="ticket-complete-guide">
-                <div class="complete-img-box"><img src="@/assets/image/ticket-complete.png" alt="수강권 등록 완료"></div>
+                <div class="complete-img-box"><img src="@/assets/image/ticket-complete.png" alt="수강권 등록 완료" /></div>
                 <div class="f-20-700">수강권 등록 완료!</div>
                 <p class="f-14-400">
                     <span>운동 시작일이 설정되었어요</span>
@@ -19,15 +22,15 @@
             <div class="order-product">
                 <div class="order-product-tit">
                     <div class="f-16-700">주문 상품<span class="f-14-400">3개</span></div>
-                    <div class="arrow"></div>
+                    <div class="arrow" @click="slideOrderProduct = !slideOrderProduct" :class="{ active: slideOrderProduct }"></div>
                 </div>
-                <ul class="order-product-list">
+                <ul class="order-product-list" v-show="slideOrderProduct">
                     <li class="place-ref-info">
                         <div>
                             <p class="f-14-700 place-name">위즈짐</p>
                             <span class="f-12-400 place-addr">서울 강남구 삼성로86길 11 거봉INC 3층</span>
                         </div>
-                        <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="플레이스 찜하기"></div>
+                        <div class="heart"><img src="@/assets/image/quick-menu-icon-4-on.png" alt="플레이스 찜하기" /></div>
                     </li>
                     <li>
                         <div>6개월 수강권</div>
@@ -47,12 +50,18 @@
             <div class="order-info">
                 <div class="order-info-tit">
                     <p class="f-16-700">결제 정보<span class="f-14-400">334,000원 / 페이코</span></p>
-                    <div class="arrow"></div>
+                    <div class="arrow" @click="slideOrderInfo = !slideOrderInfo" :class="{ active: slideOrderInfo }"></div>
                 </div>
-                <div class="order-info-list">
+                <div class="order-info-list" v-show="slideOrderInfo">
                     <div class="order-info-list-1">
-                        <div class="f-14-700"><p>결제금액</p><p>334,000원</p></div>
-                        <div class="f-14-400"><p>결제 방법</p><p>페이코</p></div>
+                        <div class="f-14-700">
+                            <p>결제금액</p>
+                            <p>334,000원</p>
+                        </div>
+                        <div class="f-14-400">
+                            <p>결제 방법</p>
+                            <p>페이코</p>
+                        </div>
                     </div>
                     <ul class="order-info-list-2">
                         <li>

@@ -6,12 +6,12 @@ import ScheduleTrainerEdit from "../../components/modal/ScheduleTrainerEdit.vue"
 
 // Data and methods
 const ticketModal = ref(false);
-
+const scheduleOpen = ref(false);
+const slideOrderProduct = ref(false);
+const slideOrderInfo = ref(false);
 const openTicketModal = () => {
     ticketModal.value = !ticketModal.value;
 };
-
-const scheduleOpen = ref(false);
 </script>
 
 <template>
@@ -49,9 +49,9 @@ const scheduleOpen = ref(false);
             <div class="order-product">
                 <div class="order-product-tit">
                     <div class="f-16-700">주문 상품<span class="f-14-400">3개</span></div>
-                    <div class="arrow"></div>
+                    <div class="arrow" @click="slideOrderProduct = !slideOrderProduct" :class="{ active: slideOrderProduct }"></div>
                 </div>
-                <ul class="order-product-list">
+                <ul class="order-product-list" v-show="slideOrderProduct">
                     <li class="place-ref-info">
                         <div>
                             <p class="f-14-700 place-name">위즈짐</p>
@@ -77,9 +77,9 @@ const scheduleOpen = ref(false);
             <div class="order-info">
                 <div class="order-info-tit">
                     <p class="f-16-700">결제 정보<span class="f-14-400">334,000원 / 페이코</span></p>
-                    <div class="arrow"></div>
+                    <div class="arrow" @click="slideOrderInfo = !slideOrderInfo" :class="{ active: slideOrderInfo }"></div>
                 </div>
-                <div class="order-info-list">
+                <div class="order-info-list" v-show="slideOrderInfo">
                     <div class="order-info-list-1">
                         <div class="f-14-700">
                             <p>결제금액</p>

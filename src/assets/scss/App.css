@@ -7947,6 +7947,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.payComplete-inner .order-product-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
+}
 .payComplete-inner .order-product-list {
   overflow: hidden;
   border-radius: 8px;
@@ -8039,6 +8043,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .payComplete-inner .order-info-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.payComplete-inner .order-info-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
 }
 .payComplete-inner .order-info-list-1 {
   display: -webkit-box;
@@ -8180,6 +8188,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.ticket_complete_container_inner .order-product-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
+}
 .ticket_complete_container_inner .order-product-list {
   overflow: hidden;
   border-radius: 8px;
@@ -8272,6 +8284,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .ticket_complete_container_inner .order-info-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.ticket_complete_container_inner .order-info-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
 }
 .ticket_complete_container_inner .order-info-list-1 {
   display: -webkit-box;
@@ -10452,6 +10468,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.FAQ_container_inner .tabContentWrap ul li .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
+}
 .FAQ_container_inner .tabContentWrap ul li.q-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11094,6 +11114,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.OrderInquiryView_container_inner .order-product-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
+}
 .OrderInquiryView_container_inner .order-product-list {
   overflow: hidden;
   border-radius: 8px;
@@ -11189,6 +11213,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .OrderInquiryView_container_inner .order-info-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.OrderInquiryView_container_inner .order-info-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
 }
 .OrderInquiryView_container_inner .order-info-list-1 {
   display: -webkit-box;
@@ -11447,6 +11475,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.CancelInquiry_container_inner .order-product-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
+}
 .CancelInquiry_container_inner .order-product-list {
   overflow: hidden;
   border-radius: 8px;
@@ -11539,6 +11571,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .CancelInquiry_container_inner .order-info-tit .arrow::after {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.CancelInquiry_container_inner .order-info-tit .arrow.active {
+  -webkit-transform: rotate(180deg) translate(5px, 0);
+          transform: rotate(180deg) translate(5px, 0);
 }
 .CancelInquiry_container_inner .order-info-list-1 {
   display: -webkit-box;

@@ -1,18 +1,18 @@
 <script setup>
-    import { Swiper, SwiperSlide } from 'swiper/vue';
-    // import 'swiper/swiper-bundle.min.css';
-    import {ref} from 'vue'
+import { Swiper, SwiperSlide } from "swiper/vue";
+// import 'swiper/swiper-bundle.min.css';
+import { ref } from "vue";
 
-    const swiperOption = {
-        slidesPerView : 1.5,
-        spaceBetween : 8,
-    }
+const swiperOption = {
+    slidesPerView: 1.5,
+    spaceBetween: 8,
+};
 
-    const isCouponActive = ref(false)
+const isCouponActive = ref(false);
 
-    const useCoupon = function(){
-        isCouponActive.value = !isCouponActive.value;
-    }
+const useCoupon = function () {
+    isCouponActive.value = !isCouponActive.value;
+};
 </script>
 
 <template>
@@ -32,23 +32,23 @@
                 <div class="member-info-input">
                     <div class="name">
                         <span class="f-12-400">이름</span>
-                        <div class="form-group"><input type="text" id="mb_name" name="mb_name" placeholder="홍길동"></div>
+                        <div class="form-group"><input type="text" id="mb_name" name="mb_name" placeholder="홍길동" /></div>
                     </div>
                     <div class="phone">
                         <span class="f-12-400">휴대폰 번호</span>
-                        <div class="form-group"><input type="tel" id="mb_phone" name="mb_phone" placeholder="010-0000-0000"></div>
+                        <div class="form-group"><input type="tel" id="mb_phone" name="mb_phone" placeholder="010-0000-0000" /></div>
                     </div>
                 </div>
             </div>
             <!-- 쿠폰 -->
             <div class="coupon">
                 <div class="coupon-tit f-16-500">쿠폰</div>
-                <ul class="coupon-list" @click="useCoupon"  v-bind:class="{couponOpen : isCouponActive}">
+                <ul class="coupon-list" @click="useCoupon" v-bind:class="{ couponOpen: isCouponActive }">
                     <li class="f-14-400">사용가능 쿠폰 0장 / 전체 0장<span class="arrow"></span></li>
                     <ul>
                         <li>쿠폰1</li>
                         <li>쿠폰2</li>
-                        <li>쿠폰3</li>  
+                        <li>쿠폰3</li>
                     </ul>
                 </ul>
             </div>
@@ -64,10 +64,13 @@
                         <div class="my-card-edit f-14-400">편집</div>
                     </div>
                     <Swiper class="card-row" v-bind="CardSwiper">
-                        <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1"></SwiperSlide>
+                        <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1" /></SwiperSlide>
+                        <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1" /></SwiperSlide>
                         <SwiperSlide>
                             <router-link to="/">
-                                <div class="plus"><span></span></div>
+                                <div class="plus">
+                                    <span></span>
+                                </div>
                             </router-link>
                         </SwiperSlide>
                     </Swiper>
