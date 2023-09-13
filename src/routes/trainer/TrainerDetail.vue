@@ -4,7 +4,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/components/pagination";
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
-import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
+import placeDetail_Modal from "@/components/modal/place/PlaceDetail_Inquiry";
 
 const swiperOption1 = {
     slidesPerView: 1,
@@ -23,11 +23,11 @@ const swiperOption2 = {
 const inquiryOpen = ref(false);
 const inquiryOpenFnc = () => {
     inquiryOpen.value = !inquiryOpen.value;
-}; 
+};
 // 문의하기 모달창 닫기
 const confirmInquiry = () => {
     inquiryOpen.value = !inquiryOpen.value;
-}
+};
 </script>
 
 <template>
@@ -92,7 +92,7 @@ const confirmInquiry = () => {
                     <div class="place-info-txt">
                         <p class="f-18-700"><span class="trainer-name">김위즈</span>트레이너</p>
                         <p class="f-12-400 gray2">
-                            <span><img src="@/assets/image/place-map.png" alt="">위즈짐</span>
+                            <span><img src="@/assets/image/place-map.png" alt="" />위즈짐</span>
                             <span>서울 강남구 대치동</span>
                         </p>
                     </div>
@@ -290,6 +290,6 @@ const confirmInquiry = () => {
             <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 결제하기</router-link>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <placeDetail_Modal :class="{ active : inquiryOpen }" :InquiryClose="confirmInquiry"/>
+        <placeDetail_Modal :class="{ active: inquiryOpen }" :InquiryClose="confirmInquiry" />
     </div>
 </template>
