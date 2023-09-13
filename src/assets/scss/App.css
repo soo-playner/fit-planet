@@ -7705,9 +7705,6 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .PlacePay_container_inner .payment-method .my-card .top-row {
   margin: 0 0 17px 0;
 }
-.PlacePay_container_inner .payment-method .my-card .swiper-container {
-  padding: 0 0 0 75px;
-}
 .PlacePay_container_inner .payment-method .my-card-edit {
   height: 24px;
   line-height: 22px;
