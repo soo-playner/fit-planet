@@ -5610,6 +5610,9 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   font-weight: 500;
   color: #000;
 }
+.detail_container_inner .place-map {
+  position: relative;
+}
 .detail_container_inner .place-map .swiper-slide {
   position: relative;
 }
@@ -5636,6 +5639,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
     height: 100vw;
   }
 }
+.detail_container_inner .place-map .swiper-slide img {
+  display: block;
+  width: 100%;
+}
 .detail_container_inner .place-map .swiper-slide .place-map-move {
   width: 100%;
   height: 100%;
@@ -5651,6 +5658,30 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   position: absolute;
   top: 0;
   left: 0;
+}
+.detail_container_inner .place-map .slide-position {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 36px;
+  height: 22px;
+  font-size: 10px;
+  color: #fff;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+}
+.detail_container_inner .place-map .slide-position span {
+  font-weight: 300;
 }
 .detail_container_inner .place-info {
   display: -webkit-box;
@@ -7650,6 +7681,27 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   border: 1px solid #D9D9D9;
   border-radius: 50%;
 }
+.PlacePay_container_inner .payment-method .top-row .left-column input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+}
+.PlacePay_container_inner .payment-method .top-row .left-column input:checked + div {
+  position: relative;
+  background-color: #6E2FF4;
+}
+.PlacePay_container_inner .payment-method .top-row .left-column input:checked + div span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #fff;
+}
 .PlacePay_container_inner .payment-method .my-card .top-row {
   margin: 0 0 17px 0;
 }
@@ -7664,6 +7716,27 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   border-radius: 12px;
   color: #979797;
   cursor: pointer;
+}
+.PlacePay_container_inner .payment-method .my-card .slide-position {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  width: 36px;
+  height: 22px;
+  font-size: 12px;
+}
+.PlacePay_container_inner .payment-method .my-card .slide-position strong {
+  font-weight: normal;
+}
+.PlacePay_container_inner .payment-method .my-card .slide-position span {
+  color: #A6ABB5;
 }
 .PlacePay_container_inner .amount-pay {
   padding-top: 16px;

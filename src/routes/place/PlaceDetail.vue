@@ -1,8 +1,8 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { ref } from 'vue';
-import { useRoute } from 'vue-router'
-import placeDetail_Modal from '@/components/modal/place/PlaceDetail_Inquiry';
+import { onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import placeDetail_Modal from "@/components/modal/place/PlaceDetail_Inquiry";
 import "swiper/swiper-bundle.min.css";
 import "swiper/components/pagination";
 
@@ -10,37 +10,37 @@ const route = useRoute();
 // TODO: 쿼리로 넘어온 id로 상세 데이터 읽어오기
 const placeId = route.params.id;
 
-const swiperOption1 = {
+const swiperOption1 = ref({
     slidesPerView: 1,
     pagination: true,
     parallax: true,
     speed: 700,
     loop: true,
-};
+});
 
 const swiperOption2 = {
     slidesPerView: 1.5,
     spaceBetween: 8,
-
-    breakpoints : {
-        360 : {
-            slidesPerView : 1.3
-        }
-    }
+    breakpoints: {
+        360: {
+            slidesPerView: 1.3,
+        },
+    },
 };
 
 const swiperOption3 = {
     slidesPerView: 1.5,
     spaceBetween: 8,
+    breakpoints: {
+        360: {
+            slidesPerView: 2.1,
+        },
+    },
+};
 
-    breakpoints : {
-        360 : {
-            slidesPerView : 2.1
-        }
-    }
-}
-
-//let inquiryActive = false;
+const currentSlideIndex = {
+    1: ref(0),
+};
 
 const ticket = [
     { name: "1회 체험권", cost: "59,000원", totalCost: "59,000원" },
@@ -48,10 +48,7 @@ const ticket = [
     { name: "3개월 수강권", cost: "49,000원", totalCost: "147,000원", discount: "30,000원 할인" },
 ];
 
-const freeList = [
-    { title : '수건' }, { title : '샤워실' }, { title : 'Wi-fi' }, { title : '체형분석' }, { title : '체성분검사' }, 
-    { title : '주차장' }, { title : '사우나' }, { title : '찜질방' }, 
-]
+const freeList = [{ title: "수건" }, { title: "샤워실" }, { title: "Wi-fi" }, { title: "체형분석" }, { title: "체성분검사" }, { title: "주차장" }, { title: "사우나" }, { title: "찜질방" }];
 
 const machine = [{ title: "프리웨이트" }, { title: "하체" }, { title: "가슴" }];
 
@@ -61,24 +58,24 @@ const machineTag = [
     ["인클라인 벤치", "디클라인 벤치", "펙덱 머신", "체스트 프레스 머신"],
 ];
 
-// const machineTag1 = [{ id: "파워랙" }, { id: "스미스머신" }, { id: "치닝디핑" }, { id: "케이블 머신" }];
-// const machineTag2 = [{ id: "브이스쿼트" }, { id: "힙 어브덕션" }, { id: "핵스쿼트 머신" }, { id: "레그프레스" }, { id: "파워 레그프레스 머신" }, { id: "레그 익스텐션 머신" }, { id: "레그 컬 머신" }];
-// const machineTag3 = [{ id: "인클라인 벤치" }, { id: "디클라인 벤치" }, { id: "펙덱 머신" }, { id: "체스트 프레스 머신" }];
-
 // 문의하기 모달창 오픈
 const inquiryOpen = ref(false);
 const inquiryOpenFnc = () => {
     inquiryOpen.value = !inquiryOpen.value;
-}; 
+};
 // 문의하기 모달창 닫기
 const confirmInquiry = () => {
     inquiryOpen.value = !inquiryOpen.value;
-}
+};
 
 // 하트 이미지 변경
 const toggle = (e) => {
-    e.target.classList.toggle('wish');
-}
+    e.target.classList.toggle("wish");
+};
+
+const handleSlideChange = (swiper, target) => {
+    currentSlideIndex[target].value = swiper.realIndex;
+};
 </script>
 
 <template>
@@ -86,56 +83,29 @@ const toggle = (e) => {
         <div class="detail_container_inner mob-inner">
             <!-- 지도 보기 -->
             <div class="place-map">
-                <Swiper v-bind="swiperOption1">
+                <Swiper
+                    v-bind="swiperOption1"
+                    @slideChange="
+                        (swiper) => {
+                            handleSlideChange(swiper, 1);
+                        }
+                    "
+                >
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/gym_sample.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/gym_sample.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/gym_sample.png" alt="" />
                     </SwiperSlide>
                 </Swiper>
+                <div class="slide-position">
+                    <strong class="current">{{ currentSlideIndex[1].value + 1 }}</strong>
+                    /
+                    <span class="total">3</span>
+                </div>
             </div>
             <!-- 플레이스 정보 -->
             <div class="place-info">
@@ -215,10 +185,10 @@ const toggle = (e) => {
                 <div class="place-explain-content">
                     <span>최고, 최신의 운동기구를 갖춘</span>
                     <span>강남 최고의 운동시설, 위즈짐입니다.</span>
-                    <br>
+                    <br />
                     <span>최고의 선생님들의 1:1 개인 맞춤 지도, 인바디를 통해</span>
                     <span>맞춤 운동 및 식단 처방을 제공합니다.</span>
-                    <br>
+                    <br />
                     <span>1111111111</span>
                     <span>1111111111</span>
                     <span>1111111111</span>
@@ -307,10 +277,10 @@ const toggle = (e) => {
                                 <span class="rank">센터장</span>
                                 <div>
                                     <p><span>김위즈</span>트레이너</p>
-                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기" /></span>
                                 </div>
                             </div>
-                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지"></div>
+                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지" /></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
@@ -320,10 +290,10 @@ const toggle = (e) => {
                                 <span class="rank fake">센터장</span>
                                 <div>
                                     <p><span>김위즈</span>트레이너</p>
-                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기" /></span>
                                 </div>
                             </div>
-                            <div class="img-box"><img src="@/assets/image/trainer2.png" alt="트레이너 이미지"></div>
+                            <div class="img-box"><img src="@/assets/image/trainer2.png" alt="트레이너 이미지" /></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
@@ -333,10 +303,10 @@ const toggle = (e) => {
                                 <span class="rank fake">센터장</span>
                                 <div>
                                     <p><span>김위즈</span>트레이너</p>
-                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기"></span>
+                                    <span class="arrow"><img src="@/assets/image/arrow.png" alt="바로가기" /></span>
                                 </div>
                             </div>
-                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지"></div>
+                            <div class="img-box"><img src="@/assets/image/trainer1.png" alt="트레이너 이미지" /></div>
                         </div>
                         <div class="trainer-comment">“김위즈 트레이너님을 만나 10kg 감량에 성공했어요! 앞으로도 김위즈 트레이너님과 쭉 다이어트 성공길만 걷고싶어요"</div>
                     </SwiperSlide>
@@ -361,6 +331,6 @@ const toggle = (e) => {
             <button @click="$router.push('/place/machine-choice')">운동 선택하기</button>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
-        <placeDetail_Modal :class="{ active : inquiryOpen }" :InquiryClose="confirmInquiry"/>
+        <placeDetail_Modal :class="{ active: inquiryOpen }" :InquiryClose="confirmInquiry" />
     </div>
 </template>

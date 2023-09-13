@@ -10,8 +10,16 @@ const swiperOption = {
 
 const isCouponActive = ref(false);
 
+const currentSlideIndex = {
+    1: ref(0),
+};
+
 const useCoupon = function () {
     isCouponActive.value = !isCouponActive.value;
+};
+
+const handleSlideChange = (swiper, target) => {
+    currentSlideIndex[target].value = swiper.realIndex;
 };
 </script>
 
@@ -57,38 +65,48 @@ const useCoupon = function () {
                 <div class="payment-method-tit f-16-500">결제수단</div>
                 <div class="my-card method">
                     <div class="top-row">
-                        <div class="left-column">
+                        <label for="myCard" class="left-column">
+                            <input type="radio" name="method" id="myCard" checked />
                             <div class="check-current"><span></span></div>
                             <p class="f-14-400">내 카드</p>
-                        </div>
+                        </label>
                         <div class="my-card-edit f-14-400">편집</div>
                     </div>
-                    <Swiper class="card-row" v-bind="CardSwiper">
+                    <Swiper
+                        class="card-row"
+                        v-bind="CardSwiper"
+                        @slideChange="
+                            (swiper) => {
+                                handleSlideChange(swiper, 1);
+                            }
+                        "
+                    >
                         <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1" /></SwiperSlide>
                         <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1" /></SwiperSlide>
-                        <SwiperSlide>
-                            <router-link to="/">
-                                <div class="plus">
-                                    <span></span>
-                                </div>
-                            </router-link>
-                        </SwiperSlide>
+                        <SwiperSlide><img src="@/assets/image/card1.png" alt="등록카드1" /></SwiperSlide>
                     </Swiper>
+                    <div class="slide-position">
+                        <strong>{{ currentSlideIndex[1].value + 1 }}</strong>
+                        /
+                        <span>3</span>
+                    </div>
                 </div>
                 <div class="credit-card method">
                     <div class="top-row">
-                        <div class="left-column">
+                        <label for="creditCard" class="left-column">
+                            <input type="radio" name="method" id="creditCard" />
                             <div class="check-current"><span></span></div>
                             <p class="f-14-400">신용카드</p>
-                        </div>
+                        </label>
                     </div>
                 </div>
                 <div class="simple-pay method">
                     <div class="top-row">
-                        <div class="left-column">
+                        <label for="simplePay" class="left-column">
+                            <input type="radio" name="method" id="simplePay" />
                             <div class="check-current"><span></span></div>
                             <p class="f-14-400">간편결제</p>
-                        </div>
+                        </label>
                     </div>
                 </div>
             </div>
