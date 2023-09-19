@@ -1,4 +1,6 @@
 .main-layout{padding:56px 0 82px 0;
+    &.pd-b0{padding-bottom: 0;}
+    &.pd-t0{padding-top: 0;}
     .first-section{position:relative; padding-top:61px; background:$b; box-shadow:0 7px 13px rgba(0,0,0, .05);}
     &-inner{padding:24px 20px;}
 }

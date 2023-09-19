@@ -420,22 +420,22 @@
     .bott-pay-btn{width:100%; @include position(fixed, null, null, 0, 0, 99); padding:16px 20px 32px; background:$f; border:1px solid #F1F1F1; border-radius:16px 16px 0 0; box-shadow:0 -1px 12px rgba(0, 0, 0, 0.05);
         .place-name{margin:0 0 12px 0; text-align:center}
         .choice-machine-list{margin:0 0 12px 0; padding:0 0 12px 0; border-bottom:1px solid #D9D9D9;
-            li{@include conSize(null, 36px, 1); @include display(flex, center); margin:0 0 4px 0; padding:0 16px; border:1px solid $light-blue2; border-radius:8px;
+            li{@include conSize(null, 36px, 1); @include display(flex, center,space-between); margin:0 0 4px 0; padding:0 16px; border:1px solid $light-blue2; border-radius:8px;
                 div{@include display(flex, center);
-                    .discount{color:$gray2}
-
-                    .choice-product{/*width:6rem;*/ overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-                    .choice-pay{column-gap:8px;
+                    *{white-space:nowrap;}
+                    .discount{color:$gray2;}
+                    .choice-product{/*width:6rem;*/ flex-grow: 1; display: inline-block; overflow:hidden; text-overflow:ellipsis; }
+                    .choice-pay{column-gap:8px; 
                         p{@include font(14px, 400)}
                     }
                 }
-                .close{@include conSize(15px, 15px); @include display(flex, center, center); position:relative; margin:0 0 0 9px; cursor:pointer;
+                .close{@include conSize(15px, 15px); @include display(flex, center, center); position:relative; margin:0 0 0 9px; flex-shrink: 0; cursor:pointer; 
                     &::before, &::after{content:''; @include conSize(100%, 1px); position:absolute; background:$b;}
                     &::before{transform:rotate(45deg)}
                     &::after{transform:rotate(-45deg)}
                 }
-                & > div{
-                    &:first-child{width:100%; justify-content:space-between;}
+                & > div{ 
+                    &:first-child{ justify-content:space-between; width: calc(100%  - 24px);}
                 }
                 &:last-child{margin:0;}
             }

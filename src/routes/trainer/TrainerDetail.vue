@@ -19,6 +19,10 @@ const swiperOption2 = {
     spaceBetween: 8,
 };
 
+const currentSlideIndex = {
+    1: ref(0),
+};
+
 // 문의하기 모달창 오픈
 const inquiryOpen = ref(false);
 const inquiryOpenFnc = () => {
@@ -28,6 +32,10 @@ const inquiryOpenFnc = () => {
 const confirmInquiry = () => {
     inquiryOpen.value = !inquiryOpen.value;
 };
+
+const handleSlideChange = (swiper, target) => {
+    currentSlideIndex[target].value = swiper.realIndex;
+};
 </script>
 
 <template>
@@ -35,56 +43,29 @@ const confirmInquiry = () => {
         <div class="detail_container_inner mob-inner">
             <!-- 지도 보기 -->
             <div class="place-map">
-                <Swiper v-bind="swiperOption1">
+                <Swiper
+                    v-bind="swiperOption1"
+                    @slideChange="
+                        (swiper) => {
+                            handleSlideChange(swiper, 1);
+                        }
+                    "
+                >
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/trainer_sample.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/trainer_sample.png" alt="" />
                     </SwiperSlide>
                     <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.085678942443!2d127.05573197635974!3d37.50589732760229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca414371b94b3%3A0xbfc791d5b09e4135!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsgrzshLHroZw4Nuq4uCAxMQ!5e0!3m2!1sko!2skr!4v1690959074813!5m2!1sko!2skr"
-                            width="600"
-                            height="450"
-                            style="border: 0"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                        ></iframe>
-                        <div class="place-map-move"><router-link to="/" class="f-14-400">지도 보기</router-link></div>
+                        <img src="@/assets/image/trainer_sample.png" alt="" />
                     </SwiperSlide>
                 </Swiper>
+                <div class="slide-position">
+                    <strong class="current">{{ currentSlideIndex[1].value + 1 }}</strong>
+                    /
+                    <span class="total">3</span>
+                </div>
             </div>
             <!-- 플레이스 정보 -->
             <div class="place-info">
@@ -104,7 +85,7 @@ const confirmInquiry = () => {
                     </div>
                 </div>
                 <div class="right-row">
-                    <div class="heart"><img src="@/assets/image/heart-off.png" alt="찜하기" /></div>
+                    <div class="heart"></div>
                     <div class="share"><img src="@/assets/image/share.png" alt="공유하기" /></div>
                 </div>
             </div>
@@ -287,7 +268,7 @@ const confirmInquiry = () => {
         <!-- 문의하기/운동 선택하기 -->
         <div class="place-lnb">
             <button class="work-inquiry f-16-700" @click="inquiryOpenFnc">문의하기</button>
-            <router-link to="/place/machine-choice" class="work-choice f-16-700">운동 결제하기</router-link>
+            <button class="work-choice f-16-700">운동 결제하기</button>
         </div>
         <!-- 문의하기 클릭 시 모달 -->
         <placeDetail_Modal :class="{ active: inquiryOpen }" :InquiryClose="confirmInquiry" />

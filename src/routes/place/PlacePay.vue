@@ -7,9 +7,7 @@ const swiperOption = {
     slidesPerView: 1.5,
     spaceBetween: 8,
 };
-
 const isCouponActive = ref(false);
-
 const currentSlideIndex = {
     1: ref(0),
 };
@@ -24,7 +22,7 @@ const handleSlideChange = (swiper, target) => {
 </script>
 
 <template>
-    <div class="PlacePay_container main-layout">
+    <div class="PlacePay_container main-layout pd-b0">
         <div class="PlacePay_container_inner mob-inner">
             <!-- 주문상품 -->
             <div class="choice-product">

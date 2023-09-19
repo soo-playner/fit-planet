@@ -1882,6 +1882,12 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
 .main-layout {
   padding: 56px 0 82px 0;
 }
+.main-layout.pd-b0 {
+  padding-bottom: 0;
+}
+.main-layout.pd-t0 {
+  padding-top: 0;
+}
 .main-layout .first-section {
   position: relative;
   padding-top: 61px;
@@ -7364,6 +7370,9 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 0 4px 0;
   padding: 0 16px;
   border: 1px solid #DBE2EF;
@@ -7377,13 +7386,19 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
       -ms-flex-align: center;
           align-items: center;
 }
+.place-choice-layout .bott-pay-btn .choice-machine-list li div * {
+  white-space: nowrap;
+}
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .discount {
   color: #A6ABB5;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-product { /*width:6rem;*/
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li div .choice-pay {
   -webkit-column-gap: 8px;
@@ -7408,6 +7423,8 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           justify-content: center;
   position: relative;
   margin: 0 0 0 9px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   cursor: pointer;
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li .close::before, .place-choice-layout .bott-pay-btn .choice-machine-list li .close::after {
@@ -7426,10 +7443,10 @@ ul 안에 ul - 메인(첫방문) 트레이너 토글 참고
           transform: rotate(-45deg);
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li > div:first-child {
-  width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: calc(100% - 24px);
 }
 .place-choice-layout .bott-pay-btn .choice-machine-list li:last-child {
   margin: 0;
