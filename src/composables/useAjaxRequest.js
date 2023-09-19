@@ -2,7 +2,7 @@ import { ref } from "vue";
 import axios from "axios";
 
 export default function useAjaxRequest() {
-    const resData = ref();
+    const resData = ref(null);
     const postData = async (apiName, body) => {
         let apiFullName = "" + apiName;
         try {

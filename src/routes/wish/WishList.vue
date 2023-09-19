@@ -3,16 +3,14 @@ import { onMounted, ref } from "vue";
 import PlaceWishList from "@/components/wish/PlaceWishList";
 import TrainerWishList from "@/components/wish/TrainerWishList";
 import useTabAnimation from "@/composables/useTabAnimation";
+import useAjaxRequest from "@/composables/useAjaxRequest";
 import SortingBox from "@/components/layout/SortingBox.vue";
 
 const { li, nav, tabContentWrap, clickLiFnc } = useTabAnimation();
+const { postData, resData } = useAjaxRequest();
 const wishList = ["플레이스", "트레이너"];
 const selectTab = ref("플레이스");
 const sortingOpen = ref(false);
-
-onMounted(() => {
-    clickLiFnc();
-});
 
 const placeWishArray = [
     { center: "위즈짐1", scope: "4.3", totalScope: "12", location: "서울 강남구 대치동" },
@@ -20,13 +18,20 @@ const placeWishArray = [
     { center: "위즈짐3", scope: "4.3", totalScope: "12", location: "서울 강남구 대치동" },
     { center: "위즈짐4", scope: "4.3", totalScope: "12", location: "서울 강남구 대치동" },
 ];
-
 const trainerWishArray = [
     { name: "김위즈1", scope: "4.3", totalScope: "12" },
     { name: "김위즈2", scope: "4.3", totalScope: "12" },
     { name: "김위즈3", scope: "4.3", totalScope: "12" },
     { name: "김위즈4", scope: "4.3", totalScope: "12" },
 ];
+
+const loadData = async (sortingType) => {
+    const res = await postData("api");
+};
+
+onMounted(() => {
+    clickLiFnc();
+});
 </script>
 
 <template>
@@ -79,7 +84,7 @@ const trainerWishArray = [
         :id="1"
         :typeList="['최신순', '별점 높은 순', '거리순']"
         :currentType="'최신순'"
-        @sorting="console.log('api 요청')"
+        @sorting="console.log($event)"
     />
     <SortingBox
         v-show="sortingOpen && selectTab === '트레이너'"
@@ -91,6 +96,6 @@ const trainerWishArray = [
         :id="2"
         :typeList="['최신순', '별점 높은 순']"
         :currentType="'최신순'"
-        @sorting="console.log('api 요청')"
+        @sorting="console.log($event)"
     />
 </template>

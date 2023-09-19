@@ -9,7 +9,6 @@ const { closeModal, typeList, currentType, id } = defineProps({
 const emit = defineEmits(["sorting", "close"]);
 const selected = ref("");
 const selectType = (e) => {
-    console.log(e.target);
     selected.value = e.target.value;
     emit("sorting", e.target.value);
     closeModal();
@@ -25,8 +24,8 @@ const selectType = (e) => {
                 <button class="close" @click="closeModal"></button>
             </div>
             <ul class="sorting-list comm_modal_layout_tit_list">
-                <li v-for="(type, idx) in typeList" :key="idx" @click="selectType">
-                    <input type="radio" :id="'d_sorting_' + id + idx" :name="'d_sorting_' + id" :value="type" :checked="type === currentType" />
+                <li v-for="(type, idx) in typeList" :key="idx">
+                    <input type="radio" :id="'d_sorting_' + id + idx" :name="'d_sorting_' + id" :value="type" :checked="type === currentType" @click="selectType" />
                     <label :for="'d_sorting_' + id + idx">
                         {{ type }}
                         <span class="outSide"></span>
