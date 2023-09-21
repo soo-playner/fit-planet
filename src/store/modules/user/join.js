@@ -2,15 +2,15 @@ import Axios from "@/store/customAxios";
 
 const state = () => ({
     joinData: {
-        id: "",
-        pw: "",
-        name: "",
-        email: "",
-        phone: "",
-        birthDate: "",
-        gender: "",
-        nickname: "",
-        receiveAD: false,
+        mb_email: "",
+        password: "",
+        password_repeat: "",
+        mb_name: "",
+        mb_phone: "",
+        mb_birth: "",
+        mb_gender: "",
+        mb_nickname: "",
+        mb_privacy_agree: false,
     },
 });
 
@@ -24,15 +24,15 @@ const actions = {};
 const mutations = {
     resetJoinData() {
         state.joinData = {
-            id: "",
-            pw: "",
-            name: "",
-            email: "",
-            phone: "",
-            birthDate: "",
-            gender: "",
-            nickname: "",
-            receiveAD: false,
+            mb_email: "",
+            password: "",
+            password_repeat: "",
+            mb_name: "",
+            mb_phone: "",
+            mb_birth: "",
+            mb_gender: "",
+            mb_nickname: "",
+            mb_privacy_agree: false,
         };
     },
     updateJoinData(state, payload) {

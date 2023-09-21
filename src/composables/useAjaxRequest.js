@@ -1,12 +1,13 @@
 import { ref } from "vue";
 import axios from "axios";
+import { serverUrl } from "@/variables/serverUrl";
 
 export default function useAjaxRequest() {
     const resData = ref(null);
-    const postData = async (apiName, body) => {
-        let apiFullName = "" + apiName;
+    const postData = async (apiName, body, tokenSkip) => {
+        let apiFullName = serverUrl + apiName;
         try {
-            const res = await axios.post(apiFullName, body, { header: { loginsession: this.$cookies.get("loginsession") } });
+            const res = tokenSkip ? await axios.post(apiFullName, body) : await axios.post(apiFullName, body, { header: { loginsession: this.$cookies.get("loginsession") } });
             const data = res.data;
             this.$cookies.set("accessToken", data.token, 3);
         } catch (err) {

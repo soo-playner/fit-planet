@@ -3,11 +3,12 @@ import { ref } from "vue";
 import axios from "axios";
 import { RouterLink } from "vue-router";
 
-const mb_id = ref("");
-const mb_password = ref("");
+const mb_email = ref("");
+const password = ref("");
 
 const login = async () => {
-    const res = await axios.post("api", { mb_id, mb_password });
+    console.log({ mb_email, password });
+    const res = await axios.post("", { mb_email, password });
     if (res.data.result) return;
 };
 </script>
@@ -22,10 +23,10 @@ const login = async () => {
             <div class="login-form">
                 <div class="login-form-input1">
                     <div class="form-group">
-                        <input type="text" placeholder="아이디(이메일)" name="mb_id" v-model="mb_id" />
+                        <input type="text" placeholder="아이디(이메일)" name="mb_email" v-model="mb_email" />
                     </div>
                     <div class="form-group password">
-                        <input type="password" placeholder="비밀번호" name="mb_password" v-model="mb_password" />
+                        <input type="password" placeholder="비밀번호" name="password" v-model="password" />
                         <div class="etc">
                             <span class="pw-exposure"><img src="@/assets/image/eye.png" alt="비밀번호 노출 여부" /></span>
                         </div>
@@ -33,10 +34,10 @@ const login = async () => {
                     <RouterLink to="" class="login-btn f-16-500" @click="login">이메일 로그인</RouterLink>
                 </div>
                 <div class="login-form-input2 social-login">
-                    <button to="/" title="카카오 로그인"><img src="@/assets/image/social-login-kakao.png" alt="카카오 로그인"></button>
-                    <button to="/" title="네이버 로그인"><img src="@/assets/image/social-login-naver.png" alt="네이버 로그인"></button>
-                    <button to="/" title="구글 로그인"><img src="@/assets/image/social-login-google.png" alt="구글 로그인"></button>
-                    <button to="/" title="애플 로그인"><img src="@/assets/image/social-login-apple.png" alt="애플 로그인"></button>
+                    <button to="/" title="카카오 로그인"><img src="@/assets/image/social-login-kakao.png" alt="카카오 로그인" /></button>
+                    <button to="/" title="네이버 로그인"><img src="@/assets/image/social-login-naver.png" alt="네이버 로그인" /></button>
+                    <button to="/" title="구글 로그인"><img src="@/assets/image/social-login-google.png" alt="구글 로그인" /></button>
+                    <button to="/" title="애플 로그인"><img src="@/assets/image/social-login-apple.png" alt="애플 로그인" /></button>
                 </div>
                 <div class="login-form-input3">
                     <ul>

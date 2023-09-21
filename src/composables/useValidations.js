@@ -1,25 +1,27 @@
 import axios from "axios";
 import { ref, watch } from "vue";
+import useAjaxRequest from "./useAjaxRequest";
 
 export default function useValidations(option) {
+    const { postData } = useAjaxRequest();
     const form = {
-        mb_id: ref(""),
+        mb_email: ref(""),
         mb_password: ref(""),
         mb_password_cfm: ref(""),
         mb_nickname: ref(""),
         mb_phone: ref(""),
     };
     const isFormValid = {
-        mb_id: ref(false),
+        mb_email: ref(false),
         mb_password: ref(false),
         mb_password_cfm: ref(false),
         mb_nickname: ref(false),
         mb_nickname_dup: ref(false),
         mb_phone: ref(false),
     };
-    console.log(form.mb_id.value);
+    console.log(form.mb_email.value);
     const errorText = {
-        mb_id: "유효하지 않은 아이디입니다.",
+        mb_email: "유효하지 않은 아이디입니다.",
         mb_nickname: "유효하지 않은 닉네임 입니다.",
         mb_nickname_dup: "닉네임 중복체크를 해주세요.",
         mb_phone: "유효하지 않은 휴대폰번호 형식입니다.",
@@ -29,15 +31,15 @@ export default function useValidations(option) {
     const isPwdVisible = ref(false);
     const isPwdConfirmedVisible = ref(false);
     const exp = {
-        mb_id: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+        mb_email: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
         mb_nickname: /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/,
         // 2자 이상 10자 이하, 영어 또는 숫자 또는 한글로 구성
         mb_phone: /^(01[016789]{1})[0-9]{3,4}[0-9]{4}$/,
         mb_password: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/,
         mb_password_cfm: /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/,
     };
-    watch(form.mb_id, (newValue) => {
-        isFormValid.mb_id.value = exp.mb_id.test(newValue);
+    watch(form.mb_email, (newValue) => {
+        isFormValid.mb_email.value = exp.mb_email.test(newValue);
     });
     watch(form.mb_nickname, (newValue) => {
         isFormValid.mb_nickname.value = exp.mb_nickname.test(newValue);
@@ -71,9 +73,9 @@ export default function useValidations(option) {
         isPwdConfirmedVisible.value = !isPwdConfirmedVisible.value;
     };
     const dupCheckNickname = async () => {
-        // const res = axios.post("api", { mb_nickname: form.mb_nickname.value });
-        // if (res.data.result) isFormValid.mb_id_dup.value = true;
-        if (true) isFormValid.mb_nickname_dup.value = true;
+        const res = await postData("user/dup_check", { type: "nickname", value: form.mb_nickname.value });
+        // if (res.data.result) isFormValid.mb_email_dup.value = true;
+        if (true) isFormValid.mb_nickname.value = true;
     };
 
     return { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, nextCondition, showPwd, showPwdConfirmed, dupCheckNickname };

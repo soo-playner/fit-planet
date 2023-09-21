@@ -36,7 +36,7 @@ function checkSingleTerm(checkedTerm) {
 }
 
 const submitData = () => {
-    store.commit("updateJoinData", { receiveAD: terms[3].checked.value });
+    store.commit("updateJoinData", { mb_privacy_agree: terms[3].checked.value });
     router.push("/join/step2");
 };
 

@@ -10,7 +10,7 @@ const store = useStore();
 const router = useRouter();
 
 const submitData = async () => {
-    store.commit("updateJoinData", { nickname: form.mb_nickname.value });
+    store.commit("updateJoinData", { mb_nickname: form.mb_nickname.value });
     router.push("/join/complete");
 };
 

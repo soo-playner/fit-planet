@@ -1,14 +1,18 @@
 <script setup>
 import useValidations from "@/composables/useValidations";
+import useAjaxRequest from "@/composables/useAjaxRequest";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
-const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_id", "mb_password", "mb_password_cfm"]);
+const { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, showPwd, showPwdConfirmed, nextCondition } = useValidations(["mb_email", "mb_password", "mb_password_cfm"]);
+const { postData } = useAjaxRequest();
 const store = useStore();
 const router = useRouter();
 
-const submitData = () => {
-    store.commit("updateJoinData", { id: form.mb_id.value, pw: form.mb_password.value });
+const submitData = async () => {
+    // const res = await postData("user/dup_check", { type: "email", value: form.mb_email.valuem }, true);
+    // if (!res.data.result) alert("이미 가입된 이메일 입니다.");
+    store.commit("updateJoinData", { mb_email: form.mb_email.value, password: form.mb_password.value, password_repeat: form.mb_password_cfm });
     router.push("/join/step3");
 };
 </script>
@@ -18,14 +22,14 @@ const submitData = () => {
     <div class="member_container step2">
         <div class="member_container_inner mob-inner">
             <div class="form-group">
-                <input v-model="form.mb_id.value" type="email" name="mb_id" id="mb_id" maxlength="20" placeholder="아이디(이메일)" required />
+                <input v-model="form.mb_email.value" type="email" name="mb_email" id="mb_email" maxlength="20" placeholder="아이디(이메일)" required />
                 <div class="etc">
-                    <span class="check-confirm" :class="{ active: isFormValid.mb_id.value }">
+                    <span class="check-confirm" :class="{ active: isFormValid.mb_email.value }">
                         <img src="@/assets/image/check.png" alt="확인 여부" />
                     </span>
                 </div>
             </div>
-            <p class="vail f-12-400" v-show="form.mb_id.value && !isFormValid.mb_id.value">{{ errorText.mb_id }}</p>
+            <p class="vail f-12-400" v-show="form.mb_email.value && !isFormValid.mb_email.value">{{ errorText.mb_email }}</p>
             <div class="form-group">
                 <input v-model="form.mb_password.value" :type="isPwdVisible ? 'text' : 'password'" name="mb_password" id="mb_password" placeholder="비밀번호" required />
                 <div class="etc">

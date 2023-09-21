@@ -1,11 +1,11 @@
 <script setup>
-import axios from "axios";
+import useAjaxRequest from "@/composables/useAjaxRequest";
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-
 const joinResult = ref("requesting");
+const { postData } = useAjaxRequest();
 
 // Variables
 let canvas, confetti;
@@ -22,7 +22,6 @@ function createRectangle() {
     const delay = Math.random() * 3000;
     const rotation = Math.random() * 360;
     const color = bgColor[Math.floor(Math.random() * bgColor.length)];
-
     rectangles.value.push({ x, y, width, height, color, speed, delay, rotation });
 }
 
@@ -72,9 +71,11 @@ function windowOnResize() {
 }
 
 onMounted(async () => {
-    // const res = await axios.post("api", { ...store.state.join.joinData });
+    console.log({ ...store.state.join.joinData });
+    const res = await postData("user/create", { ...store.state.join.joinData });
     // if (!res.data.result) return (joinResult.value = "fail");
     joinResult.value = "success";
+    store.commit("resetJoinData");
 
     canvas = document.querySelector(".complete-canvas");
     if (canvas == null || canvas.getContext == null) return;
@@ -98,10 +99,10 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="member_container complete">
-        <canvas class="complete-canvas"></canvas>
+        <canvas class="complete-canvas" v-show="joinResult === 'success'"></canvas>
         <div class="member_container_inner mob-inner">
             <div class="txt-box" v-show="joinResult === 'success'">
-                <img src="@/assets/image/confetti.png" alt="가입 완료">
+                <img src="@/assets/image/confetti.png" alt="가입 완료" />
                 <div class="f-24-700">
                     위즈위즈님<br />
                     환영합니다!
