@@ -10,8 +10,7 @@ const store = useStore();
 const router = useRouter();
 
 const submitData = async () => {
-    // const res = await postData("user/dup_check", { type: "email", value: form.mb_email.valuem }, true);
-    // if (!res.data.result) alert("이미 가입된 이메일 입니다.");
+    await postData("user/dup_check", { type: "email", value: form.mb_email.value }, true);
     store.commit("updateJoinData", { mb_email: form.mb_email.value, password: form.mb_password.value, password_repeat: form.mb_password_cfm });
     router.push("/join/step3");
 };

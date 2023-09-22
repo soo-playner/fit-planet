@@ -74,8 +74,7 @@ export default function useValidations(option) {
     };
     const dupCheckNickname = async () => {
         const res = await postData("user/dup_check", { type: "nickname", value: form.mb_nickname.value });
-        // if (res.data.result) isFormValid.mb_email_dup.value = true;
-        if (true) isFormValid.mb_nickname.value = true;
+        if (res.data) isFormValid.mb_nickname_dup.value = true;
     };
 
     return { form, isFormValid, errorText, isPwdVisible, isPwdConfirmedVisible, nextCondition, showPwd, showPwdConfirmed, dupCheckNickname };
