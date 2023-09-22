@@ -1,4 +1,4 @@
-let serverUrl = "http://localhost:8080/api/v1/";
+let serverUrl = "http://localhost:8000/api/v1/";
 let passUrl = "https://fit-planet-hpauth.wizclass.kr/";
 
 if (window.location.href.includes("wizclass")) {
