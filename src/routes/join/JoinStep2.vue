@@ -10,9 +10,11 @@ const store = useStore();
 const router = useRouter();
 
 const submitData = async () => {
-    await postData("user/dup_check", { type: "email", value: form.mb_email.value }, true);
-    store.commit("updateJoinData", { mb_email: form.mb_email.value, password: form.mb_password.value, password_repeat: form.mb_password_cfm });
-    router.push("/join/step3");
+    const res = await postData("user/dup_check/", { type: "email", value: form.mb_email.value }, true);
+    if (res.data) {
+        store.commit("updateJoinData", { mb_email: form.mb_email.value, password: form.mb_password.value, password_repeat: form.mb_password_cfm });
+        router.push("/join/step3");
+    }
 };
 </script>
 
