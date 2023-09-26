@@ -70,7 +70,9 @@ export default {
     <Header v-if="!notVisiable1.includes($route.name)" />
     <router-view v-slot="{ Component, route }">
         <transition name="slide-fade">
-            <component :is="Component" :key="route.name"></component>
+            <div :key="route.name" class="im-root-element">
+                <component :is="Component"></component>
+            </div>
         </transition>
     </router-view>
     <Footer v-if="!notVisiable2.includes($route.name)" />

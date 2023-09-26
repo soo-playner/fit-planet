@@ -16,7 +16,9 @@ const login = async () => {
     <div class="login_container member_container">
         <div class="login_container_inner mob-inner">
             <div class="intro-txt-box">
-                <div class="img-box"><img src="@/assets/image/login_logo.png" alt="핏플래닛 로고" /></div>
+                <div class="img-box">
+                    <img src="@/assets/image/login_logo.png" alt="핏플래닛 로고" />
+                </div>
                 <p class="f-16-700">소셜 운동 플랫폼, 핏플래닛</p>
             </div>
             <div class="login-form">
