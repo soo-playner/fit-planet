@@ -7,9 +7,8 @@ const mb_email = ref("");
 const password = ref("");
 
 const login = async () => {
-    console.log({ mb_email, password });
-    const res = await axios.post("", { mb_email, password });
-    if (res.data.result) return;
+    const res = await axios.post("user/login/", { mb_email, password });
+    if (res.data) return;
 };
 </script>
 
