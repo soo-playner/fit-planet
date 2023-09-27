@@ -1530,6 +1530,22 @@ textarea::placeholder {
           transform: translateX(-100%);
 }
 
+.slide-fade-reverse-enter {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.slide-fade-reverse-enter-active,
+.slide-fade-reverse-leave-active {
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.slide-fade-reverse-leave-to {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
 /******************************************
 공통 적용되는 레이아웃 믹스인
 ******************************************/

@@ -22,7 +22,7 @@ const trainerShow = () => {
                             <p><span class="f-20-700">1회 체험권</span>만 모아봤어요</p>
                         </h1>
                     </div>
-                    <div class="img-box"><img src="@/assets/image/rep_character.png" alt="핏플래닛 캐릭터"></div>
+                    <div class="img-box"><img src="@/assets/image/rep_character.png" alt="핏플래닛 캐릭터" /></div>
                 </div>
                 <div class="trainer-toggle-box">
                     <ul class="trainer-choice-ul">
@@ -54,6 +54,4 @@ const trainerShow = () => {
             </div>
         </section>
     </main>
-
-    
 </template>

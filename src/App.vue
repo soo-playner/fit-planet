@@ -11,7 +11,9 @@ export default {
         Footer,
     },
     data: () => ({
+        navIndex: 0,
         // 헤더 미노출
+        animationType: "slide-fade",
         notVisiable1: [/* 인트로 */ "Splash", "Intro"],
         // 풋터 미노출
         notVisiable2: [
@@ -63,19 +65,30 @@ export default {
             /* 자주 묻는 질문 */ "FAQ",
         ],
     }),
+    methods: {
+        changeAnimation($event) {
+            if ($event >= this.navIndex) {
+                this.navIndex = $event;
+                this.animationType = "slide-fade";
+            } else {
+                this.navIndex = $event;
+                this.animationType = "slide-fade-reverse";
+            }
+        },
+    },
 };
 </script>
 
 <template>
     <Header v-if="!notVisiable1.includes($route.name)" />
     <router-view v-slot="{ Component, route }">
-        <transition name="slide-fade">
+        <transition :name="animationType">
             <div :key="route.name" class="im-root-element">
-                <component :is="Component"></component>
+                <component :is="Component" :navIndex="navIndex"></component>
             </div>
         </transition>
     </router-view>
-    <Footer v-if="!notVisiable2.includes($route.name)" />
+    <Footer v-if="!notVisiable2.includes($route.name)" @slideType="changeAnimation($event)" />
 </template>
 
 <style></style>

@@ -531,3 +531,8 @@ textarea{width:100%; max-height:150px; padding:16px; outline:none; resize:none; 
 .slide-fade-enter-active,
 .slide-fade-leave-active{transition:all .5s $easing;}
 .slide-fade-leave-to{transform:translateX(-100%);}
+
+.slide-fade-reverse-enter{transform:translateX(-100%);}
+.slide-fade-reverse-enter-active,
+.slide-fade-reverse-leave-active{transition:all .5s $easing;}
+.slide-fade-reverse-leave-to{transform:translateX(100%);}

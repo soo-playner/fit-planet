@@ -1,4 +1,7 @@
 <script setup>
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["slideType"]);
 const quick = [
     { link: "/", title: "홈" },
     { link: "/discover", title: "발견" },
@@ -14,7 +17,7 @@ const exceptPage = ["/place/pay"];
         <div class="at-footer-inner">
             <ul>
                 <li v-for="(quickItem, index) in quick" :key="quickItem">
-                    <router-link :to="quickItem.link">
+                    <router-link :to="quickItem.link" @click="emit('slideType', index)">
                         <div :class="[`quick-menu-icon quick-menu-icon-${index + 1}`]"></div>
                         <p class="f-12-400">{{ quickItem.title }}</p>
                     </router-link>
