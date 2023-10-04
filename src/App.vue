@@ -12,8 +12,8 @@ export default {
     },
     data: () => ({
         navIndex: 0,
-        // 헤더 미노출
         animationType: "slide-fade",
+        // 헤더 미노출
         notVisiable1: [/* 인트로 */ "Splash", "Intro"],
         // 풋터 미노출
         notVisiable2: [
