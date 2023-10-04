@@ -82,11 +82,11 @@ export default {
 <template>
     <Header v-if="!notVisiable1.includes($route.name)" />
     <router-view v-slot="{ Component, route }">
-        <transition :name="animationType">
-            <div :key="route.name" class="im-root-element">
-                <component :is="Component" :navIndex="navIndex"></component>
-            </div>
-        </transition>
+        <!-- <transition :name="animationType"> -->
+        <!-- <div :key="route.name" class="im-root-element"> -->
+        <component :is="Component" :navIndex="navIndex"></component>
+        <!-- </div> -->
+        <!-- </transition> -->
     </router-view>
     <Footer v-if="!notVisiable2.includes($route.name)" @slideType="changeAnimation($event)" />
 </template>
